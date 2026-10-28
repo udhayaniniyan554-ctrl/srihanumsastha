@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chair Category | Sri Hanum Sastha Enterprises</title>
+  <meta name="description" content="Browse chair collections by category from Sri Hanum Sastha Enterprises, Coimbatore.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <aside class="top-bar">
+    <div class="container top-bar-content">
+      <div class="top-bar-location">
+        📍 173, First Floor, KK Lane Street, Avinashi Road, Coimbatore
+      </div>
+      <div class="top-bar-phones">
+        <span>Direct Catalogue Inquiries:</span>
+        <a href="tel:9688727284">📞 9688727284</a>
+        <a href="tel:8695706013">📞 8695706013</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Sticky Header -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo">
+        <img src="assets/logo.svg" alt="Sri Hanum Sastha Enterprises">
+      </a>
+      <nav class="desktop-nav">
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="category.html?cat=office" class="nav-link" id="navOffice">Office Chairs</a></li>
+          <li><a href="category.html?cat=visitor" class="nav-link" id="navVisitor">Visitor Chairs</a></li>
+          <li><a href="category.html?cat=lounge" class="nav-link" id="navLounge">Lounge & Soft Seating</a></li>
+          <li><a href="category.html?cat=dining" class="nav-link" id="navDining">Dining Chairs</a></li>
+          <li><a href="category.html?cat=stools" class="nav-link" id="navStools">Stools & Seating</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a href="tel:9688727284" class="btn btn-primary btn-sm">📞 Call 9688727284</a>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Open Mobile Menu">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+  <aside class="mobile-drawer" id="mobileDrawer">
+    <div class="mobile-drawer-header">
+      <img src="assets/logo.svg" alt="Sri Hanum Sastha Enterprises" style="height: 38px;">
+      <button class="mobile-drawer-close" id="drawerCloseBtn">&times;</button>
+    </div>
+    <ul class="mobile-nav-links">
+      <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+      <li><a href="category.html?cat=office" class="mobile-nav-link">Office Chairs</a></li>
+      <li><a href="category.html?cat=visitor" class="mobile-nav-link">Visitor Chairs</a></li>
+      <li><a href="category.html?cat=lounge" class="mobile-nav-link">Lounge & Soft Seating</a></li>
+      <li><a href="category.html?cat=dining" class="mobile-nav-link">Dining Chairs</a></li>
+      <li><a href="category.html?cat=stools" class="mobile-nav-link">Stools & Additional Seating</a></li>
+      <li><a href="contact.html" class="mobile-nav-link">Contact Details</a></li>
+    </ul>
+    <div style="margin-top: auto; padding-top: 2rem; display: flex; flex-direction: column; gap: 0.75rem;">
+      <a href="tel:9688727284" class="btn btn-call-gold">📞 Call 9688727284</a>
+      <a href="tel:8695706013" class="btn btn-dark">📞 Call 8695706013</a>
+    </div>
+  </aside>
+
+  <!-- Category Page Hero -->
+  <section class="hero" style="padding: 3.5rem 0 4rem;">
+    <div class="container" style="text-align: center;">
+      <div class="hero-badge" id="categoryBadge">Catalogue Category</div>
+      <h1 class="hero-title" id="categoryTitle">Seating Category</h1>
+      <p class="hero-subtitle" id="categorySubtitle" style="margin: 0 auto 1.5rem;">
+        Explore genuine catalogue chair models with official listed rates and technical options.
+      </p>
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a href="index.html#catalogue" class="btn btn-outline" style="color: #ffffff; border-color: rgba(255,255,255,0.4);">
+          ← View All Categories
+        </a>
+        <a href="tel:9688727284" class="btn btn-primary">
+          📞 Call 9688727284
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Price Disclaimer Banner -->
+  <div class="notice-banner">
+    <div class="container notice-content">
+      <span class="notice-icon">📢</span>
+      <span>Prices may change. Please contact us to confirm current prices and availability.</span>
+    </div>
+  </div>
+
+  <!-- Main Catalogue Browser for this Category -->
+  <section class="catalogue-section" id="catalogue">
+    <div class="container">
+      <div class="catalogue-toolbar">
+        <div class="search-sort-row">
+          <div class="search-box">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="searchBar" placeholder="Search models within this category..." aria-label="Search models">
+          </div>
+          <div class="sort-box">
+            <select id="sortSelect">
+              <option value="default">Sort: Catalogue Order</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+              <option value="name-asc">Model Name (A-Z)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="filter-pills-row" id="filterPillsContainer">
+          <!-- Populated by app.js -->
+        </div>
+
+        <div class="filter-status-row">
+          <div>
+            Category: <strong id="activeFilterName">Selected Category</strong> (<span id="filterCount">0 chairs found</span>)
+          </div>
+          <button class="btn-reset-filter" id="btnResetFilter" style="display: none;">
+            ✕ Reset Filters
+          </button>
+        </div>
+      </div>
+
+      <div class="products-grid" id="productsGrid"></div>
+
+      <div class="empty-state" id="emptyState" style="display: none;">
+        <div class="empty-state-icon">🔍</div>
+        <h3>No chairs found in this category matching your search</h3>
+        <p>Try clearing your search term or exploring all categories.</p>
+        <button class="btn btn-outline" onclick="document.getElementById('btnResetFilter').click()">
+          Reset Search
+        </button>
+      </div>
+
+      <div class="pagination-container" id="loadMoreContainer" style="display: none;">
+        <span class="pagination-info" id="paginationInfo"></span>
+        <button class="btn btn-dark btn-lg" id="btnLoadMore">
+          Load More Chairs ↓
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Details Modal -->
+  <div class="modal-overlay" id="productModal" role="dialog" aria-modal="true">
+    <div class="modal-card" id="modalCard">
+      <button class="modal-close-btn" id="modalCloseBtn">&times;</button>
+      <div class="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer" id="contact">
+    <div class="container">
+      <div class="footer-main-grid">
+        <div class="footer-col-about">
+          <div class="footer-logo">
+            <img src="assets/logo-white.svg" alt="Sri Hanum Sastha Enterprises">
+          </div>
+          <p class="footer-desc">
+            Sri Hanum Sastha Enterprises provides comprehensive commercial, executive, visitor, and dining seating solutions engineered for ergonomic posture support, commercial longevity, and modern interiors.
+          </p>
+          <div class="footer-disclaimer-note">
+            ⚠️ <strong>Price & Stock Note:</strong> Prices may change. Please contact us to confirm current prices and availability.
+          </div>
+        </div>
+
+        <div>
+          <h3 class="footer-title">Chair Categories</h3>
+          <ul class="footer-links">
+            <li><a href="category.html?cat=office">Office Chairs (122)</a></li>
+            <li><a href="category.html?cat=visitor">Visitor Chairs (48)</a></li>
+            <li><a href="category.html?cat=lounge">Lounge & Soft Seating (24)</a></li>
+            <li><a href="category.html?cat=dining">Dining Chairs (21)</a></li>
+            <li><a href="category.html?cat=stools">Stools & Additional Seating (7)</a></li>
+            <li><a href="index.html#catalogue">Full Catalogue Index</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-contact-box">
+          <h3 class="footer-title">Contact & Business Details</h3>
+          <div class="contact-detail-row">
+            <span class="contact-icon">🏢</span>
+            <div class="contact-info-text">
+              <strong>Company Name</strong>
+              <p>Sri Hanum Sastha Enterprises</p>
+            </div>
+          </div>
+          <div class="contact-detail-row">
+            <span class="contact-icon">📍</span>
+            <div class="contact-info-text">
+              <strong>Showroom & Office Address</strong>
+              <p>173, First Floor, KK Lane Street,<br>Avinashi Road, Coimbatore, 641018</p>
+            </div>
+          </div>
+          <div class="contact-detail-row">
+            <span class="contact-icon">📞</span>
+            <div class="contact-info-text">
+              <strong>Direct Phone Lines</strong>
+              <p>
+                <a href="tel:9688727284">9688727284</a> &bull; 
+                <a href="tel:8695706013">8695706013</a>
+              </p>
+            </div>
+          </div>
+          <div class="footer-call-buttons">
+            <a href="tel:9688727284" class="btn btn-call-gold">
+              📞 Call 9688727284
+            </a>
+            <a href="tel:8695706013" class="btn btn-call-gold" style="background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); border: 1px solid rgba(245, 158, 11, 0.4);">
+              📞 Call 8695706013
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; <span id="currentYearCat"></span> Sri Hanum Sastha Enterprises. All Rights Reserved.
+        </div>
+        <div>
+          Commercial Seating Catalogue &bull; Coimbatore, Tamil Nadu
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('currentYearCat').textContent = new Date().getFullYear();
+
+    // Map URL param ?cat=xxx to actual category name
+    const params = new URLSearchParams(window.location.search);
+    const catParam = (params.get('cat') || '').toLowerCase();
+    const catMap = {
+      'office': 'Office Chairs',
+      'visitor': 'Visitor Chairs',
+      'lounge': 'Lounge & Soft Seating',
+      'dining': 'Dining Chairs',
+      'stools': 'Stools & Additional Seating'
+    };
+
+    const targetCategory = catMap[catParam] || 'all';
+
+    // Update Header active link
+    if (catParam === 'office') document.getElementById('navOffice')?.classList.add('active');
+    else if (catParam === 'visitor') document.getElementById('navVisitor')?.classList.add('active');
+    else if (catParam === 'lounge') document.getElementById('navLounge')?.classList.add('active');
+    else if (catParam === 'dining') document.getElementById('navDining')?.classList.add('active');
+    else if (catParam === 'stools') document.getElementById('navStools')?.classList.add('active');
+
+    // Update Page Hero
+    if (targetCategory !== 'all') {
+      document.title = `${targetCategory} | Sri Hanum Sastha Enterprises`;
+      document.getElementById('categoryTitle').textContent = targetCategory;
+      document.getElementById('categoryBadge').textContent = `Category Collection`;
+    }
+  </script>
+  <script src="app.js"></script>
+  <script>
+    // Set initial category after app loads
+    window.addEventListener('load', () => {
+      if (targetCategory !== 'all' && window.catalogApp) {
+        window.catalogApp.setCategory(targetCategory);
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,5948 @@
+[
+  {
+    "id": "office_1_1",
+    "name": "ATLAS/3G",
+    "category": "Office Chairs",
+    "price_display": "₹4,800",
+    "base_price": 4800,
+    "options": [
+      {
+        "variant": "NYLON BASE, FIXED HANDLE",
+        "price": 4800
+      },
+      {
+        "variant": "NYLON BASE, ADJUSTABLE HANDLE",
+        "price": 5300
+      },
+      {
+        "variant": "CHROME BASE, FIXED HANDLE",
+        "price": 5200
+      },
+      {
+        "variant": "CHROME BASE, ADJUSTABLE HANDLE",
+        "price": 5700
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel"
+    ],
+    "image": "assets/products/office_1_1.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Standard"
+    }
+  },
+  {
+    "id": "office_1_2",
+    "name": "4G",
+    "category": "Office Chairs",
+    "price_display": "₹5,000",
+    "base_price": 5000,
+    "options": [
+      {
+        "variant": "NYLON BASE,F IXED HANDLE",
+        "price": 5000
+      },
+      {
+        "variant": "NYLON BASE, ADJUSTABLE HANDLE",
+        "price": 5500
+      },
+      {
+        "variant": "CHROME BASE, FIXED HANDLE",
+        "price": 5400
+      },
+      {
+        "variant": "CHROME BASE, ADJUSTABLE HANDLE",
+        "price": 5900
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel"
+    ],
+    "image": "assets/products/office_1_2.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Standard"
+    }
+  },
+  {
+    "id": "office_1_3",
+    "name": "MONO BLACK",
+    "category": "Office Chairs",
+    "price_display": "₹4,800",
+    "base_price": 4800,
+    "options": [
+      {
+        "variant": "NYLON BASE, FIXED HANDLE",
+        "price": 4800
+      },
+      {
+        "variant": "CHROME BASE, FIXED HANDLE",
+        "price": 5200
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel"
+    ],
+    "image": "assets/products/office_1_3.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Standard"
+    }
+  },
+  {
+    "id": "office_1_4",
+    "name": "MONO WHITE",
+    "category": "Office Chairs",
+    "price_display": "₹6,000",
+    "base_price": 6000,
+    "options": [
+      {
+        "variant": "NYLON BASE, FIXED HANDLE",
+        "price": 6000
+      },
+      {
+        "variant": "CHROME BASE, FIXED HANDLE",
+        "price": 6400
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel"
+    ],
+    "image": "assets/products/office_1_4.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Standard"
+    }
+  },
+  {
+    "id": "office_2_1",
+    "name": "MONO GREY",
+    "category": "Office Chairs",
+    "price_display": "₹5,600",
+    "base_price": 5600,
+    "options": [
+      {
+        "variant": "NYLON BASE, FIXED HANDLE",
+        "price": 5600
+      },
+      {
+        "variant": "CHROME BASE, FIXED HANDLE",
+        "price": 6000
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel"
+    ],
+    "image": "assets/products/office_2_1.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Standard"
+    }
+  },
+  {
+    "id": "office_2_2",
+    "name": "DELUXE",
+    "category": "Office Chairs",
+    "price_display": "₹5,400",
+    "base_price": 5400,
+    "options": [
+      {
+        "variant": "NYLON BASE, FIXED HANDLE",
+        "price": 5400
+      },
+      {
+        "variant": "CHROME BASE, FIXED HANDLE",
+        "price": 5800
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel"
+    ],
+    "image": "assets/products/office_2_2.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Standard"
+    }
+  },
+  {
+    "id": "office_2_3",
+    "name": "DELUXE WHITE AND GREY",
+    "category": "Office Chairs",
+    "price_display": "₹6,000",
+    "base_price": 6000,
+    "options": [
+      {
+        "variant": "NYLON BASE, FIXED HANDLE",
+        "price": 6000
+      },
+      {
+        "variant": "CHROME BASE, FIXED HANDLE",
+        "price": 6400
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel"
+    ],
+    "image": "assets/products/office_2_3.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Standard"
+    }
+  },
+  {
+    "id": "office_2_4",
+    "name": "KABUL",
+    "category": "Office Chairs",
+    "price_display": "₹5,000",
+    "base_price": 5000,
+    "options": [
+      {
+        "variant": "NYLON BASE, FIXED HANDLE",
+        "price": 5000
+      },
+      {
+        "variant": "CHROME BASE, FIXED HANDLE",
+        "price": 5400
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel"
+    ],
+    "image": "assets/products/office_2_4.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Standard"
+    }
+  },
+  {
+    "id": "office_3_1",
+    "name": "804 MESH",
+    "category": "Office Chairs",
+    "price_display": "₹5,000",
+    "base_price": 5000,
+    "options": [
+      {
+        "variant": "NYLON BASE, FIXED HANDLE",
+        "price": 5000
+      },
+      {
+        "variant": "CHROME BASE, FIXED HANDLE",
+        "price": 5400
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "Breathable Mesh"
+    ],
+    "image": "assets/products/office_3_1.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Standard"
+    }
+  },
+  {
+    "id": "office_3_2",
+    "name": "805 MESH",
+    "category": "Office Chairs",
+    "price_display": "₹5,000",
+    "base_price": 5000,
+    "options": [
+      {
+        "variant": "NYLON BASE, FIXED HANDLE",
+        "price": 5000
+      },
+      {
+        "variant": "CHROME BASE, FIXED HANDLE",
+        "price": 5400
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "Breathable Mesh"
+    ],
+    "image": "assets/products/office_3_2.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Standard"
+    }
+  },
+  {
+    "id": "office_3_3",
+    "name": "XENA",
+    "category": "Office Chairs",
+    "price_display": "₹6,000",
+    "base_price": 6000,
+    "options": [
+      {
+        "variant": "NYLON BASE, FIXED HANDLE",
+        "price": 6000
+      },
+      {
+        "variant": "NYLON BASE, ADJUSTABLE HANDLE",
+        "price": 6500
+      },
+      {
+        "variant": "CHROME BASE, FIXED HANDLE",
+        "price": 6400
+      },
+      {
+        "variant": "CHROME BASE, ADJUSTABLE HANDLE",
+        "price": 6900
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel"
+    ],
+    "image": "assets/products/office_3_3.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Standard"
+    }
+  },
+  {
+    "id": "office_3_4",
+    "name": "X MESH",
+    "category": "Office Chairs",
+    "price_display": "₹6,600",
+    "base_price": 6600,
+    "options": [
+      {
+        "variant": "NYLON BASE, NORMAL HANDLE",
+        "price": 6600
+      },
+      {
+        "variant": "NYLON BASE, ADJUSTABLE HANDLE",
+        "price": 7100
+      },
+      {
+        "variant": "CHROME BASE, NORMAL HANDLE",
+        "price": 7000
+      },
+      {
+        "variant": "CHROME BASE, ADJUSTABLE HANDLE",
+        "price": 7500
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "Breathable Mesh"
+    ],
+    "image": "assets/products/office_3_4.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Standard"
+    }
+  },
+  {
+    "id": "office_4_1",
+    "name": "CASANOVA",
+    "category": "Office Chairs",
+    "price_display": "₹6,100",
+    "base_price": 6100,
+    "options": [
+      {
+        "variant": "NYLON BASE, NORMAL HANDLE",
+        "price": 6100
+      },
+      {
+        "variant": "NYLON BASE, ADJUSTABLE HANDLE",
+        "price": 6600
+      },
+      {
+        "variant": "CHROME BASE, NORMAL HANDLE",
+        "price": 6500
+      },
+      {
+        "variant": "CHROME BASE, ADJUSTABLE HANDLE",
+        "price": 7000
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel"
+    ],
+    "image": "assets/products/office_4_1.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Standard"
+    }
+  },
+  {
+    "id": "office_4_2",
+    "name": "VIRGO BLACK",
+    "category": "Office Chairs",
+    "price_display": "₹6,400",
+    "base_price": 6400,
+    "options": [
+      {
+        "variant": "NYLON BASE, FIXED HANDLE",
+        "price": 6400
+      },
+      {
+        "variant": "NYLON BASE, ADJUSTABLE HANDLE",
+        "price": 6900
+      },
+      {
+        "variant": "CHROME BASE, FIXED HANDLE",
+        "price": 6800
+      },
+      {
+        "variant": "CHROME BASE, ADJUSTABLE HANDLE",
+        "price": 7300
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel"
+    ],
+    "image": "assets/products/office_4_2.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Standard"
+    }
+  },
+  {
+    "id": "office_4_3",
+    "name": "VIRGO WHITE",
+    "category": "Office Chairs",
+    "price_display": "₹7,600",
+    "base_price": 7600,
+    "options": [
+      {
+        "variant": "NYLON BASE, FIXED HANDLE",
+        "price": 7600
+      },
+      {
+        "variant": "NYLON BASE, ADJUSTABLE HANDLE",
+        "price": 8100
+      },
+      {
+        "variant": "CHROME BASE, FIXED HANDLE",
+        "price": 8000
+      },
+      {
+        "variant": "CHROME BASE, ADJUSTABLE HANDLE",
+        "price": 8500
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel"
+    ],
+    "image": "assets/products/office_4_3.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Standard"
+    }
+  },
+  {
+    "id": "office_4_4",
+    "name": "LIBRA BLACK",
+    "category": "Office Chairs",
+    "price_display": "₹6,800",
+    "base_price": 6800,
+    "options": [
+      {
+        "variant": "NYLON BASE, FIXED HANDLE",
+        "price": 6800
+      },
+      {
+        "variant": "NYLON BASE, ADJUSTABLE HANDLE",
+        "price": 7300
+      },
+      {
+        "variant": "CHROME BASE, FIXED HANDLE",
+        "price": 7200
+      },
+      {
+        "variant": "CHROME BASE, ADJUSTABLE HANDLE",
+        "price": 7700
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel"
+    ],
+    "image": "assets/products/office_4_4.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Standard"
+    }
+  },
+  {
+    "id": "office_5_1",
+    "name": "LIBRA WHITE",
+    "category": "Office Chairs",
+    "price_display": "₹7,600",
+    "base_price": 7600,
+    "options": [
+      {
+        "variant": "NYLON BASE, FIXED HANDLE",
+        "price": 7600
+      },
+      {
+        "variant": "NYLON BASE, ADJUSTABLE HANDLE",
+        "price": 8100
+      },
+      {
+        "variant": "CHROME BASE, FIXED HANDLE",
+        "price": 8000
+      },
+      {
+        "variant": "CHROME BASE, ADJUSTABLE HANDLE",
+        "price": 8500
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel"
+    ],
+    "image": "assets/products/office_5_1.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Standard"
+    }
+  },
+  {
+    "id": "office_5_2",
+    "name": "SCORPIO BLACK",
+    "category": "Office Chairs",
+    "price_display": "₹7,600",
+    "base_price": 7600,
+    "options": [
+      {
+        "variant": "NYLON BASE, FIXED HANDLE",
+        "price": 7600
+      },
+      {
+        "variant": "NYLON BASE, ADJUSTABLE HANDLE",
+        "price": 8100
+      },
+      {
+        "variant": "CHROME BASE, NORMAL HANDLE",
+        "price": 8000
+      },
+      {
+        "variant": "CHROME BASE, ADJUSTABLE HANDLE",
+        "price": 8500
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel"
+    ],
+    "image": "assets/products/office_5_2.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Standard"
+    }
+  },
+  {
+    "id": "office_5_3",
+    "name": "SCORPIO GREY",
+    "category": "Office Chairs",
+    "price_display": "₹8,000",
+    "base_price": 8000,
+    "options": [
+      {
+        "variant": "NYLON BASE, FIXED HANDLE",
+        "price": 8000
+      },
+      {
+        "variant": "NYLON BASE, ADJUSTABLE HANDLE",
+        "price": 8500
+      },
+      {
+        "variant": "CHROME BASE, FIXED HANDLE",
+        "price": 8400
+      },
+      {
+        "variant": "CHROME BASE, ADJUSTABLE HANDLE",
+        "price": 8900
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel"
+    ],
+    "image": "assets/products/office_5_3.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Standard"
+    }
+  },
+  {
+    "id": "office_5_4",
+    "name": "SCORPIO WHITE",
+    "category": "Office Chairs",
+    "price_display": "₹9,200",
+    "base_price": 9200,
+    "options": [
+      {
+        "variant": "NYLON BASE, FIXED HANDLE",
+        "price": 9200
+      },
+      {
+        "variant": "NYLON BASE, ADJUSTABLE HANDLE",
+        "price": 9700
+      },
+      {
+        "variant": "CHROME BASE, FIXED HANDLE",
+        "price": 9600
+      },
+      {
+        "variant": "CHROME BASE, ADJUSTABLE HANDLE",
+        "price": 10100
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel"
+    ],
+    "image": "assets/products/office_5_4.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Standard"
+    }
+  },
+  {
+    "id": "office_6_1",
+    "name": "TAURUS",
+    "category": "Office Chairs",
+    "price_display": "₹6,600",
+    "base_price": 6600,
+    "options": [
+      {
+        "variant": "NYLON BASE, FIXED HANDLE",
+        "price": 6600
+      },
+      {
+        "variant": "NYLON BASE, ADJUSTABLE HANDLE",
+        "price": 7100
+      },
+      {
+        "variant": "CHROME BASE, FIXED HANDLE",
+        "price": 7000
+      },
+      {
+        "variant": "CHROME BASE, ADJUSTABLE HANDLE",
+        "price": 7500
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel"
+    ],
+    "image": "assets/products/office_6_1.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Standard"
+    }
+  },
+  {
+    "id": "office_6_2",
+    "name": "BUTTERFLY HB",
+    "category": "Office Chairs",
+    "price_display": "₹7,500",
+    "base_price": 7500,
+    "options": [
+      {
+        "variant": "NYLON BASE, FIXED HANDLE",
+        "price": 7500
+      },
+      {
+        "variant": "NYLON BASE, ADJUSTABLE HANDLE",
+        "price": 8000
+      },
+      {
+        "variant": "CHROME BASE, FIXED HANDLE",
+        "price": 7900
+      },
+      {
+        "variant": "CHROME BASE, ADJUSTABLE",
+        "price": 8400
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "High Back Design"
+    ],
+    "image": "assets/products/office_6_2.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "High Back"
+    }
+  },
+  {
+    "id": "office_6_3",
+    "name": "BUTTERFLY MB",
+    "category": "Office Chairs",
+    "price_display": "₹6,700",
+    "base_price": 6700,
+    "options": [
+      {
+        "variant": "NYLON BASE, FIXED HANDLE",
+        "price": 6700
+      },
+      {
+        "variant": "NYLON BASE, ADJUSTABLE HANDLE",
+        "price": 7200
+      },
+      {
+        "variant": "CHROME BASE, FIXED HANDLE",
+        "price": 7100
+      },
+      {
+        "variant": "CHROME BASE, ADJUSTABLE HANDLE",
+        "price": 7600
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "Mid Back Design"
+    ],
+    "image": "assets/products/office_6_3.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Mid Back"
+    }
+  },
+  {
+    "id": "office_6_4",
+    "name": "JAZZ HB",
+    "category": "Office Chairs",
+    "price_display": "₹7,700",
+    "base_price": 7700,
+    "options": [
+      {
+        "variant": "NYLON BASE, FIXED HANDLE",
+        "price": 7700
+      },
+      {
+        "variant": "NYLON BASE, ADJUSTABLE HANDLE",
+        "price": 8200
+      },
+      {
+        "variant": "CHROME BASE, FIXED HANDLE",
+        "price": 8100
+      },
+      {
+        "variant": "CHROME BASE, ADJUSTABLE HANDLE",
+        "price": 8600
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "High Back Design"
+    ],
+    "image": "assets/products/office_6_4.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "High Back"
+    }
+  },
+  {
+    "id": "office_7_1",
+    "name": "JAZZ MB",
+    "category": "Office Chairs",
+    "price_display": "₹6,900",
+    "base_price": 6900,
+    "options": [
+      {
+        "variant": "NYLON BASE, FIXED HANDLE",
+        "price": 6900
+      },
+      {
+        "variant": "NYLON BASE, ADJUSTABLE HANDLE",
+        "price": 7400
+      },
+      {
+        "variant": "CHROME BASE, FIXED HANDLE",
+        "price": 7300
+      },
+      {
+        "variant": "CHROME BASE, ADJUSTABLE HANDLE",
+        "price": 7800
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "Mid Back Design"
+    ],
+    "image": "assets/products/office_7_1.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Mid Back"
+    }
+  },
+  {
+    "id": "office_7_2",
+    "name": "MATRIX HB",
+    "category": "Office Chairs",
+    "price_display": "₹7,900",
+    "base_price": 7900,
+    "options": [
+      {
+        "variant": "NYLON BASE, FIXED HANDLE",
+        "price": 7900
+      },
+      {
+        "variant": "NYLON BASE, ADJUSTABLE HANDLE",
+        "price": 8400
+      },
+      {
+        "variant": "CHROME BASE, FIXED HANDLE",
+        "price": 8300
+      },
+      {
+        "variant": "CHROME BASE, ADJUSTABLE HANDLE",
+        "price": 8800
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "High Back Design"
+    ],
+    "image": "assets/products/office_7_2.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "High Back"
+    }
+  },
+  {
+    "id": "office_7_3",
+    "name": "MATRIX MB",
+    "category": "Office Chairs",
+    "price_display": "₹6,700",
+    "base_price": 6700,
+    "options": [
+      {
+        "variant": "NYLON BASE, FIXED HANDLE",
+        "price": 6700
+      },
+      {
+        "variant": "NYLON BASE, ADJUSTABLE HANDLE",
+        "price": 7200
+      },
+      {
+        "variant": "CHROME BASE, FIXED HANDLE",
+        "price": 7100
+      },
+      {
+        "variant": "CHROME BASE, ADJUSTABLE HANDLE",
+        "price": 7600
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "Mid Back Design"
+    ],
+    "image": "assets/products/office_7_3.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Mid Back"
+    }
+  },
+  {
+    "id": "office_7_4",
+    "name": "VIBE HB",
+    "category": "Office Chairs",
+    "price_display": "₹7,900",
+    "base_price": 7900,
+    "options": [
+      {
+        "variant": "NYLON BASE, FIXED HANDLE",
+        "price": 7900
+      },
+      {
+        "variant": "NYLON BASE, ADJUSTABLE HANDLE",
+        "price": 8400
+      },
+      {
+        "variant": "CHROME BASE, FIXED HANDLE",
+        "price": 8300
+      },
+      {
+        "variant": "CHROME BASE, ADJUSTABLE HANDLE",
+        "price": 8800
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "High Back Design"
+    ],
+    "image": "assets/products/office_7_4.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "High Back"
+    }
+  },
+  {
+    "id": "office_8_1",
+    "name": "VIBE MB",
+    "category": "Office Chairs",
+    "price_display": "₹6,700",
+    "base_price": 6700,
+    "options": [
+      {
+        "variant": "NYLON BASE, FIXED HANDLE",
+        "price": 6700
+      },
+      {
+        "variant": "NYLON BASE, ADJUSTABLE HANDLE",
+        "price": 7200
+      },
+      {
+        "variant": "CHROME BASE, FIXED HANDLE",
+        "price": 7100
+      },
+      {
+        "variant": "CHROME BASE, ADJUSTABLE HANDLE",
+        "price": 7600
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "Mid Back Design"
+    ],
+    "image": "assets/products/office_8_1.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Mid Back"
+    }
+  },
+  {
+    "id": "office_8_2",
+    "name": "MARVEL HB",
+    "category": "Office Chairs",
+    "price_display": "₹7,900",
+    "base_price": 7900,
+    "options": [
+      {
+        "variant": "NYLON BASE, FIXED HANDLE",
+        "price": 7900
+      },
+      {
+        "variant": "NYLON BASE, ADJUSTABLE HANDLE",
+        "price": 8400
+      },
+      {
+        "variant": "CHROME BASE, FIXED HANDLE",
+        "price": 8300
+      },
+      {
+        "variant": "CHROME BASE, ADJUSTABLE HANDLE",
+        "price": 8800
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "High Back Design"
+    ],
+    "image": "assets/products/office_8_2.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "High Back"
+    }
+  },
+  {
+    "id": "office_8_3",
+    "name": "MARVEL MB",
+    "category": "Office Chairs",
+    "price_display": "₹6,700",
+    "base_price": 6700,
+    "options": [
+      {
+        "variant": "NYLON BASE, FIXED HANDLE",
+        "price": 6700
+      },
+      {
+        "variant": "NYLON BASE, ADJUSTABLE HANDLE",
+        "price": 7200
+      },
+      {
+        "variant": "CHROME BASE, FIXED HANDLE",
+        "price": 7100
+      },
+      {
+        "variant": "CHROME BASE, ADJUSTABLE HANDLE",
+        "price": 7600
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "Mid Back Design"
+    ],
+    "image": "assets/products/office_8_3.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Mid Back"
+    }
+  },
+  {
+    "id": "office_8_4",
+    "name": "BREEZE HB",
+    "category": "Office Chairs",
+    "price_display": "₹7,900",
+    "base_price": 7900,
+    "options": [
+      {
+        "variant": "NYLON BASE, FIXED HANDLE",
+        "price": 7900
+      },
+      {
+        "variant": "NYLON BASE, ADJUSTABLE HANDLE",
+        "price": 8400
+      },
+      {
+        "variant": "CHROME BASE, FIXED HANDLE",
+        "price": 8300
+      },
+      {
+        "variant": "CHROME BASE, ADJUSTABLE HANDLE",
+        "price": 8800
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "High Back Design"
+    ],
+    "image": "assets/products/office_8_4.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "High Back"
+    }
+  },
+  {
+    "id": "office_9_1",
+    "name": "BREEZE MB",
+    "category": "Office Chairs",
+    "price_display": "₹6,700",
+    "base_price": 6700,
+    "options": [
+      {
+        "variant": "NYLON BASE, FIXED HANDLE",
+        "price": 6700
+      },
+      {
+        "variant": "NYLON BASE, ADJUSTABLE HANDLE",
+        "price": 7200
+      },
+      {
+        "variant": "CHROME BASE, FIXED HANDLE",
+        "price": 7100
+      },
+      {
+        "variant": "CHROME BASE, ADJUSTABLE HANDLE",
+        "price": 7600
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "Mid Back Design"
+    ],
+    "image": "assets/products/office_9_1.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Mid Back"
+    }
+  },
+  {
+    "id": "office_9_2",
+    "name": "ORION HB WHITE",
+    "category": "Office Chairs",
+    "price_display": "₹11,000",
+    "base_price": 11000,
+    "options": [
+      {
+        "variant": "NYLON BASE, FIXED HANDLE",
+        "price": 11000
+      },
+      {
+        "variant": "NYLON BASE, ADJUSTABLE HANDLE",
+        "price": 11400
+      },
+      {
+        "variant": "CHROME BASE, FIXED HANDLE",
+        "price": 11500
+      },
+      {
+        "variant": "CHROME BASE, ADJUSTABLE HANDLE",
+        "price": 12000
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "High Back Design"
+    ],
+    "image": "assets/products/office_9_2.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "High Back"
+    }
+  },
+  {
+    "id": "office_9_3",
+    "name": "ORION MB WHITE",
+    "category": "Office Chairs",
+    "price_display": "₹9,600",
+    "base_price": 9600,
+    "options": [
+      {
+        "variant": "NYLON BASE, FIXED HANDLE",
+        "price": 9600
+      },
+      {
+        "variant": "NYLON BASE, ADJUSTABLE HANDLE",
+        "price": 10100
+      },
+      {
+        "variant": "CHROME BASE, FIXED HANDLE",
+        "price": 10500
+      },
+      {
+        "variant": "CHROME BASE, ADJUSTABLE HANDLE",
+        "price": 11000
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "Mid Back Design"
+    ],
+    "image": "assets/products/office_9_3.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Mid Back"
+    }
+  },
+  {
+    "id": "office_9_4",
+    "name": "ORION HB BLACK",
+    "category": "Office Chairs",
+    "price_display": "₹8,700",
+    "base_price": 8700,
+    "options": [
+      {
+        "variant": "NYLON BASE, FIXED HANDLE",
+        "price": 8700
+      },
+      {
+        "variant": "NYLON BASE, ADJUSTABLE HANDLE",
+        "price": 9200
+      },
+      {
+        "variant": "CHROME BASE, FIXED HANDLE",
+        "price": 9100
+      },
+      {
+        "variant": "CHROME BASE, ADJUSTABLE HANDLE",
+        "price": 9600
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "High Back Design"
+    ],
+    "image": "assets/products/office_9_4.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "High Back"
+    }
+  },
+  {
+    "id": "office_10_1",
+    "name": "ORION MB BLACK",
+    "category": "Office Chairs",
+    "price_display": "₹7,900",
+    "base_price": 7900,
+    "options": [
+      {
+        "variant": "NYLON BASE, FIXED HANDLE",
+        "price": 7900
+      },
+      {
+        "variant": "NYLON BASE, ADJUSTABLE HANDLE",
+        "price": 8400
+      },
+      {
+        "variant": "CHROME BASE, FIXED HANDLE",
+        "price": 8300
+      },
+      {
+        "variant": "CHROME BASE, ADJUSTABLE HANDLE",
+        "price": 8800
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "Mid Back Design"
+    ],
+    "image": "assets/products/office_10_1.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Mid Back"
+    }
+  },
+  {
+    "id": "office_10_2",
+    "name": "MYSTIC HB",
+    "category": "Office Chairs",
+    "price_display": "₹7,900",
+    "base_price": 7900,
+    "options": [
+      {
+        "variant": "NYLON BASE, FIXED HANDLE",
+        "price": 7900
+      },
+      {
+        "variant": "NYLON BASE, ADJUSTABLE HANDLE",
+        "price": 8400
+      },
+      {
+        "variant": "CHROME BASE, FIXED HANDLE",
+        "price": 8300
+      },
+      {
+        "variant": "CHROME BASE, ADJUSTABLE HANDLE",
+        "price": 8800
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "High Back Design"
+    ],
+    "image": "assets/products/office_10_2.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "High Back"
+    }
+  },
+  {
+    "id": "office_10_3",
+    "name": "MYSTIC MB",
+    "category": "Office Chairs",
+    "price_display": "₹6,700",
+    "base_price": 6700,
+    "options": [
+      {
+        "variant": "NYLON BASE, FIXED HANDLE",
+        "price": 6700
+      },
+      {
+        "variant": "NYLON BASE, ADJUSTABLE HANDLE",
+        "price": 7200
+      },
+      {
+        "variant": "CHROME BASE, FIXED HANDLE",
+        "price": 7100
+      },
+      {
+        "variant": "CHROME BASE, ADJUSTABLE HANDLE",
+        "price": 7600
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "Mid Back Design"
+    ],
+    "image": "assets/products/office_10_3.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Mid Back"
+    }
+  },
+  {
+    "id": "office_10_4",
+    "name": "POSH BLACK HB",
+    "category": "Office Chairs",
+    "price_display": "₹7,900",
+    "base_price": 7900,
+    "options": [
+      {
+        "variant": "NYLON BASE, FIXED HANDLE",
+        "price": 7900
+      },
+      {
+        "variant": "NYLON BASE, ADJUSTABLE HANDLE",
+        "price": 8400
+      },
+      {
+        "variant": "CHROME BASE, FIXED HANDLE",
+        "price": 8300
+      },
+      {
+        "variant": "CHROME BASE, ADJUSTABLE HANDLE",
+        "price": 8800
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "High Back Design"
+    ],
+    "image": "assets/products/office_10_4.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "High Back"
+    }
+  },
+  {
+    "id": "office_11_1",
+    "name": "POSH BLACK MB",
+    "category": "Office Chairs",
+    "price_display": "₹6,700",
+    "base_price": 6700,
+    "options": [
+      {
+        "variant": "NYLON BASE, FIXED HANDLE",
+        "price": 6700
+      },
+      {
+        "variant": "NYLON BASE, ADJUSTABLE HANDLE",
+        "price": 7200
+      },
+      {
+        "variant": "CHROME BASE, FIXED HANDLE",
+        "price": 7100
+      },
+      {
+        "variant": "CHROME BASE, ADJUSTABLE HANDLE",
+        "price": 7600
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "Mid Back Design"
+    ],
+    "image": "assets/products/office_11_1.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Mid Back"
+    }
+  },
+  {
+    "id": "office_11_2",
+    "name": "POSH HB (COLOUR)",
+    "category": "Office Chairs",
+    "price_display": "₹8,700",
+    "base_price": 8700,
+    "options": [
+      {
+        "variant": "NYLON BASE, FIXED HANDLE",
+        "price": 8700
+      },
+      {
+        "variant": "NYLON BASE, ADJUSTABLE HANDLE",
+        "price": 9200
+      },
+      {
+        "variant": "CHROME BASE, FIXED HANDLE",
+        "price": 9100
+      },
+      {
+        "variant": "CHROME BASE, ADJUSTABLE HANDLE",
+        "price": 9600
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "High Back Design"
+    ],
+    "image": "assets/products/office_11_2.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "High Back"
+    }
+  },
+  {
+    "id": "office_11_3",
+    "name": "POSH MB (COLOUR)",
+    "category": "Office Chairs",
+    "price_display": "₹7,500",
+    "base_price": 7500,
+    "options": [
+      {
+        "variant": "NYLON BASE,FIXED HANDLE",
+        "price": 7500
+      },
+      {
+        "variant": "NYLON BASE, ADJUSTABLE HANDLE",
+        "price": 8000
+      },
+      {
+        "variant": "CHROME BASE, FIXED HANDLE",
+        "price": 7900
+      },
+      {
+        "variant": "CHROME BASE, ADJUSTABLE HANDLE",
+        "price": 8400
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "Mid Back Design"
+    ],
+    "image": "assets/products/office_11_3.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Mid Back"
+    }
+  },
+  {
+    "id": "office_11_4",
+    "name": "BONAI HB BLACK",
+    "category": "Office Chairs",
+    "price_display": "₹7,500",
+    "base_price": 7500,
+    "options": [
+      {
+        "variant": "NYLON BASE, FIXED HANDLE",
+        "price": 7500
+      },
+      {
+        "variant": "NYLON BASE, ADJUSTABLE HANDLE",
+        "price": 8000
+      },
+      {
+        "variant": "CHROME BASE, FIXED HANDLE",
+        "price": 7900
+      },
+      {
+        "variant": "CHROME BASE, ADJUSTABLE",
+        "price": 8400
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "High Back Design"
+    ],
+    "image": "assets/products/office_11_4.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "High Back"
+    }
+  },
+  {
+    "id": "office_12_1",
+    "name": "BONAI HB WHITE",
+    "category": "Office Chairs",
+    "price_display": "₹9,600",
+    "base_price": 9600,
+    "options": [
+      {
+        "variant": "NYLON BASE, FIXED HANDLE",
+        "price": 9600
+      },
+      {
+        "variant": "NYLON BASE, ADJUSTABLE HANDLE",
+        "price": 10100
+      },
+      {
+        "variant": "CHROME BASE, FIXED HANDLE",
+        "price": 10500
+      },
+      {
+        "variant": "CHROME BASE, ADJUSTABLE HANDLE",
+        "price": 11000
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "High Back Design"
+    ],
+    "image": "assets/products/office_12_1.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "High Back"
+    }
+  },
+  {
+    "id": "office_12_2",
+    "name": "BONAI HB GREY",
+    "category": "Office Chairs",
+    "price_display": "₹9,600",
+    "base_price": 9600,
+    "options": [
+      {
+        "variant": "NYLON BASE, FIXED HANDLE",
+        "price": 9600
+      },
+      {
+        "variant": "NYLON BASE, ADJUSTABLE HANDLE",
+        "price": 10100
+      },
+      {
+        "variant": "CHROME BASE, FIXED HANDLE",
+        "price": 10500
+      },
+      {
+        "variant": "CHROME BASE, ADJUSTABLE HANDLE",
+        "price": 11000
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "High Back Design"
+    ],
+    "image": "assets/products/office_12_2.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "High Back"
+    }
+  },
+  {
+    "id": "office_12_3",
+    "name": "METERRODE HB BLACK",
+    "category": "Office Chairs",
+    "price_display": "₹7,500",
+    "base_price": 7500,
+    "options": [
+      {
+        "variant": "NYLON BASE, FIXED HANDLE",
+        "price": 7500
+      },
+      {
+        "variant": "NYLON BASE, ADJUSTABLE HANDLE",
+        "price": 8000
+      },
+      {
+        "variant": "CHROME BASE, FIXED HANDLE",
+        "price": 7900
+      },
+      {
+        "variant": "CHROME BASE, ADJUSTABLE",
+        "price": 8400
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "High Back Design"
+    ],
+    "image": "assets/products/office_12_3.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "High Back"
+    }
+  },
+  {
+    "id": "office_12_4",
+    "name": "METERRODE MB, BLACK, WHITE",
+    "category": "Office Chairs",
+    "price_display": "₹6,700",
+    "base_price": 6700,
+    "options": [
+      {
+        "variant": "NYLON BASE, FIXED HANDLE",
+        "price": 6700
+      },
+      {
+        "variant": "NYLON BASE, ADJUSTABLE HANDLE",
+        "price": 7200
+      },
+      {
+        "variant": "CHROME BASE, FIXED HANDLE",
+        "price": 7100
+      },
+      {
+        "variant": "CHROME BASE, ADJUSTABLE",
+        "price": 7600
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "Mid Back Design"
+    ],
+    "image": "assets/products/office_12_4.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Mid Back"
+    }
+  },
+  {
+    "id": "office_13_1",
+    "name": "METERRODE HB WHITE",
+    "category": "Office Chairs",
+    "price_display": "₹8,700",
+    "base_price": 8700,
+    "options": [
+      {
+        "variant": "NYLON BASE, FIXED HANDLE",
+        "price": 8700
+      },
+      {
+        "variant": "NYLON BASE, ADJUSTABLE HANDLE",
+        "price": 9200
+      },
+      {
+        "variant": "CHROME BASE, FIXED HANDLE",
+        "price": 9100
+      },
+      {
+        "variant": "CHROME BASE, ADJUSTABLE",
+        "price": 9600
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "High Back Design"
+    ],
+    "image": "assets/products/office_13_1.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "High Back"
+    }
+  },
+  {
+    "id": "office_13_2",
+    "name": "FLAIR HB",
+    "category": "Office Chairs",
+    "price_display": "₹19,000",
+    "base_price": 19000,
+    "options": [
+      {
+        "variant": "NYLON BASE, ADJUSTABLE HANDLE",
+        "price": 19000
+      },
+      {
+        "variant": "CHROME BASE, ADJUSTABLE HANDLE",
+        "price": 19500
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "High Back Design"
+    ],
+    "image": "assets/products/office_13_2.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "High Back"
+    }
+  },
+  {
+    "id": "office_13_3",
+    "name": "FLAIR MB",
+    "category": "Office Chairs",
+    "price_display": "₹18,000",
+    "base_price": 18000,
+    "options": [
+      {
+        "variant": "NYLON BASE, ADJUSTABLE HANDLE",
+        "price": 18000
+      },
+      {
+        "variant": "CHROME BASE, ADJUSTABLE HANDLE",
+        "price": 18500
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "Mid Back Design"
+    ],
+    "image": "assets/products/office_13_3.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Mid Back"
+    }
+  },
+  {
+    "id": "office_13_4",
+    "name": "OPTIMA INDIAN HB",
+    "category": "Office Chairs",
+    "price_display": "₹18,000",
+    "base_price": 18000,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 22000
+      },
+      {
+        "variant": "Standard",
+        "price": 18000
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "High Back Design"
+    ],
+    "image": "assets/products/office_13_4.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "High Back"
+    }
+  },
+  {
+    "id": "office_14_1",
+    "name": "OPTIMA INDIAN MB",
+    "category": "Office Chairs",
+    "price_display": "₹17,000",
+    "base_price": 17000,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 21000
+      },
+      {
+        "variant": "Standard",
+        "price": 17000
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "Mid Back Design"
+    ],
+    "image": "assets/products/office_14_1.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Mid Back"
+    }
+  },
+  {
+    "id": "office_14_2",
+    "name": "OPTIMA HB WHITE",
+    "category": "Office Chairs",
+    "price_display": "₹24,000",
+    "base_price": 24000,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 28000
+      },
+      {
+        "variant": "Standard",
+        "price": 24000
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "High Back Design"
+    ],
+    "image": "assets/products/office_14_2.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "High Back"
+    }
+  },
+  {
+    "id": "office_14_3",
+    "name": "CONTACT HB",
+    "category": "Office Chairs",
+    "price_display": "₹7,000",
+    "base_price": 7000,
+    "options": [
+      {
+        "variant": "NYLON BASE, FIXED HANDLE",
+        "price": 7000
+      },
+      {
+        "variant": "NYLON BASE, ADJUSTABLE HANDLE",
+        "price": 7500
+      },
+      {
+        "variant": "CHROME BASE, FIXED HANDLE",
+        "price": 7400
+      },
+      {
+        "variant": "CHROME BASE, ADJUSTABLE HANDLE",
+        "price": 7900
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "High Back Design"
+    ],
+    "image": "assets/products/office_14_3.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "High Back"
+    }
+  },
+  {
+    "id": "office_14_4",
+    "name": "CONTACT MB",
+    "category": "Office Chairs",
+    "price_display": "₹6,000",
+    "base_price": 6000,
+    "options": [
+      {
+        "variant": "NYLON BASE, FIXED HANDLE",
+        "price": 6000
+      },
+      {
+        "variant": "NYLON BASE, ADJUSTABLE HANDLE",
+        "price": 6500
+      },
+      {
+        "variant": "CHROME BASE, FIXED HANDLE",
+        "price": 6400
+      },
+      {
+        "variant": "CHROME BASE, ADJUSTABLE HANDLE",
+        "price": 6900
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "Mid Back Design"
+    ],
+    "image": "assets/products/office_14_4.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Mid Back"
+    }
+  },
+  {
+    "id": "office_15_1",
+    "name": "EROS MB BLACK",
+    "category": "Office Chairs",
+    "price_display": "₹14,600",
+    "base_price": 14600,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 14600
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "Mid Back Design"
+    ],
+    "image": "assets/products/office_15_1.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Mid Back"
+    }
+  },
+  {
+    "id": "office_15_2",
+    "name": "EROS HB BLACK",
+    "category": "Office Chairs",
+    "price_display": "₹15,400",
+    "base_price": 15400,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 15400
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "High Back Design"
+    ],
+    "image": "assets/products/office_15_2.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "High Back"
+    }
+  },
+  {
+    "id": "office_15_3",
+    "name": "EROS MB WHITE",
+    "category": "Office Chairs",
+    "price_display": "₹15,500",
+    "base_price": 15500,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 15500
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "Mid Back Design"
+    ],
+    "image": "assets/products/office_15_3.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Mid Back"
+    }
+  },
+  {
+    "id": "office_15_4",
+    "name": "EROS HB WHITE (STOCK)",
+    "category": "Office Chairs",
+    "price_display": "₹16,500",
+    "base_price": 16500,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 16500
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "High Back Design"
+    ],
+    "image": "assets/products/office_15_4.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "High Back"
+    }
+  },
+  {
+    "id": "office_16_1",
+    "name": "EROS HB GREY",
+    "category": "Office Chairs",
+    "price_display": "₹16,500",
+    "base_price": 16500,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 16500
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "High Back Design"
+    ],
+    "image": "assets/products/office_16_1.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "High Back"
+    }
+  },
+  {
+    "id": "office_16_2",
+    "name": "HELIOS MB BLACK",
+    "category": "Office Chairs",
+    "price_display": "₹16,500",
+    "base_price": 16500,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 16500
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "Mid Back Design"
+    ],
+    "image": "assets/products/office_16_2.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Mid Back"
+    }
+  },
+  {
+    "id": "office_16_3",
+    "name": "HELIOS HB BLACK",
+    "category": "Office Chairs",
+    "price_display": "₹17,500",
+    "base_price": 17500,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 17500
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "High Back Design"
+    ],
+    "image": "assets/products/office_16_3.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "High Back"
+    }
+  },
+  {
+    "id": "office_16_4",
+    "name": "HELIOS MB GREY",
+    "category": "Office Chairs",
+    "price_display": "₹18,100",
+    "base_price": 18100,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 18100
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "Mid Back Design"
+    ],
+    "image": "assets/products/office_16_4.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Mid Back"
+    }
+  },
+  {
+    "id": "office_17_1",
+    "name": "HELIOS HB GREY",
+    "category": "Office Chairs",
+    "price_display": "₹19,100",
+    "base_price": 19100,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 19100
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "High Back Design"
+    ],
+    "image": "assets/products/office_17_1.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "High Back"
+    }
+  },
+  {
+    "id": "office_17_2",
+    "name": "FLIP MB BLACK",
+    "category": "Office Chairs",
+    "price_display": "₹8,400",
+    "base_price": 8400,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 8400
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "Mid Back Design"
+    ],
+    "image": "assets/products/office_17_2.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Mid Back"
+    }
+  },
+  {
+    "id": "office_17_3",
+    "name": "FLIP MB GREY AND WHITE",
+    "category": "Office Chairs",
+    "price_display": "₹8,800",
+    "base_price": 8800,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 8800
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "Mid Back Design"
+    ],
+    "image": "assets/products/office_17_3.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Mid Back"
+    }
+  },
+  {
+    "id": "office_17_4",
+    "name": "ADONIS MB BLACK",
+    "category": "Office Chairs",
+    "price_display": "₹14,800",
+    "base_price": 14800,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 14800
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "Mid Back Design"
+    ],
+    "image": "assets/products/office_17_4.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Mid Back"
+    }
+  },
+  {
+    "id": "office_18_1",
+    "name": "ADONIS HB BLACK",
+    "category": "Office Chairs",
+    "price_display": "₹15,400",
+    "base_price": 15400,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 15400
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "High Back Design"
+    ],
+    "image": "assets/products/office_18_1.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "High Back"
+    }
+  },
+  {
+    "id": "office_18_2",
+    "name": "ADONIS MB GREY",
+    "category": "Office Chairs",
+    "price_display": "₹16,000",
+    "base_price": 16000,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 16000
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "Mid Back Design"
+    ],
+    "image": "assets/products/office_18_2.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Mid Back"
+    }
+  },
+  {
+    "id": "office_18_3",
+    "name": "ADONIS HB GREY",
+    "category": "Office Chairs",
+    "price_display": "₹17,000",
+    "base_price": 17000,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 17000
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "High Back Design"
+    ],
+    "image": "assets/products/office_18_3.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "High Back"
+    }
+  },
+  {
+    "id": "office_18_4",
+    "name": "FIDO MB BLACK",
+    "category": "Office Chairs",
+    "price_display": "₹15,400",
+    "base_price": 15400,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 15400
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "Mid Back Design"
+    ],
+    "image": "assets/products/office_18_4.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Mid Back"
+    }
+  },
+  {
+    "id": "office_19_1",
+    "name": "FIDO HB BLACK",
+    "category": "Office Chairs",
+    "price_display": "₹16,400",
+    "base_price": 16400,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 16400
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "High Back Design"
+    ],
+    "image": "assets/products/office_19_1.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "High Back"
+    }
+  },
+  {
+    "id": "office_19_2",
+    "name": "FIDO MB WHITE",
+    "category": "Office Chairs",
+    "price_display": "₹16,200",
+    "base_price": 16200,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 16200
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "Mid Back Design"
+    ],
+    "image": "assets/products/office_19_2.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Mid Back"
+    }
+  },
+  {
+    "id": "office_19_3",
+    "name": "FIDO HB WHITE",
+    "category": "Office Chairs",
+    "price_display": "₹17,600",
+    "base_price": 17600,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 17600
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "High Back Design"
+    ],
+    "image": "assets/products/office_19_3.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "High Back"
+    }
+  },
+  {
+    "id": "office_20_1",
+    "name": "ELANZO MB WHITE, GREY",
+    "category": "Office Chairs",
+    "price_display": "₹8,100",
+    "base_price": 8100,
+    "options": [
+      {
+        "variant": "NYLON BASE, FIXED HANDLE",
+        "price": 8100
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "Mid Back Design"
+    ],
+    "image": "assets/products/office_20_1.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Mid Back"
+    }
+  },
+  {
+    "id": "office_20_2",
+    "name": "FILO MB BLACK",
+    "category": "Office Chairs",
+    "price_display": "₹13,600",
+    "base_price": 13600,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 13600
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "Mid Back Design"
+    ],
+    "image": "assets/products/office_20_2.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Mid Back"
+    }
+  },
+  {
+    "id": "office_20_3",
+    "name": "FILO HB BLACK",
+    "category": "Office Chairs",
+    "price_display": "₹14,100",
+    "base_price": 14100,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 14100
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "High Back Design"
+    ],
+    "image": "assets/products/office_20_3.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "High Back"
+    }
+  },
+  {
+    "id": "office_20_4",
+    "name": "FILO MB WHITE",
+    "category": "Office Chairs",
+    "price_display": "₹13,800",
+    "base_price": 13800,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 13800
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "Mid Back Design"
+    ],
+    "image": "assets/products/office_20_4.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Mid Back"
+    }
+  },
+  {
+    "id": "office_21_1",
+    "name": "FILO HB WHITE",
+    "category": "Office Chairs",
+    "price_display": "₹14,400",
+    "base_price": 14400,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 14400
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "High Back Design"
+    ],
+    "image": "assets/products/office_21_1.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "High Back"
+    }
+  },
+  {
+    "id": "office_21_2",
+    "name": "LUCANO MB BLACK",
+    "category": "Office Chairs",
+    "price_display": "₹13,600",
+    "base_price": 13600,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 13600
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "Mid Back Design"
+    ],
+    "image": "assets/products/office_21_2.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Mid Back"
+    }
+  },
+  {
+    "id": "office_21_3",
+    "name": "LUCANO HB BLACK",
+    "category": "Office Chairs",
+    "price_display": "₹14,100",
+    "base_price": 14100,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 14100
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "High Back Design"
+    ],
+    "image": "assets/products/office_21_3.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "High Back"
+    }
+  },
+  {
+    "id": "office_21_4",
+    "name": "LUCANO MB WHITE AND GREY",
+    "category": "Office Chairs",
+    "price_display": "₹13,800",
+    "base_price": 13800,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 13800
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "Mid Back Design"
+    ],
+    "image": "assets/products/office_21_4.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Mid Back"
+    }
+  },
+  {
+    "id": "office_22_1",
+    "name": "LUCANO HB GREY AND WHITE",
+    "category": "Office Chairs",
+    "price_display": "₹14,600",
+    "base_price": 14600,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 14600
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "High Back Design"
+    ],
+    "image": "assets/products/office_22_1.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "High Back"
+    }
+  },
+  {
+    "id": "office_22_2",
+    "name": "CAMRY MB BLACK",
+    "category": "Office Chairs",
+    "price_display": "₹13,700",
+    "base_price": 13700,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 13700
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "Mid Back Design"
+    ],
+    "image": "assets/products/office_22_2.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Mid Back"
+    }
+  },
+  {
+    "id": "office_22_3",
+    "name": "CAMRY HB BLACK",
+    "category": "Office Chairs",
+    "price_display": "₹14,800",
+    "base_price": 14800,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 14800
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "High Back Design"
+    ],
+    "image": "assets/products/office_22_3.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "High Back"
+    }
+  },
+  {
+    "id": "office_22_4",
+    "name": "CAMRY MB WHITE AND GREY",
+    "category": "Office Chairs",
+    "price_display": "₹13,800",
+    "base_price": 13800,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 13800
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "Mid Back Design"
+    ],
+    "image": "assets/products/office_22_4.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Mid Back"
+    }
+  },
+  {
+    "id": "office_23_1",
+    "name": "CAMRY HB WHITE AND GREY",
+    "category": "Office Chairs",
+    "price_display": "₹15,000",
+    "base_price": 15000,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 15000
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "High Back Design"
+    ],
+    "image": "assets/products/office_23_1.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "High Back"
+    }
+  },
+  {
+    "id": "office_23_2",
+    "name": "IRIS HB BLACK",
+    "category": "Office Chairs",
+    "price_display": "₹14,100",
+    "base_price": 14100,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 14100
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "High Back Design"
+    ],
+    "image": "assets/products/office_23_2.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "High Back"
+    }
+  },
+  {
+    "id": "office_23_3",
+    "name": "IRIS HB WHITE AND GREY",
+    "category": "Office Chairs",
+    "price_display": "₹14,900",
+    "base_price": 14900,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 14900
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "High Back Design"
+    ],
+    "image": "assets/products/office_23_3.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "High Back"
+    }
+  },
+  {
+    "id": "office_23_4",
+    "name": "IRIS MB BLACK",
+    "category": "Office Chairs",
+    "price_display": "₹13,400",
+    "base_price": 13400,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 13400
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "Mid Back Design"
+    ],
+    "image": "assets/products/office_23_4.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Mid Back"
+    }
+  },
+  {
+    "id": "office_24_1",
+    "name": "IRIS MB WHITE AND GREY",
+    "category": "Office Chairs",
+    "price_display": "₹13,800",
+    "base_price": 13800,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 13800
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "Mid Back Design"
+    ],
+    "image": "assets/products/office_24_1.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Mid Back"
+    }
+  },
+  {
+    "id": "office_24_2",
+    "name": "WAVE MB BLACK",
+    "category": "Office Chairs",
+    "price_display": "₹13,000",
+    "base_price": 13000,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 13000
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "Mid Back Design"
+    ],
+    "image": "assets/products/office_24_2.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Mid Back"
+    }
+  },
+  {
+    "id": "office_24_3",
+    "name": "WAVE HB BLACK",
+    "category": "Office Chairs",
+    "price_display": "₹13,600",
+    "base_price": 13600,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 13600
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "High Back Design"
+    ],
+    "image": "assets/products/office_24_3.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "High Back"
+    }
+  },
+  {
+    "id": "office_24_4",
+    "name": "FIDO 2.0 BLACK MB",
+    "category": "Office Chairs",
+    "price_display": "₹15,400",
+    "base_price": 15400,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 15400
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "Mid Back Design"
+    ],
+    "image": "assets/products/office_24_4.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Mid Back"
+    }
+  },
+  {
+    "id": "office_25_1",
+    "name": "FIDO 2.0 BLACK HB",
+    "category": "Office Chairs",
+    "price_display": "₹16,000",
+    "base_price": 16000,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 16000
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "High Back Design"
+    ],
+    "image": "assets/products/office_25_1.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "High Back"
+    }
+  },
+  {
+    "id": "office_25_2",
+    "name": "FIDO 2.0 WHITE MB",
+    "category": "Office Chairs",
+    "price_display": "₹15,800",
+    "base_price": 15800,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 15800
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "Mid Back Design"
+    ],
+    "image": "assets/products/office_25_2.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Mid Back"
+    }
+  },
+  {
+    "id": "office_25_3",
+    "name": "FIDO 2.0 WHITE HB",
+    "category": "Office Chairs",
+    "price_display": "₹16,700",
+    "base_price": 16700,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 16700
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "High Back Design"
+    ],
+    "image": "assets/products/office_25_3.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "High Back"
+    }
+  },
+  {
+    "id": "office_25_4",
+    "name": "STRIPE",
+    "category": "Office Chairs",
+    "price_display": "₹6,700",
+    "base_price": 6700,
+    "options": [
+      {
+        "variant": "NYLON BASE, FIXED HANDLE",
+        "price": 6700
+      },
+      {
+        "variant": "NYLON BASE, ADJUSTABLE HANDLE",
+        "price": 7200
+      },
+      {
+        "variant": "CHROME BASE, FIXED HANDLE",
+        "price": 7100
+      },
+      {
+        "variant": "CHROME BASE, ADJUSTABLE HANDLE",
+        "price": 7600
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel"
+    ],
+    "image": "assets/products/office_25_4.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Standard"
+    }
+  },
+  {
+    "id": "office_26_1",
+    "name": "DIPLOMET HB",
+    "category": "Office Chairs",
+    "price_display": "₹7,800",
+    "base_price": 7800,
+    "options": [
+      {
+        "variant": "PU ARMS, NYLON BASE",
+        "price": 7800
+      },
+      {
+        "variant": "PU ARMS, CHROME BASE",
+        "price": 8200
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "High Back Design"
+    ],
+    "image": "assets/products/office_26_1.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "High Back"
+    }
+  },
+  {
+    "id": "office_26_2",
+    "name": "DIPLOMET MB",
+    "category": "Office Chairs",
+    "price_display": "₹7,000",
+    "base_price": 7000,
+    "options": [
+      {
+        "variant": "PU ARMS, NYLON BASE",
+        "price": 7000
+      },
+      {
+        "variant": "PU ARMS, CHROME BASE",
+        "price": 7400
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "Mid Back Design"
+    ],
+    "image": "assets/products/office_26_2.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Mid Back"
+    }
+  },
+  {
+    "id": "office_26_3",
+    "name": "802 CUSHION",
+    "category": "Office Chairs",
+    "price_display": "₹4,800",
+    "base_price": 4800,
+    "options": [
+      {
+        "variant": "NYLON BASE, FIXED HANDLE",
+        "price": 4800
+      },
+      {
+        "variant": "NYLON BASE, ADJUSTABLE HANDLE",
+        "price": 5300
+      },
+      {
+        "variant": "CHROME BASE, FIXED HANDLE",
+        "price": 5200
+      },
+      {
+        "variant": "CHROME BASE, ADJUSTABLE HANDLE",
+        "price": 5700
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel"
+    ],
+    "image": "assets/products/office_26_3.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Standard"
+    }
+  },
+  {
+    "id": "office_27_1",
+    "name": "YLN HB BLACK",
+    "category": "Office Chairs",
+    "price_display": "₹12,000",
+    "base_price": 12000,
+    "options": [
+      {
+        "variant": "CHROME BASE",
+        "price": 12000
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "High Back Design"
+    ],
+    "image": "assets/products/office_27_1.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "High Back"
+    }
+  },
+  {
+    "id": "office_27_2",
+    "name": "YLN MB BLACK",
+    "category": "Office Chairs",
+    "price_display": "₹11,600",
+    "base_price": 11600,
+    "options": [
+      {
+        "variant": "CHROME BASE",
+        "price": 11600
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "Mid Back Design"
+    ],
+    "image": "assets/products/office_27_2.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Mid Back"
+    }
+  },
+  {
+    "id": "office_27_3",
+    "name": "YLN HB WHITE",
+    "category": "Office Chairs",
+    "price_display": "₹12,400",
+    "base_price": 12400,
+    "options": [
+      {
+        "variant": "CHROME BASE",
+        "price": 12400
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "High Back Design"
+    ],
+    "image": "assets/products/office_27_3.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "High Back"
+    }
+  },
+  {
+    "id": "office_28_1",
+    "name": "GAMING CHAIR",
+    "category": "Office Chairs",
+    "price_display": "₹18,000",
+    "base_price": 18000,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 18000
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel"
+    ],
+    "image": "assets/products/office_28_1.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Standard"
+    }
+  },
+  {
+    "id": "office_28_2",
+    "name": "BUCKET CHAIR (WHITE)",
+    "category": "Office Chairs",
+    "price_display": "₹7,000",
+    "base_price": 7000,
+    "options": [
+      {
+        "variant": "NYLON BASE",
+        "price": 7000
+      },
+      {
+        "variant": "CHROME BASE",
+        "price": 7200
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel"
+    ],
+    "image": "assets/products/office_28_2.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Standard"
+    }
+  },
+  {
+    "id": "office_28_3",
+    "name": "BUCKET CHAIR (BLACK)",
+    "category": "Office Chairs",
+    "price_display": "₹6,000",
+    "base_price": 6000,
+    "options": [
+      {
+        "variant": "NYLON BASE",
+        "price": 6000
+      },
+      {
+        "variant": "CHROME BASE",
+        "price": 6200
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel"
+    ],
+    "image": "assets/products/office_28_3.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Standard"
+    }
+  },
+  {
+    "id": "office_29_1",
+    "name": "202 HB",
+    "category": "Office Chairs",
+    "price_display": "₹16,000",
+    "base_price": 16000,
+    "options": [
+      {
+        "variant": "NYLON BASE, SINGLE LOCK",
+        "price": 16000
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "High Back Design"
+    ],
+    "image": "assets/products/office_29_1.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "High Back"
+    }
+  },
+  {
+    "id": "office_29_2",
+    "name": "SWING HB BLACK",
+    "category": "Office Chairs",
+    "price_display": "₹14,000",
+    "base_price": 14000,
+    "options": [
+      {
+        "variant": "NYLON BASE, SINGLE LOCK",
+        "price": 14000
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "High Back Design"
+    ],
+    "image": "assets/products/office_29_2.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "High Back"
+    }
+  },
+  {
+    "id": "office_29_3",
+    "name": "A815 WHITE",
+    "category": "Office Chairs",
+    "price_display": "₹14,000",
+    "base_price": 14000,
+    "options": [
+      {
+        "variant": "NYLON BASE, SINGLE LOCK",
+        "price": 14000
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel"
+    ],
+    "image": "assets/products/office_29_3.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Standard"
+    }
+  },
+  {
+    "id": "office_29_4",
+    "name": "SWING HB",
+    "category": "Office Chairs",
+    "price_display": "₹15,600",
+    "base_price": 15600,
+    "options": [
+      {
+        "variant": "NYLON BASE, SINGLE LOCK",
+        "price": 15600
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "High Back Design"
+    ],
+    "image": "assets/products/office_29_4.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "High Back"
+    }
+  },
+  {
+    "id": "office_30_1",
+    "name": "SWING HB GREY)",
+    "category": "Office Chairs",
+    "price_display": "₹16,000",
+    "base_price": 16000,
+    "options": [
+      {
+        "variant": "NYLON BASE, SINGLE LOCK",
+        "price": 16000
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "High Back Design"
+    ],
+    "image": "assets/products/office_30_1.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "High Back"
+    }
+  },
+  {
+    "id": "office_30_2",
+    "name": "VOGUE HB BLACK",
+    "category": "Office Chairs",
+    "price_display": "₹11,000",
+    "base_price": 11000,
+    "options": [
+      {
+        "variant": "NYLON BASE, ADJUSTABLE HANDLE",
+        "price": 11000
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "High Back Design"
+    ],
+    "image": "assets/products/office_30_2.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "High Back"
+    }
+  },
+  {
+    "id": "office_30_3",
+    "name": "VOGUE HB WHITE",
+    "category": "Office Chairs",
+    "price_display": "₹13,000",
+    "base_price": 13000,
+    "options": [
+      {
+        "variant": "NYLON BASE, ADJUSTABLE HANDLE",
+        "price": 13000
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "High Back Design"
+    ],
+    "image": "assets/products/office_30_3.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "High Back"
+    }
+  },
+  {
+    "id": "office_31_1",
+    "name": "ONYX BLACK",
+    "category": "Office Chairs",
+    "price_display": "₹13,500",
+    "base_price": 13500,
+    "options": [
+      {
+        "variant": "NYLON BASE, ADJUSTABLE HANDLE",
+        "price": 13500
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel"
+    ],
+    "image": "assets/products/office_31_1.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Standard"
+    }
+  },
+  {
+    "id": "office_31_2",
+    "name": "ONYX BLACK",
+    "category": "Office Chairs",
+    "price_display": "₹14,800",
+    "base_price": 14800,
+    "options": [
+      {
+        "variant": "NYLON BASE, ADJUSTABLE HANDLE",
+        "price": 14800
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel"
+    ],
+    "image": "assets/products/office_31_2.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Standard"
+    }
+  },
+  {
+    "id": "office_31_3",
+    "name": "ONYX WHITE",
+    "category": "Office Chairs",
+    "price_display": "₹14,800",
+    "base_price": 14800,
+    "options": [
+      {
+        "variant": "NYLON BASE, ADJUSTABLE HANDLE",
+        "price": 14800
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel"
+    ],
+    "image": "assets/products/office_31_3.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Standard"
+    }
+  },
+  {
+    "id": "office_31_4",
+    "name": "SROP VIBE",
+    "category": "Office Chairs",
+    "price_display": "₹14,000",
+    "base_price": 14000,
+    "options": [
+      {
+        "variant": "NYLON BASE, ADJUSTABLE HANDLE",
+        "price": 14000
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel"
+    ],
+    "image": "assets/products/office_31_4.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Standard"
+    }
+  },
+  {
+    "id": "office_32_1",
+    "name": "SROP VIBE GREY WHITE",
+    "category": "Office Chairs",
+    "price_display": "₹15,000",
+    "base_price": 15000,
+    "options": [
+      {
+        "variant": "NYLON BASE, ADJUSTABLE HANDLE",
+        "price": 15000
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel"
+    ],
+    "image": "assets/products/office_32_1.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "Standard"
+    }
+  },
+  {
+    "id": "office_32_2",
+    "name": "AMAZE BLACK HB",
+    "category": "Office Chairs",
+    "price_display": "₹12,000",
+    "base_price": 12000,
+    "options": [
+      {
+        "variant": "NYLON BASE, ADJUSTABLE HANDLE",
+        "price": 12000
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "High Back Design"
+    ],
+    "image": "assets/products/office_32_2.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "High Back"
+    }
+  },
+  {
+    "id": "office_32_3",
+    "name": "AMAZE WHITE HB",
+    "category": "Office Chairs",
+    "price_display": "₹14,000",
+    "base_price": 14000,
+    "options": [
+      {
+        "variant": "NYLON BASE, ADJUSTABLE HANDLE",
+        "price": 14000
+      }
+    ],
+    "features": [
+      "Ergonomic Support",
+      "Heavy-Duty Base",
+      "Smooth Swivel",
+      "High Back Design"
+    ],
+    "image": "assets/products/office_32_3.png",
+    "diagram": null,
+    "specs": {
+      "Type": "Office Revolving Chair",
+      "Backrest": "High Back"
+    }
+  },
+  {
+    "id": "visitor_1_1_1",
+    "name": "FLOWER NETTED",
+    "category": "Visitor Chairs",
+    "price_display": "₹2,800",
+    "base_price": 2800,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 2800
+      }
+    ],
+    "features": [
+      "Durable Frame",
+      "Ergonomic Back Support"
+    ],
+    "image": "assets/products/visitor_1_1_1.png",
+    "diagram": null,
+    "specs": {
+      "Category": "Visitor Chairs",
+      "Application": "Office Visitor & Conference"
+    }
+  },
+  {
+    "id": "visitor_1_1_2",
+    "name": "FLOWER CUSHION BLACK & BROWN",
+    "category": "Visitor Chairs",
+    "price_display": "₹2,600",
+    "base_price": 2600,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 2600
+      }
+    ],
+    "features": [
+      "Durable Frame",
+      "Premium Cushioning"
+    ],
+    "image": "assets/products/visitor_1_1_2.png",
+    "diagram": null,
+    "specs": {
+      "Category": "Visitor Chairs",
+      "Application": "Office Visitor & Conference"
+    }
+  },
+  {
+    "id": "visitor_1_2_1",
+    "name": "ISO NETTED",
+    "category": "Visitor Chairs",
+    "price_display": "₹2,600",
+    "base_price": 2600,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 2600
+      }
+    ],
+    "features": [
+      "Durable Frame",
+      "Ergonomic Back Support"
+    ],
+    "image": "assets/products/visitor_1_2_1.png",
+    "diagram": null,
+    "specs": {
+      "Category": "Visitor Chairs",
+      "Application": "Office Visitor & Conference"
+    }
+  },
+  {
+    "id": "visitor_1_2_2",
+    "name": "BOTTLE CHAIR",
+    "category": "Visitor Chairs",
+    "price_display": "₹2,800",
+    "base_price": 2800,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 2800
+      }
+    ],
+    "features": [
+      "Durable Frame",
+      "Ergonomic Back Support"
+    ],
+    "image": "assets/products/visitor_1_2_2.png",
+    "diagram": null,
+    "specs": {
+      "Category": "Visitor Chairs",
+      "Application": "Office Visitor & Conference"
+    }
+  },
+  {
+    "id": "visitor_1_3_1",
+    "name": "NUNO CUSHION",
+    "category": "Visitor Chairs",
+    "price_display": "₹2,500",
+    "base_price": 2500,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 2500
+      }
+    ],
+    "features": [
+      "Durable Frame",
+      "Premium Cushioning"
+    ],
+    "image": "assets/products/visitor_1_3_1.png",
+    "diagram": null,
+    "specs": {
+      "Category": "Visitor Chairs",
+      "Application": "Office Visitor & Conference"
+    }
+  },
+  {
+    "id": "visitor_1_3_2",
+    "name": "NUNO CUSHION WITH HANDLE",
+    "category": "Visitor Chairs",
+    "price_display": "₹3,200",
+    "base_price": 3200,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 3200
+      }
+    ],
+    "features": [
+      "Durable Frame",
+      "Premium Cushioning"
+    ],
+    "image": "assets/products/visitor_1_3_2.png",
+    "diagram": null,
+    "specs": {
+      "Category": "Visitor Chairs",
+      "Application": "Office Visitor & Conference"
+    }
+  },
+  {
+    "id": "visitor_1_4_1",
+    "name": "CLAC 22",
+    "category": "Visitor Chairs",
+    "price_display": "₹3,400",
+    "base_price": 3400,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 3400
+      }
+    ],
+    "features": [
+      "Durable Frame",
+      "Ergonomic Back Support"
+    ],
+    "image": "assets/products/visitor_1_4_1.png",
+    "diagram": null,
+    "specs": {
+      "Category": "Visitor Chairs",
+      "Application": "Office Visitor & Conference"
+    }
+  },
+  {
+    "id": "visitor_1_4_2",
+    "name": "GERMAN FLOWER BLACK & BROWN",
+    "category": "Visitor Chairs",
+    "price_display": "₹3,400",
+    "base_price": 3400,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 3400
+      }
+    ],
+    "features": [
+      "Durable Frame",
+      "Ergonomic Back Support"
+    ],
+    "image": "assets/products/visitor_1_4_2.png",
+    "diagram": null,
+    "specs": {
+      "Category": "Visitor Chairs",
+      "Application": "Office Visitor & Conference"
+    }
+  },
+  {
+    "id": "visitor_2_1_1",
+    "name": "4G VISITOR CHAIR",
+    "category": "Visitor Chairs",
+    "price_display": "₹4,800",
+    "base_price": 4800,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 4800
+      }
+    ],
+    "features": [
+      "Durable Frame",
+      "Ergonomic Back Support"
+    ],
+    "image": "assets/products/visitor_2_1_1.png",
+    "diagram": null,
+    "specs": {
+      "Category": "Visitor Chairs",
+      "Application": "Office Visitor & Conference"
+    }
+  },
+  {
+    "id": "visitor_2_1_2",
+    "name": "VISITOR",
+    "category": "Visitor Chairs",
+    "price_display": "₹4,800",
+    "base_price": 4800,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 4800
+      }
+    ],
+    "features": [
+      "Durable Frame",
+      "Ergonomic Back Support"
+    ],
+    "image": "assets/products/visitor_2_1_2.png",
+    "diagram": null,
+    "specs": {
+      "Category": "Visitor Chairs",
+      "Application": "Office Visitor & Conference"
+    }
+  },
+  {
+    "id": "visitor_2_2_1",
+    "name": "KABUL VISITOR U LEG",
+    "category": "Visitor Chairs",
+    "price_display": "₹4,800",
+    "base_price": 4800,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 4800
+      }
+    ],
+    "features": [
+      "Durable Frame",
+      "Ergonomic Back Support"
+    ],
+    "image": "assets/products/visitor_2_2_1.png",
+    "diagram": null,
+    "specs": {
+      "Category": "Visitor Chairs",
+      "Application": "Office Visitor & Conference"
+    }
+  },
+  {
+    "id": "visitor_2_2_2",
+    "name": "KABUL VISITOR 4 LEGS",
+    "category": "Visitor Chairs",
+    "price_display": "₹4,800",
+    "base_price": 4800,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 4800
+      }
+    ],
+    "features": [
+      "Durable Frame",
+      "Ergonomic Back Support"
+    ],
+    "image": "assets/products/visitor_2_2_2.png",
+    "diagram": null,
+    "specs": {
+      "Category": "Visitor Chairs",
+      "Application": "Office Visitor & Conference"
+    }
+  },
+  {
+    "id": "visitor_2_3_1",
+    "name": "VISITOR",
+    "category": "Visitor Chairs",
+    "price_display": "₹4,800",
+    "base_price": 4800,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 4800
+      }
+    ],
+    "features": [
+      "Durable Frame",
+      "Ergonomic Back Support"
+    ],
+    "image": "assets/products/visitor_2_3_1.png",
+    "diagram": null,
+    "specs": {
+      "Category": "Visitor Chairs",
+      "Application": "Office Visitor & Conference"
+    }
+  },
+  {
+    "id": "visitor_2_3_2",
+    "name": "JAZZ VISITOR",
+    "category": "Visitor Chairs",
+    "price_display": "₹7,000",
+    "base_price": 7000,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 7000
+      }
+    ],
+    "features": [
+      "Durable Frame",
+      "Ergonomic Back Support"
+    ],
+    "image": "assets/products/visitor_2_3_2.png",
+    "diagram": null,
+    "specs": {
+      "Category": "Visitor Chairs",
+      "Application": "Office Visitor & Conference"
+    }
+  },
+  {
+    "id": "visitor_2_4_1",
+    "name": "MARVEL MB VISITOR",
+    "category": "Visitor Chairs",
+    "price_display": "₹7,000",
+    "base_price": 7000,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 7000
+      }
+    ],
+    "features": [
+      "Durable Frame",
+      "Ergonomic Back Support"
+    ],
+    "image": "assets/products/visitor_2_4_1.png",
+    "diagram": null,
+    "specs": {
+      "Category": "Visitor Chairs",
+      "Application": "Office Visitor & Conference"
+    }
+  },
+  {
+    "id": "visitor_2_4_2",
+    "name": "CONTACT VISITOR",
+    "category": "Visitor Chairs",
+    "price_display": "₹6,000",
+    "base_price": 6000,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 6000
+      }
+    ],
+    "features": [
+      "Durable Frame",
+      "Ergonomic Back Support"
+    ],
+    "image": "assets/products/visitor_2_4_2.png",
+    "diagram": null,
+    "specs": {
+      "Category": "Visitor Chairs",
+      "Application": "Office Visitor & Conference"
+    }
+  },
+  {
+    "id": "visitor_2_5_1",
+    "name": "MONO VISITOR PP LEG",
+    "category": "Visitor Chairs",
+    "price_display": "₹4,600",
+    "base_price": 4600,
+    "options": [
+      {
+        "variant": "BLACK",
+        "price": 4600
+      },
+      {
+        "variant": "WHITE",
+        "price": 5200
+      }
+    ],
+    "features": [
+      "Durable Frame",
+      "Ergonomic Back Support",
+      "Heavy-Duty Polypropylene"
+    ],
+    "image": "assets/products/visitor_2_5_1.png",
+    "diagram": null,
+    "specs": {
+      "Category": "Visitor Chairs",
+      "Application": "Office Visitor & Conference"
+    }
+  },
+  {
+    "id": "visitor_2_5_2",
+    "name": "BUCKET VISITOR PP LEG",
+    "category": "Visitor Chairs",
+    "price_display": "₹5,600",
+    "base_price": 5600,
+    "options": [
+      {
+        "variant": "BLACK",
+        "price": 5600
+      },
+      {
+        "variant": "WHITE",
+        "price": 6200
+      }
+    ],
+    "features": [
+      "Durable Frame",
+      "Ergonomic Back Support",
+      "Heavy-Duty Polypropylene"
+    ],
+    "image": "assets/products/visitor_2_5_2.png",
+    "diagram": null,
+    "specs": {
+      "Category": "Visitor Chairs",
+      "Application": "Office Visitor & Conference"
+    }
+  },
+  {
+    "id": "visitor_3_1_1",
+    "name": "DELUXE PP LEG",
+    "category": "Visitor Chairs",
+    "price_display": "₹5,000",
+    "base_price": 5000,
+    "options": [
+      {
+        "variant": "BLACK",
+        "price": 5000
+      },
+      {
+        "variant": "WHITE",
+        "price": 5600
+      }
+    ],
+    "features": [
+      "Durable Frame",
+      "Ergonomic Back Support",
+      "Heavy-Duty Polypropylene"
+    ],
+    "image": "assets/products/visitor_3_1_1.png",
+    "diagram": null,
+    "specs": {
+      "Category": "Visitor Chairs",
+      "Application": "Office Visitor & Conference"
+    }
+  },
+  {
+    "id": "visitor_3_1_2",
+    "name": "ELANZO VISITOR PP LEG",
+    "category": "Visitor Chairs",
+    "price_display": "₹7,000",
+    "base_price": 7000,
+    "options": [
+      {
+        "variant": "BLACK",
+        "price": 7000
+      },
+      {
+        "variant": "WHITE",
+        "price": 7700
+      }
+    ],
+    "features": [
+      "Durable Frame",
+      "Ergonomic Back Support",
+      "Heavy-Duty Polypropylene"
+    ],
+    "image": "assets/products/visitor_3_1_2.png",
+    "diagram": null,
+    "specs": {
+      "Category": "Visitor Chairs",
+      "Application": "Office Visitor & Conference"
+    }
+  },
+  {
+    "id": "visitor_3_2_1",
+    "name": "SK VISITOR SQUARE PIPE (HEAVY)",
+    "category": "Visitor Chairs",
+    "price_display": "₹5,000",
+    "base_price": 5000,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 5000
+      }
+    ],
+    "features": [
+      "Durable Frame",
+      "Ergonomic Back Support",
+      "Reinforced Steel Pipe"
+    ],
+    "image": "assets/products/visitor_3_2_1.png",
+    "diagram": null,
+    "specs": {
+      "Category": "Visitor Chairs",
+      "Application": "Office Visitor & Conference"
+    }
+  },
+  {
+    "id": "visitor_3_2_2",
+    "name": "SK VISITOR SQUARE PIPE (NORMAL)",
+    "category": "Visitor Chairs",
+    "price_display": "₹4,000",
+    "base_price": 4000,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 4000
+      }
+    ],
+    "features": [
+      "Durable Frame",
+      "Ergonomic Back Support",
+      "Reinforced Steel Pipe"
+    ],
+    "image": "assets/products/visitor_3_2_2.png",
+    "diagram": null,
+    "specs": {
+      "Category": "Visitor Chairs",
+      "Application": "Office Visitor & Conference"
+    }
+  },
+  {
+    "id": "visitor_3_3_1",
+    "name": "ROUND NETTED",
+    "category": "Visitor Chairs",
+    "price_display": "₹3,600",
+    "base_price": 3600,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 3600
+      }
+    ],
+    "features": [
+      "Durable Frame",
+      "Ergonomic Back Support"
+    ],
+    "image": "assets/products/visitor_3_3_1.png",
+    "diagram": null,
+    "specs": {
+      "Category": "Visitor Chairs",
+      "Application": "Office Visitor & Conference"
+    }
+  },
+  {
+    "id": "visitor_3_3_2",
+    "name": "ZEBRA",
+    "category": "Visitor Chairs",
+    "price_display": "₹4,000",
+    "base_price": 4000,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 4000
+      }
+    ],
+    "features": [
+      "Durable Frame",
+      "Ergonomic Back Support"
+    ],
+    "image": "assets/products/visitor_3_3_2.png",
+    "diagram": null,
+    "specs": {
+      "Category": "Visitor Chairs",
+      "Application": "Office Visitor & Conference"
+    }
+  },
+  {
+    "id": "visitor_3_4_1",
+    "name": "black",
+    "category": "Visitor Chairs",
+    "price_display": "₹4,800",
+    "base_price": 4800,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 4800
+      }
+    ],
+    "features": [
+      "Durable Frame",
+      "Ergonomic Back Support"
+    ],
+    "image": "assets/products/visitor_3_4_1.png",
+    "diagram": null,
+    "specs": {
+      "Category": "Visitor Chairs",
+      "Application": "Office Visitor & Conference"
+    }
+  },
+  {
+    "id": "visitor_3_4_2",
+    "name": "grey",
+    "category": "Visitor Chairs",
+    "price_display": "₹5,200",
+    "base_price": 5200,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 5200
+      }
+    ],
+    "features": [
+      "Durable Frame",
+      "Ergonomic Back Support"
+    ],
+    "image": "assets/products/visitor_3_4_2.png",
+    "diagram": null,
+    "specs": {
+      "Category": "Visitor Chairs",
+      "Application": "Office Visitor & Conference"
+    }
+  },
+  {
+    "id": "visitor_3_5_1",
+    "name": "C BLACK",
+    "category": "Visitor Chairs",
+    "price_display": "₹4,200",
+    "base_price": 4200,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 4200
+      }
+    ],
+    "features": [
+      "Durable Frame",
+      "Ergonomic Back Support"
+    ],
+    "image": "assets/products/visitor_3_5_1.png",
+    "diagram": null,
+    "specs": {
+      "Category": "Visitor Chairs",
+      "Application": "Office Visitor & Conference"
+    }
+  },
+  {
+    "id": "visitor_3_5_2",
+    "name": "c WHITE",
+    "category": "Visitor Chairs",
+    "price_display": "₹4,600",
+    "base_price": 4600,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 4600
+      }
+    ],
+    "features": [
+      "Durable Frame",
+      "Ergonomic Back Support"
+    ],
+    "image": "assets/products/visitor_3_5_2.png",
+    "diagram": null,
+    "specs": {
+      "Category": "Visitor Chairs",
+      "Application": "Office Visitor & Conference"
+    }
+  },
+  {
+    "id": "visitor_4_1_1",
+    "name": "BLACK",
+    "category": "Visitor Chairs",
+    "price_display": "₹2,082",
+    "base_price": 2082,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 2082
+      },
+      {
+        "variant": "Standard",
+        "price": 8000
+      }
+    ],
+    "features": [
+      "Durable Frame",
+      "Ergonomic Back Support"
+    ],
+    "image": "assets/products/visitor_4_1_1.png",
+    "diagram": null,
+    "specs": {
+      "Category": "Visitor Chairs",
+      "Application": "Office Visitor & Conference"
+    }
+  },
+  {
+    "id": "visitor_4_1_2",
+    "name": "CLAC 61 BLACK AND BROWN",
+    "category": "Visitor Chairs",
+    "price_display": "₹5,200",
+    "base_price": 5200,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 5200
+      }
+    ],
+    "features": [
+      "Durable Frame",
+      "Ergonomic Back Support"
+    ],
+    "image": "assets/products/visitor_4_1_2.png",
+    "diagram": null,
+    "specs": {
+      "Category": "Visitor Chairs",
+      "Application": "Office Visitor & Conference"
+    }
+  },
+  {
+    "id": "visitor_4_2_1",
+    "name": "NEW",
+    "category": "Visitor Chairs",
+    "price_display": "₹2,082",
+    "base_price": 2082,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 2082
+      },
+      {
+        "variant": "Standard",
+        "price": 7600
+      }
+    ],
+    "features": [
+      "Durable Frame",
+      "Ergonomic Back Support"
+    ],
+    "image": "assets/products/visitor_4_2_1.png",
+    "diagram": null,
+    "specs": {
+      "Category": "Visitor Chairs",
+      "Application": "Office Visitor & Conference"
+    }
+  },
+  {
+    "id": "visitor_4_2_2",
+    "name": "D BLACK VISITOR CHAIR",
+    "category": "Visitor Chairs",
+    "price_display": "₹4,200",
+    "base_price": 4200,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 4200
+      }
+    ],
+    "features": [
+      "Durable Frame",
+      "Ergonomic Back Support"
+    ],
+    "image": "assets/products/visitor_4_2_2.png",
+    "diagram": null,
+    "specs": {
+      "Category": "Visitor Chairs",
+      "Application": "Office Visitor & Conference"
+    }
+  },
+  {
+    "id": "visitor_4_3_1",
+    "name": "NEW VISITOR",
+    "category": "Visitor Chairs",
+    "price_display": "₹5,000",
+    "base_price": 5000,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 5000
+      }
+    ],
+    "features": [
+      "Durable Frame",
+      "Ergonomic Back Support"
+    ],
+    "image": "assets/products/visitor_4_3_1.png",
+    "diagram": null,
+    "specs": {
+      "Category": "Visitor Chairs",
+      "Application": "Office Visitor & Conference"
+    }
+  },
+  {
+    "id": "visitor_4_3_2",
+    "name": "P TYPE VISITOR CHAIR",
+    "category": "Visitor Chairs",
+    "price_display": "₹3,600",
+    "base_price": 3600,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 3600
+      }
+    ],
+    "features": [
+      "Durable Frame",
+      "Ergonomic Back Support"
+    ],
+    "image": "assets/products/visitor_4_3_2.png",
+    "diagram": null,
+    "specs": {
+      "Category": "Visitor Chairs",
+      "Application": "Office Visitor & Conference"
+    }
+  },
+  {
+    "id": "visitor_4_4_1",
+    "name": "DIPLOMAT U LEG",
+    "category": "Visitor Chairs",
+    "price_display": "₹5,000",
+    "base_price": 5000,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 5000
+      }
+    ],
+    "features": [
+      "Durable Frame",
+      "Ergonomic Back Support"
+    ],
+    "image": "assets/products/visitor_4_4_1.png",
+    "diagram": null,
+    "specs": {
+      "Category": "Visitor Chairs",
+      "Application": "Office Visitor & Conference"
+    }
+  },
+  {
+    "id": "visitor_4_4_2",
+    "name": "DIPLOMAT 4 VISITOR",
+    "category": "Visitor Chairs",
+    "price_display": "₹5,000",
+    "base_price": 5000,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 5000
+      }
+    ],
+    "features": [
+      "Durable Frame",
+      "Ergonomic Back Support"
+    ],
+    "image": "assets/products/visitor_4_4_2.png",
+    "diagram": null,
+    "specs": {
+      "Category": "Visitor Chairs",
+      "Application": "Office Visitor & Conference"
+    }
+  },
+  {
+    "id": "visitor_4_5_1",
+    "name": "PEACOCK WITH HANDLE",
+    "category": "Visitor Chairs",
+    "price_display": "₹4,400",
+    "base_price": 4400,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 4400
+      }
+    ],
+    "features": [
+      "Durable Frame",
+      "Ergonomic Back Support"
+    ],
+    "image": "assets/products/visitor_4_5_1.png",
+    "diagram": null,
+    "specs": {
+      "Category": "Visitor Chairs",
+      "Application": "Office Visitor & Conference"
+    }
+  },
+  {
+    "id": "visitor_4_5_2",
+    "name": "PEACOCK WITHOUT HANDLE",
+    "category": "Visitor Chairs",
+    "price_display": "₹4,000",
+    "base_price": 4000,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 4000
+      }
+    ],
+    "features": [
+      "Durable Frame",
+      "Ergonomic Back Support"
+    ],
+    "image": "assets/products/visitor_4_5_2.png",
+    "diagram": null,
+    "specs": {
+      "Category": "Visitor Chairs",
+      "Application": "Office Visitor & Conference"
+    }
+  },
+  {
+    "id": "visitor_5_1_1",
+    "name": "COMFORT S7 FRAME",
+    "category": "Visitor Chairs",
+    "price_display": "₹2,400",
+    "base_price": 2400,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 2400
+      }
+    ],
+    "features": [
+      "Durable Frame",
+      "Ergonomic Back Support"
+    ],
+    "image": "assets/products/visitor_5_1_1.png",
+    "diagram": null,
+    "specs": {
+      "Category": "Visitor Chairs",
+      "Application": "Office Visitor & Conference"
+    }
+  },
+  {
+    "id": "visitor_5_1_2",
+    "name": "PARADISE S3 FRAME",
+    "category": "Visitor Chairs",
+    "price_display": "₹2,400",
+    "base_price": 2400,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 2400
+      }
+    ],
+    "features": [
+      "Durable Frame",
+      "Ergonomic Back Support"
+    ],
+    "image": "assets/products/visitor_5_1_2.png",
+    "diagram": null,
+    "specs": {
+      "Category": "Visitor Chairs",
+      "Application": "Office Visitor & Conference"
+    }
+  },
+  {
+    "id": "visitor_5_2_1",
+    "name": "R2BS14 BLACK BROWN BLUE ORANGE WHITE",
+    "category": "Visitor Chairs",
+    "price_display": "₹2,800",
+    "base_price": 2800,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 2800
+      }
+    ],
+    "features": [
+      "Durable Frame",
+      "Ergonomic Back Support"
+    ],
+    "image": "assets/products/visitor_5_2_1.png",
+    "diagram": null,
+    "specs": {
+      "Category": "Visitor Chairs",
+      "Application": "Office Visitor & Conference"
+    }
+  },
+  {
+    "id": "visitor_5_2_2",
+    "name": "R2B S7 BLACK BLUE ORANGE BROWN WHITE",
+    "category": "Visitor Chairs",
+    "price_display": "₹2,600",
+    "base_price": 2600,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 2600
+      }
+    ],
+    "features": [
+      "Durable Frame",
+      "Ergonomic Back Support"
+    ],
+    "image": "assets/products/visitor_5_2_2.png",
+    "diagram": null,
+    "specs": {
+      "Category": "Visitor Chairs",
+      "Application": "Office Visitor & Conference"
+    }
+  },
+  {
+    "id": "visitor_5_3_1",
+    "name": "RC55 BLACK",
+    "category": "Visitor Chairs",
+    "price_display": "₹2,800",
+    "base_price": 2800,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 2800
+      }
+    ],
+    "features": [
+      "Durable Frame",
+      "Ergonomic Back Support"
+    ],
+    "image": "assets/products/visitor_5_3_1.png",
+    "diagram": null,
+    "specs": {
+      "Category": "Visitor Chairs",
+      "Application": "Office Visitor & Conference"
+    }
+  },
+  {
+    "id": "visitor_5_3_2",
+    "name": "R2 BOX S4",
+    "category": "Visitor Chairs",
+    "price_display": "₹3,200",
+    "base_price": 3200,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 3200
+      }
+    ],
+    "features": [
+      "Durable Frame",
+      "Ergonomic Back Support"
+    ],
+    "image": "assets/products/visitor_5_3_2.png",
+    "diagram": null,
+    "specs": {
+      "Category": "Visitor Chairs",
+      "Application": "Office Visitor & Conference"
+    }
+  },
+  {
+    "id": "visitor_5_4_1",
+    "name": "RC37/ECO BLACK",
+    "category": "Visitor Chairs",
+    "price_display": "₹3,000",
+    "base_price": 3000,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 3000
+      }
+    ],
+    "features": [
+      "Durable Frame",
+      "Ergonomic Back Support"
+    ],
+    "image": "assets/products/visitor_5_4_1.png",
+    "diagram": null,
+    "specs": {
+      "Category": "Visitor Chairs",
+      "Application": "Office Visitor & Conference"
+    }
+  },
+  {
+    "id": "visitor_5_4_2",
+    "name": "RC36/EASY BLACK",
+    "category": "Visitor Chairs",
+    "price_display": "₹3,000",
+    "base_price": 3000,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 3000
+      }
+    ],
+    "features": [
+      "Durable Frame",
+      "Ergonomic Back Support"
+    ],
+    "image": "assets/products/visitor_5_4_2.png",
+    "diagram": null,
+    "specs": {
+      "Category": "Visitor Chairs",
+      "Application": "Office Visitor & Conference"
+    }
+  },
+  {
+    "id": "visitor_5_5_1",
+    "name": "STOOL REXIN R8ES18",
+    "category": "Stools & Additional Seating",
+    "price_display": "₹1,300",
+    "base_price": 1300,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 1300
+      }
+    ],
+    "features": [
+      "Durable Frame",
+      "Ergonomic Back Support"
+    ],
+    "image": "assets/products/visitor_5_5_1.png",
+    "diagram": null,
+    "specs": {
+      "Category": "Stools & Additional Seating",
+      "Application": "Utility & Laboratory"
+    }
+  },
+  {
+    "id": "visitor_5_5_2",
+    "name": "STOOL WOOD D4S18",
+    "category": "Stools & Additional Seating",
+    "price_display": "₹1,300",
+    "base_price": 1300,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 1300
+      }
+    ],
+    "features": [
+      "Durable Frame",
+      "Ergonomic Back Support"
+    ],
+    "image": "assets/products/visitor_5_5_2.png",
+    "diagram": null,
+    "specs": {
+      "Category": "Stools & Additional Seating",
+      "Application": "Utility & Laboratory"
+    }
+  },
+  {
+    "id": "visitor_6_1_1",
+    "name": "IMPORTED STOOL CUSHION",
+    "category": "Stools & Additional Seating",
+    "price_display": "₹1,500",
+    "base_price": 1500,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 1500
+      }
+    ],
+    "features": [
+      "Durable Frame",
+      "Premium Cushioning"
+    ],
+    "image": "assets/products/visitor_6_1_1.png",
+    "diagram": null,
+    "specs": {
+      "Category": "Stools & Additional Seating",
+      "Application": "Utility & Laboratory"
+    }
+  },
+  {
+    "id": "visitor_6_1_2",
+    "name": "IMPORTED STOOL WOODEN SEAT",
+    "category": "Stools & Additional Seating",
+    "price_display": "₹1,500",
+    "base_price": 1500,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 1500
+      }
+    ],
+    "features": [
+      "Durable Frame",
+      "Ergonomic Back Support"
+    ],
+    "image": "assets/products/visitor_6_1_2.png",
+    "diagram": null,
+    "specs": {
+      "Category": "Stools & Additional Seating",
+      "Application": "Utility & Laboratory"
+    }
+  },
+  {
+    "id": "visitor_6_2_1",
+    "name": "IMPORTED STOOL GOLD",
+    "category": "Stools & Additional Seating",
+    "price_display": "₹1,600",
+    "base_price": 1600,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 1600
+      }
+    ],
+    "features": [
+      "Durable Frame",
+      "Ergonomic Back Support"
+    ],
+    "image": "assets/products/visitor_6_2_1.png",
+    "diagram": null,
+    "specs": {
+      "Category": "Stools & Additional Seating",
+      "Application": "Utility & Laboratory"
+    }
+  },
+  {
+    "id": "visitor_6_2_2",
+    "name": "SS STOOL",
+    "category": "Stools & Additional Seating",
+    "price_display": "₹1,600",
+    "base_price": 1600,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 1600
+      }
+    ],
+    "features": [
+      "Durable Frame",
+      "Ergonomic Back Support"
+    ],
+    "image": "assets/products/visitor_6_2_2.png",
+    "diagram": null,
+    "specs": {
+      "Category": "Stools & Additional Seating",
+      "Application": "Utility & Laboratory"
+    }
+  },
+  {
+    "id": "visitor_6_3_1",
+    "name": "PP STOOL",
+    "category": "Stools & Additional Seating",
+    "price_display": "₹1,700",
+    "base_price": 1700,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 1700
+      }
+    ],
+    "features": [
+      "Durable Frame",
+      "Ergonomic Back Support",
+      "Heavy-Duty Polypropylene"
+    ],
+    "image": "assets/products/visitor_6_3_1.png",
+    "diagram": null,
+    "specs": {
+      "Category": "Stools & Additional Seating",
+      "Application": "Utility & Laboratory"
+    }
+  },
+  {
+    "id": "visitor_6_3_2",
+    "name": "VISITOR CHAIR (against order)",
+    "category": "Visitor Chairs",
+    "price_display": "₹4,400",
+    "base_price": 4400,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 4400
+      }
+    ],
+    "features": [
+      "Durable Frame",
+      "Ergonomic Back Support"
+    ],
+    "image": "assets/products/visitor_6_3_2.png",
+    "diagram": null,
+    "specs": {
+      "Category": "Visitor Chairs",
+      "Application": "Office Visitor & Conference"
+    }
+  },
+  {
+    "id": "visitor_6_4_1",
+    "name": "NEW VISITOR",
+    "category": "Visitor Chairs",
+    "price_display": "₹6,000",
+    "base_price": 6000,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 6000
+      }
+    ],
+    "features": [
+      "Durable Frame",
+      "Ergonomic Back Support"
+    ],
+    "image": "assets/products/visitor_6_4_1.png",
+    "diagram": null,
+    "specs": {
+      "Category": "Visitor Chairs",
+      "Application": "Office Visitor & Conference"
+    }
+  },
+  {
+    "id": "soft_p1_1",
+    "name": "LOUNGE DC 404",
+    "category": "Dining Chairs",
+    "price_display": "₹7,000",
+    "base_price": 7000,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 7000
+      }
+    ],
+    "features": [
+      "Premium Upholstery",
+      "Solid Craftsmanship"
+    ],
+    "image": "assets/products/soft_p1_1.png",
+    "diagram": "assets/diagrams/soft_p1_1_diag.png",
+    "specs": {
+      "Design": "Dining Chairs"
+    }
+  },
+  {
+    "id": "soft_p1_2",
+    "name": "LOUNGE DC 405",
+    "category": "Dining Chairs",
+    "price_display": "₹9,600",
+    "base_price": 9600,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 9600
+      }
+    ],
+    "features": [
+      "Premium Upholstery",
+      "Solid Craftsmanship"
+    ],
+    "image": "assets/products/soft_p1_2.png",
+    "diagram": "assets/diagrams/soft_p1_2_diag.png",
+    "specs": {
+      "Design": "Dining Chairs"
+    }
+  },
+  {
+    "id": "soft_p1_3",
+    "name": "LOUNGE DC 472",
+    "category": "Dining Chairs",
+    "price_display": "₹8,000",
+    "base_price": 8000,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 8000
+      }
+    ],
+    "features": [
+      "Premium Upholstery",
+      "Solid Craftsmanship"
+    ],
+    "image": "assets/products/soft_p1_3.png",
+    "diagram": "assets/diagrams/soft_p1_3_diag.png",
+    "specs": {
+      "Design": "Dining Chairs"
+    }
+  },
+  {
+    "id": "soft_p2_1",
+    "name": "LOUNGE DC 475",
+    "category": "Dining Chairs",
+    "price_display": "₹10,000",
+    "base_price": 10000,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 10000
+      }
+    ],
+    "features": [
+      "Premium Upholstery",
+      "Solid Craftsmanship"
+    ],
+    "image": "assets/products/soft_p2_1.png",
+    "diagram": "assets/diagrams/soft_p2_1_diag.png",
+    "specs": {
+      "Design": "Dining Chairs"
+    }
+  },
+  {
+    "id": "soft_p2_2",
+    "name": "LOUNGE DC 475 WOODEN FRAME",
+    "category": "Dining Chairs",
+    "price_display": "₹13,000",
+    "base_price": 13000,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 13000
+      }
+    ],
+    "features": [
+      "Premium Upholstery",
+      "Solid Craftsmanship",
+      "Natural Solid Wood Frame"
+    ],
+    "image": "assets/products/soft_p2_2.png",
+    "diagram": "assets/diagrams/soft_p2_2_diag.png",
+    "specs": {
+      "Design": "Dining Chairs"
+    }
+  },
+  {
+    "id": "soft_p2_3",
+    "name": "LOUNGE DC 476",
+    "category": "Dining Chairs",
+    "price_display": "₹11,000",
+    "base_price": 11000,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 11000
+      }
+    ],
+    "features": [
+      "Premium Upholstery",
+      "Solid Craftsmanship"
+    ],
+    "image": "assets/products/soft_p2_3.png",
+    "diagram": "assets/diagrams/soft_p2_3_diag.png",
+    "specs": {
+      "Design": "Dining Chairs"
+    }
+  },
+  {
+    "id": "soft_p2_4",
+    "name": "LOUNGE DC 478",
+    "category": "Dining Chairs",
+    "price_display": "₹11,000",
+    "base_price": 11000,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 11000
+      }
+    ],
+    "features": [
+      "Premium Upholstery",
+      "Solid Craftsmanship"
+    ],
+    "image": "assets/products/soft_p2_4.png",
+    "diagram": "assets/diagrams/soft_p2_4_diag.png",
+    "specs": {
+      "Design": "Dining Chairs"
+    }
+  },
+  {
+    "id": "soft_p3_1",
+    "name": "LOUNGE DC 479",
+    "category": "Dining Chairs",
+    "price_display": "₹12,000",
+    "base_price": 12000,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 12000
+      }
+    ],
+    "features": [
+      "Premium Upholstery",
+      "Solid Craftsmanship"
+    ],
+    "image": "assets/products/soft_p3_1.png",
+    "diagram": "assets/diagrams/soft_p3_1_diag.png",
+    "specs": {
+      "Design": "Dining Chairs"
+    }
+  },
+  {
+    "id": "soft_p3_2",
+    "name": "LOUNGE DC LUXE 483",
+    "category": "Dining Chairs",
+    "price_display": "₹20,000",
+    "base_price": 20000,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 20000
+      }
+    ],
+    "features": [
+      "Premium Upholstery",
+      "Solid Craftsmanship",
+      "High Comfort Cushioning"
+    ],
+    "image": "assets/products/soft_p3_2.png",
+    "diagram": "assets/diagrams/soft_p3_2_diag.png",
+    "specs": {
+      "Design": "Dining Chairs"
+    }
+  },
+  {
+    "id": "soft_p3_3",
+    "name": "LOUNGE DC LUXE 486",
+    "category": "Dining Chairs",
+    "price_display": "₹10,000",
+    "base_price": 10000,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 10000
+      }
+    ],
+    "features": [
+      "Premium Upholstery",
+      "Solid Craftsmanship",
+      "High Comfort Cushioning"
+    ],
+    "image": "assets/products/soft_p3_3.png",
+    "diagram": null,
+    "specs": {
+      "Design": "Dining Chairs"
+    }
+  },
+  {
+    "id": "soft_p3_4",
+    "name": "LOUNGE DC LUXE 487",
+    "category": "Dining Chairs",
+    "price_display": "₹10,500",
+    "base_price": 10500,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 10500
+      }
+    ],
+    "features": [
+      "Premium Upholstery",
+      "Solid Craftsmanship",
+      "High Comfort Cushioning"
+    ],
+    "image": "assets/products/soft_p3_4.png",
+    "diagram": null,
+    "specs": {
+      "Seat Depth": "490 mm",
+      "Seat width": "500 mm",
+      "Chair Depth": "520 mm",
+      "Chair width": "570 mm",
+      "Maximum chair height": "860 mm",
+      "Chair seat height": "470 mm"
+    }
+  },
+  {
+    "id": "soft_p4_1",
+    "name": "LOUNGE DC LUXE 489",
+    "category": "Dining Chairs",
+    "price_display": "₹9,000",
+    "base_price": 9000,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 9000
+      }
+    ],
+    "features": [
+      "Premium Upholstery",
+      "Solid Craftsmanship",
+      "High Comfort Cushioning"
+    ],
+    "image": "assets/products/soft_p4_1.png",
+    "diagram": null,
+    "specs": {
+      "Design": "Dining Chairs"
+    }
+  },
+  {
+    "id": "soft_p4_2",
+    "name": "LOUNGE DC LUXE 490",
+    "category": "Dining Chairs",
+    "price_display": "₹10,000",
+    "base_price": 10000,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 10000
+      }
+    ],
+    "features": [
+      "Premium Upholstery",
+      "Solid Craftsmanship",
+      "High Comfort Cushioning"
+    ],
+    "image": "assets/products/soft_p4_2.png",
+    "diagram": null,
+    "specs": {
+      "Seat Depth": "480 mm",
+      "Seat width": "500 mm",
+      "Chair Depth": "520 mm",
+      "Chair width": "600 mm",
+      "Maximum chair height": "930 mm",
+      "Chair seat height": "470 mm"
+    }
+  },
+  {
+    "id": "soft_p4_3",
+    "name": "LOUNGE DC LUXE 493",
+    "category": "Dining Chairs",
+    "price_display": "₹13,000",
+    "base_price": 13000,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 13000
+      }
+    ],
+    "features": [
+      "Premium Upholstery",
+      "Solid Craftsmanship",
+      "High Comfort Cushioning"
+    ],
+    "image": "assets/products/soft_p4_3.png",
+    "diagram": null,
+    "specs": {
+      "Design": "Dining Chairs"
+    }
+  },
+  {
+    "id": "soft_p4_4",
+    "name": "LOUNGE DC LUXE 494",
+    "category": "Dining Chairs",
+    "price_display": "₹13,000",
+    "base_price": 13000,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 13000
+      }
+    ],
+    "features": [
+      "Premium Upholstery",
+      "Solid Craftsmanship",
+      "High Comfort Cushioning"
+    ],
+    "image": "assets/products/soft_p4_4.png",
+    "diagram": null,
+    "specs": {
+      "Design": "Dining Chairs"
+    }
+  },
+  {
+    "id": "soft_p5_1",
+    "name": "LOUNGE DC LUXE 495",
+    "category": "Dining Chairs",
+    "price_display": "₹9,000",
+    "base_price": 9000,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 9000
+      }
+    ],
+    "features": [
+      "Premium Upholstery",
+      "Solid Craftsmanship",
+      "High Comfort Cushioning"
+    ],
+    "image": "assets/products/soft_p5_1.png",
+    "diagram": null,
+    "specs": {
+      "Seat Depth": "480 mm",
+      "Seat width": "480 mm",
+      "Chair Depth": "520 mm",
+      "Chair width": "500 mm",
+      "Maximum chair height": "930 mm",
+      "Chair seat height": "470 mm"
+    }
+  },
+  {
+    "id": "soft_p5_2",
+    "name": "LOUNGE DC",
+    "category": "Dining Chairs",
+    "price_display": "₹11,000",
+    "base_price": 11000,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 11000
+      }
+    ],
+    "features": [
+      "Premium Upholstery",
+      "Solid Craftsmanship"
+    ],
+    "image": "assets/products/soft_p5_2.png",
+    "diagram": "assets/diagrams/soft_p5_2_diag.png",
+    "specs": {
+      "Design": "Dining Chairs"
+    }
+  },
+  {
+    "id": "soft_p5_3",
+    "name": "LOUNGE DC",
+    "category": "Dining Chairs",
+    "price_display": "₹14,000",
+    "base_price": 14000,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 14000
+      }
+    ],
+    "features": [
+      "Premium Upholstery",
+      "Solid Craftsmanship"
+    ],
+    "image": "assets/products/soft_p5_3.png",
+    "diagram": "assets/diagrams/soft_p5_3_diag.png",
+    "specs": {
+      "Design": "Dining Chairs"
+    }
+  },
+  {
+    "id": "soft_p5_4",
+    "name": "LOUNGE DC",
+    "category": "Dining Chairs",
+    "price_display": "₹16,000",
+    "base_price": 16000,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 16000
+      }
+    ],
+    "features": [
+      "Premium Upholstery",
+      "Solid Craftsmanship"
+    ],
+    "image": "assets/products/soft_p5_4.png",
+    "diagram": null,
+    "specs": {
+      "Design": "Dining Chairs"
+    }
+  },
+  {
+    "id": "soft_p6_1",
+    "name": "Seating Model P6-1",
+    "category": "Dining Chairs",
+    "price_display": "₹16,000",
+    "base_price": 16000,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 16000
+      }
+    ],
+    "features": [
+      "Premium Upholstery",
+      "Solid Craftsmanship"
+    ],
+    "image": "assets/products/soft_p6_1.png",
+    "diagram": null,
+    "specs": {
+      "Design": "Dining Chairs"
+    }
+  },
+  {
+    "id": "soft_p6_2",
+    "name": "LOUNGE SUNFLOWER",
+    "category": "Lounge & Soft Seating",
+    "price_display": "₹17,000",
+    "base_price": 17000,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 17000
+      }
+    ],
+    "features": [
+      "Premium Upholstery",
+      "Solid Craftsmanship"
+    ],
+    "image": "assets/products/soft_p6_2.png",
+    "diagram": null,
+    "specs": {
+      "Design": "Lounge & Soft Seating"
+    }
+  },
+  {
+    "id": "soft_p6_3",
+    "name": "NEW DINING CHAIR",
+    "category": "Dining Chairs",
+    "price_display": "₹12,000",
+    "base_price": 12000,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 12000
+      }
+    ],
+    "features": [
+      "Premium Upholstery",
+      "Solid Craftsmanship"
+    ],
+    "image": "assets/products/soft_p6_3.png",
+    "diagram": null,
+    "specs": {
+      "Seat Depth": "490 mm",
+      "Seat width": "560 mm",
+      "Chair Depth": "540 mm",
+      "Chair width": "630mm",
+      "Maximum chair height": "940 mm",
+      "Chair seat height": "430 mm"
+    }
+  },
+  {
+    "id": "soft_p6_4",
+    "name": "ZARA WOODEN LEG",
+    "category": "Dining Chairs",
+    "price_display": "₹15,000",
+    "base_price": 15000,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 15000
+      }
+    ],
+    "features": [
+      "Premium Upholstery",
+      "Solid Craftsmanship",
+      "Natural Solid Wood Frame"
+    ],
+    "image": "assets/products/soft_p6_4.png",
+    "diagram": "assets/diagrams/soft_p6_4_diag.png",
+    "specs": {
+      "Design": "Dining Chairs"
+    }
+  },
+  {
+    "id": "soft_p7_1",
+    "name": "ALEX (Mould 2)",
+    "category": "Lounge & Soft Seating",
+    "price_display": "₹18,000",
+    "base_price": 18000,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 18000
+      }
+    ],
+    "features": [
+      "Premium Upholstery",
+      "Solid Craftsmanship"
+    ],
+    "image": "assets/products/soft_p7_1.png",
+    "diagram": "assets/diagrams/soft_p7_1_diag.png",
+    "specs": {
+      "Design": "Lounge & Soft Seating"
+    }
+  },
+  {
+    "id": "soft_p7_2",
+    "name": "BOSTON (Mould 4)",
+    "category": "Lounge & Soft Seating",
+    "price_display": "₹19,000",
+    "base_price": 19000,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 19000
+      }
+    ],
+    "features": [
+      "Premium Upholstery",
+      "Solid Craftsmanship"
+    ],
+    "image": "assets/products/soft_p7_2.png",
+    "diagram": "assets/diagrams/soft_p7_2_diag.png",
+    "specs": {
+      "Design": "Lounge & Soft Seating"
+    }
+  },
+  {
+    "id": "soft_p7_3",
+    "name": "ZARA (Mould 6)",
+    "category": "Lounge & Soft Seating",
+    "price_display": "₹15,000",
+    "base_price": 15000,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 15000
+      }
+    ],
+    "features": [
+      "Premium Upholstery",
+      "Solid Craftsmanship"
+    ],
+    "image": "assets/products/soft_p7_3.png",
+    "diagram": "assets/diagrams/soft_p7_3_diag.png",
+    "specs": {
+      "Design": "Lounge & Soft Seating"
+    }
+  },
+  {
+    "id": "soft_p7_4",
+    "name": "SWAN (Mould 7)",
+    "category": "Lounge & Soft Seating",
+    "price_display": "₹16,000",
+    "base_price": 16000,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 16000
+      }
+    ],
+    "features": [
+      "Premium Upholstery",
+      "Solid Craftsmanship"
+    ],
+    "image": "assets/products/soft_p7_4.png",
+    "diagram": "assets/diagrams/soft_p7_4_diag.png",
+    "specs": {
+      "Design": "Lounge & Soft Seating"
+    }
+  },
+  {
+    "id": "soft_p8_1",
+    "name": "KIWI (Mould 8)",
+    "category": "Lounge & Soft Seating",
+    "price_display": "₹16,000",
+    "base_price": 16000,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 16000
+      }
+    ],
+    "features": [
+      "Premium Upholstery",
+      "Solid Craftsmanship"
+    ],
+    "image": "assets/products/soft_p8_1.png",
+    "diagram": "assets/diagrams/soft_p8_1_diag.png",
+    "specs": {
+      "Design": "Lounge & Soft Seating"
+    }
+  },
+  {
+    "id": "soft_p8_2",
+    "name": "STAR (Mould 9)",
+    "category": "Lounge & Soft Seating",
+    "price_display": "₹16,000",
+    "base_price": 16000,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 16000
+      }
+    ],
+    "features": [
+      "Premium Upholstery",
+      "Solid Craftsmanship"
+    ],
+    "image": "assets/products/soft_p8_2.png",
+    "diagram": "assets/diagrams/soft_p8_2_diag.png",
+    "specs": {
+      "Design": "Lounge & Soft Seating"
+    }
+  },
+  {
+    "id": "soft_p8_3",
+    "name": "Model 10",
+    "category": "Lounge & Soft Seating",
+    "price_display": "₹22,000",
+    "base_price": 22000,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 22000
+      }
+    ],
+    "features": [
+      "Premium Upholstery",
+      "Solid Craftsmanship"
+    ],
+    "image": "assets/products/soft_p8_3.png",
+    "diagram": "assets/diagrams/soft_p8_3_diag.png",
+    "specs": {
+      "Design": "Lounge & Soft Seating"
+    }
+  },
+  {
+    "id": "soft_p8_4",
+    "name": "HEXA (Mould 11)",
+    "category": "Lounge & Soft Seating",
+    "price_display": "₹19,000",
+    "base_price": 19000,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 19000
+      }
+    ],
+    "features": [
+      "Premium Upholstery",
+      "Solid Craftsmanship"
+    ],
+    "image": "assets/products/soft_p8_4.png",
+    "diagram": "assets/diagrams/soft_p8_4_diag.png",
+    "specs": {
+      "Design": "Lounge & Soft Seating"
+    }
+  },
+  {
+    "id": "soft_p9_1",
+    "name": "KNOLL (Mould 12)",
+    "category": "Lounge & Soft Seating",
+    "price_display": "₹24,000",
+    "base_price": 24000,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 24000
+      }
+    ],
+    "features": [
+      "Premium Upholstery",
+      "Solid Craftsmanship"
+    ],
+    "image": "assets/products/soft_p9_1.png",
+    "diagram": "assets/diagrams/soft_p9_1_diag.png",
+    "specs": {
+      "Design": "Lounge & Soft Seating"
+    }
+  },
+  {
+    "id": "soft_p9_2",
+    "name": "BONNY (Mould 17)",
+    "category": "Lounge & Soft Seating",
+    "price_display": "₹15,000",
+    "base_price": 15000,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 15000
+      }
+    ],
+    "features": [
+      "Premium Upholstery",
+      "Solid Craftsmanship"
+    ],
+    "image": "assets/products/soft_p9_2.png",
+    "diagram": "assets/diagrams/soft_p9_2_diag.png",
+    "specs": {
+      "Design": "Lounge & Soft Seating"
+    }
+  },
+  {
+    "id": "soft_p9_3",
+    "name": "KING (Mould 20)",
+    "category": "Lounge & Soft Seating",
+    "price_display": "₹25,000",
+    "base_price": 25000,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 25000
+      }
+    ],
+    "features": [
+      "Premium Upholstery",
+      "Solid Craftsmanship"
+    ],
+    "image": "assets/products/soft_p9_3.png",
+    "diagram": "assets/diagrams/soft_p9_3_diag.png",
+    "specs": {
+      "Design": "Lounge & Soft Seating"
+    }
+  },
+  {
+    "id": "soft_p9_4",
+    "name": "ZETA (Mould 21)",
+    "category": "Lounge & Soft Seating",
+    "price_display": "₹18,000",
+    "base_price": 18000,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 18000
+      }
+    ],
+    "features": [
+      "Premium Upholstery",
+      "Solid Craftsmanship"
+    ],
+    "image": "assets/products/soft_p9_4.png",
+    "diagram": "assets/diagrams/soft_p9_4_diag.png",
+    "specs": {
+      "Design": "Lounge & Soft Seating"
+    }
+  },
+  {
+    "id": "soft_p10_1",
+    "name": "AMAYRA (Mould 24)",
+    "category": "Lounge & Soft Seating",
+    "price_display": "₹20,000",
+    "base_price": 20000,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 20000
+      }
+    ],
+    "features": [
+      "Premium Upholstery",
+      "Solid Craftsmanship"
+    ],
+    "image": "assets/products/soft_p10_1.png",
+    "diagram": "assets/diagrams/soft_p10_1_diag.png",
+    "specs": {
+      "Design": "Lounge & Soft Seating"
+    }
+  },
+  {
+    "id": "soft_p10_2",
+    "name": "LUV (Mould 25)",
+    "category": "Lounge & Soft Seating",
+    "price_display": "₹24,000",
+    "base_price": 24000,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 24000
+      }
+    ],
+    "features": [
+      "Premium Upholstery",
+      "Solid Craftsmanship"
+    ],
+    "image": "assets/products/soft_p10_2.png",
+    "diagram": "assets/diagrams/soft_p10_2_diag.png",
+    "specs": {
+      "Design": "Lounge & Soft Seating"
+    }
+  },
+  {
+    "id": "soft_p10_3",
+    "name": "KING 2 (Mould 27)",
+    "category": "Lounge & Soft Seating",
+    "price_display": "₹42,000",
+    "base_price": 42000,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 42000
+      }
+    ],
+    "features": [
+      "Premium Upholstery",
+      "Solid Craftsmanship"
+    ],
+    "image": "assets/products/soft_p10_3.png",
+    "diagram": "assets/diagrams/soft_p10_3_diag.png",
+    "specs": {
+      "Design": "Lounge & Soft Seating"
+    }
+  },
+  {
+    "id": "soft_p10_4",
+    "name": "DAYTON (Mould 28)",
+    "category": "Lounge & Soft Seating",
+    "price_display": "₹22,000",
+    "base_price": 22000,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 22000
+      }
+    ],
+    "features": [
+      "Premium Upholstery",
+      "Solid Craftsmanship"
+    ],
+    "image": "assets/products/soft_p10_4.png",
+    "diagram": "assets/diagrams/soft_p10_4_diag.png",
+    "specs": {
+      "Design": "Lounge & Soft Seating"
+    }
+  },
+  {
+    "id": "soft_p11_1",
+    "name": "TOLEDO",
+    "category": "Lounge & Soft Seating",
+    "price_display": "₹23,000",
+    "base_price": 23000,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 23000
+      }
+    ],
+    "features": [
+      "Premium Upholstery",
+      "Solid Craftsmanship"
+    ],
+    "image": "assets/products/soft_p11_1.png",
+    "diagram": "assets/diagrams/soft_p11_1_diag.png",
+    "specs": {
+      "Design": "Lounge & Soft Seating"
+    }
+  },
+  {
+    "id": "soft_p11_2",
+    "name": "WALTER",
+    "category": "Lounge & Soft Seating",
+    "price_display": "₹22,000",
+    "base_price": 22000,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 22000
+      }
+    ],
+    "features": [
+      "Premium Upholstery",
+      "Solid Craftsmanship"
+    ],
+    "image": "assets/products/soft_p11_2.png",
+    "diagram": "assets/diagrams/soft_p11_2_diag.png",
+    "specs": {
+      "Design": "Lounge & Soft Seating"
+    }
+  },
+  {
+    "id": "soft_p11_3",
+    "name": "SIAM",
+    "category": "Lounge & Soft Seating",
+    "price_display": "₹20,000",
+    "base_price": 20000,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 20000
+      }
+    ],
+    "features": [
+      "Premium Upholstery",
+      "Solid Craftsmanship"
+    ],
+    "image": "assets/products/soft_p11_3.png",
+    "diagram": "assets/diagrams/soft_p11_3_diag.png",
+    "specs": {
+      "Design": "Lounge & Soft Seating"
+    }
+  },
+  {
+    "id": "soft_p11_4",
+    "name": "STEFANO",
+    "category": "Lounge & Soft Seating",
+    "price_display": "₹19,000",
+    "base_price": 19000,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 19000
+      }
+    ],
+    "features": [
+      "Premium Upholstery",
+      "Solid Craftsmanship"
+    ],
+    "image": "assets/products/soft_p11_4.png",
+    "diagram": "assets/diagrams/soft_p11_4_diag.png",
+    "specs": {
+      "Design": "Lounge & Soft Seating"
+    }
+  },
+  {
+    "id": "soft_p12_1",
+    "name": "ROYAL LOUNGE ARMCHAIR",
+    "category": "Lounge & Soft Seating",
+    "price_display": "₹27,000",
+    "base_price": 27000,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 27000
+      }
+    ],
+    "features": [
+      "Premium Upholstery",
+      "Solid Craftsmanship"
+    ],
+    "image": "assets/products/soft_p12_1.png",
+    "diagram": null,
+    "specs": {
+      "Design": "Lounge & Soft Seating",
+      "Dimensions": "Available on request"
+    }
+  },
+  {
+    "id": "soft_p12_2",
+    "name": "GEMINI",
+    "category": "Lounge & Soft Seating",
+    "price_display": "₹23,500",
+    "base_price": 23500,
+    "options": [
+      {
+        "variant": "Standard",
+        "price": 23500
+      }
+    ],
+    "features": [
+      "Premium Upholstery",
+      "Solid Craftsmanship"
+    ],
+    "image": "assets/products/soft_p12_2.png",
+    "diagram": "assets/diagrams/soft_p12_2_diag.png",
+    "specs": {
+      "Design": "Lounge & Soft Seating"
+    }
+  }
+]
