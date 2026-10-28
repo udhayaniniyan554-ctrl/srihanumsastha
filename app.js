@@ -389,15 +389,20 @@
 
         <div class="modal-cta-box">
           <div class="modal-phone-btns">
-            <a href="tel:9688727284" class="btn btn-call-gold">
-              📞 Call 9688727284
+            <a href="tel:9688727284" class="btn btn-call-gold btn-call-primary">
+              📞 Call Now: 9688727284
             </a>
-            <a href="tel:8695706013" class="btn btn-dark">
-              📞 Call 8695706013
+            <a href="tel:8695706013" class="btn btn-call-gold btn-call-secondary">
+              📞 Call Now: 8695706013
+            </a>
+          </div>
+          <div style="margin-top: 0.85rem; text-align: center;">
+            <a href="mailto:srihanumsastha@gmail.com?subject=Enquiry%20for%20${encodeURIComponent(prod.display_name)}" style="color: #0284c7; font-size: 0.9rem; font-weight: 600; text-decoration: underline;">
+              ✉️ Email Enquiry: srihanumsastha@gmail.com
             </a>
           </div>
           <p class="modal-cta-note">
-            Mention product code <strong>"${escapeHtml(prod.display_name)}"</strong> when calling our Coimbatore office for quotation and stock availability.
+            Mention product code <strong>"${escapeHtml(prod.display_name)}"</strong> when contacting our Coimbatore office for quotation and stock availability.
           </p>
         </div>
       </div>

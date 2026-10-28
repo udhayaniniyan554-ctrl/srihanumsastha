@@ -63,15 +63,15 @@
 <body>
 
   <!-- Top Announcement Bar -->
-  <aside class="top-bar">
+  <aside class="top-bar" aria-label="Quick Contact Bar">
     <div class="container top-bar-content">
       <div class="top-bar-location">
-        📍 173, First Floor, KK Lane Street, Avinashi Road, Coimbatore
+        📍 173, First Floor, KK Lane Street, Avinashi Road, Coimbatore, Tamil Nadu – 641018
       </div>
       <div class="top-bar-phones">
-        <span>Direct Lines:</span>
-        <a href="tel:9688727284">📞 9688727284</a>
-        <a href="tel:8695706013">📞 8695706013</a>
+        <a href="mailto:srihanumsastha@gmail.com" class="top-bar-email" title="Email Sri Hanum Sastha Enterprises">✉️ srihanumsastha@gmail.com</a>
+        <a href="tel:9688727284" aria-label="Call 9688727284">📞 9688727284</a>
+        <a href="tel:8695706013" aria-label="Call 8695706013">📞 8695706013</a>
       </div>
     </div>
   </aside>
@@ -119,17 +119,33 @@
         Your trusted source for quality office, visitor, lounge, and dining chairs in Coimbatore.
       </p>
 
-      <div class="contact-grid-2col">
+      <div class="contact-grid-3col" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
         <!-- Address Block -->
         <div class="contact-block">
           <h3>📍 Showroom & Office</h3>
           <p>
             <strong>173, First Floor,</strong><br>
             KK Lane Street, Avinashi Road,<br>
-            Coimbatore, Tamil Nadu &ndash; 641018
+            Coimbatore, Tamil Nadu – 641018
           </p>
           <div style="margin-top: 1rem; font-size: 0.85rem; color: var(--accent-text); background: var(--accent-light); padding: 0.5rem 0.75rem; border-radius: var(--radius-sm); font-weight: 600;">
             Conveniently located on Avinashi Road
+          </div>
+        </div>
+
+        <!-- Email Block -->
+        <div class="contact-block">
+          <h3>✉️ Email Address</h3>
+          <p>
+            Send direct email inquiries for chair catalogues, quotations, and institutional orders:
+          </p>
+          <div style="margin-top: 0.85rem;">
+            <a href="mailto:srihanumsastha@gmail.com" class="footer-email-link" style="font-size: 1rem; color: #0284c7; font-weight: 700; text-decoration: underline; word-break: break-all;">
+              srihanumsastha@gmail.com
+            </a>
+          </div>
+          <div style="margin-top: 0.85rem; font-size: 0.85rem; color: #475569;">
+            Click to send an email inquiry directly.
           </div>
         </div>
 
@@ -137,14 +153,14 @@
         <div class="contact-block">
           <h3>📞 Telephone Lines</h3>
           <p>
-            Call us directly to check stock, confirm current prices, and place orders.
+            Call us directly to check stock, confirm current prices, and place orders:
           </p>
-          <div class="contact-btn-box">
-            <a href="tel:9688727284" class="btn btn-call-gold">
-              📞 Call 9688727284
+          <div class="contact-btn-box" style="margin-top: 0.85rem;">
+            <a href="tel:9688727284" class="btn btn-call-gold btn-call-primary" style="font-size: 0.875rem;">
+              📞 Call Now: 9688727284
             </a>
-            <a href="tel:8695706013" class="btn btn-dark">
-              📞 Call 8695706013
+            <a href="tel:8695706013" class="btn btn-call-gold btn-call-secondary" style="font-size: 0.875rem;">
+              📞 Call Now: 8695706013
             </a>
           </div>
         </div>
@@ -191,38 +207,60 @@
           </ul>
         </div>
 
-        <div class="footer-contact-box">
-          <h3 class="footer-title">Contact & Business Details</h3>
+        <!-- Column 3: Contact Us Section -->
+        <div class="footer-contact-box" id="contact">
+          <h3 class="footer-title">Contact Us</h3>
+          
           <div class="contact-detail-row">
-            <span class="contact-icon">🏢</span>
+            <span class="contact-icon" aria-hidden="true">🏢</span>
             <div class="contact-info-text">
               <strong>Company Name</strong>
-              <p>Sri Hanum Sastha Enterprises</p>
+              <p class="company-name-val">Sri Hanum Sastha Enterprises</p>
             </div>
           </div>
+
           <div class="contact-detail-row">
-            <span class="contact-icon">📍</span>
+            <span class="contact-icon" aria-hidden="true">📍</span>
             <div class="contact-info-text">
               <strong>Showroom & Office Address</strong>
-              <p>173, First Floor, KK Lane Street,<br>Avinashi Road, Coimbatore, 641018</p>
-            </div>
-          </div>
-          <div class="contact-detail-row">
-            <span class="contact-icon">📞</span>
-            <div class="contact-info-text">
-              <strong>Direct Phone Lines</strong>
-              <p>
-                <a href="tel:9688727284">9688727284</a> &bull; 
-                <a href="tel:8695706013">8695706013</a>
+              <p class="contact-address-val">
+                173, First Floor, KK Lane Street,<br>
+                Avinashi Road, Coimbatore,<br>
+                Tamil Nadu – 641018
               </p>
             </div>
           </div>
+
+          <div class="contact-detail-row">
+            <span class="contact-icon" aria-hidden="true">✉️</span>
+            <div class="contact-info-text">
+              <strong>Email Address</strong>
+              <p>
+                <a href="mailto:srihanumsastha@gmail.com" class="footer-email-link" title="Send email to Sri Hanum Sastha Enterprises">
+                  srihanumsastha@gmail.com
+                </a>
+              </p>
+            </div>
+          </div>
+
+          <div class="contact-detail-row">
+            <span class="contact-icon" aria-hidden="true">📞</span>
+            <div class="contact-info-text">
+              <strong>Direct Phone Lines</strong>
+              <p class="contact-phone-lines">
+                <span class="phone-item">Phone: <a href="tel:9688727284" class="phone-link">9688727284</a></span><br>
+                <span class="phone-item">Alternate Phone: <a href="tel:8695706013" class="phone-link">8695706013</a></span>
+              </p>
+            </div>
+          </div>
+
+          <!-- Separate Dedicated Call Now Buttons -->
           <div class="footer-call-buttons">
-            <a href="tel:9688727284" class="btn btn-call-gold">
-              📞 Call 9688727284
+            <a href="tel:9688727284" class="btn btn-call-gold btn-call-primary" aria-label="Call Now 9688727284">
+              📞 Call Now: 9688727284
             </a>
-            <a href="tel:8695706013" class="btn btn-call-gold" style="background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); border: 1px solid rgba(245, 158, 11, 0.4);">
-              📞 Call 8695706013
+            <a href="tel:8695706013" class="btn btn-call-gold btn-call-secondary" aria-label="Call Now 8695706013">
+              📞 Call Now: 8695706013
             </a>
           </div>
         </div>

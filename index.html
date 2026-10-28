@@ -16,10 +16,10 @@
   <aside class="top-bar" aria-label="Quick Contact Bar">
     <div class="container top-bar-content">
       <div class="top-bar-location">
-        📍 173, First Floor, KK Lane Street, Avinashi Road, Coimbatore
+        📍 173, First Floor, KK Lane Street, Avinashi Road, Coimbatore, Tamil Nadu – 641018
       </div>
       <div class="top-bar-phones">
-        <span>Direct Catalogue Inquiries:</span>
+        <a href="mailto:srihanumsastha@gmail.com" class="top-bar-email" title="Email Sri Hanum Sastha Enterprises">✉️ srihanumsastha@gmail.com</a>
         <a href="tel:9688727284" aria-label="Call 9688727284">📞 9688727284</a>
         <a href="tel:8695706013" aria-label="Call 8695706013">📞 8695706013</a>
       </div>
@@ -79,13 +79,21 @@
 
     <div style="margin-top: auto; padding-top: 2rem; display: flex; flex-direction: column; gap: 0.75rem;">
       <div style="font-size: 0.8125rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">
-        Call Business Directly:
+        Contact Us Directly:
       </div>
-      <a href="tel:9688727284" class="btn btn-call-gold">
-        📞 Call 9688727284
+      <div style="font-size: 0.8125rem; color: #64748b; line-height: 1.4;">
+        173, First Floor, KK Lane Street,<br>
+        Avinashi Road, Coimbatore,<br>
+        Tamil Nadu – 641018
+      </div>
+      <a href="mailto:srihanumsastha@gmail.com" style="color: #0284c7; font-size: 0.875rem; font-weight: 600; text-decoration: underline;">
+        ✉️ srihanumsastha@gmail.com
       </a>
-      <a href="tel:8695706013" class="btn btn-dark">
-        📞 Call 8695706013
+      <a href="tel:9688727284" class="btn btn-call-gold btn-call-primary">
+        📞 Call Now: 9688727284
+      </a>
+      <a href="tel:8695706013" class="btn btn-call-gold btn-call-secondary">
+        📞 Call Now: 8695706013
       </a>
     </div>
   </aside>
@@ -296,44 +304,60 @@
           </ul>
         </div>
 
-        <!-- Column 3: Contact & Business Details (Prompt Section 6) -->
-        <div class="footer-contact-box">
-          <h3 class="footer-title">Contact & Business Details</h3>
+        <!-- Column 3: Contact Us Section -->
+        <div class="footer-contact-box" id="footer-contact">
+          <h3 class="footer-title">Contact Us</h3>
           
           <div class="contact-detail-row">
-            <span class="contact-icon">🏢</span>
+            <span class="contact-icon" aria-hidden="true">🏢</span>
             <div class="contact-info-text">
               <strong>Company Name</strong>
-              <p>Sri Hanum Sastha Enterprises</p>
+              <p class="company-name-val">Sri Hanum Sastha Enterprises</p>
             </div>
           </div>
 
           <div class="contact-detail-row">
-            <span class="contact-icon">📍</span>
+            <span class="contact-icon" aria-hidden="true">📍</span>
             <div class="contact-info-text">
               <strong>Showroom & Office Address</strong>
-              <p>173, First Floor, KK Lane Street,<br>Avinashi Road, Coimbatore, 641018</p>
-            </div>
-          </div>
-
-          <div class="contact-detail-row">
-            <span class="contact-icon">📞</span>
-            <div class="contact-info-text">
-              <strong>Direct Phone Lines</strong>
-              <p>
-                <a href="tel:9688727284" class="phone-link">9688727284</a> &bull; 
-                <a href="tel:8695706013" class="phone-link">8695706013</a>
+              <p class="contact-address-val">
+                173, First Floor, KK Lane Street,<br>
+                Avinashi Road, Coimbatore,<br>
+                Tamil Nadu – 641018
               </p>
             </div>
           </div>
 
-          <!-- Separate Dedicated Call Buttons -->
+          <div class="contact-detail-row">
+            <span class="contact-icon" aria-hidden="true">✉️</span>
+            <div class="contact-info-text">
+              <strong>Email Address</strong>
+              <p>
+                <a href="mailto:srihanumsastha@gmail.com" class="footer-email-link" title="Send email to Sri Hanum Sastha Enterprises">
+                  srihanumsastha@gmail.com
+                </a>
+              </p>
+            </div>
+          </div>
+
+          <div class="contact-detail-row">
+            <span class="contact-icon" aria-hidden="true">📞</span>
+            <div class="contact-info-text">
+              <strong>Direct Phone Lines</strong>
+              <p class="contact-phone-lines">
+                <span class="phone-item">Phone: <a href="tel:9688727284" class="phone-link">9688727284</a></span><br>
+                <span class="phone-item">Alternate Phone: <a href="tel:8695706013" class="phone-link">8695706013</a></span>
+              </p>
+            </div>
+          </div>
+
+          <!-- Separate Dedicated Call Now Buttons -->
           <div class="footer-call-buttons">
-            <a href="tel:9688727284" class="btn btn-call-gold">
-              📞 Call 9688727284
+            <a href="tel:9688727284" class="btn btn-call-gold btn-call-primary" aria-label="Call Now 9688727284">
+              📞 Call Now: 9688727284
             </a>
-            <a href="tel:8695706013" class="btn btn-call-gold" style="background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); border: 1px solid rgba(245, 158, 11, 0.4);">
-              📞 Call 8695706013
+            <a href="tel:8695706013" class="btn btn-call-gold btn-call-secondary" aria-label="Call Now 8695706013">
+              📞 Call Now: 8695706013
             </a>
           </div>
         </div>
