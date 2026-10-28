@@ -112,14 +112,14 @@
         <div class="search-sort-row">
           <div class="search-box">
             <span class="search-icon">🔍</span>
-            <input type="text" id="searchBar" placeholder="Search models within this category..." aria-label="Search models">
+            <input type="text" id="searchBar" placeholder="Search by product code (e.g. SHSE(1))..." aria-label="Search models">
           </div>
           <div class="sort-box">
             <select id="sortSelect">
               <option value="default">Sort: Catalogue Order</option>
+              <option value="code-asc">Code: Sequential Order</option>
               <option value="price-low">Price: Low to High</option>
               <option value="price-high">Price: High to Low</option>
-              <option value="name-asc">Model Name (A-Z)</option>
             </select>
           </div>
         </div>
@@ -142,8 +142,8 @@
 
       <div class="empty-state" id="emptyState" style="display: none;">
         <div class="empty-state-icon">🔍</div>
-        <h3>No chairs found in this category matching your search</h3>
-        <p>Try clearing your search term or exploring all categories.</p>
+        <h3>No chairs found matching your search</h3>
+        <p>Try searching for a product code such as SHSE(1) or exploring all categories.</p>
         <button class="btn btn-outline" onclick="document.getElementById('btnResetFilter').click()">
           Reset Search
         </button>
@@ -185,12 +185,12 @@
         <div>
           <h3 class="footer-title">Chair Categories</h3>
           <ul class="footer-links">
-            <li><a href="category.html?cat=office">Office Chairs (122)</a></li>
+            <li><a href="category.html?cat=office">Office Chairs (128)</a></li>
             <li><a href="category.html?cat=visitor">Visitor Chairs (48)</a></li>
             <li><a href="category.html?cat=lounge">Lounge & Soft Seating (24)</a></li>
             <li><a href="category.html?cat=dining">Dining Chairs (21)</a></li>
             <li><a href="category.html?cat=stools">Stools & Additional Seating (7)</a></li>
-            <li><a href="index.html#catalogue">Full Catalogue Index</a></li>
+            <li><a href="index.html#catalogue">Full Catalogue Index (228)</a></li>
           </ul>
         </div>
 
@@ -245,7 +245,6 @@
   <script>
     document.getElementById('currentYearCat').textContent = new Date().getFullYear();
 
-    // Map URL param ?cat=xxx to actual category name
     const params = new URLSearchParams(window.location.search);
     const catParam = (params.get('cat') || '').toLowerCase();
     const catMap = {
@@ -258,14 +257,12 @@
 
     const targetCategory = catMap[catParam] || 'all';
 
-    // Update Header active link
     if (catParam === 'office') document.getElementById('navOffice')?.classList.add('active');
     else if (catParam === 'visitor') document.getElementById('navVisitor')?.classList.add('active');
     else if (catParam === 'lounge') document.getElementById('navLounge')?.classList.add('active');
     else if (catParam === 'dining') document.getElementById('navDining')?.classList.add('active');
     else if (catParam === 'stools') document.getElementById('navStools')?.classList.add('active');
 
-    // Update Page Hero
     if (targetCategory !== 'all') {
       document.title = `${targetCategory} | Sri Hanum Sastha Enterprises`;
       document.getElementById('categoryTitle').textContent = targetCategory;
@@ -274,7 +271,6 @@
   </script>
   <script src="app.js"></script>
   <script>
-    // Set initial category after app loads
     window.addEventListener('load', () => {
       if (targetCategory !== 'all' && window.catalogApp) {
         window.catalogApp.setCategory(targetCategory);

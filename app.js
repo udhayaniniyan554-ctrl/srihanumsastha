@@ -1,6 +1,7 @@
 /**
  * Sri Hanum Sastha Enterprises - Catalogue Application Engine
  * Fast, Reactive, Robust Vanilla JS
+ * Strictly displays only SHSE codes (e.g. Office Chairs — SHSE(1))
  */
 
 (function () {
@@ -79,13 +80,13 @@
   function renderCategoryCards() {
     if (!el.categoryCardsContainer) return;
     
-    // Category preview images from our actual extracted products
+    // Representative category preview images
     const catImages = {
       'Office Chairs': 'assets/products/office_1_1.png',
-      'Visitor Chairs': 'assets/products/vchair_p1_r1_c1.png',
+      'Visitor Chairs': 'assets/products/visitor_1_1_1.png',
       'Lounge & Soft Seating': 'assets/products/soft_p7_1.png',
       'Dining Chairs': 'assets/products/soft_p1_1.png',
-      'Stools & Additional Seating': 'assets/products/vchair_p6_r1_c1.png'
+      'Stools & Additional Seating': 'assets/products/visitor_6_1_1.png'
     };
 
     const cardsHtml = state.categories.filter(c => c.id !== 'all').map(cat => {
@@ -96,7 +97,7 @@
       return `
         <div class="category-card ${isActive ? 'active' : ''}" data-category="${cat.id}">
           <div class="category-icon-box">
-            <img src="${imgSrc}" alt="${cat.name}" onerror="this.src='assets/placeholder.svg'" loading="lazy">
+            <img src="${imgSrc}" alt="${cat.name} Collection" onerror="this.src='assets/placeholder.svg'" loading="lazy">
           </div>
           <h3 class="category-name">${cat.name}</h3>
           <span class="category-count">${count} Models</span>
@@ -106,7 +107,6 @@
 
     el.categoryCardsContainer.innerHTML = cardsHtml;
 
-    // Attach click events
     el.categoryCardsContainer.querySelectorAll('.category-card').forEach(card => {
       card.addEventListener('click', () => {
         const catId = card.getAttribute('data-category');
@@ -148,7 +148,6 @@
     state.selectedCategory = catId;
     state.currentPage = 1;
 
-    // Update URL hash without jumping
     const catObj = state.categories.find(c => c.id === catId);
     if (catObj && catObj.hash) {
       history.replaceState(null, '', `#${catObj.hash}`);
@@ -156,7 +155,6 @@
       history.replaceState(null, '', window.location.pathname);
     }
 
-    // Update UI highlights
     updateActiveFilterUI();
     applyFiltersAndSort();
   }
@@ -177,7 +175,7 @@
     }
   }
 
-  // 5. Apply Filtering, Searching & Sorting
+  // 5. Apply Filtering, Searching & Sorting (STRICTLY HIDES ORIGINAL MODEL NAMES)
   function applyFiltersAndSort() {
     let result = [...state.allProducts];
 
@@ -186,14 +184,16 @@
       result = result.filter(p => p.category === state.selectedCategory);
     }
 
-    // Filter by Search Query
+    // Filter by Search Query (SEARCH ONLY CODES, CATEGORIES, AND FEATURES)
     if (state.searchQuery.trim()) {
       const q = state.searchQuery.toLowerCase().trim();
       result = result.filter(p => {
-        const nameMatch = p.name.toLowerCase().includes(q);
+        const codeMatch = p.code.toLowerCase().includes(q) || String(p.code_number) === q;
+        const displayNameMatch = p.display_name.toLowerCase().includes(q);
         const catMatch = p.category.toLowerCase().includes(q);
         const optMatch = p.options && p.options.some(o => o.variant.toLowerCase().includes(q));
-        return nameMatch || catMatch || optMatch;
+        const featMatch = p.features && p.features.some(f => f.toLowerCase().includes(q));
+        return codeMatch || displayNameMatch || catMatch || optMatch || featMatch;
       });
     }
 
@@ -202,8 +202,8 @@
       result.sort((a, b) => (a.base_price || 999999) - (b.base_price || 999999));
     } else if (state.sortBy === 'price-high') {
       result.sort((a, b) => (b.base_price || 0) - (a.base_price || 0));
-    } else if (state.sortBy === 'name-asc') {
-      result.sort((a, b) => a.name.localeCompare(b.name));
+    } else if (state.sortBy === 'code-asc') {
+      result.sort((a, b) => a.code_number - b.code_number);
     }
 
     state.filteredProducts = result;
@@ -211,7 +211,7 @@
     updateToolbarStatus();
   }
 
-  // 6. Render Product Cards Grid
+  // 6. Render Product Cards Grid (Displaying ONLY SHSE Codes)
   function renderProducts() {
     if (!el.productsGrid) return;
 
@@ -230,7 +230,6 @@
     const paginatedItems = state.filteredProducts.slice(0, totalToShow);
 
     const cardsHtml = paginatedItems.map(p => {
-      // Variants pill preview
       let variantsHtml = '';
       if (p.options && p.options.length > 1) {
         variantsHtml = p.options.slice(0, 3).map(o => `
@@ -252,11 +251,13 @@
           <div class="product-image-canvas" onclick="window.catalogApp.openModal('${p.id}')">
             <span class="product-category-badge">${escapeHtml(p.category)}</span>
             ${hasDiagram ? `<span class="diagram-indicator" title="Technical schematic available">📐 Specs</span>` : ''}
-            <img src="${p.image}" alt="${escapeHtml(p.name)}" onerror="this.src='assets/placeholder.svg'" loading="lazy">
+            <img src="${p.image}" alt="${escapeHtml(p.display_name)}" onerror="this.src='assets/placeholder.svg'" loading="lazy">
           </div>
           
           <div class="product-content">
-            <h3 class="product-name" title="${escapeHtml(p.name)}">${escapeHtml(p.name)}</h3>
+            <h3 class="product-name" title="${escapeHtml(p.display_name)}">
+              ${escapeHtml(p.display_name)}
+            </h3>
             
             <div class="product-price-row">
               <span class="product-price-label">Catalogue Rate</span>
@@ -282,7 +283,6 @@
 
     el.productsGrid.innerHTML = cardsHtml;
 
-    // Load More Visibility
     if (el.loadMoreContainer) {
       if (totalToShow < state.filteredProducts.length) {
         el.loadMoreContainer.style.display = 'flex';
@@ -308,7 +308,7 @@
     }
   }
 
-  // 8. Open Product Modal
+  // 8. Open Product Modal (ONLY Displays SHSE Code & Specifications)
   function openModal(productId) {
     const prod = state.allProducts.find(p => p.id === productId);
     if (!prod || !el.productModal) return;
@@ -337,7 +337,7 @@
       diagramHtml = `
         <div class="modal-diagram-box">
           <h4>Technical Schematic & Dimensions</h4>
-          <img src="${prod.diagram}" alt="${escapeHtml(prod.name)} Dimensions" onerror="this.style.display='none'">
+          <img src="${prod.diagram}" alt="${escapeHtml(prod.display_name)} Dimensions" onerror="this.style.display='none'">
         </div>
       `;
     }
@@ -345,21 +345,21 @@
     const modalBodyHtml = `
       <div class="modal-gallery">
         <div class="modal-main-img">
-          <img src="${prod.image}" alt="${escapeHtml(prod.name)}" onerror="this.src='assets/placeholder.svg'">
+          <img src="${prod.image}" alt="${escapeHtml(prod.display_name)}" onerror="this.src='assets/placeholder.svg'">
         </div>
         ${diagramHtml}
       </div>
 
       <div class="modal-details">
         <span class="modal-category">${escapeHtml(prod.category)}</span>
-        <h2 class="modal-title">${escapeHtml(prod.name)}</h2>
+        <h2 class="modal-title">${escapeHtml(prod.display_name)}</h2>
 
         <div class="modal-price-box">
           <div>
             <span style="font-size: 0.8rem; text-transform: uppercase; color: var(--accent-text); font-weight: 700;">Starting Listed Price</span>
             <div class="price-num">${prod.price_display}</div>
           </div>
-          <span style="font-size: 0.8rem; color: var(--accent-text); text-align: right; max-width: 140px; line-height: 1.3;">Confirm final price via direct call</span>
+          <span style="font-size: 0.8rem; color: var(--accent-text); text-align: right; max-width: 150px; line-height: 1.3;">Confirm current rate via direct call</span>
         </div>
 
         ${optionsRows ? `
@@ -380,6 +380,9 @@
         ${specsRows ? `
           <h4 style="font-size: 0.875rem; text-transform: uppercase; color: var(--primary); margin-bottom: 0.5rem; letter-spacing: 0.5px;">Technical Specifications</h4>
           <div class="modal-specs-list">
+            <div class="spec-item">
+              <strong>Product Code:</strong> <span>${escapeHtml(prod.code)}</span>
+            </div>
             ${specsRows}
           </div>
         ` : ''}
@@ -394,7 +397,7 @@
             </a>
           </div>
           <p class="modal-cta-note">
-            Mention model <strong>"${escapeHtml(prod.name)}"</strong> when calling for instant availability and corporate quotation.
+            Mention product code <strong>"${escapeHtml(prod.display_name)}"</strong> when calling our Coimbatore office for quotation and stock availability.
           </p>
         </div>
       </div>
@@ -415,7 +418,6 @@
 
   // 9. Setup Event Listeners
   function setupEventListeners() {
-    // Search input
     if (el.searchBar) {
       el.searchBar.addEventListener('input', (e) => {
         state.searchQuery = e.target.value;
@@ -424,7 +426,6 @@
       });
     }
 
-    // Sort select
     if (el.sortSelect) {
       el.sortSelect.addEventListener('change', (e) => {
         state.sortBy = e.target.value;
@@ -432,7 +433,6 @@
       });
     }
 
-    // Reset filters
     if (el.btnResetFilter) {
       el.btnResetFilter.addEventListener('click', () => {
         state.selectedCategory = 'all';
@@ -445,7 +445,6 @@
       });
     }
 
-    // Load More button
     if (el.btnLoadMore) {
       el.btnLoadMore.addEventListener('click', () => {
         state.currentPage++;
@@ -453,7 +452,6 @@
       });
     }
 
-    // Modal close
     if (el.modalCloseBtn) {
       el.modalCloseBtn.addEventListener('click', closeModal);
     }
@@ -466,7 +464,6 @@
       if (e.key === 'Escape') closeModal();
     });
 
-    // Mobile Drawer
     if (el.mobileToggle && el.mobileDrawer) {
       el.mobileToggle.addEventListener('click', () => {
         el.mobileDrawer.classList.add('open');
@@ -480,7 +477,6 @@
       el.drawerBackdrop.addEventListener('click', closeDrawer);
     }
 
-    // Mobile nav links
     document.querySelectorAll('.mobile-nav-link').forEach(link => {
       link.addEventListener('click', (e) => {
         const cat = link.getAttribute('data-category');
@@ -493,7 +489,6 @@
       });
     });
 
-    // Desktop nav links with data-category
     document.querySelectorAll('.nav-link[data-category]').forEach(link => {
       link.addEventListener('click', (e) => {
         e.preventDefault();
@@ -503,7 +498,6 @@
       });
     });
 
-    // Listen to hash changes (e.g. back/forward browser buttons)
     window.addEventListener('hashchange', handleInitialHash);
   }
 
@@ -520,7 +514,6 @@
     }
   }
 
-  // 10. URL Hash Handler
   function handleInitialHash() {
     const hash = window.location.hash.replace('#', '');
     if (!hash) return;
@@ -549,14 +542,12 @@
       .replace(/'/g, '&#39;');
   }
 
-  // Expose global app object for inline handlers
   window.catalogApp = {
     openModal,
     closeModal,
     setCategory
   };
 
-  // Start app when DOM is ready
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {

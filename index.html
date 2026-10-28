@@ -106,7 +106,7 @@
 
         <div class="hero-cta">
           <a href="#catalogue" class="btn btn-primary btn-lg">
-            Browse Catalogue (222 Models) ↓
+            Browse Catalogue (228 Models) ↓
           </a>
           <a href="tel:9688727284" class="btn btn-outline btn-lg" style="color: #ffffff; border-color: rgba(255,255,255,0.3);">
             📞 Call 9688727284
@@ -115,7 +115,7 @@
 
         <div class="hero-stats">
           <div class="stat-item">
-            <h3>222+</h3>
+            <h3>228+</h3>
             <p>Catalogue Models</p>
           </div>
           <div class="stat-item">
@@ -130,11 +130,11 @@
       </div>
 
       <div class="hero-image-card">
-        <img src="assets/products/office_1_1.png" alt="Featured Ergonomic Chair ATLAS/3G" id="heroFeaturedImg" onerror="this.src='assets/placeholder.svg'">
+        <img src="assets/products/office_1_1.png" alt="Office Chairs — SHSE(1)" id="heroFeaturedImg" onerror="this.src='assets/placeholder.svg'">
         <div class="hero-card-tag">
           <span>⭐</span>
           <div>
-            <strong>ATLAS / 3G Series</strong>
+            <strong>Office Chairs — SHSE(1)</strong>
             <p style="font-size: 0.75rem; color: #cbd5e1; margin: 0;">Ergonomic Task Seating • From ₹4,800</p>
           </div>
         </div>
@@ -142,7 +142,7 @@
     </div>
   </section>
 
-  <!-- Notice Banner: Prices May Change (Prompt Section 7) -->
+  <!-- Notice Banner: Prices May Change (Prompt Requirement) -->
   <div class="notice-banner" role="status">
     <div class="container notice-content">
       <span class="notice-icon">📢</span>
@@ -175,14 +175,14 @@
         <div class="search-sort-row">
           <div class="search-box">
             <span class="search-icon">🔍</span>
-            <input type="text" id="searchBar" placeholder="Search by chair model (e.g., ATLAS, CASANOVA, 4G, ALEX, FLOWER)..." aria-label="Search chair models">
+            <input type="text" id="searchBar" placeholder="Search by product code (e.g., SHSE(1), SHSE(25)) or category..." aria-label="Search chair models">
           </div>
           <div class="sort-box">
             <select id="sortSelect" aria-label="Sort products">
               <option value="default">Sort: Catalogue Order</option>
+              <option value="code-asc">Code: Sequential Order</option>
               <option value="price-low">Price: Low to High</option>
               <option value="price-high">Price: High to Low</option>
-              <option value="name-asc">Model Name (A-Z)</option>
             </select>
           </div>
         </div>
@@ -205,14 +205,14 @@
 
       <!-- Products Grid -->
       <div class="products-grid" id="productsGrid">
-        <!-- 222 Product cards rendered dynamically by app.js -->
+        <!-- 228 Product cards rendered dynamically by app.js -->
       </div>
 
       <!-- Empty State -->
       <div class="empty-state" id="emptyState" style="display: none;">
         <div class="empty-state-icon">🔍</div>
         <h3>No matching chairs found</h3>
-        <p>Try searching for a different model name or resetting the active category filter.</p>
+        <p>Try searching for a product code such as SHSE(1) or resetting the active category filter.</p>
         <button class="btn btn-outline" onclick="document.getElementById('btnResetFilter').click()">
           Reset Search & Filters
         </button>
@@ -220,7 +220,7 @@
 
       <!-- Pagination / Load More -->
       <div class="pagination-container" id="loadMoreContainer" style="display: none;">
-        <span class="pagination-info" id="paginationInfo">Showing 24 of 222 models</span>
+        <span class="pagination-info" id="paginationInfo">Showing 24 of 228 models</span>
         <button class="btn btn-dark btn-lg" id="btnLoadMore">
           Load More Chairs ↓
         </button>
@@ -235,7 +235,7 @@
         <div class="prop-card">
           <div class="prop-icon">🪑</div>
           <h4>Genuine Catalogue Models</h4>
-          <p>Every product shown reflects actual catalogue photographs, authentic model codes, and listed manufacturer prices.</p>
+          <p>Every product shown reflects authentic catalogue photographs, precise SHSE identification codes, and official listed prices.</p>
         </div>
         <div class="prop-card">
           <div class="prop-icon">⚙️</div>
@@ -287,12 +287,12 @@
         <div>
           <h3 class="footer-title">Chair Categories</h3>
           <ul class="footer-links">
-            <li><a href="#office-chairs" onclick="window.catalogApp.setCategory('Office Chairs')">Office Chairs (122)</a></li>
+            <li><a href="#office-chairs" onclick="window.catalogApp.setCategory('Office Chairs')">Office Chairs (128)</a></li>
             <li><a href="#visitor-chairs" onclick="window.catalogApp.setCategory('Visitor Chairs')">Visitor Chairs (48)</a></li>
             <li><a href="#lounge-seating" onclick="window.catalogApp.setCategory('Lounge & Soft Seating')">Lounge & Soft Seating (24)</a></li>
             <li><a href="#dining-chairs" onclick="window.catalogApp.setCategory('Dining Chairs')">Dining Chairs (21)</a></li>
             <li><a href="#stools-seating" onclick="window.catalogApp.setCategory('Stools & Additional Seating')">Stools & Additional Seating (7)</a></li>
-            <li><a href="#catalogue">Full Catalogue Index</a></li>
+            <li><a href="#catalogue">Full Catalogue Index (228)</a></li>
           </ul>
         </div>
 
@@ -327,7 +327,7 @@
             </div>
           </div>
 
-          <!-- Separate Dedicated Call Buttons (Prompt Section 6 Requirement) -->
+          <!-- Separate Dedicated Call Buttons -->
           <div class="footer-call-buttons">
             <a href="tel:9688727284" class="btn btn-call-gold">
               📞 Call 9688727284
