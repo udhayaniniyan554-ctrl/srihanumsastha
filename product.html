@@ -185,8 +185,7 @@
             <a href="category.html?cat=office" class="detail-cat-link" id="productCategory">Office Chairs</a>
             <h1 class="detail-title" id="productTitle">Chair Model</h1>
             <div class="detail-code-pills">
-              <span class="detail-code-badge" id="productCodePill">Code: SHSE(1)</span>
-              <span class="detail-code-badge">Model: <strong id="productModelName">ATLAS</strong></span>
+              <span class="detail-code-badge" id="productModelPill">Factory Model: <strong id="productModelName">ATLAS</strong></span>
               <span class="detail-code-badge" style="color: var(--forest-green); font-weight: 700;">✓ Genuine PDF Photo</span>
             </div>
           </div>
@@ -491,28 +490,39 @@
         viewed.unshift(prod.id);
         localStorage.setItem('shse_recently_viewed', JSON.stringify(viewed.slice(0, 8)));
 
+        const CAT_PREFIX = {
+          'Office Chairs': 'OFFICE CHAIRS',
+          'Visitor Chairs': 'VISITOR CHAIRS',
+          'Lounge & Soft Seating': 'LOUNGE CHAIRS',
+          'Dining Chairs': 'DINING CHAIRS',
+          'Stools & Additional Seating': 'STOOLS'
+        };
+
         const modelName = prod._internal_model || '';
-        const displayCode = prod.code || `SHSE(${prod.code_number || 1})`;
         const catName = prod.category || 'Office Chairs';
+        const prefix = CAT_PREFIX[catName] || (catName ? catName.toUpperCase() : 'CHAIRS');
+        const codeNum = prod.code_number || (prod.code ? prod.code.replace(/\D/g, '') : '1');
+        const formattedTitle = prod.display_name || `${prefix}  SHSE ${codeNum}`;
 
         // Page title & Breadcrumbs
-        document.title = `${displayCode} ${modelName ? '• ' + modelName : ''} | Sri Hanum Sastha Enterprises`;
-        document.getElementById('crumbCurrent').textContent = `${displayCode} ${modelName ? '— ' + modelName : ''}`;
+        document.title = `${formattedTitle} | Sri Hanum Sastha Enterprises`;
+        document.getElementById('crumbCurrent').textContent = formattedTitle;
         document.getElementById('crumbCatLink').textContent = catName;
         const catSlug = catName.toLowerCase().split(' ')[0];
         document.getElementById('crumbCatLink').href = `category.html?cat=${catSlug}`;
 
         // Header Info
         document.getElementById('productCategory').textContent = catName;
-        document.getElementById('productTitle').textContent = `${displayCode} ${modelName ? '— ' + modelName : ''}`;
+        document.getElementById('productTitle').textContent = formattedTitle;
         document.getElementById('productModelName').textContent = modelName || 'Standard';
-        document.getElementById('productCodePill').textContent = `Code: ${displayCode}`;
-        document.getElementById('badgeTag').textContent = `${displayCode}`;
+        const codePill = document.getElementById('productCodePill');
+        if (codePill) codePill.style.display = 'none'; // Uniform naming in productTitle, no separate highlighted code badge
+        document.getElementById('badgeTag').textContent = formattedTitle;
 
         // Main Image
         const mainImg = document.getElementById('mainImage');
         mainImg.src = prod.image || 'assets/placeholder.svg';
-        mainImg.alt = `${catName} - ${displayCode} (${modelName})`;
+        mainImg.alt = `${formattedTitle}${modelName ? ' (' + modelName + ')' : ''}`;
 
         // Lightbox trigger on canvas click
         const canvasBox = document.getElementById('mainCanvasBox');
@@ -523,7 +533,7 @@
             const lightboxCaption = document.getElementById('lightboxCaption');
             if (lightbox && lightboxImg) {
               lightboxImg.src = mainImg.src;
-              lightboxCaption.textContent = `${displayCode} — ${modelName}`;
+              lightboxCaption.textContent = `${formattedTitle}${modelName ? ' — ' + modelName : ''}`;
               lightbox.classList.add('open');
             }
           };
@@ -601,7 +611,7 @@
         }
 
         // Dynamic WhatsApp Prefilled Message
-        const waText = encodeURIComponent(`Hello Sri Hanum Sastha Enterprises, I am interested in chair ${displayCode} (Model: ${modelName}) from the ${catName} category. Please share more details.`);
+        const waText = encodeURIComponent(`Hello Sri Hanum Sastha Enterprises, I am interested in chair ${formattedTitle}${modelName ? ' (Model: ' + modelName + ')' : ''} from the ${catName} category. Please share more details.`);
         document.getElementById('waPrimaryBtn').href = `https://wa.me/918695706013?text=${waText}`;
 
         // Back button link
@@ -635,19 +645,19 @@
         if (related.length > 0) {
           relatedGrid.innerHTML = related.map(rel => {
             const relModel = rel._internal_model || '';
-            const relCode = rel.code || `SHSE(${rel.code_number || 1})`;
-            const relWa = encodeURIComponent(`Hello Sri Hanum Sastha Enterprises, I am interested in chair ${relCode} (Model: ${relModel}).`);
+            const relPrefix = CAT_PREFIX[rel.category] || (rel.category ? rel.category.toUpperCase() : 'CHAIRS');
+            const relCodeNum = rel.code_number || (rel.code ? rel.code.replace(/\D/g, '') : '1');
+            const relTitle = rel.display_name || `${relPrefix}  SHSE ${relCodeNum}`;
+            const relWa = encodeURIComponent(`Hello Sri Hanum Sastha Enterprises, I am interested in chair ${relTitle}${relModel ? ' (Model: ' + relModel + ')' : ''}.`);
             return `
               <div class="product-card" onclick="window.location.href='product.html?id=${rel.id}'" style="cursor: pointer;">
                 <div class="product-image-canvas">
                   <span class="product-category-badge">${rel.category}</span>
-                  <img src="${rel.image}" alt="${relCode} - ${relModel}" loading="lazy" onerror="this.src='assets/placeholder.svg'">
+                  <img src="${rel.image}" alt="${relTitle}${relModel ? ' - ' + relModel : ''}" loading="lazy" onerror="this.src='assets/placeholder.svg'">
                 </div>
                 <div class="product-content">
-                  <div class="product-code-row">
-                    <span class="product-code-badge">${relCode}</span>
-                  </div>
-                  <h3 class="product-name">${relModel ? relModel : relCode}</h3>
+                  <h3 class="product-name" style="margin-top: 0.35rem;">${relTitle}</h3>
+                  ${relModel ? `<div style="font-size: 0.8125rem; color: var(--text-muted); margin-bottom: 0.5rem;">Model: ${relModel}</div>` : ''}
                   <div class="product-price-row">
                     <span class="product-price-label">Catalogue Rate</span>
                     <span class="product-price-val">${rel.price_display || '₹' + rel.base_price}</span>
@@ -699,20 +709,24 @@
       const items = viewedIds.map(id => catalog.find(p => p.id === id)).filter(Boolean).slice(0, 6);
       if (items.length > 0) {
         section.style.display = 'block';
-        track.innerHTML = items.map(p => `
+        track.innerHTML = items.map(p => {
+          const pPrefix = CAT_PREFIX[p.category] || (p.category ? p.category.toUpperCase() : 'CHAIRS');
+          const pCodeNum = p.code_number || (p.code ? p.code.replace(/\D/g, '') : '1');
+          const pTitle = p.display_name || `${pPrefix}  SHSE ${pCodeNum}`;
+          return `
           <div class="preview-card" style="flex: 0 0 220px;" onclick="window.location.href='product.html?id=${p.id}'" role="button" tabindex="0">
             <div class="preview-card-canvas" style="height: 160px;">
-              <img src="${p.image}" alt="${p.code}" loading="lazy">
+              <img src="${p.image}" alt="${pTitle}" loading="lazy">
             </div>
             <div class="preview-card-body" style="padding: 0.75rem;">
-              <span class="preview-card-code">${p.code}</span>
-              <div style="font-weight: 800; font-size: 0.9rem; color: var(--text-main); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
-                ${p._internal_model || p.code}
+              <div style="font-weight: 800; font-size: 0.875rem; color: var(--text-main); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                ${pTitle}
               </div>
-              <div style="font-size: 0.85rem; font-weight: 700; margin-top: 0.35rem;">${p.price_display || '₹' + p.base_price}</div>
+              ${p._internal_model ? `<div style="font-size: 0.75rem; color: var(--text-muted);">${p._internal_model}</div>` : ''}
+              <div style="font-size: 0.85rem; font-weight: 700; margin-top: 0.35rem; color: var(--forest-green);">${p.price_display || '₹' + p.base_price}</div>
             </div>
           </div>
-        `).join('');
+        `;}).join('');
       } else {
         section.style.display = 'none';
       }

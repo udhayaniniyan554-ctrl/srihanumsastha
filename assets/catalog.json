@@ -36,10 +36,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(1)",
-    "display_name": "Office Chairs — SHSE(1)",
+    "code": "SHSE 1",
+    "display_name": "OFFICE CHAIRS  SHSE 1",
     "code_number": 1,
-    "search_keywords": "SHSE(1) SHSE 1 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 1 SHSE 1 SHSE(1) SHSE1 ATLAS/3G Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 1"
   },
   {
     "id": "office_1_2",
@@ -78,10 +79,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(2)",
-    "display_name": "Office Chairs — SHSE(2)",
+    "code": "SHSE 2",
+    "display_name": "OFFICE CHAIRS  SHSE 2",
     "code_number": 2,
-    "search_keywords": "SHSE(2) SHSE 2 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 2 SHSE 2 SHSE(2) SHSE2 4G Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 2"
   },
   {
     "id": "office_1_3",
@@ -112,10 +114,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(3)",
-    "display_name": "Office Chairs — SHSE(3)",
+    "code": "SHSE 3",
+    "display_name": "OFFICE CHAIRS  SHSE 3",
     "code_number": 3,
-    "search_keywords": "SHSE(3) SHSE 3 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 3 SHSE 3 SHSE(3) SHSE3 MONO BLACK Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 3"
   },
   {
     "id": "office_1_4",
@@ -146,10 +149,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(4)",
-    "display_name": "Office Chairs — SHSE(4)",
+    "code": "SHSE 4",
+    "display_name": "OFFICE CHAIRS  SHSE 4",
     "code_number": 4,
-    "search_keywords": "SHSE(4) SHSE 4 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 4 SHSE 4 SHSE(4) SHSE4 MONO WHITE Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 4"
   },
   {
     "id": "office_2_1",
@@ -180,10 +184,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(5)",
-    "display_name": "Office Chairs — SHSE(5)",
+    "code": "SHSE 5",
+    "display_name": "OFFICE CHAIRS  SHSE 5",
     "code_number": 5,
-    "search_keywords": "SHSE(5) SHSE 5 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 5 SHSE 5 SHSE(5) SHSE5 MONO GREY Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 5"
   },
   {
     "id": "office_2_2",
@@ -214,10 +219,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(6)",
-    "display_name": "Office Chairs — SHSE(6)",
+    "code": "SHSE 6",
+    "display_name": "OFFICE CHAIRS  SHSE 6",
     "code_number": 6,
-    "search_keywords": "SHSE(6) SHSE 6 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 6 SHSE 6 SHSE(6) SHSE6 DELUXE Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 6"
   },
   {
     "id": "office_2_3",
@@ -248,10 +254,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(7)",
-    "display_name": "Office Chairs — SHSE(7)",
+    "code": "SHSE 7",
+    "display_name": "OFFICE CHAIRS  SHSE 7",
     "code_number": 7,
-    "search_keywords": "SHSE(7) SHSE 7 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 7 SHSE 7 SHSE(7) SHSE7 DELUXE WHITE Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 7"
   },
   {
     "id": "office_2_4",
@@ -282,10 +289,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(8)",
-    "display_name": "Office Chairs — SHSE(8)",
+    "code": "SHSE 8",
+    "display_name": "OFFICE CHAIRS  SHSE 8",
     "code_number": 8,
-    "search_keywords": "SHSE(8) SHSE 8 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 8 SHSE 8 SHSE(8) SHSE8 KABUL Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 8"
   },
   {
     "id": "office_3_1",
@@ -317,10 +325,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(9)",
-    "display_name": "Office Chairs — SHSE(9)",
+    "code": "SHSE 9",
+    "display_name": "OFFICE CHAIRS  SHSE 9",
     "code_number": 9,
-    "search_keywords": "SHSE(9) SHSE 9 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 9 SHSE 9 SHSE(9) SHSE9 804 MESH Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 9"
   },
   {
     "id": "office_3_2",
@@ -352,10 +361,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(10)",
-    "display_name": "Office Chairs — SHSE(10)",
+    "code": "SHSE 10",
+    "display_name": "OFFICE CHAIRS  SHSE 10",
     "code_number": 10,
-    "search_keywords": "SHSE(10) SHSE 10 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 10 SHSE 10 SHSE(10) SHSE10 805 MESH Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 10"
   },
   {
     "id": "office_3_3",
@@ -394,10 +404,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(11)",
-    "display_name": "Office Chairs — SHSE(11)",
+    "code": "SHSE 11",
+    "display_name": "OFFICE CHAIRS  SHSE 11",
     "code_number": 11,
-    "search_keywords": "SHSE(11) SHSE 11 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 11 SHSE 11 SHSE(11) SHSE11 XENA Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 11"
   },
   {
     "id": "office_3_4",
@@ -437,10 +448,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(12)",
-    "display_name": "Office Chairs — SHSE(12)",
+    "code": "SHSE 12",
+    "display_name": "OFFICE CHAIRS  SHSE 12",
     "code_number": 12,
-    "search_keywords": "SHSE(12) SHSE 12 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 12 SHSE 12 SHSE(12) SHSE12 X MESH Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 12"
   },
   {
     "id": "office_4_1",
@@ -479,10 +491,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(13)",
-    "display_name": "Office Chairs — SHSE(13)",
+    "code": "SHSE 13",
+    "display_name": "OFFICE CHAIRS  SHSE 13",
     "code_number": 13,
-    "search_keywords": "SHSE(13) SHSE 13 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 13 SHSE 13 SHSE(13) SHSE13 CASANOVA Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 13"
   },
   {
     "id": "office_4_2",
@@ -521,10 +534,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(14)",
-    "display_name": "Office Chairs — SHSE(14)",
+    "code": "SHSE 14",
+    "display_name": "OFFICE CHAIRS  SHSE 14",
     "code_number": 14,
-    "search_keywords": "SHSE(14) SHSE 14 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 14 SHSE 14 SHSE(14) SHSE14 VIRGO BLACK Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 14"
   },
   {
     "id": "office_4_3",
@@ -563,10 +577,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(15)",
-    "display_name": "Office Chairs — SHSE(15)",
+    "code": "SHSE 15",
+    "display_name": "OFFICE CHAIRS  SHSE 15",
     "code_number": 15,
-    "search_keywords": "SHSE(15) SHSE 15 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 15 SHSE 15 SHSE(15) SHSE15 VIRGO WHITE Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 15"
   },
   {
     "id": "office_4_4",
@@ -605,10 +620,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(16)",
-    "display_name": "Office Chairs — SHSE(16)",
+    "code": "SHSE 16",
+    "display_name": "OFFICE CHAIRS  SHSE 16",
     "code_number": 16,
-    "search_keywords": "SHSE(16) SHSE 16 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 16 SHSE 16 SHSE(16) SHSE16 LIBRA BLACK Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 16"
   },
   {
     "id": "office_5_1",
@@ -647,10 +663,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(17)",
-    "display_name": "Office Chairs — SHSE(17)",
+    "code": "SHSE 17",
+    "display_name": "OFFICE CHAIRS  SHSE 17",
     "code_number": 17,
-    "search_keywords": "SHSE(17) SHSE 17 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 17 SHSE 17 SHSE(17) SHSE17 LIBRA WHITE Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 17"
   },
   {
     "id": "office_5_2",
@@ -689,10 +706,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(18)",
-    "display_name": "Office Chairs — SHSE(18)",
+    "code": "SHSE 18",
+    "display_name": "OFFICE CHAIRS  SHSE 18",
     "code_number": 18,
-    "search_keywords": "SHSE(18) SHSE 18 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 18 SHSE 18 SHSE(18) SHSE18 SCORPIO BLACK Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 18"
   },
   {
     "id": "office_5_3",
@@ -731,10 +749,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(19)",
-    "display_name": "Office Chairs — SHSE(19)",
+    "code": "SHSE 19",
+    "display_name": "OFFICE CHAIRS  SHSE 19",
     "code_number": 19,
-    "search_keywords": "SHSE(19) SHSE 19 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 19 SHSE 19 SHSE(19) SHSE19 SCORPIO GREY Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 19"
   },
   {
     "id": "office_5_4",
@@ -773,10 +792,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(20)",
-    "display_name": "Office Chairs — SHSE(20)",
+    "code": "SHSE 20",
+    "display_name": "OFFICE CHAIRS  SHSE 20",
     "code_number": 20,
-    "search_keywords": "SHSE(20) SHSE 20 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 20 SHSE 20 SHSE(20) SHSE20 SCORPIO WHITE Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 20"
   },
   {
     "id": "office_6_1",
@@ -815,10 +835,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(21)",
-    "display_name": "Office Chairs — SHSE(21)",
+    "code": "SHSE 21",
+    "display_name": "OFFICE CHAIRS  SHSE 21",
     "code_number": 21,
-    "search_keywords": "SHSE(21) SHSE 21 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 21 SHSE 21 SHSE(21) SHSE21 TAURUS Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 21"
   },
   {
     "id": "office_6_2",
@@ -857,10 +878,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(22)",
-    "display_name": "Office Chairs — SHSE(22)",
+    "code": "SHSE 22",
+    "display_name": "OFFICE CHAIRS  SHSE 22",
     "code_number": 22,
-    "search_keywords": "SHSE(22) SHSE 22 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 22 SHSE 22 SHSE(22) SHSE22 BUTTERFLY HB Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 22"
   },
   {
     "id": "office_6_3",
@@ -899,10 +921,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(23)",
-    "display_name": "Office Chairs — SHSE(23)",
+    "code": "SHSE 23",
+    "display_name": "OFFICE CHAIRS  SHSE 23",
     "code_number": 23,
-    "search_keywords": "SHSE(23) SHSE 23 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 23 SHSE 23 SHSE(23) SHSE23 BUTTERFLY MB Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 23"
   },
   {
     "id": "office_6_4",
@@ -941,10 +964,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(24)",
-    "display_name": "Office Chairs — SHSE(24)",
+    "code": "SHSE 24",
+    "display_name": "OFFICE CHAIRS  SHSE 24",
     "code_number": 24,
-    "search_keywords": "SHSE(24) SHSE 24 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 24 SHSE 24 SHSE(24) SHSE24 JAZZ HB Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 24"
   },
   {
     "id": "office_7_1",
@@ -983,10 +1007,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(25)",
-    "display_name": "Office Chairs — SHSE(25)",
+    "code": "SHSE 25",
+    "display_name": "OFFICE CHAIRS  SHSE 25",
     "code_number": 25,
-    "search_keywords": "SHSE(25) SHSE 25 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 25 SHSE 25 SHSE(25) SHSE25 JAZZ MB Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 25"
   },
   {
     "id": "office_7_2",
@@ -1025,10 +1050,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(26)",
-    "display_name": "Office Chairs — SHSE(26)",
+    "code": "SHSE 26",
+    "display_name": "OFFICE CHAIRS  SHSE 26",
     "code_number": 26,
-    "search_keywords": "SHSE(26) SHSE 26 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 26 SHSE 26 SHSE(26) SHSE26 MATRIX HB Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 26"
   },
   {
     "id": "office_7_3",
@@ -1067,10 +1093,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(27)",
-    "display_name": "Office Chairs — SHSE(27)",
+    "code": "SHSE 27",
+    "display_name": "OFFICE CHAIRS  SHSE 27",
     "code_number": 27,
-    "search_keywords": "SHSE(27) SHSE 27 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 27 SHSE 27 SHSE(27) SHSE27 MATRIX MB Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 27"
   },
   {
     "id": "office_7_4",
@@ -1109,10 +1136,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(28)",
-    "display_name": "Office Chairs — SHSE(28)",
+    "code": "SHSE 28",
+    "display_name": "OFFICE CHAIRS  SHSE 28",
     "code_number": 28,
-    "search_keywords": "SHSE(28) SHSE 28 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 28 SHSE 28 SHSE(28) SHSE28 VIBE HB Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 28"
   },
   {
     "id": "office_8_1",
@@ -1151,10 +1179,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(29)",
-    "display_name": "Office Chairs — SHSE(29)",
+    "code": "SHSE 29",
+    "display_name": "OFFICE CHAIRS  SHSE 29",
     "code_number": 29,
-    "search_keywords": "SHSE(29) SHSE 29 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 29 SHSE 29 SHSE(29) SHSE29 VIBE MB Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 29"
   },
   {
     "id": "office_8_2",
@@ -1193,10 +1222,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(30)",
-    "display_name": "Office Chairs — SHSE(30)",
+    "code": "SHSE 30",
+    "display_name": "OFFICE CHAIRS  SHSE 30",
     "code_number": 30,
-    "search_keywords": "SHSE(30) SHSE 30 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 30 SHSE 30 SHSE(30) SHSE30 MARVEL HB Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 30"
   },
   {
     "id": "office_8_3",
@@ -1235,10 +1265,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(31)",
-    "display_name": "Office Chairs — SHSE(31)",
+    "code": "SHSE 31",
+    "display_name": "OFFICE CHAIRS  SHSE 31",
     "code_number": 31,
-    "search_keywords": "SHSE(31) SHSE 31 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 31 SHSE 31 SHSE(31) SHSE31 MARVEL MB Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 31"
   },
   {
     "id": "office_8_4",
@@ -1277,10 +1308,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(32)",
-    "display_name": "Office Chairs — SHSE(32)",
+    "code": "SHSE 32",
+    "display_name": "OFFICE CHAIRS  SHSE 32",
     "code_number": 32,
-    "search_keywords": "SHSE(32) SHSE 32 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 32 SHSE 32 SHSE(32) SHSE32 BREEZE HB Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 32"
   },
   {
     "id": "office_9_1",
@@ -1319,10 +1351,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(33)",
-    "display_name": "Office Chairs — SHSE(33)",
+    "code": "SHSE 33",
+    "display_name": "OFFICE CHAIRS  SHSE 33",
     "code_number": 33,
-    "search_keywords": "SHSE(33) SHSE 33 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 33 SHSE 33 SHSE(33) SHSE33 BREEZE MB Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 33"
   },
   {
     "id": "office_9_2",
@@ -1361,10 +1394,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(34)",
-    "display_name": "Office Chairs — SHSE(34)",
+    "code": "SHSE 34",
+    "display_name": "OFFICE CHAIRS  SHSE 34",
     "code_number": 34,
-    "search_keywords": "SHSE(34) SHSE 34 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 34 SHSE 34 SHSE(34) SHSE34 ORION HB WHITE Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 34"
   },
   {
     "id": "office_9_3",
@@ -1403,10 +1437,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(35)",
-    "display_name": "Office Chairs — SHSE(35)",
+    "code": "SHSE 35",
+    "display_name": "OFFICE CHAIRS  SHSE 35",
     "code_number": 35,
-    "search_keywords": "SHSE(35) SHSE 35 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 35 SHSE 35 SHSE(35) SHSE35 ORION MB WHITE Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 35"
   },
   {
     "id": "office_9_4",
@@ -1445,10 +1480,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(36)",
-    "display_name": "Office Chairs — SHSE(36)",
+    "code": "SHSE 36",
+    "display_name": "OFFICE CHAIRS  SHSE 36",
     "code_number": 36,
-    "search_keywords": "SHSE(36) SHSE 36 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 36 SHSE 36 SHSE(36) SHSE36 ORION HB BLACK Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 36"
   },
   {
     "id": "office_10_1",
@@ -1487,10 +1523,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(37)",
-    "display_name": "Office Chairs — SHSE(37)",
+    "code": "SHSE 37",
+    "display_name": "OFFICE CHAIRS  SHSE 37",
     "code_number": 37,
-    "search_keywords": "SHSE(37) SHSE 37 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 37 SHSE 37 SHSE(37) SHSE37 ORION MB BLACK Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 37"
   },
   {
     "id": "office_10_2",
@@ -1529,10 +1566,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(38)",
-    "display_name": "Office Chairs — SHSE(38)",
+    "code": "SHSE 38",
+    "display_name": "OFFICE CHAIRS  SHSE 38",
     "code_number": 38,
-    "search_keywords": "SHSE(38) SHSE 38 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 38 SHSE 38 SHSE(38) SHSE38 MYSTIC HB Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 38"
   },
   {
     "id": "office_10_3",
@@ -1571,10 +1609,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(39)",
-    "display_name": "Office Chairs — SHSE(39)",
+    "code": "SHSE 39",
+    "display_name": "OFFICE CHAIRS  SHSE 39",
     "code_number": 39,
-    "search_keywords": "SHSE(39) SHSE 39 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 39 SHSE 39 SHSE(39) SHSE39 MYSTIC MB Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 39"
   },
   {
     "id": "office_10_4",
@@ -1613,10 +1652,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(40)",
-    "display_name": "Office Chairs — SHSE(40)",
+    "code": "SHSE 40",
+    "display_name": "OFFICE CHAIRS  SHSE 40",
     "code_number": 40,
-    "search_keywords": "SHSE(40) SHSE 40 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 40 SHSE 40 SHSE(40) SHSE40 POSH BLACK HB Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 40"
   },
   {
     "id": "office_11_1",
@@ -1655,10 +1695,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(41)",
-    "display_name": "Office Chairs — SHSE(41)",
+    "code": "SHSE 41",
+    "display_name": "OFFICE CHAIRS  SHSE 41",
     "code_number": 41,
-    "search_keywords": "SHSE(41) SHSE 41 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 41 SHSE 41 SHSE(41) SHSE41 POSH BLACK MB Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 41"
   },
   {
     "id": "office_11_2",
@@ -1697,10 +1738,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(42)",
-    "display_name": "Office Chairs — SHSE(42)",
+    "code": "SHSE 42",
+    "display_name": "OFFICE CHAIRS  SHSE 42",
     "code_number": 42,
-    "search_keywords": "SHSE(42) SHSE 42 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 42 SHSE 42 SHSE(42) SHSE42 POSH HB Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 42"
   },
   {
     "id": "office_11_3",
@@ -1739,10 +1781,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(43)",
-    "display_name": "Office Chairs — SHSE(43)",
+    "code": "SHSE 43",
+    "display_name": "OFFICE CHAIRS  SHSE 43",
     "code_number": 43,
-    "search_keywords": "SHSE(43) SHSE 43 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 43 SHSE 43 SHSE(43) SHSE43 POSH MB Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 43"
   },
   {
     "id": "office_11_4",
@@ -1781,10 +1824,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(44)",
-    "display_name": "Office Chairs — SHSE(44)",
+    "code": "SHSE 44",
+    "display_name": "OFFICE CHAIRS  SHSE 44",
     "code_number": 44,
-    "search_keywords": "SHSE(44) SHSE 44 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 44 SHSE 44 SHSE(44) SHSE44 BONAI HB BLACK Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 44"
   },
   {
     "id": "office_12_1",
@@ -1823,10 +1867,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(45)",
-    "display_name": "Office Chairs — SHSE(45)",
+    "code": "SHSE 45",
+    "display_name": "OFFICE CHAIRS  SHSE 45",
     "code_number": 45,
-    "search_keywords": "SHSE(45) SHSE 45 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 45 SHSE 45 SHSE(45) SHSE45 BONAI HB WHITE Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 45"
   },
   {
     "id": "office_12_2",
@@ -1865,10 +1910,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(46)",
-    "display_name": "Office Chairs — SHSE(46)",
+    "code": "SHSE 46",
+    "display_name": "OFFICE CHAIRS  SHSE 46",
     "code_number": 46,
-    "search_keywords": "SHSE(46) SHSE 46 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 46 SHSE 46 SHSE(46) SHSE46 BONAI HB GREY Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 46"
   },
   {
     "id": "office_12_3",
@@ -1907,10 +1953,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(47)",
-    "display_name": "Office Chairs — SHSE(47)",
+    "code": "SHSE 47",
+    "display_name": "OFFICE CHAIRS  SHSE 47",
     "code_number": 47,
-    "search_keywords": "SHSE(47) SHSE 47 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 47 SHSE 47 SHSE(47) SHSE47 METERRODE HB Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 47"
   },
   {
     "id": "office_12_4",
@@ -1949,10 +1996,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(48)",
-    "display_name": "Office Chairs — SHSE(48)",
+    "code": "SHSE 48",
+    "display_name": "OFFICE CHAIRS  SHSE 48",
     "code_number": 48,
-    "search_keywords": "SHSE(48) SHSE 48 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 48 SHSE 48 SHSE(48) SHSE48 METERRODE MB, Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 48"
   },
   {
     "id": "office_13_1",
@@ -1991,10 +2039,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(49)",
-    "display_name": "Office Chairs — SHSE(49)",
+    "code": "SHSE 49",
+    "display_name": "OFFICE CHAIRS  SHSE 49",
     "code_number": 49,
-    "search_keywords": "SHSE(49) SHSE 49 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 49 SHSE 49 SHSE(49) SHSE49 METERRODE HB Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 49"
   },
   {
     "id": "office_13_2",
@@ -2025,10 +2074,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(50)",
-    "display_name": "Office Chairs — SHSE(50)",
+    "code": "SHSE 50",
+    "display_name": "OFFICE CHAIRS  SHSE 50",
     "code_number": 50,
-    "search_keywords": "SHSE(50) SHSE 50 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 50 SHSE 50 SHSE(50) SHSE50 FLAIR HB Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 50"
   },
   {
     "id": "office_13_3",
@@ -2059,10 +2109,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(51)",
-    "display_name": "Office Chairs — SHSE(51)",
+    "code": "SHSE 51",
+    "display_name": "OFFICE CHAIRS  SHSE 51",
     "code_number": 51,
-    "search_keywords": "SHSE(51) SHSE 51 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 51 SHSE 51 SHSE(51) SHSE51 FLAIR MB Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 51"
   },
   {
     "id": "office_13_4",
@@ -2093,10 +2144,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(52)",
-    "display_name": "Office Chairs — SHSE(52)",
+    "code": "SHSE 52",
+    "display_name": "OFFICE CHAIRS  SHSE 52",
     "code_number": 52,
-    "search_keywords": "SHSE(52) SHSE 52 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 52 SHSE 52 SHSE(52) SHSE52 OPTIMA INDIAN Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 52"
   },
   {
     "id": "office_14_1",
@@ -2127,10 +2179,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(53)",
-    "display_name": "Office Chairs — SHSE(53)",
+    "code": "SHSE 53",
+    "display_name": "OFFICE CHAIRS  SHSE 53",
     "code_number": 53,
-    "search_keywords": "SHSE(53) SHSE 53 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 53 SHSE 53 SHSE(53) SHSE53 OPTIMA INDIAN Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 53"
   },
   {
     "id": "office_14_2",
@@ -2161,10 +2214,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(54)",
-    "display_name": "Office Chairs — SHSE(54)",
+    "code": "SHSE 54",
+    "display_name": "OFFICE CHAIRS  SHSE 54",
     "code_number": 54,
-    "search_keywords": "SHSE(54) SHSE 54 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 54 SHSE 54 SHSE(54) SHSE54 OPTIMA HB WHITE Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 54"
   },
   {
     "id": "office_14_3",
@@ -2203,10 +2257,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(55)",
-    "display_name": "Office Chairs — SHSE(55)",
+    "code": "SHSE 55",
+    "display_name": "OFFICE CHAIRS  SHSE 55",
     "code_number": 55,
-    "search_keywords": "SHSE(55) SHSE 55 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 55 SHSE 55 SHSE(55) SHSE55 CONTACT HB Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 55"
   },
   {
     "id": "office_14_4",
@@ -2245,10 +2300,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(56)",
-    "display_name": "Office Chairs — SHSE(56)",
+    "code": "SHSE 56",
+    "display_name": "OFFICE CHAIRS  SHSE 56",
     "code_number": 56,
-    "search_keywords": "SHSE(56) SHSE 56 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 56 SHSE 56 SHSE(56) SHSE56 CONTACT MB Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 56"
   },
   {
     "id": "office_15_1",
@@ -2275,10 +2331,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(57)",
-    "display_name": "Office Chairs — SHSE(57)",
+    "code": "SHSE 57",
+    "display_name": "OFFICE CHAIRS  SHSE 57",
     "code_number": 57,
-    "search_keywords": "SHSE(57) SHSE 57 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 57 SHSE 57 SHSE(57) SHSE57 EROS MB BLACK Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 57"
   },
   {
     "id": "office_15_2",
@@ -2305,10 +2362,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(58)",
-    "display_name": "Office Chairs — SHSE(58)",
+    "code": "SHSE 58",
+    "display_name": "OFFICE CHAIRS  SHSE 58",
     "code_number": 58,
-    "search_keywords": "SHSE(58) SHSE 58 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 58 SHSE 58 SHSE(58) SHSE58 EROS HB BLACK Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 58"
   },
   {
     "id": "office_15_3",
@@ -2335,10 +2393,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(59)",
-    "display_name": "Office Chairs — SHSE(59)",
+    "code": "SHSE 59",
+    "display_name": "OFFICE CHAIRS  SHSE 59",
     "code_number": 59,
-    "search_keywords": "SHSE(59) SHSE 59 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 59 SHSE 59 SHSE(59) SHSE59 EROS MB WHITE Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 59"
   },
   {
     "id": "office_15_4",
@@ -2365,10 +2424,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(60)",
-    "display_name": "Office Chairs — SHSE(60)",
+    "code": "SHSE 60",
+    "display_name": "OFFICE CHAIRS  SHSE 60",
     "code_number": 60,
-    "search_keywords": "SHSE(60) SHSE 60 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 60 SHSE 60 SHSE(60) SHSE60 EROS HB WHITE Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 60"
   },
   {
     "id": "office_16_1",
@@ -2395,10 +2455,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(61)",
-    "display_name": "Office Chairs — SHSE(61)",
+    "code": "SHSE 61",
+    "display_name": "OFFICE CHAIRS  SHSE 61",
     "code_number": 61,
-    "search_keywords": "SHSE(61) SHSE 61 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 61 SHSE 61 SHSE(61) SHSE61 EROS HB GREY Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 61"
   },
   {
     "id": "office_16_2",
@@ -2425,10 +2486,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(62)",
-    "display_name": "Office Chairs — SHSE(62)",
+    "code": "SHSE 62",
+    "display_name": "OFFICE CHAIRS  SHSE 62",
     "code_number": 62,
-    "search_keywords": "SHSE(62) SHSE 62 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 62 SHSE 62 SHSE(62) SHSE62 HELIOS MB BLACK Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 62"
   },
   {
     "id": "office_16_3",
@@ -2455,10 +2517,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(63)",
-    "display_name": "Office Chairs — SHSE(63)",
+    "code": "SHSE 63",
+    "display_name": "OFFICE CHAIRS  SHSE 63",
     "code_number": 63,
-    "search_keywords": "SHSE(63) SHSE 63 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 63 SHSE 63 SHSE(63) SHSE63 HELIOS HB BLACK Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 63"
   },
   {
     "id": "office_16_4",
@@ -2485,10 +2548,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(64)",
-    "display_name": "Office Chairs — SHSE(64)",
+    "code": "SHSE 64",
+    "display_name": "OFFICE CHAIRS  SHSE 64",
     "code_number": 64,
-    "search_keywords": "SHSE(64) SHSE 64 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 64 SHSE 64 SHSE(64) SHSE64 HELIOS MB GREY Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 64"
   },
   {
     "id": "office_17_1",
@@ -2515,10 +2579,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(65)",
-    "display_name": "Office Chairs — SHSE(65)",
+    "code": "SHSE 65",
+    "display_name": "OFFICE CHAIRS  SHSE 65",
     "code_number": 65,
-    "search_keywords": "SHSE(65) SHSE 65 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 65 SHSE 65 SHSE(65) SHSE65 HELIOS HB GREY Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 65"
   },
   {
     "id": "office_17_2",
@@ -2545,10 +2610,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(66)",
-    "display_name": "Office Chairs — SHSE(66)",
+    "code": "SHSE 66",
+    "display_name": "OFFICE CHAIRS  SHSE 66",
     "code_number": 66,
-    "search_keywords": "SHSE(66) SHSE 66 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 66 SHSE 66 SHSE(66) SHSE66 FLIP MB BLACK Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 66"
   },
   {
     "id": "office_17_3",
@@ -2575,10 +2641,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(67)",
-    "display_name": "Office Chairs — SHSE(67)",
+    "code": "SHSE 67",
+    "display_name": "OFFICE CHAIRS  SHSE 67",
     "code_number": 67,
-    "search_keywords": "SHSE(67) SHSE 67 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 67 SHSE 67 SHSE(67) SHSE67 FLIP MB GREY AND Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 67"
   },
   {
     "id": "office_17_4",
@@ -2605,10 +2672,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(68)",
-    "display_name": "Office Chairs — SHSE(68)",
+    "code": "SHSE 68",
+    "display_name": "OFFICE CHAIRS  SHSE 68",
     "code_number": 68,
-    "search_keywords": "SHSE(68) SHSE 68 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 68 SHSE 68 SHSE(68) SHSE68 ADONIS MB BLACK Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 68"
   },
   {
     "id": "office_18_1",
@@ -2635,10 +2703,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(69)",
-    "display_name": "Office Chairs — SHSE(69)",
+    "code": "SHSE 69",
+    "display_name": "OFFICE CHAIRS  SHSE 69",
     "code_number": 69,
-    "search_keywords": "SHSE(69) SHSE 69 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 69 SHSE 69 SHSE(69) SHSE69 ADONIS HB BLACK Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 69"
   },
   {
     "id": "office_18_2",
@@ -2665,10 +2734,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(70)",
-    "display_name": "Office Chairs — SHSE(70)",
+    "code": "SHSE 70",
+    "display_name": "OFFICE CHAIRS  SHSE 70",
     "code_number": 70,
-    "search_keywords": "SHSE(70) SHSE 70 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 70 SHSE 70 SHSE(70) SHSE70 ADONIS MB GREY Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 70"
   },
   {
     "id": "office_18_3",
@@ -2695,10 +2765,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(71)",
-    "display_name": "Office Chairs — SHSE(71)",
+    "code": "SHSE 71",
+    "display_name": "OFFICE CHAIRS  SHSE 71",
     "code_number": 71,
-    "search_keywords": "SHSE(71) SHSE 71 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 71 SHSE 71 SHSE(71) SHSE71 ADONIS HB GREY Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 71"
   },
   {
     "id": "office_18_4",
@@ -2725,10 +2796,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(72)",
-    "display_name": "Office Chairs — SHSE(72)",
+    "code": "SHSE 72",
+    "display_name": "OFFICE CHAIRS  SHSE 72",
     "code_number": 72,
-    "search_keywords": "SHSE(72) SHSE 72 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 72 SHSE 72 SHSE(72) SHSE72 FIDO MB BLACK Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 72"
   },
   {
     "id": "office_19_1",
@@ -2755,10 +2827,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(73)",
-    "display_name": "Office Chairs — SHSE(73)",
+    "code": "SHSE 73",
+    "display_name": "OFFICE CHAIRS  SHSE 73",
     "code_number": 73,
-    "search_keywords": "SHSE(73) SHSE 73 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 73 SHSE 73 SHSE(73) SHSE73 FIDO HB BLACK Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 73"
   },
   {
     "id": "office_19_2",
@@ -2785,10 +2858,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(74)",
-    "display_name": "Office Chairs — SHSE(74)",
+    "code": "SHSE 74",
+    "display_name": "OFFICE CHAIRS  SHSE 74",
     "code_number": 74,
-    "search_keywords": "SHSE(74) SHSE 74 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 74 SHSE 74 SHSE(74) SHSE74 FIDO MB WHITE Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 74"
   },
   {
     "id": "office_19_3",
@@ -2815,10 +2889,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(75)",
-    "display_name": "Office Chairs — SHSE(75)",
+    "code": "SHSE 75",
+    "display_name": "OFFICE CHAIRS  SHSE 75",
     "code_number": 75,
-    "search_keywords": "SHSE(75) SHSE 75 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 75 SHSE 75 SHSE(75) SHSE75 FIDO HB WHITE Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 75"
   },
   {
     "id": "office_19_4",
@@ -2845,10 +2920,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(76)",
-    "display_name": "Office Chairs — SHSE(76)",
+    "code": "SHSE 76",
+    "display_name": "OFFICE CHAIRS  SHSE 76",
     "code_number": 76,
-    "search_keywords": "SHSE(76) SHSE 76 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 76 SHSE 76 SHSE(76) SHSE76 ELANZO MB BLACK Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 76"
   },
   {
     "id": "office_20_1",
@@ -2875,10 +2951,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(77)",
-    "display_name": "Office Chairs — SHSE(77)",
+    "code": "SHSE 77",
+    "display_name": "OFFICE CHAIRS  SHSE 77",
     "code_number": 77,
-    "search_keywords": "SHSE(77) SHSE 77 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 77 SHSE 77 SHSE(77) SHSE77 ELANZO MB Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 77"
   },
   {
     "id": "office_20_2",
@@ -2905,10 +2982,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(78)",
-    "display_name": "Office Chairs — SHSE(78)",
+    "code": "SHSE 78",
+    "display_name": "OFFICE CHAIRS  SHSE 78",
     "code_number": 78,
-    "search_keywords": "SHSE(78) SHSE 78 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 78 SHSE 78 SHSE(78) SHSE78 FILO MB BLACK Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 78"
   },
   {
     "id": "office_20_3",
@@ -2935,10 +3013,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(79)",
-    "display_name": "Office Chairs — SHSE(79)",
+    "code": "SHSE 79",
+    "display_name": "OFFICE CHAIRS  SHSE 79",
     "code_number": 79,
-    "search_keywords": "SHSE(79) SHSE 79 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 79 SHSE 79 SHSE(79) SHSE79 FILO HB BLACK Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 79"
   },
   {
     "id": "office_20_4",
@@ -2965,10 +3044,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(80)",
-    "display_name": "Office Chairs — SHSE(80)",
+    "code": "SHSE 80",
+    "display_name": "OFFICE CHAIRS  SHSE 80",
     "code_number": 80,
-    "search_keywords": "SHSE(80) SHSE 80 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 80 SHSE 80 SHSE(80) SHSE80 FILO MB WHITE Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 80"
   },
   {
     "id": "office_21_1",
@@ -2995,10 +3075,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(81)",
-    "display_name": "Office Chairs — SHSE(81)",
+    "code": "SHSE 81",
+    "display_name": "OFFICE CHAIRS  SHSE 81",
     "code_number": 81,
-    "search_keywords": "SHSE(81) SHSE 81 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 81 SHSE 81 SHSE(81) SHSE81 FILO HB WHITE Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 81"
   },
   {
     "id": "office_21_2",
@@ -3025,10 +3106,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(82)",
-    "display_name": "Office Chairs — SHSE(82)",
+    "code": "SHSE 82",
+    "display_name": "OFFICE CHAIRS  SHSE 82",
     "code_number": 82,
-    "search_keywords": "SHSE(82) SHSE 82 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 82 SHSE 82 SHSE(82) SHSE82 LUCANO MB Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 82"
   },
   {
     "id": "office_21_3",
@@ -3055,10 +3137,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(83)",
-    "display_name": "Office Chairs — SHSE(83)",
+    "code": "SHSE 83",
+    "display_name": "OFFICE CHAIRS  SHSE 83",
     "code_number": 83,
-    "search_keywords": "SHSE(83) SHSE 83 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 83 SHSE 83 SHSE(83) SHSE83 LUCANO HB BLACK Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 83"
   },
   {
     "id": "office_21_4",
@@ -3085,10 +3168,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(84)",
-    "display_name": "Office Chairs — SHSE(84)",
+    "code": "SHSE 84",
+    "display_name": "OFFICE CHAIRS  SHSE 84",
     "code_number": 84,
-    "search_keywords": "SHSE(84) SHSE 84 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 84 SHSE 84 SHSE(84) SHSE84 LUCANO MB Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 84"
   },
   {
     "id": "office_22_1",
@@ -3115,10 +3199,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(85)",
-    "display_name": "Office Chairs — SHSE(85)",
+    "code": "SHSE 85",
+    "display_name": "OFFICE CHAIRS  SHSE 85",
     "code_number": 85,
-    "search_keywords": "SHSE(85) SHSE 85 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 85 SHSE 85 SHSE(85) SHSE85 LUCANO HB GREY Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 85"
   },
   {
     "id": "office_22_2",
@@ -3145,10 +3230,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(86)",
-    "display_name": "Office Chairs — SHSE(86)",
+    "code": "SHSE 86",
+    "display_name": "OFFICE CHAIRS  SHSE 86",
     "code_number": 86,
-    "search_keywords": "SHSE(86) SHSE 86 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 86 SHSE 86 SHSE(86) SHSE86 CAMRY MB BLACK Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 86"
   },
   {
     "id": "office_22_3",
@@ -3175,10 +3261,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(87)",
-    "display_name": "Office Chairs — SHSE(87)",
+    "code": "SHSE 87",
+    "display_name": "OFFICE CHAIRS  SHSE 87",
     "code_number": 87,
-    "search_keywords": "SHSE(87) SHSE 87 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 87 SHSE 87 SHSE(87) SHSE87 CAMRY HB BLACK Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 87"
   },
   {
     "id": "office_22_4",
@@ -3205,10 +3292,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(88)",
-    "display_name": "Office Chairs — SHSE(88)",
+    "code": "SHSE 88",
+    "display_name": "OFFICE CHAIRS  SHSE 88",
     "code_number": 88,
-    "search_keywords": "SHSE(88) SHSE 88 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 88 SHSE 88 SHSE(88) SHSE88 CAMRY MB WHITE Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 88"
   },
   {
     "id": "office_23_1",
@@ -3235,10 +3323,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(89)",
-    "display_name": "Office Chairs — SHSE(89)",
+    "code": "SHSE 89",
+    "display_name": "OFFICE CHAIRS  SHSE 89",
     "code_number": 89,
-    "search_keywords": "SHSE(89) SHSE 89 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 89 SHSE 89 SHSE(89) SHSE89 CAMRY HB WHITE Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 89"
   },
   {
     "id": "office_23_2",
@@ -3265,10 +3354,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(90)",
-    "display_name": "Office Chairs — SHSE(90)",
+    "code": "SHSE 90",
+    "display_name": "OFFICE CHAIRS  SHSE 90",
     "code_number": 90,
-    "search_keywords": "SHSE(90) SHSE 90 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 90 SHSE 90 SHSE(90) SHSE90 IRIS HB BLACK Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 90"
   },
   {
     "id": "office_23_3",
@@ -3295,10 +3385,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(91)",
-    "display_name": "Office Chairs — SHSE(91)",
+    "code": "SHSE 91",
+    "display_name": "OFFICE CHAIRS  SHSE 91",
     "code_number": 91,
-    "search_keywords": "SHSE(91) SHSE 91 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 91 SHSE 91 SHSE(91) SHSE91 IRIS HB WHITE Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 91"
   },
   {
     "id": "office_23_4",
@@ -3325,10 +3416,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(92)",
-    "display_name": "Office Chairs — SHSE(92)",
+    "code": "SHSE 92",
+    "display_name": "OFFICE CHAIRS  SHSE 92",
     "code_number": 92,
-    "search_keywords": "SHSE(92) SHSE 92 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 92 SHSE 92 SHSE(92) SHSE92 IRIS MB BLACK Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 92"
   },
   {
     "id": "office_24_1",
@@ -3355,10 +3447,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(93)",
-    "display_name": "Office Chairs — SHSE(93)",
+    "code": "SHSE 93",
+    "display_name": "OFFICE CHAIRS  SHSE 93",
     "code_number": 93,
-    "search_keywords": "SHSE(93) SHSE 93 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 93 SHSE 93 SHSE(93) SHSE93 IRIS MB WHITE Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 93"
   },
   {
     "id": "office_24_2",
@@ -3385,10 +3478,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(94)",
-    "display_name": "Office Chairs — SHSE(94)",
+    "code": "SHSE 94",
+    "display_name": "OFFICE CHAIRS  SHSE 94",
     "code_number": 94,
-    "search_keywords": "SHSE(94) SHSE 94 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 94 SHSE 94 SHSE(94) SHSE94 WAVE MB BLACK Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 94"
   },
   {
     "id": "office_24_3",
@@ -3415,10 +3509,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(95)",
-    "display_name": "Office Chairs — SHSE(95)",
+    "code": "SHSE 95",
+    "display_name": "OFFICE CHAIRS  SHSE 95",
     "code_number": 95,
-    "search_keywords": "SHSE(95) SHSE 95 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 95 SHSE 95 SHSE(95) SHSE95 WAVE HB BLACK Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 95"
   },
   {
     "id": "office_24_4",
@@ -3445,10 +3540,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(96)",
-    "display_name": "Office Chairs — SHSE(96)",
+    "code": "SHSE 96",
+    "display_name": "OFFICE CHAIRS  SHSE 96",
     "code_number": 96,
-    "search_keywords": "SHSE(96) SHSE 96 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 96 SHSE 96 SHSE(96) SHSE96 FIDO 2.0 BLACK Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 96"
   },
   {
     "id": "office_25_1",
@@ -3475,10 +3571,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(97)",
-    "display_name": "Office Chairs — SHSE(97)",
+    "code": "SHSE 97",
+    "display_name": "OFFICE CHAIRS  SHSE 97",
     "code_number": 97,
-    "search_keywords": "SHSE(97) SHSE 97 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 97 SHSE 97 SHSE(97) SHSE97 FIDO 2.0 BLACK HB Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 97"
   },
   {
     "id": "office_25_2",
@@ -3505,10 +3602,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(98)",
-    "display_name": "Office Chairs — SHSE(98)",
+    "code": "SHSE 98",
+    "display_name": "OFFICE CHAIRS  SHSE 98",
     "code_number": 98,
-    "search_keywords": "SHSE(98) SHSE 98 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 98 SHSE 98 SHSE(98) SHSE98 FIDO 2.0 WHITE Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 98"
   },
   {
     "id": "office_25_3",
@@ -3535,10 +3633,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(99)",
-    "display_name": "Office Chairs — SHSE(99)",
+    "code": "SHSE 99",
+    "display_name": "OFFICE CHAIRS  SHSE 99",
     "code_number": 99,
-    "search_keywords": "SHSE(99) SHSE 99 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 99 SHSE 99 SHSE(99) SHSE99 FIDO 2.0 WHITE Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 99"
   },
   {
     "id": "office_25_4",
@@ -3577,10 +3676,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(100)",
-    "display_name": "Office Chairs — SHSE(100)",
+    "code": "SHSE 100",
+    "display_name": "OFFICE CHAIRS  SHSE 100",
     "code_number": 100,
-    "search_keywords": "SHSE(100) SHSE 100 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 100 SHSE 100 SHSE(100) SHSE100 STRIPE Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 100"
   },
   {
     "id": "office_26_1",
@@ -3611,10 +3711,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(101)",
-    "display_name": "Office Chairs — SHSE(101)",
+    "code": "SHSE 101",
+    "display_name": "OFFICE CHAIRS  SHSE 101",
     "code_number": 101,
-    "search_keywords": "SHSE(101) SHSE 101 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 101 SHSE 101 SHSE(101) SHSE101 DIPLOMET HB Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 101"
   },
   {
     "id": "office_26_2",
@@ -3645,10 +3746,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(102)",
-    "display_name": "Office Chairs — SHSE(102)",
+    "code": "SHSE 102",
+    "display_name": "OFFICE CHAIRS  SHSE 102",
     "code_number": 102,
-    "search_keywords": "SHSE(102) SHSE 102 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 102 SHSE 102 SHSE(102) SHSE102 DIPLOMET MB Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 102"
   },
   {
     "id": "office_26_3",
@@ -3687,10 +3789,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(103)",
-    "display_name": "Office Chairs — SHSE(103)",
+    "code": "SHSE 103",
+    "display_name": "OFFICE CHAIRS  SHSE 103",
     "code_number": 103,
-    "search_keywords": "SHSE(103) SHSE 103 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 103 SHSE 103 SHSE(103) SHSE103 802 CUSHION Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 103"
   },
   {
     "id": "office_26_4",
@@ -3721,10 +3824,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(104)",
-    "display_name": "Office Chairs — SHSE(104)",
+    "code": "SHSE 104",
+    "display_name": "OFFICE CHAIRS  SHSE 104",
     "code_number": 104,
-    "search_keywords": "SHSE(104) SHSE 104 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 104 SHSE 104 SHSE(104) SHSE104 802 CUSHION Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 104"
   },
   {
     "id": "office_27_1",
@@ -3751,10 +3855,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(105)",
-    "display_name": "Office Chairs — SHSE(105)",
+    "code": "SHSE 105",
+    "display_name": "OFFICE CHAIRS  SHSE 105",
     "code_number": 105,
-    "search_keywords": "SHSE(105) SHSE 105 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 105 SHSE 105 SHSE(105) SHSE105 YLN HB BLACK Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 105"
   },
   {
     "id": "office_27_2",
@@ -3781,10 +3886,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(106)",
-    "display_name": "Office Chairs — SHSE(106)",
+    "code": "SHSE 106",
+    "display_name": "OFFICE CHAIRS  SHSE 106",
     "code_number": 106,
-    "search_keywords": "SHSE(106) SHSE 106 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 106 SHSE 106 SHSE(106) SHSE106 YLN MB BLACK Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 106"
   },
   {
     "id": "office_27_3",
@@ -3811,10 +3917,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(107)",
-    "display_name": "Office Chairs — SHSE(107)",
+    "code": "SHSE 107",
+    "display_name": "OFFICE CHAIRS  SHSE 107",
     "code_number": 107,
-    "search_keywords": "SHSE(107) SHSE 107 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 107 SHSE 107 SHSE(107) SHSE107 YLN HB WHITE Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 107"
   },
   {
     "id": "office_27_4",
@@ -3841,10 +3948,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(108)",
-    "display_name": "Office Chairs — SHSE(108)",
+    "code": "SHSE 108",
+    "display_name": "OFFICE CHAIRS  SHSE 108",
     "code_number": 108,
-    "search_keywords": "SHSE(108) SHSE 108 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 108 SHSE 108 SHSE(108) SHSE108 YLN MB WHITE Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 108"
   },
   {
     "id": "office_28_1",
@@ -3871,10 +3979,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(109)",
-    "display_name": "Office Chairs — SHSE(109)",
+    "code": "SHSE 109",
+    "display_name": "OFFICE CHAIRS  SHSE 109",
     "code_number": 109,
-    "search_keywords": "SHSE(109) SHSE 109 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 109 SHSE 109 SHSE(109) SHSE109 GAMING CHAIR Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 109"
   },
   {
     "id": "office_28_2",
@@ -3905,10 +4014,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(110)",
-    "display_name": "Office Chairs — SHSE(110)",
+    "code": "SHSE 110",
+    "display_name": "OFFICE CHAIRS  SHSE 110",
     "code_number": 110,
-    "search_keywords": "SHSE(110) SHSE 110 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 110 SHSE 110 SHSE(110) SHSE110 BUCKET CHAIR Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 110"
   },
   {
     "id": "office_28_3",
@@ -3939,10 +4049,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(111)",
-    "display_name": "Office Chairs — SHSE(111)",
+    "code": "SHSE 111",
+    "display_name": "OFFICE CHAIRS  SHSE 111",
     "code_number": 111,
-    "search_keywords": "SHSE(111) SHSE 111 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 111 SHSE 111 SHSE(111) SHSE111 BUCKET CHAIR Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 111"
   },
   {
     "id": "office_28_4",
@@ -3969,10 +4080,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(112)",
-    "display_name": "Office Chairs — SHSE(112)",
+    "code": "SHSE 112",
+    "display_name": "OFFICE CHAIRS  SHSE 112",
     "code_number": 112,
-    "search_keywords": "SHSE(112) SHSE 112 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 112 SHSE 112 SHSE(112) SHSE112 202 MB Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 112"
   },
   {
     "id": "office_29_1",
@@ -3999,10 +4111,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(113)",
-    "display_name": "Office Chairs — SHSE(113)",
+    "code": "SHSE 113",
+    "display_name": "OFFICE CHAIRS  SHSE 113",
     "code_number": 113,
-    "search_keywords": "SHSE(113) SHSE 113 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 113 SHSE 113 SHSE(113) SHSE113 202 HB Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 113"
   },
   {
     "id": "office_29_2",
@@ -4029,10 +4142,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(114)",
-    "display_name": "Office Chairs — SHSE(114)",
+    "code": "SHSE 114",
+    "display_name": "OFFICE CHAIRS  SHSE 114",
     "code_number": 114,
-    "search_keywords": "SHSE(114) SHSE 114 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 114 SHSE 114 SHSE(114) SHSE114 SWING HB Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 114"
   },
   {
     "id": "office_29_3",
@@ -4059,10 +4173,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(115)",
-    "display_name": "Office Chairs — SHSE(115)",
+    "code": "SHSE 115",
+    "display_name": "OFFICE CHAIRS  SHSE 115",
     "code_number": 115,
-    "search_keywords": "SHSE(115) SHSE 115 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 115 SHSE 115 SHSE(115) SHSE115 A815 WHITE Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 115"
   },
   {
     "id": "office_29_4",
@@ -4089,10 +4204,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(116)",
-    "display_name": "Office Chairs — SHSE(116)",
+    "code": "SHSE 116",
+    "display_name": "OFFICE CHAIRS  SHSE 116",
     "code_number": 116,
-    "search_keywords": "SHSE(116) SHSE 116 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 116 SHSE 116 SHSE(116) SHSE116 SWING HB Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 116"
   },
   {
     "id": "office_30_1",
@@ -4119,10 +4235,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(117)",
-    "display_name": "Office Chairs — SHSE(117)",
+    "code": "SHSE 117",
+    "display_name": "OFFICE CHAIRS  SHSE 117",
     "code_number": 117,
-    "search_keywords": "SHSE(117) SHSE 117 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 117 SHSE 117 SHSE(117) SHSE117 SWING HB GREY) Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 117"
   },
   {
     "id": "office_30_2",
@@ -4149,10 +4266,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(118)",
-    "display_name": "Office Chairs — SHSE(118)",
+    "code": "SHSE 118",
+    "display_name": "OFFICE CHAIRS  SHSE 118",
     "code_number": 118,
-    "search_keywords": "SHSE(118) SHSE 118 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 118 SHSE 118 SHSE(118) SHSE118 VOGUE HB Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 118"
   },
   {
     "id": "office_30_3",
@@ -4179,10 +4297,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(119)",
-    "display_name": "Office Chairs — SHSE(119)",
+    "code": "SHSE 119",
+    "display_name": "OFFICE CHAIRS  SHSE 119",
     "code_number": 119,
-    "search_keywords": "SHSE(119) SHSE 119 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 119 SHSE 119 SHSE(119) SHSE119 VOGUE HB Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 119"
   },
   {
     "id": "office_30_4",
@@ -4209,10 +4328,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(120)",
-    "display_name": "Office Chairs — SHSE(120)",
+    "code": "SHSE 120",
+    "display_name": "OFFICE CHAIRS  SHSE 120",
     "code_number": 120,
-    "search_keywords": "SHSE(120) SHSE 120 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 120 SHSE 120 SHSE(120) SHSE120 VOGUE HB GREY Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 120"
   },
   {
     "id": "office_31_1",
@@ -4239,10 +4359,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(121)",
-    "display_name": "Office Chairs — SHSE(121)",
+    "code": "SHSE 121",
+    "display_name": "OFFICE CHAIRS  SHSE 121",
     "code_number": 121,
-    "search_keywords": "SHSE(121) SHSE 121 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 121 SHSE 121 SHSE(121) SHSE121 ONYX BLACK Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 121"
   },
   {
     "id": "office_31_2",
@@ -4269,10 +4390,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(122)",
-    "display_name": "Office Chairs — SHSE(122)",
+    "code": "SHSE 122",
+    "display_name": "OFFICE CHAIRS  SHSE 122",
     "code_number": 122,
-    "search_keywords": "SHSE(122) SHSE 122 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 122 SHSE 122 SHSE(122) SHSE122 ONYX BLACK Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 122"
   },
   {
     "id": "office_31_3",
@@ -4299,10 +4421,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(123)",
-    "display_name": "Office Chairs — SHSE(123)",
+    "code": "SHSE 123",
+    "display_name": "OFFICE CHAIRS  SHSE 123",
     "code_number": 123,
-    "search_keywords": "SHSE(123) SHSE 123 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 123 SHSE 123 SHSE(123) SHSE123 ONYX WHITE Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 123"
   },
   {
     "id": "office_31_4",
@@ -4329,10 +4452,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(124)",
-    "display_name": "Office Chairs — SHSE(124)",
+    "code": "SHSE 124",
+    "display_name": "OFFICE CHAIRS  SHSE 124",
     "code_number": 124,
-    "search_keywords": "SHSE(124) SHSE 124 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 124 SHSE 124 SHSE(124) SHSE124 SROP VIBE Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 124"
   },
   {
     "id": "office_32_1",
@@ -4359,10 +4483,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(125)",
-    "display_name": "Office Chairs — SHSE(125)",
+    "code": "SHSE 125",
+    "display_name": "OFFICE CHAIRS  SHSE 125",
     "code_number": 125,
-    "search_keywords": "SHSE(125) SHSE 125 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 125 SHSE 125 SHSE(125) SHSE125 SROP VIBE GREY Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 125"
   },
   {
     "id": "office_32_2",
@@ -4389,10 +4514,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(126)",
-    "display_name": "Office Chairs — SHSE(126)",
+    "code": "SHSE 126",
+    "display_name": "OFFICE CHAIRS  SHSE 126",
     "code_number": 126,
-    "search_keywords": "SHSE(126) SHSE 126 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 126 SHSE 126 SHSE(126) SHSE126 AMAZE BLACK Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 126"
   },
   {
     "id": "office_32_3",
@@ -4419,10 +4545,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(127)",
-    "display_name": "Office Chairs — SHSE(127)",
+    "code": "SHSE 127",
+    "display_name": "OFFICE CHAIRS  SHSE 127",
     "code_number": 127,
-    "search_keywords": "SHSE(127) SHSE 127 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 127 SHSE 127 SHSE(127) SHSE127 AMAZE WHITE Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 127"
   },
   {
     "id": "office_32_4",
@@ -4449,10 +4576,11 @@
       "Mechanism": "Tilt / Multi-lock Available",
       "Armrests": "Configurable (Fixed / Adjustable)"
     },
-    "code": "SHSE(128)",
-    "display_name": "Office Chairs — SHSE(128)",
+    "code": "SHSE 128",
+    "display_name": "OFFICE CHAIRS  SHSE 128",
     "code_number": 128,
-    "search_keywords": "SHSE(128) SHSE 128 Office Chairs"
+    "search_keywords": "OFFICE CHAIRS  SHSE 128 SHSE 128 SHSE(128) SHSE128 ZMA717 Office Chairs",
+    "name": "OFFICE CHAIRS  SHSE 128"
   },
   {
     "id": "visitor_1_1_1",
@@ -4478,10 +4606,11 @@
       "Base": "Cantilever / 4-Leg Heavy Frame",
       "Application": "Visitor / Conference / Reception"
     },
-    "code": "SHSE(1)",
-    "display_name": "Visitor Chairs — SHSE(1)",
+    "code": "SHSE 1",
+    "display_name": "VISITOR CHAIRS  SHSE 1",
     "code_number": 1,
-    "search_keywords": "SHSE(1) SHSE 1 Visitor Chairs"
+    "search_keywords": "VISITOR CHAIRS  SHSE 1 SHSE 1 SHSE(1) SHSE1 FLOWER Rs. 2,800.00 NETTED Visitor Chairs",
+    "name": "VISITOR CHAIRS  SHSE 1"
   },
   {
     "id": "visitor_1_1_2",
@@ -4507,10 +4636,11 @@
       "Base": "Cantilever / 4-Leg Heavy Frame",
       "Application": "Visitor / Conference / Reception"
     },
-    "code": "SHSE(2)",
-    "display_name": "Visitor Chairs — SHSE(2)",
+    "code": "SHSE 2",
+    "display_name": "VISITOR CHAIRS  SHSE 2",
     "code_number": 2,
-    "search_keywords": "SHSE(2) SHSE 2 Visitor Chairs"
+    "search_keywords": "VISITOR CHAIRS  SHSE 2 SHSE 2 SHSE(2) SHSE2 FLOWER CUSHION Rs. 2,600.00 BL Visitor Chairs",
+    "name": "VISITOR CHAIRS  SHSE 2"
   },
   {
     "id": "visitor_1_2_1",
@@ -4536,10 +4666,11 @@
       "Base": "Cantilever / 4-Leg Heavy Frame",
       "Application": "Visitor / Conference / Reception"
     },
-    "code": "SHSE(3)",
-    "display_name": "Visitor Chairs — SHSE(3)",
+    "code": "SHSE 3",
+    "display_name": "VISITOR CHAIRS  SHSE 3",
     "code_number": 3,
-    "search_keywords": "SHSE(3) SHSE 3 Visitor Chairs"
+    "search_keywords": "VISITOR CHAIRS  SHSE 3 SHSE 3 SHSE(3) SHSE3 ISO Rs. 2,600.00 NETTED Visitor Chairs",
+    "name": "VISITOR CHAIRS  SHSE 3"
   },
   {
     "id": "visitor_1_2_2",
@@ -4565,10 +4696,11 @@
       "Base": "Cantilever / 4-Leg Heavy Frame",
       "Application": "Visitor / Conference / Reception"
     },
-    "code": "SHSE(4)",
-    "display_name": "Visitor Chairs — SHSE(4)",
+    "code": "SHSE 4",
+    "display_name": "VISITOR CHAIRS  SHSE 4",
     "code_number": 4,
-    "search_keywords": "SHSE(4) SHSE 4 Visitor Chairs"
+    "search_keywords": "VISITOR CHAIRS  SHSE 4 SHSE 4 SHSE(4) SHSE4 BOTTLE Rs. 2,800.00 CHAIR Visitor Chairs",
+    "name": "VISITOR CHAIRS  SHSE 4"
   },
   {
     "id": "visitor_1_3_1",
@@ -4594,10 +4726,11 @@
       "Base": "Cantilever / 4-Leg Heavy Frame",
       "Application": "Visitor / Conference / Reception"
     },
-    "code": "SHSE(5)",
-    "display_name": "Visitor Chairs — SHSE(5)",
+    "code": "SHSE 5",
+    "display_name": "VISITOR CHAIRS  SHSE 5",
     "code_number": 5,
-    "search_keywords": "SHSE(5) SHSE 5 Visitor Chairs"
+    "search_keywords": "VISITOR CHAIRS  SHSE 5 SHSE 5 SHSE(5) SHSE5 NUNO Rs. 2,500.00 CUSHION Visitor Chairs",
+    "name": "VISITOR CHAIRS  SHSE 5"
   },
   {
     "id": "visitor_1_3_2",
@@ -4623,10 +4756,11 @@
       "Base": "Cantilever / 4-Leg Heavy Frame",
       "Application": "Visitor / Conference / Reception"
     },
-    "code": "SHSE(6)",
-    "display_name": "Visitor Chairs — SHSE(6)",
+    "code": "SHSE 6",
+    "display_name": "VISITOR CHAIRS  SHSE 6",
     "code_number": 6,
-    "search_keywords": "SHSE(6) SHSE 6 Visitor Chairs"
+    "search_keywords": "VISITOR CHAIRS  SHSE 6 SHSE 6 SHSE(6) SHSE6 NUNO CUSHION Rs. 3,200.00 WITH Visitor Chairs",
+    "name": "VISITOR CHAIRS  SHSE 6"
   },
   {
     "id": "visitor_1_4_1",
@@ -4652,10 +4786,11 @@
       "Base": "Cantilever / 4-Leg Heavy Frame",
       "Application": "Visitor / Conference / Reception"
     },
-    "code": "SHSE(7)",
-    "display_name": "Visitor Chairs — SHSE(7)",
+    "code": "SHSE 7",
+    "display_name": "VISITOR CHAIRS  SHSE 7",
     "code_number": 7,
-    "search_keywords": "SHSE(7) SHSE 7 Visitor Chairs"
+    "search_keywords": "VISITOR CHAIRS  SHSE 7 SHSE 7 SHSE(7) SHSE7 CLAC 22 Rs. 3,400.00 Visitor Chairs",
+    "name": "VISITOR CHAIRS  SHSE 7"
   },
   {
     "id": "visitor_1_4_2",
@@ -4681,10 +4816,11 @@
       "Base": "Cantilever / 4-Leg Heavy Frame",
       "Application": "Visitor / Conference / Reception"
     },
-    "code": "SHSE(8)",
-    "display_name": "Visitor Chairs — SHSE(8)",
+    "code": "SHSE 8",
+    "display_name": "VISITOR CHAIRS  SHSE 8",
     "code_number": 8,
-    "search_keywords": "SHSE(8) SHSE 8 Visitor Chairs"
+    "search_keywords": "VISITOR CHAIRS  SHSE 8 SHSE 8 SHSE(8) SHSE8 GERMAN FLOWER Rs. 3,400.00 BLA Visitor Chairs",
+    "name": "VISITOR CHAIRS  SHSE 8"
   },
   {
     "id": "visitor_2_1_1",
@@ -4710,10 +4846,11 @@
       "Base": "Cantilever / 4-Leg Heavy Frame",
       "Application": "Visitor / Conference / Reception"
     },
-    "code": "SHSE(9)",
-    "display_name": "Visitor Chairs — SHSE(9)",
+    "code": "SHSE 9",
+    "display_name": "VISITOR CHAIRS  SHSE 9",
     "code_number": 9,
-    "search_keywords": "SHSE(9) SHSE 9 Visitor Chairs"
+    "search_keywords": "VISITOR CHAIRS  SHSE 9 SHSE 9 SHSE(9) SHSE9 4G VISITOR Rs. 4,800.00 CHAIR Visitor Chairs",
+    "name": "VISITOR CHAIRS  SHSE 9"
   },
   {
     "id": "visitor_2_1_2",
@@ -4739,10 +4876,11 @@
       "Base": "Cantilever / 4-Leg Heavy Frame",
       "Application": "Visitor / Conference / Reception"
     },
-    "code": "SHSE(10)",
-    "display_name": "Visitor Chairs — SHSE(10)",
+    "code": "SHSE 10",
+    "display_name": "VISITOR CHAIRS  SHSE 10",
     "code_number": 10,
-    "search_keywords": "SHSE(10) SHSE 10 Visitor Chairs"
+    "search_keywords": "VISITOR CHAIRS  SHSE 10 SHSE 10 SHSE(10) SHSE10 805 Rs. 4,800.00 VISITOR Visitor Chairs",
+    "name": "VISITOR CHAIRS  SHSE 10"
   },
   {
     "id": "visitor_2_2_1",
@@ -4768,10 +4906,11 @@
       "Base": "Cantilever / 4-Leg Heavy Frame",
       "Application": "Visitor / Conference / Reception"
     },
-    "code": "SHSE(11)",
-    "display_name": "Visitor Chairs — SHSE(11)",
+    "code": "SHSE 11",
+    "display_name": "VISITOR CHAIRS  SHSE 11",
     "code_number": 11,
-    "search_keywords": "SHSE(11) SHSE 11 Visitor Chairs"
+    "search_keywords": "VISITOR CHAIRS  SHSE 11 SHSE 11 SHSE(11) SHSE11 KABUL VISITOR Rs. 4,800.00 U L Visitor Chairs",
+    "name": "VISITOR CHAIRS  SHSE 11"
   },
   {
     "id": "visitor_2_2_2",
@@ -4797,10 +4936,11 @@
       "Base": "Cantilever / 4-Leg Heavy Frame",
       "Application": "Visitor / Conference / Reception"
     },
-    "code": "SHSE(12)",
-    "display_name": "Visitor Chairs — SHSE(12)",
+    "code": "SHSE 12",
+    "display_name": "VISITOR CHAIRS  SHSE 12",
     "code_number": 12,
-    "search_keywords": "SHSE(12) SHSE 12 Visitor Chairs"
+    "search_keywords": "VISITOR CHAIRS  SHSE 12 SHSE 12 SHSE(12) SHSE12 KABUL VISITOR 4 Rs. 4,800.00 L Visitor Chairs",
+    "name": "VISITOR CHAIRS  SHSE 12"
   },
   {
     "id": "visitor_2_3_1",
@@ -4826,10 +4966,11 @@
       "Base": "Cantilever / 4-Leg Heavy Frame",
       "Application": "Visitor / Conference / Reception"
     },
-    "code": "SHSE(13)",
-    "display_name": "Visitor Chairs — SHSE(13)",
+    "code": "SHSE 13",
+    "display_name": "VISITOR CHAIRS  SHSE 13",
     "code_number": 13,
-    "search_keywords": "SHSE(13) SHSE 13 Visitor Chairs"
+    "search_keywords": "VISITOR CHAIRS  SHSE 13 SHSE 13 SHSE(13) SHSE13 804 Rs. 4,800.00 VISITOR Visitor Chairs",
+    "name": "VISITOR CHAIRS  SHSE 13"
   },
   {
     "id": "visitor_2_3_2",
@@ -4855,10 +4996,11 @@
       "Base": "Cantilever / 4-Leg Heavy Frame",
       "Application": "Visitor / Conference / Reception"
     },
-    "code": "SHSE(14)",
-    "display_name": "Visitor Chairs — SHSE(14)",
+    "code": "SHSE 14",
+    "display_name": "VISITOR CHAIRS  SHSE 14",
     "code_number": 14,
-    "search_keywords": "SHSE(14) SHSE 14 Visitor Chairs"
+    "search_keywords": "VISITOR CHAIRS  SHSE 14 SHSE 14 SHSE(14) SHSE14 JAZZ Rs. 7,000.00 VISITOR Visitor Chairs",
+    "name": "VISITOR CHAIRS  SHSE 14"
   },
   {
     "id": "visitor_2_4_1",
@@ -4884,10 +5026,11 @@
       "Base": "Cantilever / 4-Leg Heavy Frame",
       "Application": "Visitor / Conference / Reception"
     },
-    "code": "SHSE(15)",
-    "display_name": "Visitor Chairs — SHSE(15)",
+    "code": "SHSE 15",
+    "display_name": "VISITOR CHAIRS  SHSE 15",
     "code_number": 15,
-    "search_keywords": "SHSE(15) SHSE 15 Visitor Chairs"
+    "search_keywords": "VISITOR CHAIRS  SHSE 15 SHSE 15 SHSE(15) SHSE15 MARVEL MB Rs. 7,000.00 VISITOR Visitor Chairs",
+    "name": "VISITOR CHAIRS  SHSE 15"
   },
   {
     "id": "visitor_2_4_2",
@@ -4913,10 +5056,11 @@
       "Base": "Cantilever / 4-Leg Heavy Frame",
       "Application": "Visitor / Conference / Reception"
     },
-    "code": "SHSE(16)",
-    "display_name": "Visitor Chairs — SHSE(16)",
+    "code": "SHSE 16",
+    "display_name": "VISITOR CHAIRS  SHSE 16",
     "code_number": 16,
-    "search_keywords": "SHSE(16) SHSE 16 Visitor Chairs"
+    "search_keywords": "VISITOR CHAIRS  SHSE 16 SHSE 16 SHSE(16) SHSE16 CONTACT Rs. 6,000.00 VISITOR Visitor Chairs",
+    "name": "VISITOR CHAIRS  SHSE 16"
   },
   {
     "id": "visitor_2_5_1",
@@ -4946,10 +5090,11 @@
       "Base": "Cantilever / 4-Leg Heavy Frame",
       "Application": "Visitor / Conference / Reception"
     },
-    "code": "SHSE(17)",
-    "display_name": "Visitor Chairs — SHSE(17)",
+    "code": "SHSE 17",
+    "display_name": "VISITOR CHAIRS  SHSE 17",
     "code_number": 17,
-    "search_keywords": "SHSE(17) SHSE 17 Visitor Chairs"
+    "search_keywords": "VISITOR CHAIRS  SHSE 17 SHSE 17 SHSE(17) SHSE17 MONO BLACK 4600 VISITOR PP LEG Visitor Chairs",
+    "name": "VISITOR CHAIRS  SHSE 17"
   },
   {
     "id": "visitor_2_5_2",
@@ -4979,10 +5124,11 @@
       "Base": "Cantilever / 4-Leg Heavy Frame",
       "Application": "Visitor / Conference / Reception"
     },
-    "code": "SHSE(18)",
-    "display_name": "Visitor Chairs — SHSE(18)",
+    "code": "SHSE 18",
+    "display_name": "VISITOR CHAIRS  SHSE 18",
     "code_number": 18,
-    "search_keywords": "SHSE(18) SHSE 18 Visitor Chairs"
+    "search_keywords": "VISITOR CHAIRS  SHSE 18 SHSE 18 SHSE(18) SHSE18 BUCKET BLACK 5600 VISITOR PP L Visitor Chairs",
+    "name": "VISITOR CHAIRS  SHSE 18"
   },
   {
     "id": "visitor_3_1_1",
@@ -5012,10 +5158,11 @@
       "Base": "Cantilever / 4-Leg Heavy Frame",
       "Application": "Visitor / Conference / Reception"
     },
-    "code": "SHSE(19)",
-    "display_name": "Visitor Chairs — SHSE(19)",
+    "code": "SHSE 19",
+    "display_name": "VISITOR CHAIRS  SHSE 19",
     "code_number": 19,
-    "search_keywords": "SHSE(19) SHSE 19 Visitor Chairs"
+    "search_keywords": "VISITOR CHAIRS  SHSE 19 SHSE 19 SHSE(19) SHSE19 DELUXE PP BLACK 5000 LEG WHITE Visitor Chairs",
+    "name": "VISITOR CHAIRS  SHSE 19"
   },
   {
     "id": "visitor_3_1_2",
@@ -5045,10 +5192,11 @@
       "Base": "Cantilever / 4-Leg Heavy Frame",
       "Application": "Visitor / Conference / Reception"
     },
-    "code": "SHSE(20)",
-    "display_name": "Visitor Chairs — SHSE(20)",
+    "code": "SHSE 20",
+    "display_name": "VISITOR CHAIRS  SHSE 20",
     "code_number": 20,
-    "search_keywords": "SHSE(20) SHSE 20 Visitor Chairs"
+    "search_keywords": "VISITOR CHAIRS  SHSE 20 SHSE 20 SHSE(20) SHSE20 ELANZO BLACK 7000 VISITOR PP W Visitor Chairs",
+    "name": "VISITOR CHAIRS  SHSE 20"
   },
   {
     "id": "visitor_3_2_1",
@@ -5074,10 +5222,11 @@
       "Base": "Cantilever / 4-Leg Heavy Frame",
       "Application": "Visitor / Conference / Reception"
     },
-    "code": "SHSE(21)",
-    "display_name": "Visitor Chairs — SHSE(21)",
+    "code": "SHSE 21",
+    "display_name": "VISITOR CHAIRS  SHSE 21",
     "code_number": 21,
-    "search_keywords": "SHSE(21) SHSE 21 Visitor Chairs"
+    "search_keywords": "VISITOR CHAIRS  SHSE 21 SHSE 21 SHSE(21) SHSE21 SK VISITOR SQUARE Rs. 5,000.00 Visitor Chairs",
+    "name": "VISITOR CHAIRS  SHSE 21"
   },
   {
     "id": "visitor_3_2_2",
@@ -5103,10 +5252,11 @@
       "Base": "Cantilever / 4-Leg Heavy Frame",
       "Application": "Visitor / Conference / Reception"
     },
-    "code": "SHSE(22)",
-    "display_name": "Visitor Chairs — SHSE(22)",
+    "code": "SHSE 22",
+    "display_name": "VISITOR CHAIRS  SHSE 22",
     "code_number": 22,
-    "search_keywords": "SHSE(22) SHSE 22 Visitor Chairs"
+    "search_keywords": "VISITOR CHAIRS  SHSE 22 SHSE 22 SHSE(22) SHSE22 SK VISITOR SQUARE Rs. 4,000.00 Visitor Chairs",
+    "name": "VISITOR CHAIRS  SHSE 22"
   },
   {
     "id": "visitor_3_3_1",
@@ -5132,10 +5282,11 @@
       "Base": "Cantilever / 4-Leg Heavy Frame",
       "Application": "Visitor / Conference / Reception"
     },
-    "code": "SHSE(23)",
-    "display_name": "Visitor Chairs — SHSE(23)",
+    "code": "SHSE 23",
+    "display_name": "VISITOR CHAIRS  SHSE 23",
     "code_number": 23,
-    "search_keywords": "SHSE(23) SHSE 23 Visitor Chairs"
+    "search_keywords": "VISITOR CHAIRS  SHSE 23 SHSE 23 SHSE(23) SHSE23 ROUND Rs. 3,600.00 NETTED Visitor Chairs",
+    "name": "VISITOR CHAIRS  SHSE 23"
   },
   {
     "id": "visitor_3_3_2",
@@ -5161,10 +5312,11 @@
       "Base": "Cantilever / 4-Leg Heavy Frame",
       "Application": "Visitor / Conference / Reception"
     },
-    "code": "SHSE(24)",
-    "display_name": "Visitor Chairs — SHSE(24)",
+    "code": "SHSE 24",
+    "display_name": "VISITOR CHAIRS  SHSE 24",
     "code_number": 24,
-    "search_keywords": "SHSE(24) SHSE 24 Visitor Chairs"
+    "search_keywords": "VISITOR CHAIRS  SHSE 24 SHSE 24 SHSE(24) SHSE24 609 ZEBRA Rs. 4,000.00 Visitor Chairs",
+    "name": "VISITOR CHAIRS  SHSE 24"
   },
   {
     "id": "visitor_3_4_1",
@@ -5190,10 +5342,11 @@
       "Base": "Cantilever / 4-Leg Heavy Frame",
       "Application": "Visitor / Conference / Reception"
     },
-    "code": "SHSE(25)",
-    "display_name": "Visitor Chairs — SHSE(25)",
+    "code": "SHSE 25",
+    "display_name": "VISITOR CHAIRS  SHSE 25",
     "code_number": 25,
-    "search_keywords": "SHSE(25) SHSE 25 Visitor Chairs"
+    "search_keywords": "VISITOR CHAIRS  SHSE 25 SHSE 25 SHSE(25) SHSE25 909 black Rs. 4,800.00 Visitor Chairs",
+    "name": "VISITOR CHAIRS  SHSE 25"
   },
   {
     "id": "visitor_3_4_2",
@@ -5219,10 +5372,11 @@
       "Base": "Cantilever / 4-Leg Heavy Frame",
       "Application": "Visitor / Conference / Reception"
     },
-    "code": "SHSE(26)",
-    "display_name": "Visitor Chairs — SHSE(26)",
+    "code": "SHSE 26",
+    "display_name": "VISITOR CHAIRS  SHSE 26",
     "code_number": 26,
-    "search_keywords": "SHSE(26) SHSE 26 Visitor Chairs"
+    "search_keywords": "VISITOR CHAIRS  SHSE 26 SHSE 26 SHSE(26) SHSE26 909 grey Rs. 5,200.00 Visitor Chairs",
+    "name": "VISITOR CHAIRS  SHSE 26"
   },
   {
     "id": "visitor_3_5_1",
@@ -5248,10 +5402,11 @@
       "Base": "Cantilever / 4-Leg Heavy Frame",
       "Application": "Visitor / Conference / Reception"
     },
-    "code": "SHSE(27)",
-    "display_name": "Visitor Chairs — SHSE(27)",
+    "code": "SHSE 27",
+    "display_name": "VISITOR CHAIRS  SHSE 27",
     "code_number": 27,
-    "search_keywords": "SHSE(27) SHSE 27 Visitor Chairs"
+    "search_keywords": "VISITOR CHAIRS  SHSE 27 SHSE 27 SHSE(27) SHSE27 916C Rs. 4,200.00 BLACK Visitor Chairs",
+    "name": "VISITOR CHAIRS  SHSE 27"
   },
   {
     "id": "visitor_3_5_2",
@@ -5277,10 +5432,11 @@
       "Base": "Cantilever / 4-Leg Heavy Frame",
       "Application": "Visitor / Conference / Reception"
     },
-    "code": "SHSE(28)",
-    "display_name": "Visitor Chairs — SHSE(28)",
+    "code": "SHSE 28",
+    "display_name": "VISITOR CHAIRS  SHSE 28",
     "code_number": 28,
-    "search_keywords": "SHSE(28) SHSE 28 Visitor Chairs"
+    "search_keywords": "VISITOR CHAIRS  SHSE 28 SHSE 28 SHSE(28) SHSE28 916c Rs. 4,600.00 WHITE Visitor Chairs",
+    "name": "VISITOR CHAIRS  SHSE 28"
   },
   {
     "id": "visitor_4_1_1",
@@ -5310,10 +5466,11 @@
       "Base": "Cantilever / 4-Leg Heavy Frame",
       "Application": "Visitor / Conference / Reception"
     },
-    "code": "SHSE(29)",
-    "display_name": "Visitor Chairs — SHSE(29)",
+    "code": "SHSE 29",
+    "display_name": "VISITOR CHAIRS  SHSE 29",
     "code_number": 29,
-    "search_keywords": "SHSE(29) SHSE 29 Visitor Chairs"
+    "search_keywords": "VISITOR CHAIRS  SHSE 29 SHSE 29 SHSE(29) SHSE29 2082 Rs. 8,000.00 BLACK Visitor Chairs",
+    "name": "VISITOR CHAIRS  SHSE 29"
   },
   {
     "id": "visitor_4_1_2",
@@ -5339,10 +5496,11 @@
       "Base": "Cantilever / 4-Leg Heavy Frame",
       "Application": "Visitor / Conference / Reception"
     },
-    "code": "SHSE(30)",
-    "display_name": "Visitor Chairs — SHSE(30)",
+    "code": "SHSE 30",
+    "display_name": "VISITOR CHAIRS  SHSE 30",
     "code_number": 30,
-    "search_keywords": "SHSE(30) SHSE 30 Visitor Chairs"
+    "search_keywords": "VISITOR CHAIRS  SHSE 30 SHSE 30 SHSE(30) SHSE30 CLAC 61 BLACK AND Rs. 5,200.00 Visitor Chairs",
+    "name": "VISITOR CHAIRS  SHSE 30"
   },
   {
     "id": "visitor_4_2_1",
@@ -5372,10 +5530,11 @@
       "Base": "Cantilever / 4-Leg Heavy Frame",
       "Application": "Visitor / Conference / Reception"
     },
-    "code": "SHSE(31)",
-    "display_name": "Visitor Chairs — SHSE(31)",
+    "code": "SHSE 31",
+    "display_name": "VISITOR CHAIRS  SHSE 31",
     "code_number": 31,
-    "search_keywords": "SHSE(31) SHSE 31 Visitor Chairs"
+    "search_keywords": "VISITOR CHAIRS  SHSE 31 SHSE 31 SHSE(31) SHSE31 2082 NEW Rs. 7,600.00 Visitor Chairs",
+    "name": "VISITOR CHAIRS  SHSE 31"
   },
   {
     "id": "visitor_4_2_2",
@@ -5401,10 +5560,11 @@
       "Base": "Cantilever / 4-Leg Heavy Frame",
       "Application": "Visitor / Conference / Reception"
     },
-    "code": "SHSE(32)",
-    "display_name": "Visitor Chairs — SHSE(32)",
+    "code": "SHSE 32",
+    "display_name": "VISITOR CHAIRS  SHSE 32",
     "code_number": 32,
-    "search_keywords": "SHSE(32) SHSE 32 Visitor Chairs"
+    "search_keywords": "VISITOR CHAIRS  SHSE 32 SHSE 32 SHSE(32) SHSE32 822D BLACK Rs. 4,200.00 VISITO Visitor Chairs",
+    "name": "VISITOR CHAIRS  SHSE 32"
   },
   {
     "id": "visitor_4_3_1",
@@ -5430,10 +5590,11 @@
       "Base": "Cantilever / 4-Leg Heavy Frame",
       "Application": "Visitor / Conference / Reception"
     },
-    "code": "SHSE(33)",
-    "display_name": "Visitor Chairs — SHSE(33)",
+    "code": "SHSE 33",
+    "display_name": "VISITOR CHAIRS  SHSE 33",
     "code_number": 33,
-    "search_keywords": "SHSE(33) SHSE 33 Visitor Chairs"
+    "search_keywords": "VISITOR CHAIRS  SHSE 33 SHSE 33 SHSE(33) SHSE33 NEW Rs. 5,000.00 VISITOR Visitor Chairs",
+    "name": "VISITOR CHAIRS  SHSE 33"
   },
   {
     "id": "visitor_4_3_2",
@@ -5459,10 +5620,11 @@
       "Base": "Cantilever / 4-Leg Heavy Frame",
       "Application": "Visitor / Conference / Reception"
     },
-    "code": "SHSE(34)",
-    "display_name": "Visitor Chairs — SHSE(34)",
+    "code": "SHSE 34",
+    "display_name": "VISITOR CHAIRS  SHSE 34",
     "code_number": 34,
-    "search_keywords": "SHSE(34) SHSE 34 Visitor Chairs"
+    "search_keywords": "VISITOR CHAIRS  SHSE 34 SHSE 34 SHSE(34) SHSE34 P TYPE VISITOR RS.3600 CHAIR Visitor Chairs",
+    "name": "VISITOR CHAIRS  SHSE 34"
   },
   {
     "id": "visitor_4_4_1",
@@ -5488,10 +5650,11 @@
       "Base": "Cantilever / 4-Leg Heavy Frame",
       "Application": "Visitor / Conference / Reception"
     },
-    "code": "SHSE(35)",
-    "display_name": "Visitor Chairs — SHSE(35)",
+    "code": "SHSE 35",
+    "display_name": "VISITOR CHAIRS  SHSE 35",
     "code_number": 35,
-    "search_keywords": "SHSE(35) SHSE 35 Visitor Chairs"
+    "search_keywords": "VISITOR CHAIRS  SHSE 35 SHSE 35 SHSE(35) SHSE35 DIPLOMAT Rs. 5,000.00 U LEG Visitor Chairs",
+    "name": "VISITOR CHAIRS  SHSE 35"
   },
   {
     "id": "visitor_4_4_2",
@@ -5517,10 +5680,11 @@
       "Base": "Cantilever / 4-Leg Heavy Frame",
       "Application": "Visitor / Conference / Reception"
     },
-    "code": "SHSE(36)",
-    "display_name": "Visitor Chairs — SHSE(36)",
+    "code": "SHSE 36",
+    "display_name": "VISITOR CHAIRS  SHSE 36",
     "code_number": 36,
-    "search_keywords": "SHSE(36) SHSE 36 Visitor Chairs"
+    "search_keywords": "VISITOR CHAIRS  SHSE 36 SHSE 36 SHSE(36) SHSE36 DIPLOMAT 4 Rs. 5,000.00 VISITO Visitor Chairs",
+    "name": "VISITOR CHAIRS  SHSE 36"
   },
   {
     "id": "visitor_4_5_1",
@@ -5546,10 +5710,11 @@
       "Base": "Cantilever / 4-Leg Heavy Frame",
       "Application": "Visitor / Conference / Reception"
     },
-    "code": "SHSE(37)",
-    "display_name": "Visitor Chairs — SHSE(37)",
+    "code": "SHSE 37",
+    "display_name": "VISITOR CHAIRS  SHSE 37",
     "code_number": 37,
-    "search_keywords": "SHSE(37) SHSE 37 Visitor Chairs"
+    "search_keywords": "VISITOR CHAIRS  SHSE 37 SHSE 37 SHSE(37) SHSE37 PEACOCK WITH Rs. 4,400.00 HAND Visitor Chairs",
+    "name": "VISITOR CHAIRS  SHSE 37"
   },
   {
     "id": "visitor_4_5_2",
@@ -5575,10 +5740,11 @@
       "Base": "Cantilever / 4-Leg Heavy Frame",
       "Application": "Visitor / Conference / Reception"
     },
-    "code": "SHSE(38)",
-    "display_name": "Visitor Chairs — SHSE(38)",
+    "code": "SHSE 38",
+    "display_name": "VISITOR CHAIRS  SHSE 38",
     "code_number": 38,
-    "search_keywords": "SHSE(38) SHSE 38 Visitor Chairs"
+    "search_keywords": "VISITOR CHAIRS  SHSE 38 SHSE 38 SHSE(38) SHSE38 PEACOCK WITHOUT Rs. 4,000.00 H Visitor Chairs",
+    "name": "VISITOR CHAIRS  SHSE 38"
   },
   {
     "id": "visitor_5_1_1",
@@ -5604,10 +5770,11 @@
       "Base": "Cantilever / 4-Leg Heavy Frame",
       "Application": "Visitor / Conference / Reception"
     },
-    "code": "SHSE(39)",
-    "display_name": "Visitor Chairs — SHSE(39)",
+    "code": "SHSE 39",
+    "display_name": "VISITOR CHAIRS  SHSE 39",
     "code_number": 39,
-    "search_keywords": "SHSE(39) SHSE 39 Visitor Chairs"
+    "search_keywords": "VISITOR CHAIRS  SHSE 39 SHSE 39 SHSE(39) SHSE39 COMFORT Rs. 2,400.00 S7 FRAME Visitor Chairs",
+    "name": "VISITOR CHAIRS  SHSE 39"
   },
   {
     "id": "visitor_5_1_2",
@@ -5633,10 +5800,11 @@
       "Base": "Cantilever / 4-Leg Heavy Frame",
       "Application": "Visitor / Conference / Reception"
     },
-    "code": "SHSE(40)",
-    "display_name": "Visitor Chairs — SHSE(40)",
+    "code": "SHSE 40",
+    "display_name": "VISITOR CHAIRS  SHSE 40",
     "code_number": 40,
-    "search_keywords": "SHSE(40) SHSE 40 Visitor Chairs"
+    "search_keywords": "VISITOR CHAIRS  SHSE 40 SHSE 40 SHSE(40) SHSE40 PARADISE Rs. 2,400.00 S3 FRAME Visitor Chairs",
+    "name": "VISITOR CHAIRS  SHSE 40"
   },
   {
     "id": "visitor_5_2_1",
@@ -5662,10 +5830,11 @@
       "Base": "Cantilever / 4-Leg Heavy Frame",
       "Application": "Visitor / Conference / Reception"
     },
-    "code": "SHSE(41)",
-    "display_name": "Visitor Chairs — SHSE(41)",
+    "code": "SHSE 41",
+    "display_name": "VISITOR CHAIRS  SHSE 41",
     "code_number": 41,
-    "search_keywords": "SHSE(41) SHSE 41 Visitor Chairs"
+    "search_keywords": "VISITOR CHAIRS  SHSE 41 SHSE 41 SHSE(41) SHSE41 R2BS14 BLACK BROWN BLUE Rs. 2, Visitor Chairs",
+    "name": "VISITOR CHAIRS  SHSE 41"
   },
   {
     "id": "visitor_5_2_2",
@@ -5691,10 +5860,11 @@
       "Base": "Cantilever / 4-Leg Heavy Frame",
       "Application": "Visitor / Conference / Reception"
     },
-    "code": "SHSE(42)",
-    "display_name": "Visitor Chairs — SHSE(42)",
+    "code": "SHSE 42",
+    "display_name": "VISITOR CHAIRS  SHSE 42",
     "code_number": 42,
-    "search_keywords": "SHSE(42) SHSE 42 Visitor Chairs"
+    "search_keywords": "VISITOR CHAIRS  SHSE 42 SHSE 42 SHSE(42) SHSE42 R2B S7 BLACK BLUE Rs. 2,600.00 Visitor Chairs",
+    "name": "VISITOR CHAIRS  SHSE 42"
   },
   {
     "id": "visitor_5_3_1",
@@ -5720,10 +5890,11 @@
       "Base": "Cantilever / 4-Leg Heavy Frame",
       "Application": "Visitor / Conference / Reception"
     },
-    "code": "SHSE(43)",
-    "display_name": "Visitor Chairs — SHSE(43)",
+    "code": "SHSE 43",
+    "display_name": "VISITOR CHAIRS  SHSE 43",
     "code_number": 43,
-    "search_keywords": "SHSE(43) SHSE 43 Visitor Chairs"
+    "search_keywords": "VISITOR CHAIRS  SHSE 43 SHSE 43 SHSE(43) SHSE43 RC55 Rs. 2,800.00 BLACK Visitor Chairs",
+    "name": "VISITOR CHAIRS  SHSE 43"
   },
   {
     "id": "visitor_5_3_2",
@@ -5749,10 +5920,11 @@
       "Base": "Cantilever / 4-Leg Heavy Frame",
       "Application": "Visitor / Conference / Reception"
     },
-    "code": "SHSE(44)",
-    "display_name": "Visitor Chairs — SHSE(44)",
+    "code": "SHSE 44",
+    "display_name": "VISITOR CHAIRS  SHSE 44",
     "code_number": 44,
-    "search_keywords": "SHSE(44) SHSE 44 Visitor Chairs"
+    "search_keywords": "VISITOR CHAIRS  SHSE 44 SHSE 44 SHSE(44) SHSE44 R2 BOX S4 Rs. 3,200.00 Visitor Chairs",
+    "name": "VISITOR CHAIRS  SHSE 44"
   },
   {
     "id": "visitor_5_4_1",
@@ -5778,10 +5950,11 @@
       "Base": "Cantilever / 4-Leg Heavy Frame",
       "Application": "Visitor / Conference / Reception"
     },
-    "code": "SHSE(45)",
-    "display_name": "Visitor Chairs — SHSE(45)",
+    "code": "SHSE 45",
+    "display_name": "VISITOR CHAIRS  SHSE 45",
     "code_number": 45,
-    "search_keywords": "SHSE(45) SHSE 45 Visitor Chairs"
+    "search_keywords": "VISITOR CHAIRS  SHSE 45 SHSE 45 SHSE(45) SHSE45 RC37/ECO Rs. 3,000.00 BLACK Visitor Chairs",
+    "name": "VISITOR CHAIRS  SHSE 45"
   },
   {
     "id": "visitor_5_4_2",
@@ -5807,10 +5980,11 @@
       "Base": "Cantilever / 4-Leg Heavy Frame",
       "Application": "Visitor / Conference / Reception"
     },
-    "code": "SHSE(46)",
-    "display_name": "Visitor Chairs — SHSE(46)",
+    "code": "SHSE 46",
+    "display_name": "VISITOR CHAIRS  SHSE 46",
     "code_number": 46,
-    "search_keywords": "SHSE(46) SHSE 46 Visitor Chairs"
+    "search_keywords": "VISITOR CHAIRS  SHSE 46 SHSE 46 SHSE(46) SHSE46 RC36/EASY Rs. 3,000.00 BLACK Visitor Chairs",
+    "name": "VISITOR CHAIRS  SHSE 46"
   },
   {
     "id": "visitor_6_3_2",
@@ -5836,10 +6010,11 @@
       "Base": "Cantilever / 4-Leg Heavy Frame",
       "Application": "Visitor / Conference / Reception"
     },
-    "code": "SHSE(47)",
-    "display_name": "Visitor Chairs — SHSE(47)",
+    "code": "SHSE 47",
+    "display_name": "VISITOR CHAIRS  SHSE 47",
     "code_number": 47,
-    "search_keywords": "SHSE(47) SHSE 47 Visitor Chairs"
+    "search_keywords": "VISITOR CHAIRS  SHSE 47 SHSE 47 SHSE(47) SHSE47 VISITOR CHAIR Rs. 4,400.00 (ag Visitor Chairs",
+    "name": "VISITOR CHAIRS  SHSE 47"
   },
   {
     "id": "visitor_6_4_1",
@@ -5865,10 +6040,11 @@
       "Base": "Cantilever / 4-Leg Heavy Frame",
       "Application": "Visitor / Conference / Reception"
     },
-    "code": "SHSE(48)",
-    "display_name": "Visitor Chairs — SHSE(48)",
+    "code": "SHSE 48",
+    "display_name": "VISITOR CHAIRS  SHSE 48",
     "code_number": 48,
-    "search_keywords": "SHSE(48) SHSE 48 Visitor Chairs"
+    "search_keywords": "VISITOR CHAIRS  SHSE 48 SHSE 48 SHSE(48) SHSE48 NEW Rs. 6,000.00 VISITOR Visitor Chairs",
+    "name": "VISITOR CHAIRS  SHSE 48"
   },
   {
     "id": "soft_p6_2",
@@ -5892,10 +6068,11 @@
     "specs": {
       "Application": "Executive Lounge / Reception / Breakout"
     },
-    "code": "SHSE(1)",
-    "display_name": "Lounge & Soft Seating — SHSE(1)",
+    "code": "SHSE 1",
+    "display_name": "LOUNGE CHAIRS  SHSE 1",
     "code_number": 1,
-    "search_keywords": "SHSE(1) SHSE 1 Lounge & Soft Seating"
+    "search_keywords": "LOUNGE CHAIRS  SHSE 1 SHSE 1 SHSE(1) SHSE1 LOUNGE NA AS OF NOW ₹ 17,000.0 Lounge & Soft Seating",
+    "name": "LOUNGE CHAIRS  SHSE 1"
   },
   {
     "id": "soft_p6_4",
@@ -5919,10 +6096,11 @@
     "specs": {
       "Application": "Executive Lounge / Reception / Breakout"
     },
-    "code": "SHSE(2)",
-    "display_name": "Lounge & Soft Seating — SHSE(2)",
+    "code": "SHSE 2",
+    "display_name": "LOUNGE CHAIRS  SHSE 2",
     "code_number": 2,
-    "search_keywords": "SHSE(2) SHSE 2 Lounge & Soft Seating"
+    "search_keywords": "LOUNGE CHAIRS  SHSE 2 SHSE 2 SHSE(2) SHSE2 ZARA WOODEN ₹ 15,000.00 LEG Lounge & Soft Seating",
+    "name": "LOUNGE CHAIRS  SHSE 2"
   },
   {
     "id": "soft_p7_1",
@@ -5946,10 +6124,11 @@
     "specs": {
       "Application": "Executive Lounge / Reception / Breakout"
     },
-    "code": "SHSE(3)",
-    "display_name": "Lounge & Soft Seating — SHSE(3)",
+    "code": "SHSE 3",
+    "display_name": "LOUNGE CHAIRS  SHSE 3",
     "code_number": 3,
-    "search_keywords": "SHSE(3) SHSE 3 Lounge & Soft Seating"
+    "search_keywords": "LOUNGE CHAIRS  SHSE 3 SHSE 3 SHSE(3) SHSE3 MODEL- ALEX MOULD CODE- ₹ 18,0 Lounge & Soft Seating",
+    "name": "LOUNGE CHAIRS  SHSE 3"
   },
   {
     "id": "soft_p7_2",
@@ -5973,10 +6152,11 @@
     "specs": {
       "Application": "Executive Lounge / Reception / Breakout"
     },
-    "code": "SHSE(4)",
-    "display_name": "Lounge & Soft Seating — SHSE(4)",
+    "code": "SHSE 4",
+    "display_name": "LOUNGE CHAIRS  SHSE 4",
     "code_number": 4,
-    "search_keywords": "SHSE(4) SHSE 4 Lounge & Soft Seating"
+    "search_keywords": "LOUNGE CHAIRS  SHSE 4 SHSE 4 SHSE(4) SHSE4 MODEL- BOSTON ₹ 19,000.00 MOUL Lounge & Soft Seating",
+    "name": "LOUNGE CHAIRS  SHSE 4"
   },
   {
     "id": "soft_p7_3",
@@ -6000,10 +6180,11 @@
     "specs": {
       "Application": "Executive Lounge / Reception / Breakout"
     },
-    "code": "SHSE(5)",
-    "display_name": "Lounge & Soft Seating — SHSE(5)",
+    "code": "SHSE 5",
+    "display_name": "LOUNGE CHAIRS  SHSE 5",
     "code_number": 5,
-    "search_keywords": "SHSE(5) SHSE 5 Lounge & Soft Seating"
+    "search_keywords": "LOUNGE CHAIRS  SHSE 5 SHSE 5 SHSE(5) SHSE5 MODEL- ZARA MOULD CODE- ₹ 15,0 Lounge & Soft Seating",
+    "name": "LOUNGE CHAIRS  SHSE 5"
   },
   {
     "id": "soft_p7_4",
@@ -6027,10 +6208,11 @@
     "specs": {
       "Application": "Executive Lounge / Reception / Breakout"
     },
-    "code": "SHSE(6)",
-    "display_name": "Lounge & Soft Seating — SHSE(6)",
+    "code": "SHSE 6",
+    "display_name": "LOUNGE CHAIRS  SHSE 6",
     "code_number": 6,
-    "search_keywords": "SHSE(6) SHSE 6 Lounge & Soft Seating"
+    "search_keywords": "LOUNGE CHAIRS  SHSE 6 SHSE 6 SHSE(6) SHSE6 MODEL- SWAN MOULD CODE- ₹ 16,0 Lounge & Soft Seating",
+    "name": "LOUNGE CHAIRS  SHSE 6"
   },
   {
     "id": "soft_p8_1",
@@ -6054,10 +6236,11 @@
     "specs": {
       "Application": "Executive Lounge / Reception / Breakout"
     },
-    "code": "SHSE(7)",
-    "display_name": "Lounge & Soft Seating — SHSE(7)",
+    "code": "SHSE 7",
+    "display_name": "LOUNGE CHAIRS  SHSE 7",
     "code_number": 7,
-    "search_keywords": "SHSE(7) SHSE 7 Lounge & Soft Seating"
+    "search_keywords": "LOUNGE CHAIRS  SHSE 7 SHSE 7 SHSE(7) SHSE7 MODEL- KIWI MOULD CODE- ₹ 16,0 Lounge & Soft Seating",
+    "name": "LOUNGE CHAIRS  SHSE 7"
   },
   {
     "id": "soft_p8_2",
@@ -6081,10 +6264,11 @@
     "specs": {
       "Application": "Executive Lounge / Reception / Breakout"
     },
-    "code": "SHSE(8)",
-    "display_name": "Lounge & Soft Seating — SHSE(8)",
+    "code": "SHSE 8",
+    "display_name": "LOUNGE CHAIRS  SHSE 8",
     "code_number": 8,
-    "search_keywords": "SHSE(8) SHSE 8 Lounge & Soft Seating"
+    "search_keywords": "LOUNGE CHAIRS  SHSE 8 SHSE 8 SHSE(8) SHSE8 MODEL- STAR MOULD CODE- ₹ 16,0 Lounge & Soft Seating",
+    "name": "LOUNGE CHAIRS  SHSE 8"
   },
   {
     "id": "soft_p8_3",
@@ -6108,10 +6292,11 @@
     "specs": {
       "Application": "Executive Lounge / Reception / Breakout"
     },
-    "code": "SHSE(9)",
-    "display_name": "Lounge & Soft Seating — SHSE(9)",
+    "code": "SHSE 9",
+    "display_name": "LOUNGE CHAIRS  SHSE 9",
     "code_number": 9,
-    "search_keywords": "SHSE(9) SHSE 9 Lounge & Soft Seating"
+    "search_keywords": "LOUNGE CHAIRS  SHSE 9 SHSE 9 SHSE(9) SHSE9 MODEL- MOULD CODE- ₹ 22,000.00 Lounge & Soft Seating",
+    "name": "LOUNGE CHAIRS  SHSE 9"
   },
   {
     "id": "soft_p8_4",
@@ -6135,10 +6320,11 @@
     "specs": {
       "Application": "Executive Lounge / Reception / Breakout"
     },
-    "code": "SHSE(10)",
-    "display_name": "Lounge & Soft Seating — SHSE(10)",
+    "code": "SHSE 10",
+    "display_name": "LOUNGE CHAIRS  SHSE 10",
     "code_number": 10,
-    "search_keywords": "SHSE(10) SHSE 10 Lounge & Soft Seating"
+    "search_keywords": "LOUNGE CHAIRS  SHSE 10 SHSE 10 SHSE(10) SHSE10 MODEL- HEXA MOULD CODE- ₹ 19,0 Lounge & Soft Seating",
+    "name": "LOUNGE CHAIRS  SHSE 10"
   },
   {
     "id": "soft_p9_1",
@@ -6162,10 +6348,11 @@
     "specs": {
       "Application": "Executive Lounge / Reception / Breakout"
     },
-    "code": "SHSE(11)",
-    "display_name": "Lounge & Soft Seating — SHSE(11)",
+    "code": "SHSE 11",
+    "display_name": "LOUNGE CHAIRS  SHSE 11",
     "code_number": 11,
-    "search_keywords": "SHSE(11) SHSE 11 Lounge & Soft Seating"
+    "search_keywords": "LOUNGE CHAIRS  SHSE 11 SHSE 11 SHSE(11) SHSE11 MODEL- KNOLL MOULD CODE- ₹ 24, Lounge & Soft Seating",
+    "name": "LOUNGE CHAIRS  SHSE 11"
   },
   {
     "id": "soft_p9_2",
@@ -6189,10 +6376,11 @@
     "specs": {
       "Application": "Executive Lounge / Reception / Breakout"
     },
-    "code": "SHSE(12)",
-    "display_name": "Lounge & Soft Seating — SHSE(12)",
+    "code": "SHSE 12",
+    "display_name": "LOUNGE CHAIRS  SHSE 12",
     "code_number": 12,
-    "search_keywords": "SHSE(12) SHSE 12 Lounge & Soft Seating"
+    "search_keywords": "LOUNGE CHAIRS  SHSE 12 SHSE 12 SHSE(12) SHSE12 MODEL- BONNY ₹ 15,000.00 MOULD Lounge & Soft Seating",
+    "name": "LOUNGE CHAIRS  SHSE 12"
   },
   {
     "id": "soft_p9_3",
@@ -6216,10 +6404,11 @@
     "specs": {
       "Application": "Executive Lounge / Reception / Breakout"
     },
-    "code": "SHSE(13)",
-    "display_name": "Lounge & Soft Seating — SHSE(13)",
+    "code": "SHSE 13",
+    "display_name": "LOUNGE CHAIRS  SHSE 13",
     "code_number": 13,
-    "search_keywords": "SHSE(13) SHSE 13 Lounge & Soft Seating"
+    "search_keywords": "LOUNGE CHAIRS  SHSE 13 SHSE 13 SHSE(13) SHSE13 MODEL- KING MOULD CODE- ₹ 25,0 Lounge & Soft Seating",
+    "name": "LOUNGE CHAIRS  SHSE 13"
   },
   {
     "id": "soft_p9_4",
@@ -6243,10 +6432,11 @@
     "specs": {
       "Application": "Executive Lounge / Reception / Breakout"
     },
-    "code": "SHSE(14)",
-    "display_name": "Lounge & Soft Seating — SHSE(14)",
+    "code": "SHSE 14",
+    "display_name": "LOUNGE CHAIRS  SHSE 14",
     "code_number": 14,
-    "search_keywords": "SHSE(14) SHSE 14 Lounge & Soft Seating"
+    "search_keywords": "LOUNGE CHAIRS  SHSE 14 SHSE 14 SHSE(14) SHSE14 MODEL- ZETA MOULD CODE- ₹ 18,0 Lounge & Soft Seating",
+    "name": "LOUNGE CHAIRS  SHSE 14"
   },
   {
     "id": "soft_p10_1",
@@ -6270,10 +6460,11 @@
     "specs": {
       "Application": "Executive Lounge / Reception / Breakout"
     },
-    "code": "SHSE(15)",
-    "display_name": "Lounge & Soft Seating — SHSE(15)",
+    "code": "SHSE 15",
+    "display_name": "LOUNGE CHAIRS  SHSE 15",
     "code_number": 15,
-    "search_keywords": "SHSE(15) SHSE 15 Lounge & Soft Seating"
+    "search_keywords": "LOUNGE CHAIRS  SHSE 15 SHSE 15 SHSE(15) SHSE15 MODEL- AMAYRA ₹ 20,000.00 MOUL Lounge & Soft Seating",
+    "name": "LOUNGE CHAIRS  SHSE 15"
   },
   {
     "id": "soft_p10_2",
@@ -6297,10 +6488,11 @@
     "specs": {
       "Application": "Executive Lounge / Reception / Breakout"
     },
-    "code": "SHSE(16)",
-    "display_name": "Lounge & Soft Seating — SHSE(16)",
+    "code": "SHSE 16",
+    "display_name": "LOUNGE CHAIRS  SHSE 16",
     "code_number": 16,
-    "search_keywords": "SHSE(16) SHSE 16 Lounge & Soft Seating"
+    "search_keywords": "LOUNGE CHAIRS  SHSE 16 SHSE 16 SHSE(16) SHSE16 MODEL- LUV MOULD CODE- ₹ 24,00 Lounge & Soft Seating",
+    "name": "LOUNGE CHAIRS  SHSE 16"
   },
   {
     "id": "soft_p10_3",
@@ -6324,10 +6516,11 @@
     "specs": {
       "Application": "Executive Lounge / Reception / Breakout"
     },
-    "code": "SHSE(17)",
-    "display_name": "Lounge & Soft Seating — SHSE(17)",
+    "code": "SHSE 17",
+    "display_name": "LOUNGE CHAIRS  SHSE 17",
     "code_number": 17,
-    "search_keywords": "SHSE(17) SHSE 17 Lounge & Soft Seating"
+    "search_keywords": "LOUNGE CHAIRS  SHSE 17 SHSE 17 SHSE(17) SHSE17 MODEL- KING 2 MOULD CODE- ₹ 42 Lounge & Soft Seating",
+    "name": "LOUNGE CHAIRS  SHSE 17"
   },
   {
     "id": "soft_p10_4",
@@ -6351,10 +6544,11 @@
     "specs": {
       "Application": "Executive Lounge / Reception / Breakout"
     },
-    "code": "SHSE(18)",
-    "display_name": "Lounge & Soft Seating — SHSE(18)",
+    "code": "SHSE 18",
+    "display_name": "LOUNGE CHAIRS  SHSE 18",
     "code_number": 18,
-    "search_keywords": "SHSE(18) SHSE 18 Lounge & Soft Seating"
+    "search_keywords": "LOUNGE CHAIRS  SHSE 18 SHSE 18 SHSE(18) SHSE18 MODEL- DAYTON ₹ 22,000.00 MOUL Lounge & Soft Seating",
+    "name": "LOUNGE CHAIRS  SHSE 18"
   },
   {
     "id": "soft_p11_1",
@@ -6378,10 +6572,11 @@
     "specs": {
       "Application": "Executive Lounge / Reception / Breakout"
     },
-    "code": "SHSE(19)",
-    "display_name": "Lounge & Soft Seating — SHSE(19)",
+    "code": "SHSE 19",
+    "display_name": "LOUNGE CHAIRS  SHSE 19",
     "code_number": 19,
-    "search_keywords": "SHSE(19) SHSE 19 Lounge & Soft Seating"
+    "search_keywords": "LOUNGE CHAIRS  SHSE 19 SHSE 19 SHSE(19) SHSE19 MODEL- ₹ 23,000.00 TOLEDO Lounge & Soft Seating",
+    "name": "LOUNGE CHAIRS  SHSE 19"
   },
   {
     "id": "soft_p11_2",
@@ -6405,10 +6600,11 @@
     "specs": {
       "Application": "Executive Lounge / Reception / Breakout"
     },
-    "code": "SHSE(20)",
-    "display_name": "Lounge & Soft Seating — SHSE(20)",
+    "code": "SHSE 20",
+    "display_name": "LOUNGE CHAIRS  SHSE 20",
     "code_number": 20,
-    "search_keywords": "SHSE(20) SHSE 20 Lounge & Soft Seating"
+    "search_keywords": "LOUNGE CHAIRS  SHSE 20 SHSE 20 SHSE(20) SHSE20 MODEL- ₹ 22,000.00 WALTER Lounge & Soft Seating",
+    "name": "LOUNGE CHAIRS  SHSE 20"
   },
   {
     "id": "soft_p11_3",
@@ -6432,10 +6628,11 @@
     "specs": {
       "Application": "Executive Lounge / Reception / Breakout"
     },
-    "code": "SHSE(21)",
-    "display_name": "Lounge & Soft Seating — SHSE(21)",
+    "code": "SHSE 21",
+    "display_name": "LOUNGE CHAIRS  SHSE 21",
     "code_number": 21,
-    "search_keywords": "SHSE(21) SHSE 21 Lounge & Soft Seating"
+    "search_keywords": "LOUNGE CHAIRS  SHSE 21 SHSE 21 SHSE(21) SHSE21 MODEL- SIAM ₹ 20,000.00 Lounge & Soft Seating",
+    "name": "LOUNGE CHAIRS  SHSE 21"
   },
   {
     "id": "soft_p11_4",
@@ -6459,10 +6656,11 @@
     "specs": {
       "Application": "Executive Lounge / Reception / Breakout"
     },
-    "code": "SHSE(22)",
-    "display_name": "Lounge & Soft Seating — SHSE(22)",
+    "code": "SHSE 22",
+    "display_name": "LOUNGE CHAIRS  SHSE 22",
     "code_number": 22,
-    "search_keywords": "SHSE(22) SHSE 22 Lounge & Soft Seating"
+    "search_keywords": "LOUNGE CHAIRS  SHSE 22 SHSE 22 SHSE(22) SHSE22 MODEL- ₹ 19,000.00 STEFANO Lounge & Soft Seating",
+    "name": "LOUNGE CHAIRS  SHSE 22"
   },
   {
     "id": "soft_p12_1",
@@ -6486,10 +6684,11 @@
     "specs": {
       "Application": "Executive Lounge / Reception / Breakout"
     },
-    "code": "SHSE(23)",
-    "display_name": "Lounge & Soft Seating — SHSE(23)",
+    "code": "SHSE 23",
+    "display_name": "LOUNGE CHAIRS  SHSE 23",
     "code_number": 23,
-    "search_keywords": "SHSE(23) SHSE 23 Lounge & Soft Seating"
+    "search_keywords": "LOUNGE CHAIRS  SHSE 23 SHSE 23 SHSE(23) SHSE23 MODEL- SIZE NOT AVAILABLE AS O Lounge & Soft Seating",
+    "name": "LOUNGE CHAIRS  SHSE 23"
   },
   {
     "id": "soft_p12_2",
@@ -6513,10 +6712,11 @@
     "specs": {
       "Application": "Executive Lounge / Reception / Breakout"
     },
-    "code": "SHSE(24)",
-    "display_name": "Lounge & Soft Seating — SHSE(24)",
+    "code": "SHSE 24",
+    "display_name": "LOUNGE CHAIRS  SHSE 24",
     "code_number": 24,
-    "search_keywords": "SHSE(24) SHSE 24 Lounge & Soft Seating"
+    "search_keywords": "LOUNGE CHAIRS  SHSE 24 SHSE 24 SHSE(24) SHSE24 MODEL- ₹ 23,500.00 GEMINI Lounge & Soft Seating",
+    "name": "LOUNGE CHAIRS  SHSE 24"
   },
   {
     "id": "soft_p1_1",
@@ -6540,10 +6740,11 @@
     "specs": {
       "Application": "Restaurant / Dining / Conference"
     },
-    "code": "SHSE(1)",
-    "display_name": "Dining Chairs — SHSE(1)",
+    "code": "SHSE 1",
+    "display_name": "DINING CHAIRS  SHSE 1",
     "code_number": 1,
-    "search_keywords": "SHSE(1) SHSE 1 Dining Chairs"
+    "search_keywords": "DINING CHAIRS  SHSE 1 SHSE 1 SHSE(1) SHSE1 LOUNGE DC ₹ 7,000.00 404 Dining Chairs",
+    "name": "DINING CHAIRS  SHSE 1"
   },
   {
     "id": "soft_p1_2",
@@ -6567,10 +6768,11 @@
     "specs": {
       "Application": "Restaurant / Dining / Conference"
     },
-    "code": "SHSE(2)",
-    "display_name": "Dining Chairs — SHSE(2)",
+    "code": "SHSE 2",
+    "display_name": "DINING CHAIRS  SHSE 2",
     "code_number": 2,
-    "search_keywords": "SHSE(2) SHSE 2 Dining Chairs"
+    "search_keywords": "DINING CHAIRS  SHSE 2 SHSE 2 SHSE(2) SHSE2 LOUNGE DC ₹ 9,600.00 405 Dining Chairs",
+    "name": "DINING CHAIRS  SHSE 2"
   },
   {
     "id": "soft_p1_3",
@@ -6594,10 +6796,11 @@
     "specs": {
       "Application": "Restaurant / Dining / Conference"
     },
-    "code": "SHSE(3)",
-    "display_name": "Dining Chairs — SHSE(3)",
+    "code": "SHSE 3",
+    "display_name": "DINING CHAIRS  SHSE 3",
     "code_number": 3,
-    "search_keywords": "SHSE(3) SHSE 3 Dining Chairs"
+    "search_keywords": "DINING CHAIRS  SHSE 3 SHSE 3 SHSE(3) SHSE3 LOUNGE DC ₹ 8,000.00 472 Dining Chairs",
+    "name": "DINING CHAIRS  SHSE 3"
   },
   {
     "id": "soft_p2_1",
@@ -6621,10 +6824,11 @@
     "specs": {
       "Application": "Restaurant / Dining / Conference"
     },
-    "code": "SHSE(4)",
-    "display_name": "Dining Chairs — SHSE(4)",
+    "code": "SHSE 4",
+    "display_name": "DINING CHAIRS  SHSE 4",
     "code_number": 4,
-    "search_keywords": "SHSE(4) SHSE 4 Dining Chairs"
+    "search_keywords": "DINING CHAIRS  SHSE 4 SHSE 4 SHSE(4) SHSE4 LOUNGE DC ₹ 10,000.00 475 Dining Chairs",
+    "name": "DINING CHAIRS  SHSE 4"
   },
   {
     "id": "soft_p2_2",
@@ -6648,10 +6852,11 @@
     "specs": {
       "Application": "Restaurant / Dining / Conference"
     },
-    "code": "SHSE(5)",
-    "display_name": "Dining Chairs — SHSE(5)",
+    "code": "SHSE 5",
+    "display_name": "DINING CHAIRS  SHSE 5",
     "code_number": 5,
-    "search_keywords": "SHSE(5) SHSE 5 Dining Chairs"
+    "search_keywords": "DINING CHAIRS  SHSE 5 SHSE 5 SHSE(5) SHSE5 LOUNGE DC 475 WOODEN ₹ 13,000. Dining Chairs",
+    "name": "DINING CHAIRS  SHSE 5"
   },
   {
     "id": "soft_p2_3",
@@ -6675,10 +6880,11 @@
     "specs": {
       "Application": "Restaurant / Dining / Conference"
     },
-    "code": "SHSE(6)",
-    "display_name": "Dining Chairs — SHSE(6)",
+    "code": "SHSE 6",
+    "display_name": "DINING CHAIRS  SHSE 6",
     "code_number": 6,
-    "search_keywords": "SHSE(6) SHSE 6 Dining Chairs"
+    "search_keywords": "DINING CHAIRS  SHSE 6 SHSE 6 SHSE(6) SHSE6 LOUNGE DC ₹ 11,000.00 476 Dining Chairs",
+    "name": "DINING CHAIRS  SHSE 6"
   },
   {
     "id": "soft_p2_4",
@@ -6702,10 +6908,11 @@
     "specs": {
       "Application": "Restaurant / Dining / Conference"
     },
-    "code": "SHSE(7)",
-    "display_name": "Dining Chairs — SHSE(7)",
+    "code": "SHSE 7",
+    "display_name": "DINING CHAIRS  SHSE 7",
     "code_number": 7,
-    "search_keywords": "SHSE(7) SHSE 7 Dining Chairs"
+    "search_keywords": "DINING CHAIRS  SHSE 7 SHSE 7 SHSE(7) SHSE7 LOUNGE DC ₹ 11,000.00 478 Dining Chairs",
+    "name": "DINING CHAIRS  SHSE 7"
   },
   {
     "id": "soft_p3_1",
@@ -6729,10 +6936,11 @@
     "specs": {
       "Application": "Restaurant / Dining / Conference"
     },
-    "code": "SHSE(8)",
-    "display_name": "Dining Chairs — SHSE(8)",
+    "code": "SHSE 8",
+    "display_name": "DINING CHAIRS  SHSE 8",
     "code_number": 8,
-    "search_keywords": "SHSE(8) SHSE 8 Dining Chairs"
+    "search_keywords": "DINING CHAIRS  SHSE 8 SHSE 8 SHSE(8) SHSE8 LOUNGE DC ₹ 12,000.00 479 Dining Chairs",
+    "name": "DINING CHAIRS  SHSE 8"
   },
   {
     "id": "soft_p3_2",
@@ -6756,10 +6964,11 @@
     "specs": {
       "Application": "Restaurant / Dining / Conference"
     },
-    "code": "SHSE(9)",
-    "display_name": "Dining Chairs — SHSE(9)",
+    "code": "SHSE 9",
+    "display_name": "DINING CHAIRS  SHSE 9",
     "code_number": 9,
-    "search_keywords": "SHSE(9) SHSE 9 Dining Chairs"
+    "search_keywords": "DINING CHAIRS  SHSE 9 SHSE 9 SHSE(9) SHSE9 LOUNGE DC ₹ 20,000.00 LUXE 483 Dining Chairs",
+    "name": "DINING CHAIRS  SHSE 9"
   },
   {
     "id": "soft_p3_3",
@@ -6783,10 +6992,11 @@
     "specs": {
       "Application": "Restaurant / Dining / Conference"
     },
-    "code": "SHSE(10)",
-    "display_name": "Dining Chairs — SHSE(10)",
+    "code": "SHSE 10",
+    "display_name": "DINING CHAIRS  SHSE 10",
     "code_number": 10,
-    "search_keywords": "SHSE(10) SHSE 10 Dining Chairs"
+    "search_keywords": "DINING CHAIRS  SHSE 10 SHSE 10 SHSE(10) SHSE10 Seat Depth: mm Seat width: mm  Dining Chairs",
+    "name": "DINING CHAIRS  SHSE 10"
   },
   {
     "id": "soft_p3_4",
@@ -6815,10 +7025,11 @@
       "Maximum chair height": "860 mm",
       "Chair seat height": "470 mm"
     },
-    "code": "SHSE(11)",
-    "display_name": "Dining Chairs — SHSE(11)",
+    "code": "SHSE 11",
+    "display_name": "DINING CHAIRS  SHSE 11",
     "code_number": 11,
-    "search_keywords": "SHSE(11) SHSE 11 Dining Chairs"
+    "search_keywords": "DINING CHAIRS  SHSE 11 SHSE 11 SHSE(11) SHSE11 Seat Depth: 490 mm Seat width: Dining Chairs",
+    "name": "DINING CHAIRS  SHSE 11"
   },
   {
     "id": "soft_p4_1",
@@ -6842,10 +7053,11 @@
     "specs": {
       "Application": "Restaurant / Dining / Conference"
     },
-    "code": "SHSE(12)",
-    "display_name": "Dining Chairs — SHSE(12)",
+    "code": "SHSE 12",
+    "display_name": "DINING CHAIRS  SHSE 12",
     "code_number": 12,
-    "search_keywords": "SHSE(12) SHSE 12 Dining Chairs"
+    "search_keywords": "DINING CHAIRS  SHSE 12 SHSE 12 SHSE(12) SHSE12 Seat Depth: mm Seat width: mm  Dining Chairs",
+    "name": "DINING CHAIRS  SHSE 12"
   },
   {
     "id": "soft_p4_2",
@@ -6874,10 +7086,11 @@
       "Maximum chair height": "930 mm",
       "Chair seat height": "470 mm"
     },
-    "code": "SHSE(13)",
-    "display_name": "Dining Chairs — SHSE(13)",
+    "code": "SHSE 13",
+    "display_name": "DINING CHAIRS  SHSE 13",
     "code_number": 13,
-    "search_keywords": "SHSE(13) SHSE 13 Dining Chairs"
+    "search_keywords": "DINING CHAIRS  SHSE 13 SHSE 13 SHSE(13) SHSE13 Seat Depth: 480 mm Seat width: Dining Chairs",
+    "name": "DINING CHAIRS  SHSE 13"
   },
   {
     "id": "soft_p4_3",
@@ -6901,10 +7114,11 @@
     "specs": {
       "Application": "Restaurant / Dining / Conference"
     },
-    "code": "SHSE(14)",
-    "display_name": "Dining Chairs — SHSE(14)",
+    "code": "SHSE 14",
+    "display_name": "DINING CHAIRS  SHSE 14",
     "code_number": 14,
-    "search_keywords": "SHSE(14) SHSE 14 Dining Chairs"
+    "search_keywords": "DINING CHAIRS  SHSE 14 SHSE 14 SHSE(14) SHSE14 Seat Depth: mm Seat width: mm  Dining Chairs",
+    "name": "DINING CHAIRS  SHSE 14"
   },
   {
     "id": "soft_p4_4",
@@ -6928,10 +7142,11 @@
     "specs": {
       "Application": "Restaurant / Dining / Conference"
     },
-    "code": "SHSE(15)",
-    "display_name": "Dining Chairs — SHSE(15)",
+    "code": "SHSE 15",
+    "display_name": "DINING CHAIRS  SHSE 15",
     "code_number": 15,
-    "search_keywords": "SHSE(15) SHSE 15 Dining Chairs"
+    "search_keywords": "DINING CHAIRS  SHSE 15 SHSE 15 SHSE(15) SHSE15 Seat Depth: mm Seat width: mm  Dining Chairs",
+    "name": "DINING CHAIRS  SHSE 15"
   },
   {
     "id": "soft_p5_1",
@@ -6960,10 +7175,11 @@
       "Maximum chair height": "930 mm",
       "Chair seat height": "470 mm"
     },
-    "code": "SHSE(16)",
-    "display_name": "Dining Chairs — SHSE(16)",
+    "code": "SHSE 16",
+    "display_name": "DINING CHAIRS  SHSE 16",
     "code_number": 16,
-    "search_keywords": "SHSE(16) SHSE 16 Dining Chairs"
+    "search_keywords": "DINING CHAIRS  SHSE 16 SHSE 16 SHSE(16) SHSE16 Seat Depth: 480 mm Seat width: Dining Chairs",
+    "name": "DINING CHAIRS  SHSE 16"
   },
   {
     "id": "soft_p5_2",
@@ -6987,10 +7203,11 @@
     "specs": {
       "Application": "Restaurant / Dining / Conference"
     },
-    "code": "SHSE(17)",
-    "display_name": "Dining Chairs — SHSE(17)",
+    "code": "SHSE 17",
+    "display_name": "DINING CHAIRS  SHSE 17",
     "code_number": 17,
-    "search_keywords": "SHSE(17) SHSE 17 Dining Chairs"
+    "search_keywords": "DINING CHAIRS  SHSE 17 SHSE 17 SHSE(17) SHSE17 LOUNGE DC ₹ 11,000.00 1919 Dining Chairs",
+    "name": "DINING CHAIRS  SHSE 17"
   },
   {
     "id": "soft_p5_3",
@@ -7014,10 +7231,11 @@
     "specs": {
       "Application": "Restaurant / Dining / Conference"
     },
-    "code": "SHSE(18)",
-    "display_name": "Dining Chairs — SHSE(18)",
+    "code": "SHSE 18",
+    "display_name": "DINING CHAIRS  SHSE 18",
     "code_number": 18,
-    "search_keywords": "SHSE(18) SHSE 18 Dining Chairs"
+    "search_keywords": "DINING CHAIRS  SHSE 18 SHSE 18 SHSE(18) SHSE18 LOUNGE DC ₹ 14,000.00 1920 Dining Chairs",
+    "name": "DINING CHAIRS  SHSE 18"
   },
   {
     "id": "soft_p5_4",
@@ -7041,10 +7259,11 @@
     "specs": {
       "Application": "Restaurant / Dining / Conference"
     },
-    "code": "SHSE(19)",
-    "display_name": "Dining Chairs — SHSE(19)",
+    "code": "SHSE 19",
+    "display_name": "DINING CHAIRS  SHSE 19",
     "code_number": 19,
-    "search_keywords": "SHSE(19) SHSE 19 Dining Chairs"
+    "search_keywords": "DINING CHAIRS  SHSE 19 SHSE 19 SHSE(19) SHSE19 Seat Depth: mm Seat width: mm  Dining Chairs",
+    "name": "DINING CHAIRS  SHSE 19"
   },
   {
     "id": "soft_p6_1",
@@ -7068,10 +7287,11 @@
     "specs": {
       "Application": "Restaurant / Dining / Conference"
     },
-    "code": "SHSE(20)",
-    "display_name": "Dining Chairs — SHSE(20)",
+    "code": "SHSE 20",
+    "display_name": "DINING CHAIRS  SHSE 20",
     "code_number": 20,
-    "search_keywords": "SHSE(20) SHSE 20 Dining Chairs"
+    "search_keywords": "DINING CHAIRS  SHSE 20 SHSE 20 SHSE(20) SHSE20 540MM (W) X 580MM (D) NEW GOLD Dining Chairs",
+    "name": "DINING CHAIRS  SHSE 20"
   },
   {
     "id": "soft_p6_3",
@@ -7100,10 +7320,11 @@
       "Maximum chair height": "940 mm",
       "Chair seat height": "430 mm"
     },
-    "code": "SHSE(21)",
-    "display_name": "Dining Chairs — SHSE(21)",
+    "code": "SHSE 21",
+    "display_name": "DINING CHAIRS  SHSE 21",
     "code_number": 21,
-    "search_keywords": "SHSE(21) SHSE 21 Dining Chairs"
+    "search_keywords": "DINING CHAIRS  SHSE 21 SHSE 21 SHSE(21) SHSE21 Seat Depth: 490 mm Seat width: Dining Chairs",
+    "name": "DINING CHAIRS  SHSE 21"
   },
   {
     "id": "visitor_5_5_1",
@@ -7129,10 +7350,11 @@
       "Frame": "Reinforced Tubular Metal",
       "Application": "Utility / Workshop / Clinic"
     },
-    "code": "SHSE(1)",
-    "display_name": "Stools & Additional Seating — SHSE(1)",
+    "code": "SHSE 1",
+    "display_name": "STOOLS  SHSE 1",
     "code_number": 1,
-    "search_keywords": "SHSE(1) SHSE 1 Stools & Additional Seating"
+    "search_keywords": "STOOLS  SHSE 1 SHSE 1 SHSE(1) SHSE1 STOOL REXIN Rs. 1,300.00 R8ES1 Stools & Additional Seating",
+    "name": "STOOLS  SHSE 1"
   },
   {
     "id": "visitor_5_5_2",
@@ -7158,10 +7380,11 @@
       "Frame": "Reinforced Tubular Metal",
       "Application": "Utility / Workshop / Clinic"
     },
-    "code": "SHSE(2)",
-    "display_name": "Stools & Additional Seating — SHSE(2)",
+    "code": "SHSE 2",
+    "display_name": "STOOLS  SHSE 2",
     "code_number": 2,
-    "search_keywords": "SHSE(2) SHSE 2 Stools & Additional Seating"
+    "search_keywords": "STOOLS  SHSE 2 SHSE 2 SHSE(2) SHSE2 STOOL WOOD Rs. 1,300.00 D4S18 Stools & Additional Seating",
+    "name": "STOOLS  SHSE 2"
   },
   {
     "id": "visitor_6_1_1",
@@ -7187,10 +7410,11 @@
       "Frame": "Reinforced Tubular Metal",
       "Application": "Utility / Workshop / Clinic"
     },
-    "code": "SHSE(3)",
-    "display_name": "Stools & Additional Seating — SHSE(3)",
+    "code": "SHSE 3",
+    "display_name": "STOOLS  SHSE 3",
     "code_number": 3,
-    "search_keywords": "SHSE(3) SHSE 3 Stools & Additional Seating"
+    "search_keywords": "STOOLS  SHSE 3 SHSE 3 SHSE(3) SHSE3 IMPORTED STOOL Rs. 1,500.00 CU Stools & Additional Seating",
+    "name": "STOOLS  SHSE 3"
   },
   {
     "id": "visitor_6_1_2",
@@ -7216,10 +7440,11 @@
       "Frame": "Reinforced Tubular Metal",
       "Application": "Utility / Workshop / Clinic"
     },
-    "code": "SHSE(4)",
-    "display_name": "Stools & Additional Seating — SHSE(4)",
+    "code": "SHSE 4",
+    "display_name": "STOOLS  SHSE 4",
     "code_number": 4,
-    "search_keywords": "SHSE(4) SHSE 4 Stools & Additional Seating"
+    "search_keywords": "STOOLS  SHSE 4 SHSE 4 SHSE(4) SHSE4 IMPORTED STOOL Rs. 1,500.00 WO Stools & Additional Seating",
+    "name": "STOOLS  SHSE 4"
   },
   {
     "id": "visitor_6_2_1",
@@ -7245,10 +7470,11 @@
       "Frame": "Reinforced Tubular Metal",
       "Application": "Utility / Workshop / Clinic"
     },
-    "code": "SHSE(5)",
-    "display_name": "Stools & Additional Seating — SHSE(5)",
+    "code": "SHSE 5",
+    "display_name": "STOOLS  SHSE 5",
     "code_number": 5,
-    "search_keywords": "SHSE(5) SHSE 5 Stools & Additional Seating"
+    "search_keywords": "STOOLS  SHSE 5 SHSE 5 SHSE(5) SHSE5 IMPORTED STOOL Rs. 1,600.00 GO Stools & Additional Seating",
+    "name": "STOOLS  SHSE 5"
   },
   {
     "id": "visitor_6_2_2",
@@ -7274,10 +7500,11 @@
       "Frame": "Reinforced Tubular Metal",
       "Application": "Utility / Workshop / Clinic"
     },
-    "code": "SHSE(6)",
-    "display_name": "Stools & Additional Seating — SHSE(6)",
+    "code": "SHSE 6",
+    "display_name": "STOOLS  SHSE 6",
     "code_number": 6,
-    "search_keywords": "SHSE(6) SHSE 6 Stools & Additional Seating"
+    "search_keywords": "STOOLS  SHSE 6 SHSE 6 SHSE(6) SHSE6 SS STOOL Rs. 1,600.00 Stools & Additional Seating",
+    "name": "STOOLS  SHSE 6"
   },
   {
     "id": "visitor_6_3_1",
@@ -7303,9 +7530,10 @@
       "Frame": "Reinforced Tubular Metal",
       "Application": "Utility / Workshop / Clinic"
     },
-    "code": "SHSE(7)",
-    "display_name": "Stools & Additional Seating — SHSE(7)",
+    "code": "SHSE 7",
+    "display_name": "STOOLS  SHSE 7",
     "code_number": 7,
-    "search_keywords": "SHSE(7) SHSE 7 Stools & Additional Seating"
+    "search_keywords": "STOOLS  SHSE 7 SHSE 7 SHSE(7) SHSE7 PP STOOL Rs. 1,700.00 Stools & Additional Seating",
+    "name": "STOOLS  SHSE 7"
   }
 ]

@@ -417,6 +417,24 @@
       }
     }
 
+    const CAT_PREFIX = {
+      'Office Chairs': 'OFFICE CHAIRS',
+      'Visitor Chairs': 'VISITOR CHAIRS',
+      'Lounge & Soft Seating': 'LOUNGE CHAIRS',
+      'Dining Chairs': 'DINING CHAIRS',
+      'Stools & Additional Seating': 'STOOLS'
+    };
+
+    function getFormattedTitle(p) {
+      if (!p) return '';
+      if (p.display_name && p.display_name.includes('SHSE')) {
+        return p.display_name;
+      }
+      const prefix = CAT_PREFIX[p.category] || (p.category ? p.category.toUpperCase() : 'CHAIRS');
+      const codeNum = p.code_number || (p.code ? p.code.replace(/\D/g, '') : '1');
+      return `${prefix}  SHSE ${codeNum}`;
+    }
+
     function renderCategoryGrid() {
       const search = (document.getElementById('catSearch').value || '').toLowerCase().trim();
       const sort = document.getElementById('catSort').value;
@@ -425,10 +443,12 @@
 
       let list = allCatProducts.filter(p => {
         if (!search) return true;
+        const title = (p.display_name || '').toLowerCase();
         const code = (p.code || '').toLowerCase();
         const model = (p._internal_model || '').toLowerCase();
         const num = String(p.code_number || '');
-        return code.includes(search) || model.includes(search) || num.includes(search);
+        const keywords = (p.search_keywords || '').toLowerCase();
+        return title.includes(search) || code.includes(search) || model.includes(search) || num.includes(search) || keywords.includes(search);
       });
 
       if (sort === 'price-low') {
@@ -452,28 +472,28 @@
 
       empty.style.display = 'none';
       grid.innerHTML = list.map(p => {
+        const formattedTitle = getFormattedTitle(p);
         const model = p._internal_model || '';
-        const code = p.code || `SHSE(${p.code_number || 1})`;
         const isSaved = savedIds.includes(p.id);
         const isCompared = compareIds.includes(p.id);
-        const waMsg = encodeURIComponent(`Hello Sri Hanum Sastha Enterprises, I am interested in chair ${code} (Model: ${model}) from the ${p.category} category. Please share more details.`);
+        const waMsg = encodeURIComponent(`Hello Sri Hanum Sastha Enterprises, I am interested in chair ${formattedTitle}${model ? ' (Model: ' + model + ')' : ''} from the ${p.category} category. Please share more details.`);
         return `
           <article class="product-card" data-id="${p.id}">
-            <div class="product-image-canvas" onclick="window.location.href='product.html?id=${p.id}'" role="button" tabindex="0" aria-label="View details for ${code}">
+            <div class="product-image-canvas" onclick="window.location.href='product.html?id=${p.id}'" role="button" tabindex="0" aria-label="View details for ${formattedTitle}">
               <span class="product-category-badge">${p.category}</span>
-              <button class="btn-save-chair ${isSaved ? 'active' : ''}" onclick="event.stopPropagation(); window.catalogApp.toggleSaveChair('${p.id}'); renderCategoryGrid();" title="${isSaved ? 'Remove from Saved' : 'Save this chair'}" aria-label="Save ${code}">
+              <button class="btn-save-chair ${isSaved ? 'active' : ''}" onclick="event.stopPropagation(); window.catalogApp.toggleSaveChair('${p.id}'); renderCategoryGrid();" title="${isSaved ? 'Remove from Saved' : 'Save this chair'}" aria-label="Save ${formattedTitle}">
                 ${isSaved ? '❤️' : '🤍'}
               </button>
-              <img src="${p.image}" alt="${code} - ${model}" loading="lazy" onerror="this.src='assets/placeholder.svg'">
+              <img src="${p.image}" alt="${formattedTitle}${model ? ' - ' + model : ''}" loading="lazy" onerror="this.src='assets/placeholder.svg'">
             </div>
             <div class="product-content">
-              <div class="product-code-row" style="display: flex; justify-content: space-between; align-items: center;">
-                <span class="product-code-badge">${code}</span>
+              <div class="product-card-top-row" style="display: flex; justify-content: flex-end; align-items: center; margin-bottom: 0.35rem;">
                 <button class="btn-compare-chair ${isCompared ? 'active' : ''}" onclick="window.catalogApp.toggleCompare('${p.id}'); renderCategoryGrid();">
                   ${isCompared ? '✓ Comparing' : '+ Compare'}
                 </button>
               </div>
-              <h3 class="product-name">${model ? model : code}</h3>
+              <h3 class="product-name">${formattedTitle}</h3>
+              ${model ? `<div style="font-size: 0.8125rem; color: var(--text-muted); margin-bottom: 0.5rem;">Model: ${model}</div>` : ''}
               <div class="product-price-row">
                 <span class="product-price-label">Catalogue Rate</span>
                 <span class="product-price-val">${p.price_display || '₹' + p.base_price}</span>

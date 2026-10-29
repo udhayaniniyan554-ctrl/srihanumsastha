@@ -81,9 +81,10 @@ print(f"  [PASS] /api/chairs returned 200 OK ({len(chairs)} chairs served)")
 status, body = request_url(f"{BASE_URL}/api/chairs/office_1_2")
 assert status == 200
 c2 = json.loads(body)
-assert c2["code"] == "SHSE(2)"
+assert c2["code"] == "SHSE 2"
+assert c2["display_name"] == "OFFICE CHAIRS  SHSE 2"
 assert c2["_internal_model"] == "4G"
-print(f"  [PASS] /api/chairs/office_1_2 returned 200 OK (Code: {c2['code']}, Model: {c2['_internal_model']})")
+print(f"  [PASS] /api/chairs/office_1_2 returned 200 OK (Title: {c2['display_name']}, Code: {c2['code']}, Model: {c2['_internal_model']})")
 
 # 3d. Admin Auth
 login_payload = json.dumps({"username": "admin", "password": "shse2026"}).encode('utf-8')
@@ -147,8 +148,8 @@ with open(os.path.join(PROJECT_DIR, "index.html"), "r", encoding="utf-8") as f:
     assert "hero-slide" in idx_html, "Hero slides missing in index.html"
     assert "previewTrack" in idx_html, "previewTrack missing in index.html"
     assert "preview-section" in idx_html, "preview-section missing in index.html"
-    assert "SHSE(1) — <span>ATLAS/3G</span>" in idx_html
-    assert "SHSE(2) — <span>4G</span>" in idx_html
+    assert "OFFICE CHAIRS  SHSE 1" in idx_html
+    assert "OFFICE CHAIRS  SHSE 2" in idx_html
 
 with open(os.path.join(PROJECT_DIR, "app.js"), "r", encoding="utf-8") as f:
     app_js = f.read()
@@ -178,16 +179,26 @@ with open(os.path.join(PROJECT_DIR, "product.html"), "r", encoding="utf-8") as f
 with open(os.path.join(PROJECT_DIR, "assets", "catalog.json"), "r", encoding="utf-8") as f:
     catalog = json.load(f)
     o2 = [p for p in catalog if p['id'] == 'office_1_2'][0]
-    assert o2['code'] == 'SHSE(2)'
+    assert o2['code'] == 'SHSE 2'
+    assert o2['display_name'] == 'OFFICE CHAIRS  SHSE 2'
     assert o2['_internal_model'] == '4G'
     assert o2['category'] == 'Office Chairs'
     assert os.path.exists(os.path.join(PROJECT_DIR, o2['image'].replace('/', os.sep)))
 
-print("  [PASS] Target product.html?id=office_1_2 verified: SHSE(2), model 4G, clean white canvas, specs & 8695706013 CTA.")
+print("  [PASS] Target product.html?id=office_1_2 verified: OFFICE CHAIRS  SHSE 2, model 4G, clean white canvas, specs & 8695706013 CTA.")
 
-# ---------------- STEP 7: ASSET INTEGRITY (228 Models) ----------------
-print("\n[STEP 7] Verifying 228 Catalog Items, Authentic Photos, Schematics...")
+# ---------------- STEP 7: ASSET INTEGRITY & UNIFORM MODEL NAMING (228 Models) ----------------
+print("\n[STEP 7] Verifying 228 Catalog Items, Uniform Model Naming, Authentic Photos, Schematics...")
 assert len(catalog) == 228, f"Expected 228, got {len(catalog)}"
+
+# Verify uniform model naming format on ALL 228 chairs:
+valid_naming_pattern = re.compile(r"^(OFFICE CHAIRS|VISITOR CHAIRS|LOUNGE CHAIRS|DINING CHAIRS|STOOLS)  SHSE [0-9]+$")
+for p in catalog:
+    assert "display_name" in p, f"Missing display_name in {p['id']}"
+    assert valid_naming_pattern.match(p["display_name"]), f"Invalid display_name '{p['display_name']}' in {p['id']}! Must follow CATEGORY  SHSE [N]"
+    assert p["code"] == f"SHSE {p['code_number']}", f"Invalid code format '{p['code']}' in {p['id']}"
+
+print("  [PASS] All 228 chairs strictly follow uniform naming format: [CATEGORY]  SHSE [N] with small consistent spacing.")
 
 missing_images = []
 missing_diagrams = []

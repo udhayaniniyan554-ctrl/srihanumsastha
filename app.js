@@ -7,6 +7,25 @@
 (function () {
   'use strict';
 
+  // Category prefix mapping for uniform naming
+  const CAT_PREFIX = {
+    'Office Chairs': 'OFFICE CHAIRS',
+    'Visitor Chairs': 'VISITOR CHAIRS',
+    'Lounge & Soft Seating': 'LOUNGE CHAIRS',
+    'Dining Chairs': 'DINING CHAIRS',
+    'Stools & Additional Seating': 'STOOLS'
+  };
+
+  function getFormattedTitle(p) {
+    if (!p) return '';
+    if (p.display_name && p.display_name.includes('SHSE')) {
+      return p.display_name;
+    }
+    const prefix = CAT_PREFIX[p.category] || (p.category ? p.category.toUpperCase() : 'CHAIRS');
+    const codeNum = p.code_number || (p.code ? p.code.replace(/\D/g, '') : '1');
+    return `${prefix}  SHSE ${codeNum}`;
+  }
+
   // Global State
   const state = {
     allProducts: [],
@@ -254,19 +273,19 @@
     }
 
     track.innerHTML = previewItems.map(p => {
+      const formattedTitle = getFormattedTitle(p);
       const model = p._internal_model || '';
-      const code = p.code || `SHSE(${p.code_number || 1})`;
       const price = p.price_display || `₹${(p.base_price || 0).toLocaleString('en-IN')}`;
 
       return `
-        <div class="preview-card" onclick="window.location.href='product.html?id=${p.id}'" role="button" tabindex="0" aria-label="View ${code} ${model}">
+        <div class="preview-card" onclick="window.location.href='product.html?id=${p.id}'" role="button" tabindex="0" aria-label="View ${formattedTitle}">
           <div class="preview-card-canvas">
             <span class="preview-card-cat-badge">${p.category}</span>
-            <img src="${p.image}" alt="${code} - ${model}" loading="lazy" onerror="this.src='assets/placeholder.svg'">
+            <img src="${p.image}" alt="${formattedTitle}" loading="lazy" onerror="this.src='assets/placeholder.svg'">
           </div>
           <div class="preview-card-body">
-            <span class="preview-card-code">${code}</span>
-            <h4 class="preview-card-name">${model ? model : code}</h4>
+            <h4 class="preview-card-name" style="margin-bottom: 0.25rem;">${formattedTitle}</h4>
+            ${model ? `<div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.35rem;">Model: ${model}</div>` : ''}
             <div class="preview-card-price-row">
               <span class="preview-card-price">${price}</span>
               <span class="preview-card-action">View Details →</span>
@@ -408,13 +427,15 @@
     if (state.searchQuery.trim()) {
       const query = state.searchQuery.toLowerCase().trim();
       result = result.filter(p => {
+        const title = (p.display_name || '').toLowerCase();
         const code = (p.code || '').toLowerCase();
         const model = (p._internal_model || '').toLowerCase();
         const cat = (p.category || '').toLowerCase();
         const num = String(p.code_number || '');
         const keywords = (p.search_keywords || '').toLowerCase();
 
-        return code.includes(query) ||
+        return title.includes(query) ||
+               code.includes(query) ||
                model.includes(query) ||
                cat.includes(query) ||
                num.includes(query) ||
@@ -484,36 +505,37 @@
     const pagedItems = state.filteredProducts.slice(0, visibleCount);
 
     const cardsHtml = pagedItems.map(p => {
+      const formattedTitle = getFormattedTitle(p);
       const confirmedModel = p._internal_model || '';
-      const displayCode = p.code || `SHSE(${p.code_number || 1})`;
+      const displayCode = p.code || `SHSE ${p.code_number || 1}`;
       const priceDisplay = p.price_display || `₹${(p.base_price || 0).toLocaleString('en-IN')}`;
       const isSaved = state.savedIds.includes(p.id);
       const isCompared = state.comparedIds.includes(p.id);
 
       const waMessage = encodeURIComponent(
-        `Hello Sri Hanum Sastha Enterprises, I am interested in chair ${displayCode} (Model: ${confirmedModel}) from the ${p.category} category. Please share more details.`
+        `Hello Sri Hanum Sastha Enterprises, I am interested in chair ${formattedTitle}${confirmedModel ? ' (Model: ' + confirmedModel + ')' : ''} from the ${p.category} category. Please share more details.`
       );
       const waUrl = `https://wa.me/918695706013?text=${waMessage}`;
 
       return `
         <article class="product-card" data-id="${p.id}">
-          <div class="product-image-canvas" onclick="window.location.href='product.html?id=${p.id}'" role="button" tabindex="0" aria-label="View details for ${displayCode}">
+          <div class="product-image-canvas" onclick="window.location.href='product.html?id=${p.id}'" role="button" tabindex="0" aria-label="View details for ${formattedTitle}">
             <span class="product-category-badge">${p.category}</span>
-            <button class="btn-save-chair ${isSaved ? 'active' : ''}" onclick="event.stopPropagation(); window.catalogApp.toggleSaveChair('${p.id}')" title="${isSaved ? 'Remove from Saved' : 'Save this chair'}" aria-label="Save ${displayCode}">
+            <button class="btn-save-chair ${isSaved ? 'active' : ''}" onclick="event.stopPropagation(); window.catalogApp.toggleSaveChair('${p.id}')" title="${isSaved ? 'Remove from Saved' : 'Save this chair'}" aria-label="Save ${formattedTitle}">
               ${isSaved ? '❤️' : '🤍'}
             </button>
-            <img src="${p.image}" alt="${displayCode} - ${confirmedModel}" loading="lazy" onerror="this.src='assets/placeholder.svg'">
+            <img src="${p.image}" alt="${formattedTitle}${confirmedModel ? ' - ' + confirmedModel : ''}" loading="lazy" onerror="this.src='assets/placeholder.svg'">
           </div>
           
           <div class="product-content">
-            <div class="product-code-row" style="display: flex; justify-content: space-between; align-items: center;">
-              <span class="product-code-badge">${displayCode}</span>
+            <div class="product-card-top-row" style="display: flex; justify-content: flex-end; align-items: center; margin-bottom: 0.35rem;">
               <button class="btn-compare-chair ${isCompared ? 'active' : ''}" onclick="window.catalogApp.toggleCompare('${p.id}')">
                 ${isCompared ? '✓ Comparing' : '+ Compare'}
               </button>
             </div>
             
-            <h3 class="product-name">${confirmedModel ? confirmedModel : displayCode}</h3>
+            <h3 class="product-name">${formattedTitle}</h3>
+            ${confirmedModel ? `<div style="font-size: 0.8125rem; color: var(--text-muted); margin-bottom: 0.5rem;">Model: ${confirmedModel}</div>` : ''}
             
             <div class="product-price-row">
               <span class="product-price-label">Catalogue Rate</span>
@@ -524,7 +546,7 @@
               <a href="product.html?id=${p.id}" class="btn btn-outline btn-sm">
                 View Details →
               </a>
-              <a href="${waUrl}" target="_blank" rel="noopener" class="btn btn-primary btn-sm" aria-label="Enquire about ${displayCode} on WhatsApp">
+              <a href="${waUrl}" target="_blank" rel="noopener" class="btn btn-primary btn-sm" aria-label="Enquire about ${formattedTitle} on WhatsApp">
                 💬 WhatsApp
               </a>
             </div>
@@ -610,9 +632,10 @@
         el.compareBarThumbs.innerHTML = state.comparedIds.map(id => {
           const item = state.allProducts.find(p => p.id === id);
           if (!item) return '';
+          const title = getFormattedTitle(item);
           return `
-            <div class="compare-thumb-slot" title="${item.code} ${item._internal_model}">
-              <img src="${item.image}" alt="${item.code}">
+            <div class="compare-thumb-slot" title="${title}${item._internal_model ? ' (' + item._internal_model + ')' : ''}">
+              <img src="${item.image}" alt="${title}">
             </div>
           `;
         }).join('');
@@ -652,14 +675,16 @@
           <thead>
             <tr>
               <th style="width: 140px;">Feature</th>
-              ${items.map(item => `
+              ${items.map(item => {
+                const title = getFormattedTitle(item);
+                return `
                 <th class="compare-col-header" style="min-width: 200px;">
                   <button class="compare-col-remove" onclick="window.catalogApp.toggleCompare('${item.id}')" title="Remove chair">✕</button>
-                  <img src="${item.image}" alt="${item.code}" style="height: 110px; width: auto; margin: 0 auto; object-fit: contain;">
-                  <div style="font-size: 0.8rem; font-weight: 800; color: var(--forest-green); margin-top: 0.35rem;">${item.code}</div>
-                  <div style="font-size: 0.95rem; font-weight: 800; color: var(--text-main);">${item._internal_model || 'Standard'}</div>
+                  <img src="${item.image}" alt="${title}" style="height: 110px; width: auto; margin: 0 auto; object-fit: contain;">
+                  <div style="font-size: 0.95rem; font-weight: 800; color: var(--text-main); margin-top: 0.5rem;">${title}</div>
+                  ${item._internal_model ? `<div style="font-size: 0.8125rem; color: var(--text-muted);">${item._internal_model}</div>` : ''}
                 </th>
-              `).join('')}
+              `;}).join('')}
             </tr>
           </thead>
           <tbody>
@@ -690,7 +715,8 @@
             <tr>
               <td><strong>Enquiry Action</strong></td>
               ${items.map(i => {
-                const waText = encodeURIComponent(`Hello Sri Hanum Sastha Enterprises, I am interested in comparing chair ${i.code} (Model: ${i._internal_model}).`);
+                const title = getFormattedTitle(i);
+                const waText = encodeURIComponent(`Hello Sri Hanum Sastha Enterprises, I am interested in comparing chair ${title}${i._internal_model ? ' (Model: ' + i._internal_model + ')' : ''}.`);
                 return `
                   <td>
                     <a href="product.html?id=${i.id}" class="btn btn-outline btn-sm btn-block" style="margin-bottom: 0.4rem;">
@@ -785,18 +811,19 @@
     }
 
     container.innerHTML = items.map(item => {
-      const waText = encodeURIComponent(`Hello Sri Hanum Sastha Enterprises, I am enquiring about saved chair ${item.code} (${item._internal_model}).`);
+      const title = getFormattedTitle(item);
+      const waText = encodeURIComponent(`Hello Sri Hanum Sastha Enterprises, I am enquiring about saved chair ${title}${item._internal_model ? ' (' + item._internal_model + ')' : ''}.`);
       return `
         <div class="saved-chair-item">
           <div class="saved-chair-thumb">
-            <img src="${item.image}" alt="${item.code}">
+            <img src="${item.image}" alt="${title}">
           </div>
           <div style="flex: 1; min-width: 0;">
-            <div style="font-size: 0.75rem; font-weight: 700; color: var(--forest-green);">${item.code}</div>
             <div style="font-size: 0.925rem; font-weight: 800; color: var(--text-main); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
-              ${item._internal_model || item.code}
+              ${title}
             </div>
-            <div style="font-size: 0.8125rem; color: var(--text-muted);">${item.price_display || '₹' + item.base_price}</div>
+            ${item._internal_model ? `<div style="font-size: 0.75rem; color: var(--text-muted);">${item._internal_model}</div>` : ''}
+            <div style="font-size: 0.8125rem; color: var(--forest-green); font-weight: 700; margin-top: 0.2rem;">${item.price_display || '₹' + item.base_price}</div>
           </div>
           <div style="display: flex; flex-direction: column; gap: 0.35rem; align-items: flex-end;">
             <a href="product.html?id=${item.id}" class="btn btn-outline btn-sm" style="padding: 0 0.5rem; font-size: 0.75rem;">Details</a>
@@ -819,20 +846,22 @@
 
     if (items.length > 0 && el.recentViewsSection) {
       el.recentViewsSection.style.display = 'block';
-      track.innerHTML = items.map(p => `
+      track.innerHTML = items.map(p => {
+        const title = getFormattedTitle(p);
+        return `
         <div class="preview-card" style="flex: 0 0 220px;" onclick="window.location.href='product.html?id=${p.id}'" role="button" tabindex="0">
           <div class="preview-card-canvas" style="height: 160px;">
-            <img src="${p.image}" alt="${p.code}" loading="lazy">
+            <img src="${p.image}" alt="${title}" loading="lazy">
           </div>
           <div class="preview-card-body" style="padding: 0.75rem;">
-            <span class="preview-card-code">${p.code}</span>
-            <div style="font-weight: 800; font-size: 0.9rem; color: var(--text-main); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
-              ${p._internal_model || p.code}
+            <div style="font-weight: 800; font-size: 0.875rem; color: var(--text-main); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+              ${title}
             </div>
-            <div style="font-size: 0.85rem; font-weight: 700; margin-top: 0.35rem;">${p.price_display || '₹' + p.base_price}</div>
+            ${p._internal_model ? `<div style="font-size: 0.75rem; color: var(--text-muted);">${p._internal_model}</div>` : ''}
+            <div style="font-size: 0.85rem; font-weight: 700; margin-top: 0.35rem; color: var(--forest-green);">${p.price_display || '₹' + p.base_price}</div>
           </div>
         </div>
-      `).join('');
+      `;}).join('');
     }
   }
 

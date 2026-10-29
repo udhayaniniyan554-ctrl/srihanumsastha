@@ -572,7 +572,9 @@ button, input, select, textarea {
 }
 
 .hero-slide-title span {
-  color: var(--forest-green);
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
 }
 
 .hero-slide-desc {
@@ -871,9 +873,9 @@ button, input, select, textarea {
 }
 
 .preview-card-code {
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
   font-weight: 700;
-  color: var(--forest-green);
+  color: var(--text-main);
   text-transform: uppercase;
   margin-bottom: 0.2rem;
 }
@@ -1235,14 +1237,13 @@ button, input, select, textarea {
 }
 
 .product-code-badge {
-  font-size: 0.75rem;
-  font-weight: 800;
-  color: var(--forest-green);
-  background: var(--forest-green-subtle);
-  border: 1px solid var(--forest-green-border);
-  padding: 0.15rem 0.5rem;
-  border-radius: var(--radius-xs);
-  letter-spacing: 0.02em;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--text-main);
+  background: transparent;
+  border: none;
+  padding: 0;
+  letter-spacing: 0.01em;
 }
 
 .product-name {

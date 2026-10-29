@@ -10,6 +10,14 @@ from fastapi.responses import FileResponse, JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 
+CAT_PREFIX = {
+    "Office Chairs": "OFFICE CHAIRS",
+    "Visitor Chairs": "VISITOR CHAIRS",
+    "Lounge & Soft Seating": "LOUNGE CHAIRS",
+    "Dining Chairs": "DINING CHAIRS",
+    "Stools & Additional Seating": "STOOLS"
+}
+
 # Environment configuration
 ADMIN_PASSWORD = os.environ.get("ADMIN_PASSWORD", "shse2026")
 SUPABASE_URL = os.environ.get("SUPABASE_URL")
@@ -112,7 +120,7 @@ Showroom & Contact Details:
 Strict Rules:
 - Never fabricate chair models, specifications, fake prices, or fake discounts.
 - If information is not in the catalogue, explicitly state that it is not available.
-- When recommending chairs, provide their code (e.g. SHSE(1)), model name, starting rate, and markdown link to product.html?id=[id].
+- When recommending chairs, provide their name (e.g. OFFICE CHAIRS  SHSE 1), model name, starting rate, and markdown link to product.html?id=[id].
 - Clarify that order finalization occurs via direct WhatsApp (8695706013) or phone calls; do not claim to complete checkout.
 
 User Question: {user_msg}"""
@@ -204,7 +212,7 @@ User Question: {user_msg}"""
             "- **Lounge & Soft Seating (24 models):** Molded reception armchairs and sofas.\n"
             "- **Dining Chairs (21 models):** Solid wood and metallic cafe seating.\n"
             "- **Stools & Additional Seating (7 models):** Lab gas-lift stools.\n\n"
-            "Try searching by model name (e.g. `ATLAS`, `4G`, `ALEX`), product code (`SHSE(1)`), or ask for our showroom contact details!"
+            "Try searching by model name (e.g. `ATLAS`, `4G`, `ALEX`), product code (`OFFICE CHAIRS  SHSE 1` or `SHSE 1`), or ask for our showroom contact details!"
         )
 
     return {
@@ -253,14 +261,16 @@ def add_chair(chair: Dict[str, Any]):
     existing = get_chairs()
     for ex in existing:
         if ex.get("category") == category and ex.get("code_number") == code_number:
-            raise HTTPException(status_code=400, detail=f"Duplicate code SHSE({code_number}) in {category}")
+            raise HTTPException(status_code=400, detail=f"Duplicate code SHSE {code_number} in {category}")
 
     # Generate id if missing
     if not chair.get("id"):
         chair["id"] = f"{category.lower().split(' ')[0]}_{code_number}"
     
-    chair["code"] = f"SHSE({code_number})"
-    chair["display_name"] = f"{category} — SHSE({code_number})"
+    prefix = CAT_PREFIX.get(category, category.upper())
+    chair["code"] = f"SHSE {code_number}"
+    chair["display_name"] = f"{prefix}  SHSE {code_number}"
+    chair["name"] = chair["display_name"]
     
     # Save to Supabase if available
     if supabase_client:
