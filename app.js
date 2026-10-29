@@ -82,7 +82,10 @@
   // ---------------- 1. INITIALIZE APPLICATION ----------------
   async function init() {
     try {
-      const response = await fetch('assets/catalog.json');
+      let response = await fetch('assets/catalog.json');
+      if (!response.ok) {
+        response = await fetch('/api/chairs');
+      }
       if (!response.ok) throw new Error('Failed to load catalogue dataset');
       state.allProducts = await response.json();
 

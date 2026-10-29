@@ -403,7 +403,11 @@
       }
 
       try {
-        const res = await fetch('assets/catalog.json');
+        let res = await fetch('assets/catalog.json');
+        if (!res.ok) {
+          res = await fetch('/api/chairs');
+        }
+        if (!res.ok) throw new Error('Failed to load catalogue');
         const catalog = await res.json();
         allCatProducts = catalog.filter(p => p.category === catInfo.name);
 
