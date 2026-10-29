@@ -46,16 +46,20 @@
           <li><a href="category.html?cat=lounge" class="nav-link" id="navLounge">Lounge & Soft Seating</a></li>
           <li><a href="category.html?cat=dining" class="nav-link" id="navDining">Dining Chairs</a></li>
           <li><a href="category.html?cat=stools" class="nav-link" id="navStools">Stools & Seating</a></li>
+          <li><a href="index.html#conceptsSection" class="nav-link">Design Concepts</a></li>
           <li><a href="contact.html" class="nav-link">Contact</a></li>
         </ul>
       </nav>
 
       <div class="header-actions">
+        <button class="btn btn-outline btn-sm" data-open-saved title="View saved favorite chairs">
+          ❤️ Saved <span class="saved-count-badge" style="display:none; background: #DC2626; color: #fff; padding: 0.1rem 0.4rem; border-radius: 9999px; font-size: 0.7rem; margin-left: 0.25rem;">0</span>
+        </button>
         <a href="https://wa.me/918695706013" target="_blank" rel="noopener" class="btn btn-primary btn-sm" aria-label="Enquire on WhatsApp">
           💬 WhatsApp
         </a>
         <a href="tel:+919688727284" class="btn btn-outline btn-sm" aria-label="Call 9688727284">
-          📞 Call 9688727284
+          📞 Call
         </a>
         <button class="mobile-toggle" id="mobileToggle" aria-label="Open Mobile Menu" aria-expanded="false" aria-controls="mobileDrawer">
           <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -82,8 +86,18 @@
       <li><a href="category.html?cat=lounge" class="mobile-nav-link">Lounge & Soft Seating</a></li>
       <li><a href="category.html?cat=dining" class="mobile-nav-link">Dining Chairs</a></li>
       <li><a href="category.html?cat=stools" class="mobile-nav-link">Stools & Additional Seating</a></li>
+      <li><a href="index.html#conceptsSection" class="mobile-nav-link">Original Design Concepts</a></li>
       <li><a href="contact.html" class="mobile-nav-link">Contact Details</a></li>
     </ul>
+
+    <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.6rem;">
+      <button class="btn btn-outline btn-block" data-open-saved>
+        ❤️ Saved Chairs (<span class="saved-count-badge">0</span>)
+      </button>
+      <button class="btn btn-outline btn-block" onclick="window.catalogApp.openCompareModal()">
+        ⚖️ Compare Selected Chairs
+      </button>
+    </div>
 
     <div style="margin-top: auto; padding-top: 2rem; display: flex; flex-direction: column; gap: 0.75rem;">
       <div style="font-size: 0.8125rem; font-weight: 700; color: #555555; text-transform: uppercase;">
@@ -108,6 +122,22 @@
     </div>
   </aside>
 
+  <!-- Saved Chairs Drawer -->
+  <aside class="mobile-drawer" id="savedDrawer" aria-label="Saved Chairs" style="z-index: 1060;">
+    <div class="saved-drawer-header">
+      <div style="font-weight: 800; font-size: 1.15rem; color: var(--text-main);">
+        ❤️ Saved Chairs (<span class="saved-count-badge">0</span>)
+      </div>
+      <button class="mobile-drawer-close" id="savedDrawerClose" aria-label="Close Saved Drawer">&times;</button>
+    </div>
+    <div id="savedListContainer" style="flex: 1; overflow-y: auto;"></div>
+    <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border-light); display: flex; gap: 0.5rem;">
+      <button class="btn btn-outline btn-sm btn-block" onclick="localStorage.setItem('shse_saved_chairs', '[]'); window.location.reload();">
+        Clear All
+      </button>
+    </div>
+  </aside>
+
   <!-- Main Product Detail Page Container -->
   <main class="product-page-main">
     <div class="container">
@@ -126,13 +156,26 @@
         
         <!-- Left: Image Stage & Gallery -->
         <div class="detail-gallery">
-          <div class="detail-main-canvas">
+          <div class="detail-main-canvas" id="mainCanvasBox" title="Click to open zoom lightbox" style="cursor: zoom-in;">
             <span class="detail-badge-tag" id="badgeTag">SHSE Code</span>
             <img id="mainImage" src="assets/placeholder.svg" alt="Product Photograph" onerror="this.src='assets/placeholder.svg'">
+            <div style="position: absolute; bottom: 0.85rem; right: 0.85rem; background: rgba(255,255,255,0.9); border: 1px solid var(--border-light); border-radius: 4px; padding: 0.2rem 0.5rem; font-size: 0.75rem; font-weight: 600; color: var(--text-secondary);">
+              🔍 Click to Zoom
+            </div>
           </div>
 
           <!-- Thumbnails Strip (Shows only when schematic diagram or extra view exists) -->
           <div class="detail-thumbs-strip" id="thumbsStrip" style="display: none;"></div>
+
+          <!-- Save & Compare Bar on Product Detail -->
+          <div style="display: flex; gap: 0.75rem; margin-top: 1rem;">
+            <button class="btn btn-outline btn-sm btn-block" id="btnDetailSave">
+              <span id="detailSaveIcon">🤍</span> Bookmark Chair
+            </button>
+            <button class="btn btn-outline btn-sm btn-block" id="btnDetailCompare">
+              ⚖️ <span id="detailCompareText">Add to Compare</span>
+            </button>
+          </div>
         </div>
 
         <!-- Right: Specifications & Action Details -->
@@ -232,15 +275,21 @@
         <div class="related-grid" id="relatedGrid"></div>
       </section>
 
+      <!-- Recently Viewed Section -->
+      <section class="related-section" id="productRecentSection" style="display: none;">
+        <div class="related-title">
+          <span>Recently Viewed Chairs</span>
+        </div>
+        <div class="recent-views-track" id="productRecentTrack"></div>
+      </section>
+
     </div>
   </main>
 
-  <!-- Business Footer (With Verified Email, WhatsApp, and Calling Lines) -->
+  <!-- Business Footer -->
   <footer class="site-footer" id="contact">
     <div class="container">
       <div class="footer-main-grid">
-        
-        <!-- Column 1: Company Profile -->
         <div class="footer-col-about">
           <div class="footer-logo">
             <img src="assets/logo-white.svg" alt="Sri Hanum Sastha Enterprises">
@@ -253,7 +302,6 @@
           </div>
         </div>
 
-        <!-- Column 2: Quick Links -->
         <div>
           <h3 class="footer-title">Chair Categories</h3>
           <ul class="footer-links">
@@ -266,7 +314,6 @@
           </ul>
         </div>
 
-        <!-- Column 3: Contact Us Section -->
         <div class="footer-contact-box" id="footer-contact">
           <h3 class="footer-title">Contact Us</h3>
           
@@ -321,7 +368,6 @@
             </div>
           </div>
 
-          <!-- Matched Dedicated Call Buttons -->
           <div class="footer-call-buttons">
             <a href="tel:+919688727284" class="btn btn-secondary">
               📞 Call: 9688727284
@@ -333,7 +379,6 @@
         </div>
       </div>
 
-      <!-- Footer Bottom Bar -->
       <div class="footer-bottom">
         <div>
           &copy; <span id="currentYear"></span> Sri Hanum Sastha Enterprises. All Rights Reserved.
@@ -345,40 +390,85 @@
     </div>
   </footer>
 
+  <!-- FLOATING COMPARISON BAR -->
+  <div class="compare-floating-bar" id="compareFloatingBar">
+    <div class="compare-bar-thumbs" id="compareBarThumbs"></div>
+    <div class="compare-bar-info">
+      <span id="compareCountText">Compare (0/4)</span>
+    </div>
+    <button class="btn btn-primary btn-sm" id="btnOpenCompareModal">
+      View Comparison →
+    </button>
+    <button class="btn btn-outline-white btn-sm" id="btnClearCompare">
+      Clear
+    </button>
+  </div>
+
+  <!-- CHAIR COMPARISON MODAL -->
+  <div class="compare-modal" id="compareModal" role="dialog" aria-modal="true" aria-labelledby="compareModalTitle">
+    <div class="compare-modal-content">
+      <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-light); padding-bottom: 1rem;">
+        <div>
+          <h2 id="compareModalTitle" style="font-size: 1.35rem; font-weight: 800; color: var(--text-main);">Side-by-Side Model Comparison</h2>
+          <p style="font-size: 0.8125rem; color: var(--text-secondary); margin-top: 0.25rem;">Compare specifications across selected genuine catalogue chairs</p>
+        </div>
+        <button id="compareModalClose" style="background: none; border: none; font-size: 1.75rem; cursor: pointer; color: var(--text-muted);">&times;</button>
+      </div>
+      <div id="compareTableContent"></div>
+    </div>
+  </div>
+
+  <!-- IMAGE LIGHTBOX ZOOM MODAL -->
+  <div class="lightbox-modal" id="lightboxModal" role="dialog" aria-label="Zoomed Product Image">
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="lightboxClose" aria-label="Close zoom">&times;</button>
+      <img id="lightboxImg" class="lightbox-img" src="assets/placeholder.svg" alt="Zoomed view">
+      <div id="lightboxCaption" class="lightbox-caption">Product Image</div>
+    </div>
+  </div>
+
+  <!-- AI CATALOGUE CHATBOT WIDGET -->
+  <button class="chat-widget-toggle" id="chatWidgetToggle" aria-label="Open Catalogue Chat Assistant">
+    <span class="chat-pulse-dot"></span>
+    <span>💬 Catalogue Assistant</span>
+  </button>
+
+  <div class="chat-window" id="chatWindow" role="dialog" aria-label="Catalogue Chat Assistant">
+    <div class="chat-header">
+      <div class="chat-header-title">
+        <span class="chat-pulse-dot"></span>
+        <span>Catalogue Assistant</span>
+      </div>
+      <button class="chat-header-close" id="chatCloseBtn" aria-label="Close Chat">&times;</button>
+    </div>
+    <div class="chat-disclaimer-strip">
+      <span>Verified 228 Catalogue Data</span>
+      <span style="color: var(--forest-green); font-weight: 700;">● Online</span>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+      <div class="chat-bubble bot">
+        Hello! I am the <strong>Sri Hanum Sastha Catalogue Assistant</strong>. I can answer questions about this chair, compare specifications, or connect you with our Coimbatore showroom.
+      </div>
+    </div>
+    <div class="chat-chips">
+      <button class="chat-chip" data-query="What configurations are available?">⚙️ Configurations</button>
+      <button class="chat-chip" data-query="Where is your showroom?">📍 Showroom Address</button>
+      <button class="chat-chip" data-query="How do I enquire on WhatsApp?">💬 Enquire on WhatsApp</button>
+    </div>
+    <div class="chat-input-row">
+      <input type="text" id="chatInput" placeholder="Ask about this model or specifications..." aria-label="Type your message">
+      <button id="chatSendBtn" aria-label="Send message">Send</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
   <script>
     document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-    // Mobile Drawer Toggle
-    const mobileToggle = document.getElementById('mobileToggle');
-    const mobileDrawer = document.getElementById('mobileDrawer');
-    const drawerBackdrop = document.getElementById('drawerBackdrop');
-    const drawerCloseBtn = document.getElementById('drawerCloseBtn');
+    // Product Detail Loading Logic
+    let currentLoadedProduct = null;
 
-    function openDrawer() {
-      mobileDrawer.classList.add('open');
-      drawerBackdrop.classList.add('open');
-      mobileToggle.setAttribute('aria-expanded', 'true');
-      document.body.style.overflow = 'hidden';
-    }
-    function closeDrawer() {
-      mobileDrawer.classList.remove('open');
-      drawerBackdrop.classList.remove('open');
-      mobileToggle.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
-    }
-    if (mobileToggle) mobileToggle.addEventListener('click', openDrawer);
-    if (drawerCloseBtn) drawerCloseBtn.addEventListener('click', closeDrawer);
-    if (drawerBackdrop) drawerBackdrop.addEventListener('click', closeDrawer);
-
-    // Close on Escape key
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && mobileDrawer && mobileDrawer.classList.contains('open')) {
-        closeDrawer();
-      }
-    });
-
-    // Product Loading Logic
-    async function loadProduct() {
+    async function loadProductDetail() {
       const params = new URLSearchParams(window.location.search);
       const productId = params.get('id') || params.get('code') || 'office_1_2';
 
@@ -387,13 +477,16 @@
         if (!res.ok) throw new Error('Failed to load catalogue');
         const catalog = await res.json();
 
-        // Match by id, by code, or by code_number
         const prod = catalog.find(p => p.id === productId || p.code === productId || p.code_number == productId) || catalog[0];
+        if (!prod) return;
 
-        if (!prod) {
-          document.getElementById('crumbCurrent').textContent = 'Product Not Found';
-          return;
-        }
+        currentLoadedProduct = prod;
+
+        // Record into Recently Viewed (max 8)
+        let viewed = JSON.parse(localStorage.getItem('shse_recently_viewed') || '[]');
+        viewed = viewed.filter(id => id !== prod.id);
+        viewed.unshift(prod.id);
+        localStorage.setItem('shse_recently_viewed', JSON.stringify(viewed.slice(0, 8)));
 
         const modelName = prod._internal_model || '';
         const displayCode = prod.code || `SHSE(${prod.code_number || 1})`;
@@ -413,11 +506,27 @@
         document.getElementById('productCodePill').textContent = `Code: ${displayCode}`;
         document.getElementById('badgeTag').textContent = `${displayCode}`;
 
-        // Image & Gallery
+        // Main Image
         const mainImg = document.getElementById('mainImage');
         mainImg.src = prod.image || 'assets/placeholder.svg';
         mainImg.alt = `${catName} - ${displayCode} (${modelName})`;
 
+        // Lightbox trigger on canvas click
+        const canvasBox = document.getElementById('mainCanvasBox');
+        if (canvasBox) {
+          canvasBox.onclick = () => {
+            const lightbox = document.getElementById('lightboxModal');
+            const lightboxImg = document.getElementById('lightboxImg');
+            const lightboxCaption = document.getElementById('lightboxCaption');
+            if (lightbox && lightboxImg) {
+              lightboxImg.src = mainImg.src;
+              lightboxCaption.textContent = `${displayCode} — ${modelName}`;
+              lightbox.classList.add('open');
+            }
+          };
+        }
+
+        // Thumbnails Strip
         const thumbsStrip = document.getElementById('thumbsStrip');
         thumbsStrip.innerHTML = '';
         const galleryImages = [{ label: 'Main View', src: prod.image }];
@@ -488,7 +597,7 @@
           document.getElementById('featuresContainer').style.display = 'none';
         }
 
-        // Dynamic WhatsApp Prefilled Message (exclusively 8695706013)
+        // Dynamic WhatsApp Prefilled Message
         const waText = encodeURIComponent(`Hello Sri Hanum Sastha Enterprises, I am interested in chair ${displayCode} (Model: ${modelName}) from the ${catName} category. Please share more details.`);
         document.getElementById('waPrimaryBtn').href = `https://wa.me/918695706013?text=${waText}`;
 
@@ -497,6 +606,26 @@
         document.getElementById('backToCatBtn').textContent = `← Back to ${catName} Collection`;
         document.getElementById('viewAllCatLink').href = `category.html?cat=${catSlug}`;
 
+        // Save & Compare Button States
+        updateDetailSaveButton(prod.id);
+        updateDetailCompareButton(prod.id);
+
+        const btnSave = document.getElementById('btnDetailSave');
+        if (btnSave) {
+          btnSave.onclick = () => {
+            window.catalogApp.toggleSaveChair(prod.id);
+            updateDetailSaveButton(prod.id);
+          };
+        }
+
+        const btnComp = document.getElementById('btnDetailCompare');
+        if (btnComp) {
+          btnComp.onclick = () => {
+            window.catalogApp.toggleCompare(prod.id);
+            updateDetailCompareButton(prod.id);
+          };
+        }
+
         // Related Chairs (4 from same category)
         const related = catalog.filter(p => p.category === catName && p.id !== prod.id).slice(0, 4);
         const relatedGrid = document.getElementById('relatedGrid');
@@ -504,7 +633,7 @@
           relatedGrid.innerHTML = related.map(rel => {
             const relModel = rel._internal_model || '';
             const relCode = rel.code || `SHSE(${rel.code_number || 1})`;
-            const relWa = encodeURIComponent(`Hello Sri Hanum Sastha Enterprises, I am interested in chair ${relCode} (Model: ${relModel}) from the ${rel.category} category. Please share more details.`);
+            const relWa = encodeURIComponent(`Hello Sri Hanum Sastha Enterprises, I am interested in chair ${relCode} (Model: ${relModel}).`);
             return `
               <div class="product-card" onclick="window.location.href='product.html?id=${rel.id}'" style="cursor: pointer;">
                 <div class="product-image-canvas">
@@ -536,12 +665,63 @@
           document.getElementById('relatedSection').style.display = 'none';
         }
 
+        // Render Recently Viewed on Product Page
+        renderProductRecentViews(catalog, prod.id);
+
       } catch (err) {
         console.error('Error loading product:', err);
       }
     }
 
-    window.addEventListener('DOMContentLoaded', loadProduct);
+    function updateDetailSaveButton(id) {
+      const saved = JSON.parse(localStorage.getItem('shse_saved_chairs') || '[]');
+      const isSaved = saved.includes(id);
+      const icon = document.getElementById('detailSaveIcon');
+      if (icon) icon.textContent = isSaved ? '❤️' : '🤍';
+    }
+
+    function updateDetailCompareButton(id) {
+      const compared = JSON.parse(sessionStorage.getItem('shse_compare_ids') || '[]');
+      const isComp = compared.includes(id);
+      const txt = document.getElementById('detailCompareText');
+      if (txt) txt.textContent = isComp ? 'Remove from Compare' : 'Add to Compare';
+    }
+
+    function renderProductRecentViews(catalog, currentId) {
+      const viewedIds = JSON.parse(localStorage.getItem('shse_recently_viewed') || '[]').filter(id => id !== currentId);
+      const track = document.getElementById('productRecentTrack');
+      const section = document.getElementById('productRecentSection');
+      if (!track || !section) return;
+
+      const items = viewedIds.map(id => catalog.find(p => p.id === id)).filter(Boolean).slice(0, 6);
+      if (items.length > 0) {
+        section.style.display = 'block';
+        track.innerHTML = items.map(p => `
+          <div class="preview-card" style="flex: 0 0 220px;" onclick="window.location.href='product.html?id=${p.id}'" role="button" tabindex="0">
+            <div class="preview-card-canvas" style="height: 160px;">
+              <img src="${p.image}" alt="${p.code}" loading="lazy">
+            </div>
+            <div class="preview-card-body" style="padding: 0.75rem;">
+              <span class="preview-card-code">${p.code}</span>
+              <div style="font-weight: 800; font-size: 0.9rem; color: var(--text-main); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                ${p._internal_model || p.code}
+              </div>
+              <div style="font-size: 0.85rem; font-weight: 700; margin-top: 0.35rem;">${p.price_display || '₹' + p.base_price}</div>
+            </div>
+          </div>
+        `).join('');
+      } else {
+        section.style.display = 'none';
+      }
+    }
+
+    // Lightbox Close Handlers
+    const lb = document.getElementById('lightboxModal');
+    const lbClose = document.getElementById('lightboxClose');
+    if (lbClose) lbClose.onclick = () => lb.classList.remove('open');
+    if (lb) lb.onclick = (e) => { if (e.target === lb) lb.classList.remove('open'); };
+
+    window.addEventListener('DOMContentLoaded', loadProductDetail);
   </script>
 </body>
 </html>

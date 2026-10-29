@@ -45,10 +45,14 @@
           <li><a href="category.html?cat=lounge" class="nav-link" id="navLounge">Lounge & Soft Seating</a></li>
           <li><a href="category.html?cat=dining" class="nav-link" id="navDining">Dining Chairs</a></li>
           <li><a href="category.html?cat=stools" class="nav-link" id="navStools">Stools & Seating</a></li>
+          <li><a href="index.html#conceptsSection" class="nav-link">Design Concepts</a></li>
           <li><a href="contact.html" class="nav-link">Contact</a></li>
         </ul>
       </nav>
       <div class="header-actions">
+        <button class="btn btn-outline btn-sm" data-open-saved title="View saved favorite chairs">
+          ❤️ Saved <span class="saved-count-badge" style="display:none; background: #DC2626; color: #fff; padding: 0.1rem 0.4rem; border-radius: 9999px; font-size: 0.7rem; margin-left: 0.25rem;">0</span>
+        </button>
         <a href="https://wa.me/918695706013" target="_blank" rel="noopener" class="btn btn-primary btn-sm" aria-label="Enquire on WhatsApp">
           💬 WhatsApp
         </a>
@@ -80,8 +84,19 @@
       <li><a href="category.html?cat=lounge" class="mobile-nav-link">Lounge & Soft Seating</a></li>
       <li><a href="category.html?cat=dining" class="mobile-nav-link">Dining Chairs</a></li>
       <li><a href="category.html?cat=stools" class="mobile-nav-link">Stools & Additional Seating</a></li>
+      <li><a href="index.html#conceptsSection" class="mobile-nav-link">Original Design Concepts</a></li>
       <li><a href="contact.html" class="mobile-nav-link">Contact Details</a></li>
     </ul>
+
+    <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.6rem;">
+      <button class="btn btn-outline btn-block" data-open-saved>
+        ❤️ Saved Chairs (<span class="saved-count-badge">0</span>)
+      </button>
+      <button class="btn btn-outline btn-block" onclick="window.catalogApp.openCompareModal()">
+        ⚖️ Compare Selected Chairs
+      </button>
+    </div>
+
     <div style="margin-top: auto; padding-top: 2rem; display: flex; flex-direction: column; gap: 0.75rem;">
       <div style="font-size: 0.8125rem; font-weight: 700; color: #555555; text-transform: uppercase;">
         Contact Us Directly:
@@ -102,6 +117,22 @@
       <a href="tel:+918695706013" class="btn btn-secondary btn-block">
         📞 Call Now: 8695706013
       </a>
+    </div>
+  </aside>
+
+  <!-- Saved Chairs Off-Canvas Drawer -->
+  <aside class="mobile-drawer" id="savedDrawer" aria-label="Saved Chairs" style="z-index: 1060;">
+    <div class="saved-drawer-header">
+      <div style="font-weight: 800; font-size: 1.15rem; color: var(--text-main);">
+        ❤️ Saved Chairs (<span class="saved-count-badge">0</span>)
+      </div>
+      <button class="mobile-drawer-close" id="savedDrawerClose" aria-label="Close Saved Drawer">&times;</button>
+    </div>
+    <div id="savedListContainer" style="flex: 1; overflow-y: auto;"></div>
+    <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border-light); display: flex; gap: 0.5rem;">
+      <button class="btn btn-outline btn-sm btn-block" onclick="localStorage.setItem('shse_saved_chairs', '[]'); window.location.reload();">
+        Clear All
+      </button>
     </div>
   </aside>
 
@@ -280,37 +311,71 @@
     </div>
   </footer>
 
+  <!-- FLOATING COMPARISON BAR -->
+  <div class="compare-floating-bar" id="compareFloatingBar">
+    <div class="compare-bar-thumbs" id="compareBarThumbs"></div>
+    <div class="compare-bar-info">
+      <span id="compareCountText">Compare (0/4)</span>
+    </div>
+    <button class="btn btn-primary btn-sm" id="btnOpenCompareModal">
+      View Comparison →
+    </button>
+    <button class="btn btn-outline-white btn-sm" id="btnClearCompare">
+      Clear
+    </button>
+  </div>
+
+  <!-- CHAIR COMPARISON MODAL -->
+  <div class="compare-modal" id="compareModal" role="dialog" aria-modal="true" aria-labelledby="compareModalTitle">
+    <div class="compare-modal-content">
+      <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-light); padding-bottom: 1rem;">
+        <div>
+          <h2 id="compareModalTitle" style="font-size: 1.35rem; font-weight: 800; color: var(--text-main);">Side-by-Side Model Comparison</h2>
+          <p style="font-size: 0.8125rem; color: var(--text-secondary); margin-top: 0.25rem;">Compare specifications across selected genuine catalogue chairs</p>
+        </div>
+        <button id="compareModalClose" style="background: none; border: none; font-size: 1.75rem; cursor: pointer; color: var(--text-muted);">&times;</button>
+      </div>
+      <div id="compareTableContent"></div>
+    </div>
+  </div>
+
+  <!-- AI CATALOGUE CHATBOT WIDGET -->
+  <button class="chat-widget-toggle" id="chatWidgetToggle" aria-label="Open Catalogue Chat Assistant">
+    <span class="chat-pulse-dot"></span>
+    <span>💬 Catalogue Assistant</span>
+  </button>
+
+  <div class="chat-window" id="chatWindow" role="dialog" aria-label="Catalogue Chat Assistant">
+    <div class="chat-header">
+      <div class="chat-header-title">
+        <span class="chat-pulse-dot"></span>
+        <span>Catalogue Assistant</span>
+      </div>
+      <button class="chat-header-close" id="chatCloseBtn" aria-label="Close Chat">&times;</button>
+    </div>
+    <div class="chat-disclaimer-strip">
+      <span>Verified 228 Catalogue Data</span>
+      <span style="color: var(--forest-green); font-weight: 700;">● Online</span>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+      <div class="chat-bubble bot">
+        Hello! I am the <strong>Sri Hanum Sastha Catalogue Assistant</strong>. Looking for chairs in this category? Ask me about models, weight capacities, mesh types, or Coimbatore showroom details!
+      </div>
+    </div>
+    <div class="chat-chips">
+      <button class="chat-chip" data-query="Recommend best chairs in this category">⭐ Best models</button>
+      <button class="chat-chip" data-query="Where is your showroom?">📍 Showroom Address</button>
+      <button class="chat-chip" data-query="How do I enquire on WhatsApp?">💬 WhatsApp Enquiry</button>
+    </div>
+    <div class="chat-input-row">
+      <input type="text" id="chatInput" placeholder="Ask about models or specifications..." aria-label="Type your message">
+      <button id="chatSendBtn" aria-label="Send message">Send</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
   <script>
     document.getElementById('currentYear').textContent = new Date().getFullYear();
-
-    // Mobile Drawer Toggle
-    const mobileToggle = document.getElementById('mobileToggle');
-    const mobileDrawer = document.getElementById('mobileDrawer');
-    const drawerBackdrop = document.getElementById('drawerBackdrop');
-    const drawerCloseBtn = document.getElementById('drawerCloseBtn');
-
-    function openDrawer() {
-      mobileDrawer.classList.add('open');
-      drawerBackdrop.classList.add('open');
-      mobileToggle.setAttribute('aria-expanded', 'true');
-      document.body.style.overflow = 'hidden';
-    }
-    function closeDrawer() {
-      mobileDrawer.classList.remove('open');
-      drawerBackdrop.classList.remove('open');
-      mobileToggle.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
-    }
-    if (mobileToggle) mobileToggle.addEventListener('click', openDrawer);
-    if (drawerCloseBtn) drawerCloseBtn.addEventListener('click', closeDrawer);
-    if (drawerBackdrop) drawerBackdrop.addEventListener('click', closeDrawer);
-
-    // Close on Escape key
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && mobileDrawer && mobileDrawer.classList.contains('open')) {
-        closeDrawer();
-      }
-    });
 
     const categoryMap = {
       'office': { name: 'Office Chairs', navId: 'navOffice', desc: '128 ergonomic task chairs, executive high-back seating, and mesh manager models.' },
@@ -351,6 +416,8 @@
     function renderCategoryGrid() {
       const search = (document.getElementById('catSearch').value || '').toLowerCase().trim();
       const sort = document.getElementById('catSort').value;
+      const savedIds = JSON.parse(localStorage.getItem('shse_saved_chairs') || '[]');
+      const compareIds = JSON.parse(sessionStorage.getItem('shse_compare_ids') || '[]');
 
       let list = allCatProducts.filter(p => {
         if (!search) return true;
@@ -383,16 +450,24 @@
       grid.innerHTML = list.map(p => {
         const model = p._internal_model || '';
         const code = p.code || `SHSE(${p.code_number || 1})`;
+        const isSaved = savedIds.includes(p.id);
+        const isCompared = compareIds.includes(p.id);
         const waMsg = encodeURIComponent(`Hello Sri Hanum Sastha Enterprises, I am interested in chair ${code} (Model: ${model}) from the ${p.category} category. Please share more details.`);
         return `
-          <article class="product-card">
-            <div class="product-image-canvas" onclick="window.location.href='product.html?id=${p.id}'" role="button" tabindex="0">
+          <article class="product-card" data-id="${p.id}">
+            <div class="product-image-canvas" onclick="window.location.href='product.html?id=${p.id}'" role="button" tabindex="0" aria-label="View details for ${code}">
               <span class="product-category-badge">${p.category}</span>
+              <button class="btn-save-chair ${isSaved ? 'active' : ''}" onclick="event.stopPropagation(); window.catalogApp.toggleSaveChair('${p.id}'); renderCategoryGrid();" title="${isSaved ? 'Remove from Saved' : 'Save this chair'}" aria-label="Save ${code}">
+                ${isSaved ? '❤️' : '🤍'}
+              </button>
               <img src="${p.image}" alt="${code} - ${model}" loading="lazy" onerror="this.src='assets/placeholder.svg'">
             </div>
             <div class="product-content">
-              <div class="product-code-row">
+              <div class="product-code-row" style="display: flex; justify-content: space-between; align-items: center;">
                 <span class="product-code-badge">${code}</span>
+                <button class="btn-compare-chair ${isCompared ? 'active' : ''}" onclick="window.catalogApp.toggleCompare('${p.id}'); renderCategoryGrid();">
+                  ${isCompared ? '✓ Comparing' : '+ Compare'}
+                </button>
               </div>
               <h3 class="product-name">${model ? model : code}</h3>
               <div class="product-price-row">

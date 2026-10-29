@@ -1,0 +1,68 @@
+[
+  {
+    "id": "concept_aura_mesh",
+    "name": "Concept Aura",
+    "subtitle": "Ergonomic Monocoque Mesh Study",
+    "design_intent": "Exploration of single-piece tensioned structural elastomeric mesh eliminating separate lumbar pads through progressive knit density zones.",
+    "materials": ["Bio-based Polyamide Frame", "Self-Tensioning Elastomeric Knit", "Recycled Cast Aluminum Base"],
+    "finish_options": ["Matte Graphite", "Glacier White", "Deep Forest Green"],
+    "status": "Design Visual / Concept Study",
+    "is_concept": true,
+    "image": "assets/products/office_1_1.png"
+  },
+  {
+    "id": "concept_kanso_wood",
+    "name": "Concept Kanso",
+    "subtitle": "Minimalist Solid Ash Executive Study",
+    "design_intent": "Harmonizing Japanese joinery principles with commercial task ergonomics, utilizing CNC-steamed ash wood arms and concealed gas-lift stems.",
+    "materials": ["FSC-Certified Solid Ash Wood", "Semi-Aniline Top Grain Leather", "Concealed Pneumatic Cylinder"],
+    "finish_options": ["Smoked Natural Ash", "Ebonized Oak", "Warm Sand Leather"],
+    "status": "Design Visual / Concept Study",
+    "is_concept": true,
+    "image": "assets/products/soft_p1_1.png"
+  },
+  {
+    "id": "concept_solace_pod",
+    "name": "Concept Solace",
+    "subtitle": "Acoustic High-Back Breakout Lounge",
+    "design_intent": "Architectural high-density molded shell providing sound-dampening acoustic privacy for collaborative office open plans and hotel lounges.",
+    "materials": ["Thermoformed PET Acoustic Felt", "Molded Polyurethane Core", "Polished Stainless Swivel Pedestal"],
+    "finish_options": ["Muted Forest Green", "Charcoal Heather", "Oatmeal Beige"],
+    "status": "Design Visual / Concept Study",
+    "is_concept": true,
+    "image": "assets/products/soft_p7_1.png"
+  },
+  {
+    "id": "concept_veloce_task",
+    "name": "Concept Veloce",
+    "subtitle": "Dynamic Tilting Studio Task Chair",
+    "design_intent": "Kinetic weight-activated self-balancing tilt mechanism responding instantly to micro-movements during intensive drafting and creative design sessions.",
+    "materials": ["Carbon-Reinforced Polymer Spine", "Breathable 3D Spacer Fabric", "Precision Rollerblade Casters"],
+    "finish_options": ["Monochrome Jet Black", "Silver Birch Grey", "Cobalt Accent"],
+    "status": "Design Visual / Concept Study",
+    "is_concept": true,
+    "image": "assets/products/office_6_2.png"
+  },
+  {
+    "id": "concept_forma_cantilever",
+    "name": "Concept Forma",
+    "subtitle": "Cantilevered Molded Conference Seating",
+    "design_intent": "Continuous tubular frame geometry offering natural ergonomic suspension and flex without mechanical adjustment springs.",
+    "materials": ["Cold-Drawn Seamless Steel Tube", "Molded Ergonomic Veneer", "Textured Wool Boucle"],
+    "finish_options": ["Brushed Champagne Chrome", "Matte Black Powdercoat", "Olive Boucle"],
+    "status": "Design Visual / Concept Study",
+    "is_concept": true,
+    "image": "assets/products/visitor_1_1_1.png"
+  },
+  {
+    "id": "concept_nexus_modular",
+    "name": "Concept Nexus",
+    "subtitle": "Geometric Modular Seating Module",
+    "design_intent": "Configurable hexagonal soft seating module with integrated wireless power docks for modern university libraries and public transit lounges.",
+    "materials": ["Heavy Commercial Crypton Fabric", "Dual-Layer Reflex Foam", "Recessed Integrated Power Strip"],
+    "finish_options": ["Forest Green & Dove Grey", "Terracotta & Sand", "Navy & Slate"],
+    "status": "Design Visual / Concept Study",
+    "is_concept": true,
+    "image": "assets/products/visitor_6_1_1.png"
+  }
+]

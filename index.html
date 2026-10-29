@@ -3,12 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sri Hanum Sastha Enterprises | Quality Seating for Every Space</title>
-  <meta name="description" content="Explore commercial office chairs, executive seating, visitor chairs, luxury lounge seating, and dining chairs from Sri Hanum Sastha Enterprises in Coimbatore.">
+  <title>Sri Hanum Sastha Enterprises | Quality Commercial Seating Showroom</title>
+  <meta name="description" content="Discover 228 verified ergonomic office chairs, visitor seating, executive high backs, lounge seating, and dining chairs from Sri Hanum Sastha Enterprises in Coimbatore.">
+  <link rel="canonical" href="http://localhost:8080/">
+
+  <!-- OpenGraph Metadata -->
+  <meta property="og:title" content="Sri Hanum Sastha Enterprises | Quality Commercial Seating Showroom">
+  <meta property="og:description" content="Commercial seating catalogue with 228 verified models, genuine photos, and direct WhatsApp enquiry.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/products/office_1_1.png">
+
+  <!-- Fonts & Stylesheet -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FurnitureStore",
+    "name": "Sri Hanum Sastha Enterprises",
+    "image": "assets/logo.svg",
+    "telephone": "+919688727284",
+    "email": "srihanumsastha@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "173, First Floor, KK Lane Street, Avinashi Road",
+      "addressLocality": "Coimbatore",
+      "addressRegion": "Tamil Nadu",
+      "postalCode": "641018",
+      "addressCountry": "IN"
+    },
+    "url": "http://localhost:8080/",
+    "priceRange": "₹2,800 - ₹25,000"
+  }
+  </script>
 </head>
 <body>
 
@@ -46,17 +77,24 @@
           <li><a href="category.html?cat=lounge" class="nav-link" data-category="Lounge & Soft Seating">Lounge & Soft Seating</a></li>
           <li><a href="category.html?cat=dining" class="nav-link" data-category="Dining Chairs">Dining Chairs</a></li>
           <li><a href="category.html?cat=stools" class="nav-link" data-category="Stools & Additional Seating">Stools & Seating</a></li>
+          <li><a href="#conceptsSection" class="nav-link">Design Concepts</a></li>
           <li><a href="contact.html" class="nav-link">Contact</a></li>
         </ul>
       </nav>
 
       <div class="header-actions">
+        <!-- Saved Chairs Shortcut -->
+        <button class="btn btn-outline btn-sm" data-open-saved title="View saved favorite chairs" aria-label="Saved Chairs">
+          ❤️ Saved <span class="saved-count-badge" style="display:none; background: #DC2626; color: #fff; padding: 0.1rem 0.4rem; border-radius: 9999px; font-size: 0.7rem; margin-left: 0.25rem;">0</span>
+        </button>
+
         <a href="https://wa.me/918695706013" target="_blank" rel="noopener" class="btn btn-primary btn-sm" aria-label="Enquire on WhatsApp">
           💬 WhatsApp
         </a>
         <a href="tel:+919688727284" class="btn btn-outline btn-sm" aria-label="Call 9688727284">
-          📞 Call 9688727284
+          📞 Call
         </a>
+        
         <button class="mobile-toggle" id="mobileToggle" aria-label="Open Mobile Menu" aria-expanded="false" aria-controls="mobileDrawer">
           <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <line x1="3" y1="12" x2="21" y2="12"></line>
@@ -82,8 +120,18 @@
       <li><a href="category.html?cat=lounge" class="mobile-nav-link" data-category="Lounge & Soft Seating">Lounge & Soft Seating</a></li>
       <li><a href="category.html?cat=dining" class="mobile-nav-link" data-category="Dining Chairs">Dining Chairs</a></li>
       <li><a href="category.html?cat=stools" class="mobile-nav-link" data-category="Stools & Additional Seating">Stools & Additional Seating</a></li>
+      <li><a href="#conceptsSection" class="mobile-nav-link">Original Design Concepts</a></li>
       <li><a href="contact.html" class="mobile-nav-link">Contact Details</a></li>
     </ul>
+
+    <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.6rem;">
+      <button class="btn btn-outline btn-block" data-open-saved>
+        ❤️ Saved Chairs (<span class="saved-count-badge">0</span>)
+      </button>
+      <button class="btn btn-outline btn-block" onclick="window.catalogApp.openCompareModal()">
+        ⚖️ Compare Selected Chairs
+      </button>
+    </div>
 
     <div style="margin-top: auto; padding-top: 2rem; display: flex; flex-direction: column; gap: 0.75rem;">
       <div style="font-size: 0.8125rem; font-weight: 700; color: #555555; text-transform: uppercase;">
@@ -108,7 +156,23 @@
     </div>
   </aside>
 
-  <!-- SECTION 1: LARGE HERO AUTOMATIC CHAIR CAROUSEL (Advances every 2s) -->
+  <!-- Saved Chairs Off-Canvas Drawer -->
+  <aside class="mobile-drawer" id="savedDrawer" aria-label="Saved Chairs" style="z-index: 1060;">
+    <div class="saved-drawer-header">
+      <div style="font-weight: 800; font-size: 1.15rem; color: var(--text-main);">
+        ❤️ Saved Chairs (<span class="saved-count-badge">0</span>)
+      </div>
+      <button class="mobile-drawer-close" id="savedDrawerClose" aria-label="Close Saved Drawer">&times;</button>
+    </div>
+    <div id="savedListContainer" style="flex: 1; overflow-y: auto;"></div>
+    <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border-light); display: flex; gap: 0.5rem;">
+      <button class="btn btn-outline btn-sm btn-block" onclick="localStorage.setItem('shse_saved_chairs', '[]'); window.location.reload();">
+        Clear All
+      </button>
+    </div>
+  </aside>
+
+  <!-- SECTION 1: LARGE HERO AUTOMATIC CHAIR CAROUSEL (2s) -->
   <section class="hero-carousel-section" id="heroSection">
     <div class="container">
       <div class="hero-carousel-container" id="heroCarousel" role="region" aria-label="Featured Chairs Showcase Carousel">
@@ -135,9 +199,9 @@
               <a href="https://wa.me/918695706013?text=Hello%20Sri%20Hanum%20Sastha%20Enterprises%2C%20I%20am%20interested%20in%20chair%20SHSE(1)%20(Model%3A%20ATLAS%2F3G)%20from%20the%20Office%20Chairs%20category.%20Please%20share%20more%20details." target="_blank" rel="noopener" class="btn btn-primary btn-lg">
                 💬 Enquire on WhatsApp
               </a>
-              <a href="tel:+919688727284" class="btn btn-outline btn-lg">
-                📞 Call 9688727284
-              </a>
+              <button class="btn btn-outline btn-lg" onclick="window.catalogApp.toggleCompare('office_1_1')">
+                ⚖️ Compare
+              </button>
             </div>
           </div>
           <div class="hero-slide-visual" onclick="window.location.href='product.html?id=office_1_1'" title="Click to view SHSE(1) ATLAS/3G details">
@@ -170,9 +234,9 @@
               <a href="https://wa.me/918695706013?text=Hello%20Sri%20Hanum%20Sastha%20Enterprises%2C%20I%20am%20interested%20in%20chair%20SHSE(2)%20(Model%3A%204G)%20from%20the%20Office%20Chairs%20category.%20Please%20share%20more%20details." target="_blank" rel="noopener" class="btn btn-primary btn-lg">
                 💬 Enquire on WhatsApp
               </a>
-              <a href="tel:+918695706013" class="btn btn-outline btn-lg">
-                📞 Call 8695706013
-              </a>
+              <button class="btn btn-outline btn-lg" onclick="window.catalogApp.toggleCompare('office_1_2')">
+                ⚖️ Compare
+              </button>
             </div>
           </div>
           <div class="hero-slide-visual" onclick="window.location.href='product.html?id=office_1_2'" title="Click to view SHSE(2) 4G details">
@@ -205,9 +269,9 @@
               <a href="https://wa.me/918695706013?text=Hello%20Sri%20Hanum%20Sastha%20Enterprises%2C%20I%20am%20interested%20in%20chair%20SHSE(22)%20(Model%3A%20BUTTERFLY%20HB)%20from%20the%20Office%20Chairs%20category.%20Please%20share%20more%20details." target="_blank" rel="noopener" class="btn btn-primary btn-lg">
                 💬 Enquire on WhatsApp
               </a>
-              <a href="tel:+919688727284" class="btn btn-outline btn-lg">
-                📞 Call 9688727284
-              </a>
+              <button class="btn btn-outline btn-lg" onclick="window.catalogApp.toggleCompare('office_6_2')">
+                ⚖️ Compare
+              </button>
             </div>
           </div>
           <div class="hero-slide-visual" onclick="window.location.href='product.html?id=office_6_2'" title="Click to view SHSE(22) BUTTERFLY HB details">
@@ -240,9 +304,9 @@
               <a href="https://wa.me/918695706013?text=Hello%20Sri%20Hanum%20Sastha%20Enterprises%2C%20I%20am%20interested%20in%20chair%20SHSE(1)%20(Model%3A%20FLOWER%20NETTED)%20from%20the%20Visitor%20Chairs%20category.%20Please%20share%20more%20details." target="_blank" rel="noopener" class="btn btn-primary btn-lg">
                 💬 Enquire on WhatsApp
               </a>
-              <a href="tel:+918695706013" class="btn btn-outline btn-lg">
-                📞 Call 8695706013
-              </a>
+              <button class="btn btn-outline btn-lg" onclick="window.catalogApp.toggleCompare('visitor_1_1_1')">
+                ⚖️ Compare
+              </button>
             </div>
           </div>
           <div class="hero-slide-visual" onclick="window.location.href='product.html?id=visitor_1_1_1'" title="Click to view SHSE(1) FLOWER NETTED details">
@@ -275,9 +339,9 @@
               <a href="https://wa.me/918695706013?text=Hello%20Sri%20Hanum%20Sastha%20Enterprises%2C%20I%20am%20interested%20in%20chair%20SHSE(3)%20(Model%3A%20ALEX%20MOULD)%20from%20the%20Lounge%20%26%20Soft%20Seating%20category.%20Please%20share%20more%20details." target="_blank" rel="noopener" class="btn btn-primary btn-lg">
                 💬 Enquire on WhatsApp
               </a>
-              <a href="tel:+919688727284" class="btn btn-outline btn-lg">
-                📞 Call 9688727284
-              </a>
+              <button class="btn btn-outline btn-lg" onclick="window.catalogApp.toggleCompare('soft_p7_1')">
+                ⚖️ Compare
+              </button>
             </div>
           </div>
           <div class="hero-slide-visual" onclick="window.location.href='product.html?id=soft_p7_1'" title="Click to view SHSE(3) ALEX MOULD details">
@@ -310,9 +374,9 @@
               <a href="https://wa.me/918695706013?text=Hello%20Sri%20Hanum%20Sastha%20Enterprises%2C%20I%20am%20interested%20in%20chair%20SHSE(1)%20(Model%3A%20LOUNGE%20DC%20404)%20from%20the%20Dining%20Chairs%20category.%20Please%20share%20more%20details." target="_blank" rel="noopener" class="btn btn-primary btn-lg">
                 💬 Enquire on WhatsApp
               </a>
-              <a href="tel:+918695706013" class="btn btn-outline btn-lg">
-                📞 Call 8695706013
-              </a>
+              <button class="btn btn-outline btn-lg" onclick="window.catalogApp.toggleCompare('soft_p1_1')">
+                ⚖️ Compare
+              </button>
             </div>
           </div>
           <div class="hero-slide-visual" onclick="window.location.href='product.html?id=soft_p1_1'" title="Click to view SHSE(1) LOUNGE DC 404 details">
@@ -334,7 +398,7 @@
     </div>
   </section>
 
-  <!-- SECTION 2: MOVING PRODUCT PREVIEW SECTION (Advances every 2s) -->
+  <!-- SECTION 2: MOVING PRODUCT PREVIEW SECTION (2s) -->
   <section class="preview-section" id="productPreviewSection">
     <div class="container">
       <div class="preview-header-row">
@@ -350,7 +414,7 @@
 
       <div class="preview-track-wrapper">
         <div class="preview-track" id="previewTrack" role="region" aria-label="Horizontal Product Preview Track">
-          <!-- Populated dynamically by app.js with authentic catalogue models and 2-second automatic step -->
+          <!-- Populated dynamically by app.js with authentic models -->
         </div>
       </div>
     </div>
@@ -442,7 +506,38 @@
     </div>
   </section>
 
-  <!-- SECTION 5: TRUST / VALUE PROPOSITIONS -->
+  <!-- SECTION 5: SEPARATE ORIGINAL CHAIR CONCEPTS (R&D Design Visuals) -->
+  <section class="concepts-section" id="conceptsSection">
+    <div class="container">
+      <div class="section-header">
+        <span class="concepts-badge">R&D Exploratory Showcase</span>
+        <h2 class="section-title">Original Chair Concepts</h2>
+        <p class="section-desc">
+          Explorations of future ergonomic geometries, sustainable materials, and monocoque mesh tensioning.
+        </p>
+        <div class="concepts-disclaimer">
+          🔒 <strong>Separation Guarantee:</strong> These conceptual design visuals are kept strictly separate from our 228 verified commercial catalogue models and are not currently manufactured or available for purchase.
+        </div>
+      </div>
+
+      <div class="concepts-grid" id="conceptsGrid">
+        <!-- Loaded dynamically from /api/concepts by app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: RECENTLY VIEWED MODELS -->
+  <section class="recent-views-section" id="recentViewsSection" style="display: none;">
+    <div class="container">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+        <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--text-main);">Recently Viewed Chairs</h3>
+        <button onclick="localStorage.setItem('shse_recently_viewed', '[]'); document.getElementById('recentViewsSection').style.display='none';" style="background: none; border: none; font-size: 0.8125rem; color: var(--forest-green); cursor: pointer; font-weight: 700;">Clear History</button>
+      </div>
+      <div class="recent-views-track" id="recentViewsTrack"></div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: TRUST / VALUE PROPOSITIONS -->
   <section style="background: var(--bg-neutral); border-top: 1px solid var(--border-light); padding: 4rem 0;" aria-label="Why Choose Us">
     <div class="container">
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem;">
@@ -556,7 +651,6 @@
             </div>
           </div>
 
-          <!-- Matched Dedicated Call Buttons -->
           <div class="footer-call-buttons">
             <a href="tel:+919688727284" class="btn btn-secondary" aria-label="Call Now 9688727284">
               📞 Call: 9688727284
@@ -568,7 +662,6 @@
         </div>
       </div>
 
-      <!-- Footer Bottom Bar -->
       <div class="footer-bottom">
         <div>
           &copy; <span id="currentYear"></span> Sri Hanum Sastha Enterprises. All Rights Reserved.
@@ -579,6 +672,69 @@
       </div>
     </div>
   </footer>
+
+  <!-- FLOATING COMPARISON BAR -->
+  <div class="compare-floating-bar" id="compareFloatingBar">
+    <div class="compare-bar-thumbs" id="compareBarThumbs"></div>
+    <div class="compare-bar-info">
+      <span id="compareCountText">Compare (0/4)</span>
+    </div>
+    <button class="btn btn-primary btn-sm" id="btnOpenCompareModal">
+      View Comparison →
+    </button>
+    <button class="btn btn-outline-white btn-sm" id="btnClearCompare">
+      Clear
+    </button>
+  </div>
+
+  <!-- CHAIR COMPARISON MODAL -->
+  <div class="compare-modal" id="compareModal" role="dialog" aria-modal="true" aria-labelledby="compareModalTitle">
+    <div class="compare-modal-content">
+      <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-light); padding-bottom: 1rem;">
+        <div>
+          <h2 id="compareModalTitle" style="font-size: 1.35rem; font-weight: 800; color: var(--text-main);">Side-by-Side Model Comparison</h2>
+          <p style="font-size: 0.8125rem; color: var(--text-secondary); margin-top: 0.25rem;">Compare specifications across selected genuine catalogue chairs</p>
+        </div>
+        <button id="compareModalClose" style="background: none; border: none; font-size: 1.75rem; cursor: pointer; color: var(--text-muted);">&times;</button>
+      </div>
+      <div id="compareTableContent"></div>
+    </div>
+  </div>
+
+  <!-- AI CATALOGUE CHATBOT WIDGET -->
+  <button class="chat-widget-toggle" id="chatWidgetToggle" aria-label="Open Catalogue Chat Assistant">
+    <span class="chat-pulse-dot"></span>
+    <span>💬 Catalogue Assistant</span>
+  </button>
+
+  <div class="chat-window" id="chatWindow" role="dialog" aria-label="Catalogue Chat Assistant">
+    <div class="chat-header">
+      <div class="chat-header-title">
+        <span class="chat-pulse-dot"></span>
+        <span>Catalogue Assistant</span>
+      </div>
+      <button class="chat-header-close" id="chatCloseBtn" aria-label="Close Chat">&times;</button>
+    </div>
+    <div class="chat-disclaimer-strip">
+      <span>Verified 228 Catalogue Data</span>
+      <span style="color: var(--forest-green); font-weight: 700;">● Online</span>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+      <div class="chat-bubble bot">
+        Hello! I am the <strong>Sri Hanum Sastha Catalogue Assistant</strong>. I can help you find commercial chairs, verify model specifications, and provide Coimbatore showroom information. How can I assist you today?
+      </div>
+    </div>
+    <div class="chat-chips">
+      <button class="chat-chip" data-query="Recommend office chairs under ₹5,000">🪑 Office chairs under ₹5,000</button>
+      <button class="chat-chip" data-query="Where is your showroom?">📍 Showroom Address</button>
+      <button class="chat-chip" data-query="Show cantilever visitor chairs">🏢 Visitor Chairs</button>
+      <button class="chat-chip" data-query="How do I enquire on WhatsApp?">💬 WhatsApp Enquiry</button>
+    </div>
+    <div class="chat-input-row">
+      <input type="text" id="chatInput" placeholder="Ask about models (e.g. ATLAS, 4G, ALEX)..." aria-label="Type your message">
+      <button id="chatSendBtn" aria-label="Send message">Send</button>
+    </div>
+  </div>
 
   <script>
     document.getElementById('currentYear').textContent = new Date().getFullYear();

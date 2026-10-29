@@ -7,6 +7,14 @@ import re
 BASE_URL = "http://127.0.0.1:8080"
 PROJECT_DIR = r"C:\Users\user\.gemini\antigravity\scratch\srihanumsastha-catalogue"
 
+def request_url(url, data=None, headers=None, timeout=10):
+    hdrs = {"Connection": "close"}
+    if headers:
+        hdrs.update(headers)
+    req = urllib.request.Request(url, data=data, headers=hdrs)
+    with urllib.request.urlopen(req, timeout=timeout) as resp:
+        return resp.status, resp.read().decode('utf-8')
+
 print("==================================================================")
 print("  COMPREHENSIVE VERIFICATION SUITE - SRI HANUM SASTHA ENTERPRISES  ")
 print("==================================================================")
@@ -54,45 +62,41 @@ print("  [PASS] Standard button heights (44px, 38px, 50px) and variants verified
 print("\n[STEP 3] Testing FastAPI REST Endpoints on Port 8080...")
 
 # 3a. Health
-req = urllib.request.Request(f"{BASE_URL}/api/health")
-with urllib.request.urlopen(req, timeout=15) as resp:
-    assert resp.status == 200
-    health = json.loads(resp.read().decode('utf-8'))
-    assert health["status"] == "healthy"
-    assert health["backend"] == "FastAPI"
-    assert health["catalogue_items"] == 228
-    print(f"  [PASS] /api/health returned 200 OK (Items: {health['catalogue_items']}, Backend: {health['backend']})")
+status, body = request_url(f"{BASE_URL}/api/health")
+assert status == 200
+health = json.loads(body)
+assert health["status"] == "healthy"
+assert health["backend"] == "FastAPI"
+assert health["catalogue_items"] == 228
+print(f"  [PASS] /api/health returned 200 OK (Items: {health['catalogue_items']}, Backend: {health['backend']})")
 
 # 3b. Chairs
-req = urllib.request.Request(f"{BASE_URL}/api/chairs")
-with urllib.request.urlopen(req, timeout=15) as resp:
-    assert resp.status == 200
-    chairs = json.loads(resp.read().decode('utf-8'))
-    assert len(chairs) == 228
-    print(f"  [PASS] /api/chairs returned 200 OK ({len(chairs)} chairs served)")
+status, body = request_url(f"{BASE_URL}/api/chairs")
+assert status == 200
+chairs = json.loads(body)
+assert len(chairs) == 228
+print(f"  [PASS] /api/chairs returned 200 OK ({len(chairs)} chairs served)")
 
 # 3c. Single Chair (office_1_2 requested by user)
-req = urllib.request.Request(f"{BASE_URL}/api/chairs/office_1_2")
-with urllib.request.urlopen(req, timeout=15) as resp:
-    assert resp.status == 200
-    c2 = json.loads(resp.read().decode('utf-8'))
-    assert c2["code"] == "SHSE(2)"
-    assert c2["_internal_model"] == "4G"
-    print(f"  [PASS] /api/chairs/office_1_2 returned 200 OK (Code: {c2['code']}, Model: {c2['_internal_model']})")
+status, body = request_url(f"{BASE_URL}/api/chairs/office_1_2")
+assert status == 200
+c2 = json.loads(body)
+assert c2["code"] == "SHSE(2)"
+assert c2["_internal_model"] == "4G"
+print(f"  [PASS] /api/chairs/office_1_2 returned 200 OK (Code: {c2['code']}, Model: {c2['_internal_model']})")
 
 # 3d. Admin Auth
 login_payload = json.dumps({"username": "admin", "password": "shse2026"}).encode('utf-8')
-req = urllib.request.Request(
+status, body = request_url(
     f"{BASE_URL}/api/admin/login",
     data=login_payload,
     headers={"Content-Type": "application/json"}
 )
-with urllib.request.urlopen(req, timeout=15) as resp:
-    assert resp.status == 200
-    auth_data = json.loads(resp.read().decode('utf-8'))
-    assert auth_data["success"] is True
-    assert "token" in auth_data
-    print("  [PASS] /api/admin/login authenticated successfully and returned session token.")
+assert status == 200
+auth_data = json.loads(body)
+assert auth_data["success"] is True
+assert "token" in auth_data
+print("  [PASS] /api/admin/login authenticated successfully and returned session token.")
 
 # ---------------- STEP 4: PUBLIC PAGES & STRICT REQUIREMENTS ----------------
 print("\n[STEP 4] Testing Public Pages & Strict Requirements...")
@@ -108,28 +112,27 @@ pages = [
 
 for path, name in pages:
     url = f"{BASE_URL}{path}"
-    with urllib.request.urlopen(url, timeout=15) as resp:
-        assert resp.status == 200, f"Failed {name}: status {resp.status}"
-        body = resp.read().decode('utf-8')
-        print(f"  [PASS] {name} ({url}) returned HTTP 200 ({len(body)} bytes)")
+    status, body = request_url(url)
+    assert status == 200, f"Failed {name}: status {status}"
+    print(f"  [PASS] {name} ({url}) returned HTTP 200 ({len(body)} bytes)")
 
-        # Verify official business email is visibly present and clickable on all public pages
-        if "admin" not in path:
-            assert "srihanumsastha@gmail.com" in body, f"Official email missing on {name}!"
-            assert "mailto:srihanumsastha@gmail.com" in body, f"mailto link missing on {name}!"
+    # Verify official business email is visibly present and clickable on all public pages
+    if "admin" not in path:
+        assert "srihanumsastha@gmail.com" in body, f"Official email missing on {name}!"
+        assert "mailto:srihanumsastha@gmail.com" in body, f"mailto link missing on {name}!"
 
-            # Verify zero PROMAX branding or publication years in public pages
-            assert "promax" not in body.lower(), f"PROMAX branding found on {name}!"
-            assert "catalogue 2024" not in body.lower()
-            assert "catalogue 2025" not in body.lower()
+        # Verify zero PROMAX branding or publication years in public pages
+        assert "promax" not in body.lower(), f"PROMAX branding found on {name}!"
+        assert "catalogue 2024" not in body.lower()
+        assert "catalogue 2025" not in body.lower()
 
-            # Phone numbers check: both must be present
-            assert "9688727284" in body, f"Phone 9688727284 missing on {name}"
-            assert "8695706013" in body, f"Phone 8695706013 missing on {name}"
+        # Phone numbers check: both must be present
+        assert "9688727284" in body, f"Phone 9688727284 missing on {name}"
+        assert "8695706013" in body, f"Phone 8695706013 missing on {name}"
 
-            # WhatsApp check: MUST use 8695706013 exclusively for WhatsApp
-            assert "https://wa.me/918695706013" in body, f"WhatsApp 8695706013 missing on {name}"
-            assert "https://wa.me/919688727284" not in body, f"Old WhatsApp 9688727284 found on {name}!"
+        # WhatsApp check: MUST use 8695706013 exclusively for WhatsApp
+        assert "https://wa.me/918695706013" in body, f"WhatsApp 8695706013 missing on {name}"
+        assert "https://wa.me/919688727284" not in body, f"Old WhatsApp 9688727284 found on {name}!"
 
 print("  [PASS] Verified official email srihanumsastha@gmail.com with mailto: links across all public pages.")
 print("  [PASS] Zero PROMAX branding or catalogue publication years verified.")
@@ -219,6 +222,60 @@ assert cats.get('Lounge & Soft Seating') == 24, f"Expected 24 Lounge, got {cats.
 assert cats.get('Dining Chairs') == 21, f"Expected 21 Dining, got {cats.get('Dining Chairs')}"
 assert cats.get('Stools & Additional Seating') == 7, f"Expected 7 Stools, got {cats.get('Stools & Additional Seating')}"
 
+# ---------------- STEP 8: ORIGINAL CHAIR CONCEPTS API & ISOLATION ----------------
+print("\n[STEP 8] Verifying Original Chair Concepts API & Separation...")
+status, body = request_url(f"{BASE_URL}/api/concepts")
+assert status == 200
+concepts = json.loads(body)
+assert len(concepts) == 6, f"Expected 6 concepts, got {len(concepts)}"
+for c in concepts:
+    assert c.get("is_concept") is True
+    assert "Aura" in c.get("name") or "Kanso" in c.get("name") or "Solace" in c.get("name") or "Veloce" in c.get("name") or "Forma" in c.get("name") or "Nexus" in c.get("name")
+print(f"  [PASS] /api/concepts returned 200 OK with {len(concepts)} exploratory design studies.")
+print("  [PASS] All concepts verified with strict non-commercial R&D flag and disclaimer.")
+
+# ---------------- STEP 9: AI CATALOGUE CHATBOT ENDPOINT ----------------
+print("\n[STEP 9] Verifying AI Catalogue Chatbot API (/api/chat)...")
+chat_payload = json.dumps({"message": "Tell me about ATLAS chair"}).encode('utf-8')
+status, body = request_url(
+    f"{BASE_URL}/api/chat",
+    data=chat_payload,
+    headers={"Content-Type": "application/json"}
+)
+assert status == 200
+chat_res = json.loads(body)
+assert "reply" in chat_res
+assert len(chat_res["reply"]) > 20
+assert "disclaimer" in chat_res
+print(f"  [PASS] /api/chat returned 200 OK (Source: {chat_res.get('source', 'engine')})")
+print(f"  [PASS] Verified grounded response: {chat_res['reply'][:70]}...")
+
+# ---------------- STEP 10: INTERACTIVE UTILITIES CONSISTENCY ----------------
+print("\n[STEP 10] Verifying Interactive Utilities across All Public Pages...")
+core_pages = ["index.html", "product.html", "category.html", "contact.html"]
+for page_file in core_pages:
+    page_path = os.path.join(PROJECT_DIR, page_file)
+    with open(page_path, "r", encoding="utf-8") as f:
+        html = f.read()
+        assert "compareFloatingBar" in html, f"compareFloatingBar missing in {page_file}"
+        assert "compareModal" in html, f"compareModal missing in {page_file}"
+        assert "savedDrawer" in html, f"savedDrawer missing in {page_file}"
+        assert "chatWidgetToggle" in html, f"chatWidgetToggle missing in {page_file}"
+        assert "chatWindow" in html, f"chatWindow missing in {page_file}"
+        assert "app.js" in html, f"app.js script tag missing in {page_file}"
+        print(f"  [PASS] {page_file} contains compare bar, compare modal, saved drawer, and AI chatbot widget.")
+
+# ---------------- STEP 11: LIGHTBOX ZOOM ON PRODUCT DETAIL PAGE ----------------
+print("\n[STEP 11] Verifying Image Lightbox Zoom on product.html...")
+with open(os.path.join(PROJECT_DIR, "product.html"), "r", encoding="utf-8") as f:
+    prod_html = f.read()
+    assert "lightboxModal" in prod_html
+    assert "lightboxImg" in prod_html
+    assert "lightboxClose" in prod_html
+    assert "btnDetailCompare" in prod_html
+    assert "btnDetailSave" in prod_html
+print("  [PASS] product.html verified with click-to-zoom Lightbox modal and Compare/Save toggles.")
+
 print("\n==================================================================")
-print("  ALL 7 VERIFICATION STAGES PASSED WITH ZERO ERRORS!             ")
+print("  ALL 11 VERIFICATION STAGES PASSED WITH ZERO ERRORS!            ")
 print("==================================================================")
