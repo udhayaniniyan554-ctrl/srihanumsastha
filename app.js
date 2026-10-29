@@ -284,7 +284,7 @@
               <a href="product.html?id=${p.id}" class="btn btn-outline btn-sm" style="justify-content: center;">
                 View Details →
               </a>
-              <a href="https://wa.me/919688727284?text=${waMsg}" target="_blank" rel="noopener" class="btn-whatsapp-card" title="Enquire on WhatsApp">
+              <a href="https://wa.me/918695706013?text=${waMsg}" target="_blank" rel="noopener" class="btn-whatsapp-card" title="Enquire on WhatsApp">
                 💬 WhatsApp
               </a>
             </div>
@@ -406,8 +406,8 @@
             </a>
           </div>
           <div style="margin-bottom: 0.75rem;">
-            <a href="https://wa.me/919688727284?text=${encodeURIComponent(`Hello Sri Hanum Sastha Enterprises, I am interested in chair ${prod.code || prod.display_name} (Model: ${prod._internal_model || ''}) from the ${prod.category} category. Please share more details.`)}" target="_blank" rel="noopener" class="btn btn-whatsapp-main" style="width: 100%; justify-content: center;">
-              💬 Enquire on WhatsApp (9688727284)
+            <a href="https://wa.me/918695706013?text=${encodeURIComponent(`Hello Sri Hanum Sastha Enterprises, I am interested in chair ${prod.code || prod.display_name} (Model: ${prod._internal_model || ''}) from the ${prod.category} category. Please share more details.`)}" target="_blank" rel="noopener" class="btn btn-whatsapp-main" style="width: 100%; justify-content: center;">
+              💬 Enquire on WhatsApp (8695706013)
             </a>
           </div>
           <div class="modal-phone-btns">

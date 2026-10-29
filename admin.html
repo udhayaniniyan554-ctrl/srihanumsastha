@@ -10,19 +10,19 @@
   <link rel="stylesheet" href="styles.css">
   <style>
     .admin-body {
-      background: #f1f5f9;
+      background: #f8fafc;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
     }
     .admin-navbar {
-      background: #0f172a;
+      background: #0a0a0a;
       color: #ffffff;
       padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 2px solid var(--accent);
+      border-bottom: 2px solid var(--primary-red);
     }
     .admin-nav-brand {
       display: flex;
@@ -33,7 +33,7 @@
       letter-spacing: 0.02em;
     }
     .admin-badge {
-      background: var(--accent);
+      background: var(--primary-red);
       color: #ffffff;
       font-size: 0.7rem;
       padding: 0.2rem 0.5rem;
@@ -88,8 +88,8 @@
     }
     .form-input:focus {
       outline: none;
-      border-color: var(--accent);
-      box-shadow: 0 0 0 3px var(--accent-light);
+      border-color: var(--primary-red);
+      box-shadow: 0 0 0 3px var(--primary-red-glow);
     }
 
     /* Dashboard Layout */
@@ -404,6 +404,10 @@
           <div class="form-group">
             <label for="formImage">Photo Path / URL *</label>
             <input type="text" id="formImage" class="form-input" placeholder="assets/products/office_1_1.png" required>
+            <input type="file" id="formImageFile" accept="image/*" style="margin-top: 0.35rem; font-size: 0.8rem; width: 100%;">
+            <small id="uploadStatusText" style="color: var(--text-muted); font-size: 0.75rem; display: block; margin-top: 2px;">
+              Upload photo to server / Supabase storage, or enter relative path.
+            </small>
           </div>
         </div>
 
@@ -423,22 +427,52 @@
   <script>
     let catalogData = [];
     let authenticated = false;
+    let adminToken = sessionStorage.getItem('admin_token') || '';
+
+    function showDashboard() {
+      authenticated = true;
+      document.getElementById('loginCard').style.display = 'none';
+      document.getElementById('dashContainer').style.display = 'block';
+      document.getElementById('logoutBtn').style.display = 'inline-flex';
+      loadInventory();
+    }
+
+    if (adminToken) {
+      showDashboard();
+    }
 
     // Login Form Submit
-    document.getElementById('loginForm').addEventListener('submit', (e) => {
+    document.getElementById('loginForm').addEventListener('submit', async (e) => {
       e.preventDefault();
       const user = document.getElementById('adminUser').value.trim();
       const pass = document.getElementById('adminPass').value.trim();
+      const al = document.getElementById('loginAlert');
+      al.style.display = 'none';
 
-      // Secure local check (development credentials)
+      // 1. Try server backend authentication
+      try {
+        const res = await fetch('/api/admin/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username: user, password: pass })
+        });
+        if (res.ok) {
+          const data = await res.json();
+          adminToken = data.token;
+          sessionStorage.setItem('admin_token', adminToken);
+          showDashboard();
+          return;
+        }
+      } catch (err) {
+        console.warn('API login error, trying development fallback', err);
+      }
+
+      // 2. Development fallback credentials
       if (user === 'admin' && pass === 'shse2026') {
-        authenticated = true;
-        document.getElementById('loginCard').style.display = 'none';
-        document.getElementById('dashContainer').style.display = 'block';
-        document.getElementById('logoutBtn').style.display = 'inline-flex';
-        loadInventory();
+        adminToken = 'shse2026';
+        sessionStorage.setItem('admin_token', adminToken);
+        showDashboard();
       } else {
-        const al = document.getElementById('loginAlert');
         al.textContent = 'Invalid credentials. Please enter correct username and password.';
         al.style.display = 'block';
       }
@@ -447,22 +481,30 @@
     // Logout
     document.getElementById('logoutBtn').addEventListener('click', () => {
       authenticated = false;
+      adminToken = '';
+      sessionStorage.removeItem('admin_token');
       document.getElementById('dashContainer').style.display = 'none';
       document.getElementById('logoutBtn').style.display = 'none';
       document.getElementById('loginCard').style.display = 'block';
       document.getElementById('adminPass').value = '';
     });
 
-    // Load Catalogue Data
+    // Load Catalogue Data from API or fallback
     async function loadInventory() {
       try {
-        const res = await fetch('assets/catalog.json');
-        catalogData = await res.json();
-        updateStats();
-        renderTable();
+        const res = await fetch('/api/chairs');
+        if (res.ok) {
+          catalogData = await res.json();
+        } else {
+          const fallback = await fetch('assets/catalog.json');
+          catalogData = await fallback.json();
+        }
       } catch (err) {
-        console.error('Failed to load inventory', err);
+        const fallback = await fetch('assets/catalog.json');
+        catalogData = await fallback.json();
       }
+      updateStats();
+      renderTable();
     }
 
     // Stats
@@ -521,6 +563,44 @@
     document.getElementById('adminSearchInput').addEventListener('input', renderTable);
     document.getElementById('adminCatFilter').addEventListener('change', renderTable);
 
+    // Image Upload Handler
+    const imageFileInput = document.getElementById('formImageFile');
+    if (imageFileInput) {
+      imageFileInput.addEventListener('change', async (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+
+        const statusEl = document.getElementById('uploadStatusText');
+        statusEl.textContent = 'Uploading chair photograph...';
+        statusEl.style.color = 'var(--primary-red)';
+
+        const formData = new FormData();
+        formData.append('file', file);
+
+        try {
+          const res = await fetch('/api/admin/upload', {
+            method: 'POST',
+            headers: {
+              'Authorization': `Bearer ${adminToken}`
+            },
+            body: formData
+          });
+          if (res.ok) {
+            const data = await res.json();
+            document.getElementById('formImage').value = data.url;
+            statusEl.textContent = '✓ Photo uploaded and linked: ' + data.url;
+            statusEl.style.color = '#16a34a';
+          } else {
+            statusEl.textContent = 'Upload failed on server. Please use manual path.';
+            statusEl.style.color = '#dc2626';
+          }
+        } catch (err) {
+          statusEl.textContent = 'Note: Uploading requires backend API. Please input image path directly.';
+          statusEl.style.color = '#d97706';
+        }
+      });
+    }
+
     // Modal Add / Edit
     const chairModal = document.getElementById('chairModal');
     document.getElementById('btnAddNew').addEventListener('click', () => {
@@ -528,6 +608,11 @@
       document.getElementById('chairForm').reset();
       document.getElementById('editChairId').value = '';
       document.getElementById('formAlert').style.display = 'none';
+      const statusEl = document.getElementById('uploadStatusText');
+      if (statusEl) {
+        statusEl.textContent = 'Upload photo to server / Supabase storage, or enter relative path.';
+        statusEl.style.color = 'var(--text-muted)';
+      }
       chairModal.classList.add('open');
     });
 
@@ -546,22 +631,46 @@
       document.getElementById('formImage').value = p.image || '';
       document.getElementById('formFeatures').value = (p.features || []).join(', ');
       document.getElementById('formAlert').style.display = 'none';
+      const statusEl = document.getElementById('uploadStatusText');
+      if (statusEl) {
+        statusEl.textContent = 'Upload photo to server / Supabase storage, or enter relative path.';
+        statusEl.style.color = 'var(--text-muted)';
+      }
       chairModal.classList.add('open');
     };
 
-    window.deleteChair = function(id) {
+    window.deleteChair = async function(id) {
       const p = catalogData.find(x => x.id === id);
       if (!p) return;
-      if (confirm(`Are you sure you want to delete ${p.code} (${p._internal_model})?`)) {
-        catalogData = catalogData.filter(x => x.id !== id);
-        updateStats();
-        renderTable();
-        alert(`Chair ${p.code} removed from local session. Use "Export catalog.json" to persist!`);
+      if (!confirm(`Are you sure you want to delete ${p.code} (${p._internal_model})?`)) return;
+
+      // Try server API delete
+      try {
+        const res = await fetch(`/api/admin/chairs/${id}`, {
+          method: 'DELETE',
+          headers: {
+            'Authorization': `Bearer ${adminToken}`
+          }
+        });
+        if (res.ok) {
+          catalogData = catalogData.filter(x => x.id !== id);
+          updateStats();
+          renderTable();
+          alert(`Chair ${p.code} removed successfully.`);
+          return;
+        }
+      } catch (err) {
+        console.warn('Backend delete failed, using local fallback', err);
       }
+
+      catalogData = catalogData.filter(x => x.id !== id);
+      updateStats();
+      renderTable();
+      alert(`Chair ${p.code} removed from local session. Use "Export catalog.json" to persist!`);
     };
 
     // Save Form
-    document.getElementById('chairForm').addEventListener('submit', (e) => {
+    document.getElementById('chairForm').addEventListener('submit', async (e) => {
       e.preventDefault();
       const id = document.getElementById('editChairId').value;
       const cat = document.getElementById('formCategory').value;
@@ -584,35 +693,67 @@
         return;
       }
 
+      const chairPayload = {
+        category: cat,
+        code: `SHSE(${codeNum})`,
+        code_number: codeNum,
+        _internal_model: model,
+        base_price: price,
+        price_display: `₹${price.toLocaleString('en-IN')}`,
+        image: img,
+        features: feats,
+        display_name: `${cat} — SHSE(${codeNum})`,
+        options: [{ variant: "Standard Option", price: price }],
+        specs: { Category: cat }
+      };
+
       if (id) {
-        // Edit
+        chairPayload.id = id;
+        try {
+          const res = await fetch(`/api/admin/chairs/${id}`, {
+            method: 'PUT',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${adminToken}`
+            },
+            body: JSON.stringify(chairPayload)
+          });
+          if (res.ok) {
+            await loadInventory();
+            chairModal.classList.remove('open');
+            alert(`Chair ${chairPayload.code} updated successfully on server!`);
+            return;
+          }
+        } catch (err) {
+          console.warn('Backend update failed, updating local state', err);
+        }
+
         const p = catalogData.find(x => x.id === id);
-        p.category = cat;
-        p.code_number = codeNum;
-        p.code = `SHSE(${codeNum})`;
-        p._internal_model = model;
-        p.base_price = price;
-        p.price_display = `₹${price.toLocaleString('en-IN')}`;
-        p.image = img;
-        p.features = feats;
-        p.display_name = `${cat} — SHSE(${codeNum})`;
+        Object.assign(p, chairPayload);
       } else {
-        // Add
         const newId = `${cat.toLowerCase().split(' ')[0]}_${codeNum}_${Date.now()}`;
-        catalogData.push({
-          id: newId,
-          category: cat,
-          code: `SHSE(${codeNum})`,
-          code_number: codeNum,
-          _internal_model: model,
-          base_price: price,
-          price_display: `₹${price.toLocaleString('en-IN')}`,
-          image: img,
-          features: feats,
-          display_name: `${cat} — SHSE(${codeNum})`,
-          options: [{ variant: "Standard Option", price: price }],
-          specs: { Category: cat }
-        });
+        chairPayload.id = newId;
+
+        try {
+          const res = await fetch('/api/admin/chairs', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${adminToken}`
+            },
+            body: JSON.stringify(chairPayload)
+          });
+          if (res.ok) {
+            await loadInventory();
+            chairModal.classList.remove('open');
+            alert(`New chair ${chairPayload.code} created and saved on server!`);
+            return;
+          }
+        } catch (err) {
+          console.warn('Backend insert failed, updating local state', err);
+        }
+
+        catalogData.push(chairPayload);
       }
 
       updateStats();
