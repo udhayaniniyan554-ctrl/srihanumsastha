@@ -256,39 +256,23 @@ button, input, select, textarea {
   font-weight: 500;
 }
 
-.top-bar-phones {
+.top-bar-contact {
   display: flex;
   align-items: center;
-  gap: 1.25rem;
-  flex-wrap: wrap;
-}
-
-.top-bar-email {
-  color: #86EFAC;
-  text-decoration: underline;
-  text-underline-offset: 2px;
-  font-weight: 600;
-}
-
-.top-bar-email:hover {
-  color: #FFFFFF;
+  gap: 1rem;
 }
 
 .top-bar-whatsapp {
   color: #4ADE80;
   font-weight: 700;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: color 0.15s ease;
 }
 
 .top-bar-whatsapp:hover {
-  color: #FFFFFF;
-}
-
-.top-bar-phones a {
-  color: #E2E8F0;
-  font-weight: 500;
-}
-
-.top-bar-phones a:hover {
   color: #FFFFFF;
 }
 
@@ -307,8 +291,8 @@ button, input, select, textarea {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: var(--header-height);
-  gap: 1.5rem;
+  min-height: var(--header-height);
+  gap: 1.25rem;
 }
 
 /* Logo on Left */
@@ -317,6 +301,7 @@ button, input, select, textarea {
   align-items: center;
   flex-shrink: 0;
   padding: 0.25rem 0;
+  text-decoration: none;
 }
 
 .brand-logo img {
@@ -324,6 +309,7 @@ button, input, select, textarea {
   width: auto;
   max-width: 250px;
   object-fit: contain;
+  display: block;
 }
 
 /* Centered One-Row Desktop Navigation */
@@ -1814,7 +1800,22 @@ button, input, select, textarea {
 }
 
 /* ---------------- 14. RESPONSIVE MEDIA QUERIES ---------------- */
+@media (max-width: 1200px) {
+  .nav-menu {
+    gap: 1.15rem;
+  }
+  .nav-link {
+    font-size: 0.875rem;
+  }
+}
+
 @media (max-width: 1024px) {
+  .desktop-nav {
+    display: none;
+  }
+  .mobile-toggle {
+    display: inline-flex;
+  }
   .categories-grid {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -1834,12 +1835,6 @@ button, input, select, textarea {
 }
 
 @media (max-width: 868px) {
-  .desktop-nav {
-    display: none;
-  }
-  .mobile-toggle {
-    display: inline-flex;
-  }
   .hero-slide {
     grid-template-columns: 1fr;
     padding: 2rem 1.5rem;
@@ -1860,12 +1855,42 @@ button, input, select, textarea {
 }
 
 @media (max-width: 640px) {
+  .top-bar {
+    padding: 0.35rem 0;
+  }
   .top-bar-content {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: 0.25rem;
+  }
+  .top-bar-location {
+    font-size: 0.75rem;
     justify-content: center;
     text-align: center;
   }
-  .top-bar-phones {
+  .top-bar-contact {
     justify-content: center;
+  }
+  .top-bar-whatsapp {
+    font-size: 0.75rem;
+  }
+  .nav-container {
+    min-height: 60px;
+    gap: 0.75rem;
+    padding: 0 1rem;
+  }
+  .brand-logo img {
+    height: 38px;
+    max-width: 190px;
+  }
+  .header-actions {
+    gap: 0.5rem;
+  }
+  .header-actions .btn {
+    padding: 0 0.75rem;
+    font-size: 0.8125rem;
+    height: 36px;
   }
   .categories-grid {
     grid-template-columns: 1fr 1fr;

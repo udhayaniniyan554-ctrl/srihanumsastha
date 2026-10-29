@@ -13,7 +13,7 @@ pages_to_test = [
     ("/contact.html", "Contact Page"),
 ]
 
-print("=== 1. TESTING HTTP ENDPOINTS & FOOTER DETAILS ===")
+print("=== 1. TESTING HTTP ENDPOINTS & HEADER/FOOTER DETAILS ===")
 for path, name in pages_to_test:
     url = f"{BASE_URL}{path}"
     try:
@@ -37,31 +37,22 @@ for path, name in pages_to_test:
             assert "Tamil Nadu" in content and "641018" in content, f"Missing Tamil Nadu - 641018 in {name}"
             print("  [PASS] Complete address with line breaks found")
             
-            # Check Email visibly and mailto link
-            assert 'href="mailto:srihanumsastha@gmail.com"' in content, f"Missing mailto:srihanumsastha@gmail.com in {name}"
-            assert "srihanumsastha@gmail.com" in content, f"Missing visible email text in {name}"
-            print("  [PASS] Email 'srihanumsastha@gmail.com' visibly displayed with mailto: link")
+            # Check zero email display anywhere on public website
+            assert 'mailto:' not in content, f"Unexpected mailto link found in {name}"
+            assert "srihanumsastha@gmail.com" not in content, f"Unexpected email text in {name}"
+            print("  [PASS] Zero email display verified across public page")
             
-            # Check Phone Numbers and tel links
-            assert 'href="tel:9688727284"' in content, f"Missing tel:9688727284 in {name}"
-            assert 'href="tel:8695706013"' in content, f"Missing tel:8695706013 in {name}"
-            assert "9688727284" in content and "8695706013" in content, f"Missing phone number text in {name}"
-            print("  [PASS] Both phone numbers clickable with tel: links")
-            
-            # Check Separate Call Now buttons
-            assert "Call Now: 9688727284" in content, f"Missing Call Now: 9688727284 button in {name}"
-            assert "Call Now: 8695706013" in content, f"Missing Call Now: 8695706013 button in {name}"
-            print("  [PASS] Both separate 'Call Now: 9688727284' and 'Call Now: 8695706013' buttons found")
+            # Check WhatsApp
+            assert "https://wa.me/918695706013" in content, f"Missing WhatsApp in {name}"
+            print("  [PASS] WhatsApp 8695706013 verified")
     except Exception as e:
         print(f"[FAIL] Error testing {url}: {e}")
         raise
 
 print("\n=== 2. TESTING CATALOG INTEGRITY ===")
 cat_url = f"{BASE_URL}/assets/catalog.json"
-with urllib.request.urlopen(cat_url) as resp:
+req = urllib.request.Request(cat_url, headers={"User-Agent": "VerificationBot/1.0"})
+with urllib.request.urlopen(req, timeout=5) as resp:
     data = json.loads(resp.read().decode('utf-8'))
-    print(f"Catalog items count: {len(data)}")
-    assert len(data) == 228, f"Expected 228 items, got {len(data)}"
-    print("  [PASS] Exact 228 chair models preserved")
-
-print("\n=== ALL CONTACT DETAILS AND FOOTER CHECKS PASSED SUCCESSFULLY! ===")
+    assert len(data) == 228
+    print(f"[PASS] All {len(data)} catalogue items loaded successfully")

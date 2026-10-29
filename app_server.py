@@ -114,7 +114,6 @@ Showroom & Contact Details:
 - Address: 173, First Floor, KK Lane Street, Avinashi Road, Coimbatore, Tamil Nadu – 641018
 - Phones: 9688727284 and 8695706013
 - WhatsApp: 8695706013 (https://wa.me/918695706013)
-- Email: srihanumsastha@gmail.com
 - Total Models: 228 (Office Chairs: 128, Visitor Chairs: 48, Lounge & Soft Seating: 24, Dining Chairs: 21, Stools: 7)
 
 Strict Rules:
@@ -149,8 +148,7 @@ User Question: {user_msg}"""
             "**Sri Hanum Sastha Enterprises — Showroom & Contact Details:**\n\n"
             "📍 **Showroom Address:** 173, First Floor, KK Lane Street, Avinashi Road, Coimbatore, Tamil Nadu – 641018\n"
             "📞 **Direct Phone Lines:** [9688727284](tel:+919688727284) & [8695706013](tel:+918695706013)\n"
-            "💬 **Exclusive WhatsApp:** [8695706013](https://wa.me/918695706013)\n"
-            "✉️ **Official Email:** [srihanumsastha@gmail.com](mailto:srihanumsastha@gmail.com)\n\n"
+            "💬 **Exclusive WhatsApp:** [8695706013](https://wa.me/918695706013)\n\n"
             "You are welcome to visit our Coimbatore showroom to inspect ergonomic models and material swatches in person!"
         )
         return {

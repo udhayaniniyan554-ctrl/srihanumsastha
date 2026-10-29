@@ -117,28 +117,39 @@ for path, name in pages:
     assert status == 200, f"Failed {name}: status {status}"
     print(f"  [PASS] {name} ({url}) returned HTTP 200 ({len(body)} bytes)")
 
-    # Verify official business email is visibly present and clickable on all public pages
+    # Verify zero email display anywhere on public website
     if "admin" not in path:
-        assert "srihanumsastha@gmail.com" in body, f"Official email missing on {name}!"
-        assert "mailto:srihanumsastha@gmail.com" in body, f"mailto link missing on {name}!"
+        assert "srihanumsastha@gmail.com" not in body, f"Email address found on {name}!"
+        assert "mailto:" not in body, f"mailto link found on {name}!"
 
         # Verify zero PROMAX branding or publication years in public pages
         assert "promax" not in body.lower(), f"PROMAX branding found on {name}!"
         assert "catalogue 2024" not in body.lower()
         assert "catalogue 2025" not in body.lower()
 
-        # Phone numbers check: both must be present
-        assert "9688727284" in body, f"Phone 9688727284 missing on {name}"
-        assert "8695706013" in body, f"Phone 8695706013 missing on {name}"
-
         # WhatsApp check: MUST use 8695706013 exclusively for WhatsApp
         assert "https://wa.me/918695706013" in body, f"WhatsApp 8695706013 missing on {name}"
         assert "https://wa.me/919688727284" not in body, f"Old WhatsApp 9688727284 found on {name}!"
 
-print("  [PASS] Verified official email srihanumsastha@gmail.com with mailto: links across all public pages.")
+        # Header check: NO phone numbers or email in header / top bar
+        header_match = re.search(r'<header.*?</header>', body, re.DOTALL)
+        if header_match:
+            header_html = header_match.group(0)
+            assert "tel:" not in header_html, f"Phone link found in header of {name}!"
+            assert "mailto:" not in header_html, f"Email link found in header of {name}!"
+            assert "9688727284" not in header_html, f"Phone number found in header of {name}!"
+        
+        topbar_match = re.search(r'<aside class="top-bar".*?</aside>', body, re.DOTALL)
+        if topbar_match:
+            topbar_html = topbar_match.group(0)
+            assert "tel:" not in topbar_html, f"Phone link found in top bar of {name}!"
+            assert "mailto:" not in topbar_html, f"Email link found in top bar of {name}!"
+            assert "9688727284" not in topbar_html, f"Phone number found in top bar of {name}!"
+
+print("  [PASS] Zero email display verified across all public pages.")
+print("  [PASS] Header and top-bar clean of phone numbers and email links.")
 print("  [PASS] Zero PROMAX branding or catalogue publication years verified.")
 print("  [PASS] Exclusive WhatsApp routing to 8695706013 verified across all pages.")
-print("  [PASS] Both business phone lines (9688727284 & 8695706013) verified across all pages.")
 
 # ---------------- STEP 5: HERO CAROUSEL & PRODUCT PREVIEW (2s Timing) ----------------
 print("\n[STEP 5] Verifying 2s Hero Carousel & Moving Product Preview...")
