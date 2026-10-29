@@ -175,7 +175,7 @@
     }
   }
 
-  // 5. Apply Filtering, Searching & Sorting (STRICTLY HIDES ORIGINAL MODEL NAMES)
+  // 5. Apply Filtering, Searching & Sorting
   function applyFiltersAndSort() {
     let result = [...state.allProducts];
 
@@ -184,16 +184,17 @@
       result = result.filter(p => p.category === state.selectedCategory);
     }
 
-    // Filter by Search Query (SEARCH ONLY CODES, CATEGORIES, AND FEATURES)
+    // Filter by Search Query (Searches Codes, Model Names, Categories, Features)
     if (state.searchQuery.trim()) {
       const q = state.searchQuery.toLowerCase().trim();
       result = result.filter(p => {
         const codeMatch = p.code.toLowerCase().includes(q) || String(p.code_number) === q;
         const displayNameMatch = p.display_name.toLowerCase().includes(q);
+        const modelMatch = p._internal_model && p._internal_model.toLowerCase().includes(q);
         const catMatch = p.category.toLowerCase().includes(q);
         const optMatch = p.options && p.options.some(o => o.variant.toLowerCase().includes(q));
         const featMatch = p.features && p.features.some(f => f.toLowerCase().includes(q));
-        return codeMatch || displayNameMatch || catMatch || optMatch || featMatch;
+        return codeMatch || displayNameMatch || modelMatch || catMatch || optMatch || featMatch;
       });
     }
 
@@ -204,6 +205,8 @@
       result.sort((a, b) => (b.base_price || 0) - (a.base_price || 0));
     } else if (state.sortBy === 'code-asc') {
       result.sort((a, b) => a.code_number - b.code_number);
+    } else if (state.sortBy === 'name-asc') {
+      result.sort((a, b) => (a._internal_model || a.display_name).localeCompare(b._internal_model || b.display_name));
     }
 
     state.filteredProducts = result;
@@ -211,7 +214,7 @@
     updateToolbarStatus();
   }
 
-  // 6. Render Product Cards Grid (Displaying ONLY SHSE Codes)
+  // 6. Render Product Cards Grid (Displaying SHSE Codes & Confirmed Model Names)
   function renderProducts() {
     if (!el.productsGrid) return;
 
@@ -245,20 +248,29 @@
       }
 
       const hasDiagram = !!p.diagram;
+      const modelName = p._internal_model || '';
+      const displayCode = p.code || `SHSE(${p.code_number})`;
+      const waMsg = encodeURIComponent(`Hello Sri Hanum Sastha Enterprises, I am interested in chair ${displayCode} (Model: ${modelName}) from the ${p.category} category. Please share more details.`);
 
       return `
         <article class="product-card" data-id="${p.id}">
-          <div class="product-image-canvas" onclick="window.catalogApp.openModal('${p.id}')">
+          <div class="product-image-canvas" onclick="window.location.href='product.html?id=${p.id}'" style="cursor: pointer;" title="View Details for ${escapeHtml(displayCode)}">
             <span class="product-category-badge">${escapeHtml(p.category)}</span>
             ${hasDiagram ? `<span class="diagram-indicator" title="Technical schematic available">📐 Specs</span>` : ''}
-            <img src="${p.image}" alt="${escapeHtml(p.display_name)}" onerror="this.src='assets/placeholder.svg'" loading="lazy">
+            <img src="${p.image}" alt="${escapeHtml(displayCode)} - ${escapeHtml(modelName)}" onerror="this.src='assets/placeholder.svg'" loading="lazy">
           </div>
           
           <div class="product-content">
             <h3 class="product-name" title="${escapeHtml(p.display_name)}">
-              ${escapeHtml(p.display_name)}
+              ${escapeHtml(displayCode)}
             </h3>
             
+            ${modelName ? `
+              <div>
+                <span class="product-model-tag">Model: ${escapeHtml(modelName)}</span>
+              </div>
+            ` : ''}
+
             <div class="product-price-row">
               <span class="product-price-label">Catalogue Rate</span>
               <span class="product-price-val">${p.price_display}</span>
@@ -269,11 +281,11 @@
             </div>
 
             <div class="product-actions">
-              <button class="btn btn-outline btn-sm" onclick="window.catalogApp.openModal('${p.id}')">
-                View Details
-              </button>
-              <a href="tel:9688727284" class="btn btn-primary btn-sm">
-                📞 Call Enquire
+              <a href="product.html?id=${p.id}" class="btn btn-outline btn-sm" style="justify-content: center;">
+                View Details →
+              </a>
+              <a href="https://wa.me/919688727284?text=${waMsg}" target="_blank" rel="noopener" class="btn-whatsapp-card" title="Enquire on WhatsApp">
+                💬 WhatsApp
               </a>
             </div>
           </div>
@@ -388,21 +400,26 @@
         ` : ''}
 
         <div class="modal-cta-box">
+          <div style="margin-bottom: 0.85rem;">
+            <a href="product.html?id=${prod.id}" class="btn btn-outline" style="width: 100%; justify-content: center; font-weight: 700;">
+              View Full Product Page & Specifications →
+            </a>
+          </div>
+          <div style="margin-bottom: 0.75rem;">
+            <a href="https://wa.me/919688727284?text=${encodeURIComponent(`Hello Sri Hanum Sastha Enterprises, I am interested in chair ${prod.code || prod.display_name} (Model: ${prod._internal_model || ''}) from the ${prod.category} category. Please share more details.`)}" target="_blank" rel="noopener" class="btn btn-whatsapp-main" style="width: 100%; justify-content: center;">
+              💬 Enquire on WhatsApp (9688727284)
+            </a>
+          </div>
           <div class="modal-phone-btns">
-            <a href="tel:9688727284" class="btn btn-call-gold btn-call-primary">
-              📞 Call Now: 9688727284
+            <a href="tel:+919688727284" class="btn btn-call-gold btn-call-primary">
+              📞 Call: 9688727284
             </a>
-            <a href="tel:8695706013" class="btn btn-call-gold btn-call-secondary">
-              📞 Call Now: 8695706013
-            </a>
-          </div>
-          <div style="margin-top: 0.85rem; text-align: center;">
-            <a href="mailto:srihanumsastha@gmail.com?subject=Enquiry%20for%20${encodeURIComponent(prod.display_name)}" style="color: #0284c7; font-size: 0.9rem; font-weight: 600; text-decoration: underline;">
-              ✉️ Email Enquiry: srihanumsastha@gmail.com
+            <a href="tel:+918695706013" class="btn btn-call-gold btn-call-secondary">
+              📞 Call: 8695706013
             </a>
           </div>
-          <p class="modal-cta-note">
-            Mention product code <strong>"${escapeHtml(prod.display_name)}"</strong> when contacting our Coimbatore office for quotation and stock availability.
+          <p class="modal-cta-note" style="margin-top: 0.75rem;">
+            Mention code <strong>"${escapeHtml(prod.code || prod.display_name)}"</strong> when contacting our Coimbatore showroom.
           </p>
         </div>
       </div>

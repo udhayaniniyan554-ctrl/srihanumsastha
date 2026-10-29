@@ -122,12 +122,86 @@ button, input, select {
   color: #ffffff;
 }
 
-.top-bar-phones .top-bar-email {
-  color: #38bdf8;
+/* WhatsApp Action Styles */
+.btn-whatsapp-header {
+  background: #25D366;
+  color: #ffffff;
+  padding: 0.5rem 1.1rem;
+  border-radius: var(--radius-full);
+  font-size: 0.875rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(37, 211, 102, 0.3);
+  transition: all 0.2s ease;
+}
+.btn-whatsapp-header:hover {
+  background: #20ba5a;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.45);
+  color: #ffffff;
 }
 
-.top-bar-phones .top-bar-email:hover {
-  color: #7dd3fc;
+.btn-whatsapp-card {
+  background: #25D366;
+  color: #ffffff;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.btn-whatsapp-card:hover {
+  background: #20ba5a;
+  color: #ffffff;
+}
+
+.top-bar-whatsapp {
+  color: #86efac !important;
+  font-weight: 700 !important;
+}
+.top-bar-whatsapp:hover {
+  color: #bbf7d0 !important;
+}
+
+.product-model-tag {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--primary);
+  background: #f1f5f9;
+  border: 1px solid var(--border-light);
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-sm);
+  display: inline-block;
+  margin-top: 0.25rem;
+  margin-bottom: 0.35rem;
+}
+
+.hero-whatsapp-btn {
+  background: #25D366;
+  color: #ffffff;
+  padding: 0.875rem 1.75rem;
+  font-weight: 700;
+  border-radius: var(--radius-md);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+  transition: all 0.2s;
+}
+.hero-whatsapp-btn:hover {
+  background: #20ba5a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(37, 211, 102, 0.45);
+  color: #ffffff;
 }
 
 /* ==========================================================================

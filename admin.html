@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Catalogue Manager | Sri Hanum Sastha Enterprises</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .admin-body {
+      background: #f1f5f9;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .admin-navbar {
+      background: #0f172a;
+      color: #ffffff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--accent);
+    }
+    .admin-nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: 0.02em;
+    }
+    .admin-badge {
+      background: var(--accent);
+      color: #ffffff;
+      font-size: 0.7rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: var(--radius-sm);
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+
+    /* Login Screen */
+    .login-container {
+      max-width: 440px;
+      margin: 5rem auto;
+      background: #ffffff;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      box-shadow: var(--shadow-lg);
+    }
+    .login-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+    .login-subtitle {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+      text-align: center;
+    }
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.8125rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.35rem;
+    }
+    .form-input {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-md);
+      font-family: inherit;
+      font-size: 0.95rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .form-input:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-light);
+    }
+
+    /* Dashboard Layout */
+    .dashboard-container {
+      display: none;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+      width: 100%;
+      flex: 1;
+    }
+    .admin-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .stat-card {
+      background: #ffffff;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .stat-card-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .stat-card-val {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-top: 0.25rem;
+    }
+
+    /* Toolbar */
+    .admin-toolbar {
+      background: #ffffff;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.5rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .admin-search-box {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex: 1;
+      max-width: 500px;
+    }
+
+    /* Table */
+    .admin-table-wrapper {
+      background: #ffffff;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      overflow-x: auto;
+      box-shadow: var(--shadow-sm);
+    }
+    .admin-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.875rem;
+      text-align: left;
+    }
+    .admin-table th {
+      background: #f8fafc;
+      padding: 0.85rem 1rem;
+      font-weight: 700;
+      color: var(--primary);
+      border-bottom: 1px solid var(--border-light);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      font-size: 0.75rem;
+    }
+    .admin-table td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid #f1f5f9;
+      vertical-align: middle;
+    }
+    .admin-table tr:hover td {
+      background: #fafaf9;
+    }
+    .table-thumb {
+      width: 52px;
+      height: 52px;
+      object-fit: contain;
+      background: #fdfdfd;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      padding: 0.25rem;
+    }
+    .badge-cat {
+      font-size: 0.75rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: var(--radius-sm);
+      background: #f1f5f9;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    /* Modal Form */
+    .admin-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.75);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      overflow-y: auto;
+    }
+    .admin-modal.open {
+      display: flex;
+    }
+    .modal-content-card {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      width: 100%;
+      max-width: 680px;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 2rem;
+      box-shadow: var(--shadow-xl);
+      position: relative;
+    }
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border-light);
+      padding-bottom: 0.75rem;
+    }
+    .modal-close {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body class="admin-body">
+
+  <!-- Top Navbar -->
+  <header class="admin-navbar">
+    <div class="admin-nav-brand">
+      <span>Sri Hanum Sastha Enterprises</span>
+      <span class="admin-badge">Admin Manager</span>
+      <span style="font-size: 0.75rem; color: #94a3b8; font-weight: 500; margin-left: 0.5rem;">Coimbatore (9688727284 / 8695706013)</span>
+    </div>
+    <div style="display: flex; gap: 1rem; align-items: center;">
+      <a href="index.html" class="btn btn-outline btn-sm" style="color: #ffffff; border-color: rgba(255,255,255,0.3);" target="_blank">
+        ↗ View Public Site
+      </a>
+      <button id="logoutBtn" class="btn btn-sm" style="display: none; background: #dc2626; color: #ffffff;">
+        Logout
+      </button>
+    </div>
+  </header>
+
+  <!-- Login Section -->
+  <div class="login-container" id="loginCard">
+    <h2 class="login-title">Catalogue Administration</h2>
+    <p class="login-subtitle">Sign in to add, edit, or manage chair inventory</p>
+    
+    <div id="loginAlert" style="display: none; padding: 0.75rem; background: #fee2e2; border: 1px solid #fca5a5; color: #991b1b; border-radius: var(--radius-sm); font-size: 0.875rem; margin-bottom: 1rem;"></div>
+
+    <form id="loginForm">
+      <div class="form-group">
+        <label for="adminUser">Username</label>
+        <input type="text" id="adminUser" class="form-input" placeholder="admin" required value="admin">
+      </div>
+      <div class="form-group">
+        <label for="adminPass">Password</label>
+        <input type="password" id="adminPass" class="form-input" placeholder="Enter password" required autofocus>
+      </div>
+      <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; padding: 0.85rem;">
+        Sign In to Manager →
+      </button>
+      <div style="margin-top: 1rem; font-size: 0.8rem; color: var(--text-muted); text-align: center;">
+        Default Development Credentials: <code>admin</code> / <code>shse2026</code>
+      </div>
+    </form>
+  </div>
+
+  <!-- Dashboard Section -->
+  <div class="dashboard-container" id="dashContainer">
+    
+    <!-- Stats Row -->
+    <div class="admin-stats-grid">
+      <div class="stat-card">
+        <div class="stat-card-title">Total Chairs</div>
+        <div class="stat-card-val" id="statTotal">0</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-title">Office Chairs</div>
+        <div class="stat-card-val" id="statOffice">0</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-title">Visitor Chairs</div>
+        <div class="stat-card-val" id="statVisitor">0</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-title">Lounge Seating</div>
+        <div class="stat-card-val" id="statLounge">0</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-title">Dining Chairs</div>
+        <div class="stat-card-val" id="statDining">0</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-title">Stools</div>
+        <div class="stat-card-val" id="statStools">0</div>
+      </div>
+    </div>
+
+    <!-- Toolbar -->
+    <div class="admin-toolbar">
+      <div class="admin-search-box">
+        <input type="text" id="adminSearchInput" class="form-input" placeholder="Search by SHSE code, model name, category...">
+        <select id="adminCatFilter" class="form-input" style="width: 200px;">
+          <option value="all">All Categories</option>
+          <option value="Office Chairs">Office Chairs</option>
+          <option value="Visitor Chairs">Visitor Chairs</option>
+          <option value="Lounge & Soft Seating">Lounge & Soft Seating</option>
+          <option value="Dining Chairs">Dining Chairs</option>
+          <option value="Stools & Additional Seating">Stools & Additional Seating</option>
+        </select>
+      </div>
+
+      <div style="display: flex; gap: 0.75rem;">
+        <button id="btnAddNew" class="btn btn-primary btn-sm">
+          + Add New Chair
+        </button>
+        <button id="btnExportJson" class="btn btn-outline btn-sm">
+          ⬇ Export catalog.json
+        </button>
+      </div>
+    </div>
+
+    <!-- Inventory Table -->
+    <div class="admin-table-wrapper">
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>Photo</th>
+            <th>Product Code</th>
+            <th>Model Name</th>
+            <th>Category</th>
+            <th>Listed Price</th>
+            <th>Options</th>
+            <th style="text-align: right;">Actions</th>
+          </tr>
+        </thead>
+        <tbody id="inventoryTbody"></tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <!-- Add/Edit Chair Modal -->
+  <div class="admin-modal" id="chairModal">
+    <div class="modal-content-card">
+      <div class="modal-header">
+        <h3 id="modalFormTitle" style="font-weight: 800; font-size: 1.25rem; color: var(--primary);">Add Chair Entry</h3>
+        <button class="modal-close" id="modalClose">&times;</button>
+      </div>
+
+      <div id="formAlert" style="display: none; padding: 0.75rem; border-radius: var(--radius-sm); font-size: 0.875rem; margin-bottom: 1rem;"></div>
+
+      <form id="chairForm">
+        <input type="hidden" id="editChairId">
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div class="form-group">
+            <label for="formCategory">Category *</label>
+            <select id="formCategory" class="form-input" required>
+              <option value="Office Chairs">Office Chairs</option>
+              <option value="Visitor Chairs">Visitor Chairs</option>
+              <option value="Lounge & Soft Seating">Lounge & Soft Seating</option>
+              <option value="Dining Chairs">Dining Chairs</option>
+              <option value="Stools & Additional Seating">Stools & Additional Seating</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="formCode">Code Number (e.g. 1) *</label>
+            <input type="number" id="formCode" class="form-input" placeholder="e.g. 129" required min="1">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="formModelName">Manufacturer Model Name *</label>
+          <input type="text" id="formModelName" class="form-input" placeholder="e.g. ATLAS/3G" required>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div class="form-group">
+            <label for="formPrice">Base Price (₹) *</label>
+            <input type="number" id="formPrice" class="form-input" placeholder="e.g. 4800" required min="0">
+          </div>
+          <div class="form-group">
+            <label for="formImage">Photo Path / URL *</label>
+            <input type="text" id="formImage" class="form-input" placeholder="assets/products/office_1_1.png" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="formFeatures">Key Features (comma-separated)</label>
+          <input type="text" id="formFeatures" class="form-input" placeholder="Ergonomic Lumbar, Commercial Base, Multi-surface Swivel">
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 0.75rem; margin-top: 1.5rem; border-top: 1px solid var(--border-light); padding-top: 1.25rem;">
+          <button type="button" class="btn btn-outline btn-sm" id="btnCancel">Cancel</button>
+          <button type="submit" class="btn btn-primary btn-sm" id="btnSaveChair">Save Entry</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    let catalogData = [];
+    let authenticated = false;
+
+    // Login Form Submit
+    document.getElementById('loginForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const user = document.getElementById('adminUser').value.trim();
+      const pass = document.getElementById('adminPass').value.trim();
+
+      // Secure local check (development credentials)
+      if (user === 'admin' && pass === 'shse2026') {
+        authenticated = true;
+        document.getElementById('loginCard').style.display = 'none';
+        document.getElementById('dashContainer').style.display = 'block';
+        document.getElementById('logoutBtn').style.display = 'inline-flex';
+        loadInventory();
+      } else {
+        const al = document.getElementById('loginAlert');
+        al.textContent = 'Invalid credentials. Please enter correct username and password.';
+        al.style.display = 'block';
+      }
+    });
+
+    // Logout
+    document.getElementById('logoutBtn').addEventListener('click', () => {
+      authenticated = false;
+      document.getElementById('dashContainer').style.display = 'none';
+      document.getElementById('logoutBtn').style.display = 'none';
+      document.getElementById('loginCard').style.display = 'block';
+      document.getElementById('adminPass').value = '';
+    });
+
+    // Load Catalogue Data
+    async function loadInventory() {
+      try {
+        const res = await fetch('assets/catalog.json');
+        catalogData = await res.json();
+        updateStats();
+        renderTable();
+      } catch (err) {
+        console.error('Failed to load inventory', err);
+      }
+    }
+
+    // Stats
+    function updateStats() {
+      document.getElementById('statTotal').textContent = catalogData.length;
+      document.getElementById('statOffice').textContent = catalogData.filter(p => p.category === 'Office Chairs').length;
+      document.getElementById('statVisitor').textContent = catalogData.filter(p => p.category === 'Visitor Chairs').length;
+      document.getElementById('statLounge').textContent = catalogData.filter(p => p.category === 'Lounge & Soft Seating').length;
+      document.getElementById('statDining').textContent = catalogData.filter(p => p.category === 'Dining Chairs').length;
+      document.getElementById('statStools').textContent = catalogData.filter(p => p.category === 'Stools & Additional Seating').length;
+    }
+
+    // Render Table
+    function renderTable() {
+      const q = document.getElementById('adminSearchInput').value.toLowerCase().trim();
+      const cat = document.getElementById('adminCatFilter').value;
+
+      const filtered = catalogData.filter(p => {
+        const matchCat = cat === 'all' || p.category === cat;
+        const codeStr = (p.code || `SHSE(${p.code_number})`).toLowerCase();
+        const modelStr = (p._internal_model || '').toLowerCase();
+        const matchQ = !q || codeStr.includes(q) || modelStr.includes(q) || p.category.toLowerCase().includes(q);
+        return matchCat && matchQ;
+      });
+
+      const tbody = document.getElementById('inventoryTbody');
+      tbody.innerHTML = filtered.map(item => `
+        <tr>
+          <td>
+            <img src="${item.image}" alt="${item.code}" class="table-thumb" onerror="this.src='assets/placeholder.svg'">
+          </td>
+          <td><strong>${item.code || 'SHSE(' + item.code_number + ')'}</strong></td>
+          <td>${item._internal_model || '—'}</td>
+          <td><span class="badge-cat">${item.category}</span></td>
+          <td><strong>${item.price_display || '₹' + item.base_price}</strong></td>
+          <td style="color: var(--text-muted); font-size: 0.8rem;">
+            ${item.options ? item.options.length + ' variants' : '1 variant'}
+          </td>
+          <td style="text-align: right;">
+            <div style="display: flex; gap: 0.5rem; justify-content: flex-end;">
+              <a href="product.html?id=${item.id}" target="_blank" class="btn btn-outline btn-sm" title="Preview Public Page">
+                👁 Preview
+              </a>
+              <button onclick="editChair('${item.id}')" class="btn btn-sm" style="background: #0284c7; color: #fff;">
+                ✏ Edit
+              </button>
+              <button onclick="deleteChair('${item.id}')" class="btn btn-sm" style="background: #dc2626; color: #fff;">
+                🗑 Delete
+              </button>
+            </div>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    document.getElementById('adminSearchInput').addEventListener('input', renderTable);
+    document.getElementById('adminCatFilter').addEventListener('change', renderTable);
+
+    // Modal Add / Edit
+    const chairModal = document.getElementById('chairModal');
+    document.getElementById('btnAddNew').addEventListener('click', () => {
+      document.getElementById('modalFormTitle').textContent = 'Add New Chair Entry';
+      document.getElementById('chairForm').reset();
+      document.getElementById('editChairId').value = '';
+      document.getElementById('formAlert').style.display = 'none';
+      chairModal.classList.add('open');
+    });
+
+    document.getElementById('modalClose').addEventListener('click', () => chairModal.classList.remove('open'));
+    document.getElementById('btnCancel').addEventListener('click', () => chairModal.classList.remove('open'));
+
+    window.editChair = function(id) {
+      const p = catalogData.find(x => x.id === id);
+      if (!p) return;
+      document.getElementById('modalFormTitle').textContent = `Edit Chair: ${p.code}`;
+      document.getElementById('editChairId').value = p.id;
+      document.getElementById('formCategory').value = p.category;
+      document.getElementById('formCode').value = p.code_number || 1;
+      document.getElementById('formModelName').value = p._internal_model || '';
+      document.getElementById('formPrice').value = p.base_price || 0;
+      document.getElementById('formImage').value = p.image || '';
+      document.getElementById('formFeatures').value = (p.features || []).join(', ');
+      document.getElementById('formAlert').style.display = 'none';
+      chairModal.classList.add('open');
+    };
+
+    window.deleteChair = function(id) {
+      const p = catalogData.find(x => x.id === id);
+      if (!p) return;
+      if (confirm(`Are you sure you want to delete ${p.code} (${p._internal_model})?`)) {
+        catalogData = catalogData.filter(x => x.id !== id);
+        updateStats();
+        renderTable();
+        alert(`Chair ${p.code} removed from local session. Use "Export catalog.json" to persist!`);
+      }
+    };
+
+    // Save Form
+    document.getElementById('chairForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const id = document.getElementById('editChairId').value;
+      const cat = document.getElementById('formCategory').value;
+      const codeNum = parseInt(document.getElementById('formCode').value, 10);
+      const model = document.getElementById('formModelName').value.trim();
+      const price = parseInt(document.getElementById('formPrice').value, 10);
+      const img = document.getElementById('formImage').value.trim();
+      const feats = document.getElementById('formFeatures').value.split(',').map(s => s.trim()).filter(Boolean);
+
+      // Validate duplicate codes within same category
+      const duplicate = catalogData.find(x => x.category === cat && x.code_number === codeNum && x.id !== id);
+      if (duplicate) {
+        const al = document.getElementById('formAlert');
+        al.className = '';
+        al.style.background = '#fee2e2';
+        al.style.color = '#991b1b';
+        al.style.border = '1px solid #fca5a5';
+        al.textContent = `Error: Code SHSE(${codeNum}) already exists in ${cat}. Please assign a unique number.`;
+        al.style.display = 'block';
+        return;
+      }
+
+      if (id) {
+        // Edit
+        const p = catalogData.find(x => x.id === id);
+        p.category = cat;
+        p.code_number = codeNum;
+        p.code = `SHSE(${codeNum})`;
+        p._internal_model = model;
+        p.base_price = price;
+        p.price_display = `₹${price.toLocaleString('en-IN')}`;
+        p.image = img;
+        p.features = feats;
+        p.display_name = `${cat} — SHSE(${codeNum})`;
+      } else {
+        // Add
+        const newId = `${cat.toLowerCase().split(' ')[0]}_${codeNum}_${Date.now()}`;
+        catalogData.push({
+          id: newId,
+          category: cat,
+          code: `SHSE(${codeNum})`,
+          code_number: codeNum,
+          _internal_model: model,
+          base_price: price,
+          price_display: `₹${price.toLocaleString('en-IN')}`,
+          image: img,
+          features: feats,
+          display_name: `${cat} — SHSE(${codeNum})`,
+          options: [{ variant: "Standard Option", price: price }],
+          specs: { Category: cat }
+        });
+      }
+
+      updateStats();
+      renderTable();
+      chairModal.classList.remove('open');
+      alert('Catalogue entry saved successfully!');
+    });
+
+    // Export JSON
+    document.getElementById('btnExportJson').addEventListener('click', () => {
+      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(catalogData, null, 2));
+      const downloadAnchor = document.createElement('a');
+      downloadAnchor.setAttribute("href", dataStr);
+      downloadAnchor.setAttribute("download", "catalog.json");
+      document.body.appendChild(downloadAnchor);
+      downloadAnchor.click();
+      downloadAnchor.remove();
+    });
+  </script>
+</body>
+</html>

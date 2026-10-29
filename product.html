@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details | Sri Hanum Sastha Enterprises</title>
+  <meta name="description" content="View verified specifications, genuine catalogue photos, and direct WhatsApp enquiry for commercial seating at Sri Hanum Sastha Enterprises, Coimbatore.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .product-page-main {
+      padding: 2.5rem 0 5rem;
+      background: var(--bg-main);
+      min-height: 80vh;
+    }
+    .breadcrumbs {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    .breadcrumbs a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .breadcrumbs a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+    .breadcrumbs .sep {
+      color: var(--border-card);
+    }
+    .breadcrumbs .current {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .product-detail-layout {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 3.5rem;
+      background: #ffffff;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .detail-gallery {
+      position: sticky;
+      top: 100px;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    .detail-image-stage {
+      background: #fdfdfd;
+      border: 1px solid #f1f5f9;
+      border-radius: var(--radius-md);
+      padding: 2.5rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 480px;
+      position: relative;
+    }
+    .detail-image-stage img {
+      max-width: 100%;
+      max-height: 440px;
+      object-fit: contain;
+      filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.08));
+      transition: transform 0.3s ease;
+    }
+    .detail-image-stage:hover img {
+      transform: scale(1.03);
+    }
+    .detail-badge-tag {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background: var(--primary-light);
+      color: #f8fafc;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.35rem 0.75rem;
+      border-radius: var(--radius-full);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .detail-thumbs-strip {
+      display: flex;
+      gap: 0.85rem;
+      overflow-x: auto;
+      padding-bottom: 0.5rem;
+    }
+    .detail-thumb-btn {
+      width: 76px;
+      height: 76px;
+      border: 2px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      background: #ffffff;
+      padding: 0.35rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+    .detail-thumb-btn.active, .detail-thumb-btn:hover {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px var(--accent-light);
+    }
+    .detail-thumb-btn img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    .detail-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .detail-category-label {
+      font-size: 0.8125rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .detail-title {
+      font-size: 2.125rem;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1.2;
+      margin: 0;
+    }
+    .detail-model-subtitle {
+      font-size: 1.125rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .detail-model-pill {
+      background: #f1f5f9;
+      color: var(--primary);
+      padding: 0.25rem 0.65rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.875rem;
+      font-weight: 700;
+      border: 1px solid var(--border-light);
+    }
+
+    .detail-price-box {
+      background: #fafaf9;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    .detail-price-val {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+    .detail-price-sub {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .detail-section-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.75rem;
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 0.35rem;
+      display: inline-block;
+    }
+
+    .options-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+    .options-table th {
+      text-align: left;
+      padding: 0.65rem 0.85rem;
+      background: #f8fafc;
+      color: var(--text-muted);
+      font-weight: 600;
+      border-bottom: 1px solid var(--border-light);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+    }
+    .options-table td {
+      padding: 0.75rem 0.85rem;
+      border-bottom: 1px solid var(--border-light);
+      color: var(--text-main);
+    }
+    .options-table tr:hover td {
+      background: #fdfdfd;
+    }
+    .options-table .opt-price {
+      font-weight: 700;
+      color: var(--accent-text);
+      text-align: right;
+    }
+
+    .detail-specs-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem 1.5rem;
+      font-size: 0.9rem;
+    }
+    .spec-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+      padding: 0.65rem 0.85rem;
+      background: #f8fafc;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-light);
+    }
+    .spec-item strong {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .spec-item span {
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .detail-cta-block {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .detail-cta-block h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #166534;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .whatsapp-btn-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+    .btn-whatsapp-main {
+      background: #25D366;
+      color: #ffffff;
+      padding: 0.9rem 1.5rem;
+      font-weight: 700;
+      font-size: 1rem;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.65rem;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.35);
+      transition: all 0.2s ease;
+    }
+    .btn-whatsapp-main:hover {
+      background: #20ba5a;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(37, 211, 102, 0.45);
+      color: #ffffff;
+    }
+    .btn-whatsapp-alt {
+      background: #ffffff;
+      color: #166534;
+      border: 1px solid #86efac;
+      padding: 0.7rem 1.25rem;
+      font-weight: 700;
+      font-size: 0.9rem;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-whatsapp-alt:hover {
+      background: #f0fdf4;
+      border-color: #25D366;
+    }
+
+    .detail-call-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin-top: 0.25rem;
+    }
+
+    .detail-notice-box {
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      border-radius: var(--radius-md);
+      padding: 0.85rem 1rem;
+      color: #92400e;
+      font-size: 0.85rem;
+      font-weight: 600;
+      line-height: 1.5;
+    }
+
+    /* Related Chairs */
+    .related-section {
+      margin-top: 4.5rem;
+    }
+    .related-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 1024px) {
+      .product-detail-layout {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        padding: 1.75rem;
+      }
+      .detail-gallery {
+        position: static;
+      }
+      .related-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 640px) {
+      .detail-specs-grid, .detail-call-row {
+        grid-template-columns: 1fr;
+      }
+      .related-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Announcement Bar (Strictly No Email) -->
+  <aside class="top-bar" aria-label="Quick Contact Bar">
+    <div class="container top-bar-content">
+      <div class="top-bar-location">
+        📍 173, First Floor, KK Lane Street, Avinashi Road, Coimbatore, Tamil Nadu – 641018
+      </div>
+      <div class="top-bar-phones">
+        <a href="https://wa.me/919688727284" target="_blank" rel="noopener" class="top-bar-whatsapp">💬 WhatsApp: 9688727284</a>
+        <a href="tel:+919688727284">📞 9688727284</a>
+        <a href="tel:+918695706013">📞 8695706013</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Sticky Main Header -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo" aria-label="Sri Hanum Sastha Enterprises Home">
+        <img src="assets/logo.svg" alt="Sri Hanum Sastha Enterprises Logo">
+      </a>
+
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="category.html?cat=office" class="nav-link">Office Chairs</a></li>
+          <li><a href="category.html?cat=visitor" class="nav-link">Visitor Chairs</a></li>
+          <li><a href="category.html?cat=lounge" class="nav-link">Lounge & Soft Seating</a></li>
+          <li><a href="category.html?cat=dining" class="nav-link">Dining Chairs</a></li>
+          <li><a href="category.html?cat=stools" class="nav-link">Stools & Seating</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a href="https://wa.me/919688727284" target="_blank" rel="noopener" class="btn btn-whatsapp-header">
+          💬 WhatsApp
+        </a>
+        <a href="tel:+919688727284" class="btn btn-primary btn-sm">
+          📞 Call 9688727284
+        </a>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Open Mobile Menu">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+  <aside class="mobile-drawer" id="mobileDrawer" aria-label="Mobile Navigation">
+    <div class="mobile-drawer-header">
+      <img src="assets/logo.svg" alt="Sri Hanum Sastha Enterprises Logo" style="height: 38px;">
+      <button class="mobile-drawer-close" id="drawerCloseBtn" aria-label="Close Mobile Menu">&times;</button>
+    </div>
+    <ul class="mobile-nav-links">
+      <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+      <li><a href="category.html?cat=office" class="mobile-nav-link">Office Chairs</a></li>
+      <li><a href="category.html?cat=visitor" class="mobile-nav-link">Visitor Chairs</a></li>
+      <li><a href="category.html?cat=lounge" class="mobile-nav-link">Lounge & Soft Seating</a></li>
+      <li><a href="category.html?cat=dining" class="mobile-nav-link">Dining Chairs</a></li>
+      <li><a href="category.html?cat=stools" class="mobile-nav-link">Stools & Additional Seating</a></li>
+      <li><a href="contact.html" class="mobile-nav-link">Contact Details</a></li>
+    </ul>
+
+    <div style="margin-top: auto; padding-top: 2rem; display: flex; flex-direction: column; gap: 0.75rem;">
+      <a href="https://wa.me/919688727284" target="_blank" rel="noopener" class="btn btn-whatsapp-main" style="padding: 0.75rem;">
+        💬 Enquire on WhatsApp
+      </a>
+      <a href="tel:+919688727284" class="btn btn-call-gold btn-call-primary">
+        📞 Call Now: 9688727284
+      </a>
+      <a href="tel:+918695706013" class="btn btn-call-gold btn-call-secondary">
+        📞 Call Now: 8695706013
+      </a>
+    </div>
+  </aside>
+
+  <!-- Main Product Detail Page Container -->
+  <main class="product-page-main">
+    <div class="container">
+      
+      <!-- Breadcrumbs -->
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="sep">/</span>
+        <a href="index.html#catalogue" id="crumbCatLink">Catalogue</a>
+        <span class="sep">/</span>
+        <span class="current" id="crumbCurrent">Loading Product...</span>
+      </nav>
+
+      <!-- Two-Column Product Detail Layout -->
+      <div class="product-detail-layout" id="productLayout">
+        
+        <!-- Left: Image Stage & Gallery -->
+        <div class="detail-gallery">
+          <div class="detail-image-stage">
+            <span class="detail-badge-tag" id="badgeTag">Genuine PDF Model</span>
+            <img src="assets/placeholder.svg" alt="Chair photograph" id="mainImage">
+          </div>
+          <div class="detail-thumbs-strip" id="thumbsStrip"></div>
+        </div>
+
+        <!-- Right: Specifications & Direct Actions -->
+        <div class="detail-info">
+          <div>
+            <div class="detail-category-label" id="productCategory">Category</div>
+            <h1 class="detail-title" id="productTitle">SHSE Code</h1>
+            <div class="detail-model-subtitle">
+              <span>Original Model:</span>
+              <span class="detail-model-pill" id="productModelName">—</span>
+            </div>
+          </div>
+
+          <!-- Price Box -->
+          <div class="detail-price-box">
+            <div class="detail-price-val" id="productPrice">₹0</div>
+            <div class="detail-price-sub" id="productPriceSub">Official catalogue listed price</div>
+          </div>
+
+          <!-- Pricing Notice -->
+          <div class="detail-notice-box">
+            ⚠️ <strong>Price & Stock Note:</strong> Prices may change. Please contact us to confirm current prices and availability.
+          </div>
+
+          <!-- Options & Variants Table (if available) -->
+          <div id="optionsContainer">
+            <h3 class="detail-section-title">Configuration & Base Options</h3>
+            <table class="options-table" id="optionsTable">
+              <thead>
+                <tr>
+                  <th>Variant / Handle Option</th>
+                  <th style="text-align: right;">Listed Price</th>
+                </tr>
+              </thead>
+              <tbody id="optionsTbody"></tbody>
+            </table>
+          </div>
+
+          <!-- Technical Specifications -->
+          <div id="specsContainer">
+            <h3 class="detail-section-title">Technical Specifications</h3>
+            <div class="detail-specs-grid" id="specsGrid"></div>
+          </div>
+
+          <!-- Key Features -->
+          <div id="featuresContainer">
+            <h3 class="detail-section-title">Key Highlights</h3>
+            <ul id="featuresList" style="padding-left: 1.25rem; color: var(--text-muted); line-height: 1.7; font-size: 0.925rem;"></ul>
+          </div>
+
+          <!-- Direct Enquiries Action Block (Featherlite Inspired) -->
+          <div class="detail-cta-block">
+            <h3>💬 Direct Showroom Enquiry</h3>
+            <p style="margin: 0; color: #166534; font-size: 0.9rem;">
+              Click below to send an instant enquiry with this chair’s code and model details prefilled:
+            </p>
+            <div class="whatsapp-btn-group">
+              <a href="#" id="waPrimaryBtn" target="_blank" rel="noopener" class="btn-whatsapp-main">
+                💬 Enquire on WhatsApp (9688727284)
+              </a>
+              <a href="#" id="waSecondaryBtn" target="_blank" rel="noopener" class="btn-whatsapp-alt">
+                💬 WhatsApp Alternate Line (8695706013)
+              </a>
+            </div>
+
+            <div class="detail-call-row">
+              <a href="tel:+919688727284" class="btn btn-call-gold btn-call-primary" style="font-size: 0.875rem;">
+                📞 Call 9688727284
+              </a>
+              <a href="tel:+918695706013" class="btn btn-call-gold btn-call-secondary" style="font-size: 0.875rem;">
+                📞 Call 8695706013
+              </a>
+            </div>
+          </div>
+
+          <!-- Back Navigation -->
+          <div style="padding-top: 1rem;">
+            <a href="index.html#catalogue" id="backToCatBtn" class="btn btn-outline" style="width: 100%; justify-content: center;">
+              ← Back to Full Catalogue
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Related Chairs Section -->
+      <section class="related-section" id="relatedSection">
+        <div class="related-title">
+          <span>More in this Category</span>
+          <a href="index.html#catalogue" id="viewAllCatLink" style="font-size: 0.9rem; color: var(--accent); font-weight: 700; text-decoration: none;">
+            View All Collection →
+          </a>
+        </div>
+        <div class="related-grid" id="relatedGrid"></div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Business Footer (Strictly Relative's Contact Details, NO Email Display) -->
+  <footer class="site-footer" id="contact">
+    <div class="container">
+      <div class="footer-main-grid">
+        
+        <!-- Column 1: Company Profile -->
+        <div class="footer-col-about">
+          <div class="footer-logo">
+            <img src="assets/logo-white.svg" alt="Sri Hanum Sastha Enterprises">
+          </div>
+          <p class="footer-desc">
+            Sri Hanum Sastha Enterprises provides comprehensive commercial, executive, visitor, and dining seating solutions engineered for ergonomic posture support, commercial longevity, and modern interiors.
+          </p>
+          <div class="footer-disclaimer-note">
+            ⚠️ <strong>Price & Stock Note:</strong> Prices may change. Please contact us to confirm current prices and availability.
+          </div>
+        </div>
+
+        <!-- Column 2: Quick Links -->
+        <div>
+          <h3 class="footer-title">Chair Categories</h3>
+          <ul class="footer-links">
+            <li><a href="category.html?cat=office">Office Chairs (128)</a></li>
+            <li><a href="category.html?cat=visitor">Visitor Chairs (48)</a></li>
+            <li><a href="category.html?cat=lounge">Lounge & Soft Seating (24)</a></li>
+            <li><a href="category.html?cat=dining">Dining Chairs (21)</a></li>
+            <li><a href="category.html?cat=stools">Stools & Additional Seating (7)</a></li>
+            <li><a href="index.html#catalogue">Full Catalogue Index (228)</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Contact Us Section (No email displayed) -->
+        <div class="footer-contact-box" id="footer-contact">
+          <h3 class="footer-title">Contact Us</h3>
+          
+          <div class="contact-detail-row">
+            <span class="contact-icon" aria-hidden="true">🏢</span>
+            <div class="contact-info-text">
+              <strong>Company Name</strong>
+              <p class="company-name-val">Sri Hanum Sastha Enterprises</p>
+            </div>
+          </div>
+
+          <div class="contact-detail-row">
+            <span class="contact-icon" aria-hidden="true">📍</span>
+            <div class="contact-info-text">
+              <strong>Showroom & Office Address</strong>
+              <p class="contact-address-val">
+                173, First Floor, KK Lane Street,<br>
+                Avinashi Road, Coimbatore,<br>
+                Tamil Nadu – 641018
+              </p>
+            </div>
+          </div>
+
+          <div class="contact-detail-row">
+            <span class="contact-icon" aria-hidden="true">💬</span>
+            <div class="contact-info-text">
+              <strong>WhatsApp Enquiries</strong>
+              <p>
+                <a href="https://wa.me/919688727284" target="_blank" rel="noopener" class="phone-link">9688727284</a> &bull; 
+                <a href="https://wa.me/918695706013" target="_blank" rel="noopener" class="phone-link">8695706013</a>
+              </p>
+            </div>
+          </div>
+
+          <div class="contact-detail-row">
+            <span class="contact-icon" aria-hidden="true">📞</span>
+            <div class="contact-info-text">
+              <strong>Direct Phone Lines</strong>
+              <p class="contact-phone-lines">
+                <span class="phone-item">Phone: <a href="tel:+919688727284" class="phone-link">9688727284</a></span><br>
+                <span class="phone-item">Alternate Phone: <a href="tel:+918695706013" class="phone-link">8695706013</a></span>
+              </p>
+            </div>
+          </div>
+
+          <!-- Separate Dedicated Call Buttons -->
+          <div class="footer-call-buttons">
+            <a href="tel:+919688727284" class="btn btn-call-gold btn-call-primary" aria-label="Call Now 9688727284">
+              📞 Call Now: 9688727284
+            </a>
+            <a href="tel:+918695706013" class="btn btn-call-gold btn-call-secondary" aria-label="Call Now 8695706013">
+              📞 Call Now: 8695706013
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Bottom Bar -->
+      <div class="footer-bottom">
+        <div>
+          &copy; <span id="currentYear"></span> Sri Hanum Sastha Enterprises. All Rights Reserved.
+        </div>
+        <div>
+          Commercial Seating Catalogue &bull; Coimbatore, Tamil Nadu
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    // Mobile Drawer Toggle
+    const mobileToggle = document.getElementById('mobileToggle');
+    const mobileDrawer = document.getElementById('mobileDrawer');
+    const drawerBackdrop = document.getElementById('drawerBackdrop');
+    const drawerCloseBtn = document.getElementById('drawerCloseBtn');
+
+    function openDrawer() {
+      mobileDrawer.classList.add('open');
+      drawerBackdrop.classList.add('open');
+    }
+    function closeDrawer() {
+      mobileDrawer.classList.remove('open');
+      drawerBackdrop.classList.remove('open');
+    }
+    if (mobileToggle) mobileToggle.addEventListener('click', openDrawer);
+    if (drawerCloseBtn) drawerCloseBtn.addEventListener('click', closeDrawer);
+    if (drawerBackdrop) drawerBackdrop.addEventListener('click', closeDrawer);
+
+    // Product Loading Logic
+    async function loadProduct() {
+      const params = new URLSearchParams(window.location.search);
+      const productId = params.get('id') || params.get('code') || 'office_1_1';
+
+      try {
+        const res = await fetch('assets/catalog.json');
+        if (!res.ok) throw new Error('Failed to load catalogue');
+        const catalog = await res.json();
+
+        // Match by id or by code
+        const prod = catalog.find(p => p.id === productId || p.code === productId || p.code_number == productId) || catalog[0];
+
+        if (!prod) {
+          document.getElementById('crumbCurrent').textContent = 'Product Not Found';
+          return;
+        }
+
+        const modelName = prod._internal_model || 'Standard Edition';
+        const displayCode = prod.code || `SHSE(${prod.code_number || 1})`;
+        const catName = prod.category || 'Office Chairs';
+
+        // Page title & Breadcrumbs
+        document.title = `${displayCode} • ${modelName} | Sri Hanum Sastha Enterprises`;
+        document.getElementById('crumbCurrent').textContent = `${displayCode} — ${modelName}`;
+        document.getElementById('crumbCatLink').textContent = catName;
+        document.getElementById('crumbCatLink').href = `category.html?cat=${encodeURIComponent(catName.toLowerCase().split(' ')[0])}`;
+
+        // Header Info
+        document.getElementById('productCategory').textContent = catName;
+        document.getElementById('productTitle').textContent = `${catName} — ${displayCode}`;
+        document.getElementById('productModelName').textContent = modelName;
+        document.getElementById('badgeTag').textContent = `${catName} • ${displayCode}`;
+
+        // Image & Gallery
+        const mainImg = document.getElementById('mainImage');
+        mainImg.src = prod.image || 'assets/placeholder.svg';
+        mainImg.alt = `${catName} - ${displayCode} (${modelName})`;
+
+        const thumbsStrip = document.getElementById('thumbsStrip');
+        thumbsStrip.innerHTML = '';
+        const galleryImages = [{ label: 'Main View', src: prod.image }];
+        if (prod.diagram) {
+          galleryImages.push({ label: 'Schematic Dimensions', src: prod.diagram });
+        }
+
+        galleryImages.forEach((item, idx) => {
+          const btn = document.createElement('button');
+          btn.className = `detail-thumb-btn ${idx === 0 ? 'active' : ''}`;
+          btn.title = item.label;
+          btn.innerHTML = `<img src="${item.src}" alt="${item.label}">`;
+          btn.addEventListener('click', () => {
+            thumbsStrip.querySelectorAll('.detail-thumb-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            mainImg.src = item.src;
+          });
+          thumbsStrip.appendChild(btn);
+        });
+
+        // Price
+        document.getElementById('productPrice').textContent = prod.price_display || `₹${(prod.base_price || 0).toLocaleString('en-IN')}`;
+        if (prod.options && prod.options.length > 0) {
+          document.getElementById('productPriceSub').textContent = `Starting listed rate across ${prod.options.length} verified configurations`;
+        } else {
+          document.getElementById('productPriceSub').textContent = 'Official listed catalogue rate';
+        }
+
+        // Options Table
+        const optionsTbody = document.getElementById('optionsTbody');
+        if (prod.options && prod.options.length > 0) {
+          optionsTbody.innerHTML = prod.options.map(opt => `
+            <tr>
+              <td><strong>${opt.variant}</strong></td>
+              <td class="opt-price">₹${Number(opt.price).toLocaleString('en-IN')}</td>
+            </tr>
+          `).join('');
+          document.getElementById('optionsContainer').style.display = 'block';
+        } else {
+          document.getElementById('optionsContainer').style.display = 'none';
+        }
+
+        // Specifications Grid
+        const specsGrid = document.getElementById('specsGrid');
+        if (prod.specs && Object.keys(prod.specs).length > 0) {
+          specsGrid.innerHTML = Object.entries(prod.specs).map(([key, val]) => `
+            <div class="spec-item">
+              <strong>${key}</strong>
+              <span>${val}</span>
+            </div>
+          `).join('');
+          document.getElementById('specsContainer').style.display = 'block';
+        } else {
+          document.getElementById('specsContainer').style.display = 'none';
+        }
+
+        // Features List
+        const featuresList = document.getElementById('featuresList');
+        if (prod.features && prod.features.length > 0) {
+          featuresList.innerHTML = prod.features.map(f => `<li>${f}</li>`).join('');
+          document.getElementById('featuresContainer').style.display = 'block';
+        } else {
+          document.getElementById('featuresContainer').style.display = 'none';
+        }
+
+        // Dynamic WhatsApp Prefilled Messages
+        // Message format: Hello Sri Hanum Sastha Enterprises, I am interested in chair SHSE(12) (Model: ATLAS/3G) from the Office Chairs category. Please share more details.
+        const waText = encodeURIComponent(`Hello Sri Hanum Sastha Enterprises, I am interested in chair ${displayCode} (Model: ${modelName}) from the ${catName} category. Please share more details.`);
+        document.getElementById('waPrimaryBtn').href = `https://wa.me/919688727284?text=${waText}`;
+        document.getElementById('waSecondaryBtn').href = `https://wa.me/918695706013?text=${waText}`;
+
+        // Back button link
+        const catSlug = catName.toLowerCase().split(' ')[0];
+        document.getElementById('backToCatBtn').href = `category.html?cat=${catSlug}`;
+        document.getElementById('viewAllCatLink').href = `category.html?cat=${catSlug}`;
+
+        // Related Chairs (4 from same category)
+        const related = catalog.filter(p => p.category === catName && p.id !== prod.id).slice(0, 4);
+        const relatedGrid = document.getElementById('relatedGrid');
+        if (related.length > 0) {
+          relatedGrid.innerHTML = related.map(rel => {
+            const relModel = rel._internal_model || '';
+            const relCode = rel.code || `SHSE(${rel.code_number || 1})`;
+            return `
+              <div class="product-card" onclick="window.location.href='product.html?id=${rel.id}'" style="cursor: pointer;">
+                <div class="product-badge">${relCode}</div>
+                <div class="product-image-canvas">
+                  <img src="${rel.image}" alt="${relCode}" loading="lazy" onerror="this.src='assets/placeholder.svg'">
+                </div>
+                <div class="product-info">
+                  <div class="product-category">${rel.category}</div>
+                  <h3 class="product-title">${relCode}</h3>
+                  <div style="font-size: 0.8125rem; color: var(--text-muted); font-weight: 600; margin-bottom: 0.5rem;">
+                    Model: ${relModel}
+                  </div>
+                  <div class="product-price">${rel.price_display || '₹' + rel.base_price}</div>
+                  <div style="margin-top: 0.75rem;">
+                    <a href="product.html?id=${rel.id}" class="btn btn-outline btn-sm" style="width: 100%; justify-content: center;">
+                      View Details →
+                    </a>
+                  </div>
+                </div>
+              </div>
+            `;
+          }).join('');
+        } else {
+          document.getElementById('relatedSection').style.display = 'none';
+        }
+
+      } catch (err) {
+        console.error('Error loading product:', err);
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', loadProduct);
+  </script>
+</body>
+</html>
