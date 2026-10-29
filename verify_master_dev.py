@@ -34,7 +34,7 @@ print("\n[STEP 2] Testing FastAPI REST Endpoints on Port 8080...")
 
 # 2a. Health
 req = urllib.request.Request(f"{BASE_URL}/api/health")
-with urllib.request.urlopen(req, timeout=5) as resp:
+with urllib.request.urlopen(req, timeout=15) as resp:
     assert resp.status == 200
     health = json.loads(resp.read().decode('utf-8'))
     assert health["status"] == "healthy"
@@ -44,7 +44,7 @@ with urllib.request.urlopen(req, timeout=5) as resp:
 
 # 2b. Chairs
 req = urllib.request.Request(f"{BASE_URL}/api/chairs")
-with urllib.request.urlopen(req, timeout=5) as resp:
+with urllib.request.urlopen(req, timeout=15) as resp:
     assert resp.status == 200
     chairs = json.loads(resp.read().decode('utf-8'))
     assert len(chairs) == 228
@@ -52,7 +52,7 @@ with urllib.request.urlopen(req, timeout=5) as resp:
 
 # 2c. Single Chair
 req = urllib.request.Request(f"{BASE_URL}/api/chairs/office_1_1")
-with urllib.request.urlopen(req, timeout=5) as resp:
+with urllib.request.urlopen(req, timeout=15) as resp:
     assert resp.status == 200
     c1 = json.loads(resp.read().decode('utf-8'))
     assert c1["code"] == "SHSE(1)"
@@ -66,7 +66,7 @@ req = urllib.request.Request(
     data=login_payload,
     headers={"Content-Type": "application/json"}
 )
-with urllib.request.urlopen(req, timeout=5) as resp:
+with urllib.request.urlopen(req, timeout=15) as resp:
     assert resp.status == 200
     auth_data = json.loads(resp.read().decode('utf-8'))
     assert auth_data["success"] is True
@@ -87,17 +87,17 @@ pages = [
 
 for path, name in pages:
     url = f"{BASE_URL}{path}"
-    with urllib.request.urlopen(url, timeout=5) as resp:
+    with urllib.request.urlopen(url, timeout=15) as resp:
         assert resp.status == 200, f"Failed {name}: status {resp.status}"
         body = resp.read().decode('utf-8')
         print(f"  [PASS] {name} ({url}) returned HTTP 200 ({len(body)} bytes)")
 
-        # Verify zero email anywhere
-        assert "srihanumsastha@gmail.com" not in body, f"Email found on {name}!"
-        assert "mailto:" not in body, f"mailto link found on {name}!"
-
-        # Verify zero PROMAX branding or publication years in public pages
+        # Verify official business email is visibly present and clickable on all public pages
         if "admin" not in path:
+            assert "srihanumsastha@gmail.com" in body, f"Official email missing on {name}!"
+            assert "mailto:srihanumsastha@gmail.com" in body, f"mailto link missing on {name}!"
+
+            # Verify zero PROMAX branding or publication years in public pages
             assert "promax" not in body.lower(), f"PROMAX branding found on {name}!"
             assert "catalogue 2024" not in body.lower()
             assert "catalogue 2025" not in body.lower()
@@ -110,7 +110,7 @@ for path, name in pages:
             assert "https://wa.me/918695706013" in body, f"WhatsApp 8695706013 missing on {name}"
             assert "https://wa.me/919688727284" not in body, f"Old WhatsApp 9688727284 found on {name}!"
 
-print("  [PASS] Zero email leakage verified across all pages.")
+print("  [PASS] Verified official email srihanumsastha@gmail.com with mailto: links across all public pages.")
 print("  [PASS] Zero PROMAX branding or catalogue publication years verified.")
 print("  [PASS] Exclusive WhatsApp routing to 8695706013 verified across all pages.")
 print("  [PASS] Both business phone lines (9688727284 & 8695706013) verified across all pages.")

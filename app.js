@@ -261,16 +261,13 @@
           </div>
           
           <div class="product-content">
+            <div class="product-code-row">
+              <span class="product-code-badge">${escapeHtml(displayCode)}</span>
+            </div>
             <h3 class="product-name" title="${escapeHtml(p.display_name)}">
-              ${escapeHtml(displayCode)}
+              ${escapeHtml(modelName ? modelName : displayCode)}
             </h3>
             
-            ${modelName ? `
-              <div>
-                <span class="product-model-tag">Model: ${escapeHtml(modelName)}</span>
-              </div>
-            ` : ''}
-
             <div class="product-price-row">
               <span class="product-price-label">Catalogue Rate</span>
               <span class="product-price-val">${p.price_display}</span>
@@ -281,10 +278,10 @@
             </div>
 
             <div class="product-actions">
-              <a href="product.html?id=${p.id}" class="btn btn-outline btn-sm" style="justify-content: center;">
-                View Details →
+              <a href="product.html?id=${p.id}" class="btn btn-outline btn-sm">
+                View Details
               </a>
-              <a href="https://wa.me/918695706013?text=${waMsg}" target="_blank" rel="noopener" class="btn-whatsapp-card" title="Enquire on WhatsApp">
+              <a href="https://wa.me/918695706013?text=${waMsg}" target="_blank" rel="noopener" class="btn btn-primary btn-sm" title="Enquire on WhatsApp">
                 💬 WhatsApp
               </a>
             </div>
@@ -401,20 +398,20 @@
 
         <div class="modal-cta-box">
           <div style="margin-bottom: 0.85rem;">
-            <a href="product.html?id=${prod.id}" class="btn btn-outline" style="width: 100%; justify-content: center; font-weight: 700;">
+            <a href="product.html?id=${prod.id}" class="btn btn-outline btn-block" style="font-weight: 700;">
               View Full Product Page & Specifications →
             </a>
           </div>
           <div style="margin-bottom: 0.75rem;">
-            <a href="https://wa.me/918695706013?text=${encodeURIComponent(`Hello Sri Hanum Sastha Enterprises, I am interested in chair ${prod.code || prod.display_name} (Model: ${prod._internal_model || ''}) from the ${prod.category} category. Please share more details.`)}" target="_blank" rel="noopener" class="btn btn-whatsapp-main" style="width: 100%; justify-content: center;">
+            <a href="https://wa.me/918695706013?text=${encodeURIComponent(`Hello Sri Hanum Sastha Enterprises, I am interested in chair ${prod.code || prod.display_name} (Model: ${prod._internal_model || ''}) from the ${prod.category} category. Please share more details.`)}" target="_blank" rel="noopener" class="btn btn-primary btn-block">
               💬 Enquire on WhatsApp (8695706013)
             </a>
           </div>
           <div class="modal-phone-btns">
-            <a href="tel:+919688727284" class="btn btn-call-gold btn-call-primary">
+            <a href="tel:+919688727284" class="btn btn-secondary" style="flex: 1;">
               📞 Call: 9688727284
             </a>
-            <a href="tel:+918695706013" class="btn btn-call-gold btn-call-secondary">
+            <a href="tel:+918695706013" class="btn btn-secondary" style="flex: 1;">
               📞 Call: 8695706013
             </a>
           </div>

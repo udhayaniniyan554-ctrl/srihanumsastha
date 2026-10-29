@@ -9,391 +9,52 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <style>
-    .product-page-main {
-      padding: 2.5rem 0 5rem;
-      background: var(--bg-main);
-      min-height: 80vh;
-    }
-    .breadcrumbs {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.875rem;
-      color: var(--text-muted);
-      margin-bottom: 2rem;
-      flex-wrap: wrap;
-    }
-    .breadcrumbs a {
-      color: var(--text-muted);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .breadcrumbs a:hover {
-      color: var(--accent);
-      text-decoration: underline;
-    }
-    .breadcrumbs .sep {
-      color: var(--border-card);
-    }
-    .breadcrumbs .current {
-      color: var(--primary);
-      font-weight: 600;
-    }
-
-    .product-detail-layout {
-      display: grid;
-      grid-template-columns: 1.15fr 1fr;
-      gap: 3.5rem;
-      background: #ffffff;
-      border: 1px solid var(--border-light);
-      border-radius: var(--radius-lg);
-      padding: 2.5rem;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .detail-gallery {
-      position: sticky;
-      top: 100px;
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
-    }
-    .detail-image-stage {
-      background: #fdfdfd;
-      border: 1px solid #f1f5f9;
-      border-radius: var(--radius-md);
-      padding: 2.5rem 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 480px;
-      position: relative;
-    }
-    .detail-image-stage img {
-      max-width: 100%;
-      max-height: 440px;
-      object-fit: contain;
-      filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.08));
-      transition: transform 0.3s ease;
-    }
-    .detail-image-stage:hover img {
-      transform: scale(1.03);
-    }
-    .detail-badge-tag {
-      position: absolute;
-      top: 1rem;
-      left: 1rem;
-      background: var(--primary-light);
-      color: #f8fafc;
-      font-size: 0.75rem;
-      font-weight: 700;
-      padding: 0.35rem 0.75rem;
-      border-radius: var(--radius-full);
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-
-    .detail-thumbs-strip {
-      display: flex;
-      gap: 0.85rem;
-      overflow-x: auto;
-      padding-bottom: 0.5rem;
-    }
-    .detail-thumb-btn {
-      width: 76px;
-      height: 76px;
-      border: 2px solid var(--border-light);
-      border-radius: var(--radius-sm);
-      background: #ffffff;
-      padding: 0.35rem;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.2s;
-    }
-    .detail-thumb-btn.active, .detail-thumb-btn:hover {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 2px var(--accent-light);
-    }
-    .detail-thumb-btn img {
-      max-width: 100%;
-      max-height: 100%;
-      object-fit: contain;
-    }
-
-    .detail-info {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-    .detail-category-label {
-      font-size: 0.8125rem;
-      font-weight: 700;
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-    .detail-title {
-      font-size: 2.125rem;
-      font-weight: 800;
-      color: var(--primary);
-      line-height: 1.2;
-      margin: 0;
-    }
-    .detail-model-subtitle {
-      font-size: 1.125rem;
-      color: var(--text-muted);
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .detail-model-pill {
-      background: #f1f5f9;
-      color: var(--primary);
-      padding: 0.25rem 0.65rem;
-      border-radius: var(--radius-sm);
-      font-size: 0.875rem;
-      font-weight: 700;
-      border: 1px solid var(--border-light);
-    }
-
-    .detail-price-box {
-      background: #fafaf9;
-      border: 1px solid var(--border-light);
-      border-radius: var(--radius-md);
-      padding: 1.25rem 1.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.35rem;
-    }
-    .detail-price-val {
-      font-size: 2rem;
-      font-weight: 800;
-      color: var(--primary);
-    }
-    .detail-price-sub {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }
-
-    .detail-section-title {
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: var(--primary);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 0.75rem;
-      border-bottom: 2px solid var(--accent);
-      padding-bottom: 0.35rem;
-      display: inline-block;
-    }
-
-    .options-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.9rem;
-      margin-bottom: 0.5rem;
-    }
-    .options-table th {
-      text-align: left;
-      padding: 0.65rem 0.85rem;
-      background: #f8fafc;
-      color: var(--text-muted);
-      font-weight: 600;
-      border-bottom: 1px solid var(--border-light);
-      font-size: 0.8rem;
-      text-transform: uppercase;
-    }
-    .options-table td {
-      padding: 0.75rem 0.85rem;
-      border-bottom: 1px solid var(--border-light);
-      color: var(--text-main);
-    }
-    .options-table tr:hover td {
-      background: #fdfdfd;
-    }
-    .options-table .opt-price {
-      font-weight: 700;
-      color: var(--accent-text);
-      text-align: right;
-    }
-
-    .detail-specs-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.75rem 1.5rem;
-      font-size: 0.9rem;
-    }
-    .spec-item {
-      display: flex;
-      flex-direction: column;
-      gap: 0.15rem;
-      padding: 0.65rem 0.85rem;
-      background: #f8fafc;
-      border-radius: var(--radius-sm);
-      border: 1px solid var(--border-light);
-    }
-    .spec-item strong {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-    .spec-item span {
-      font-weight: 600;
-      color: var(--primary);
-    }
-
-    .detail-cta-block {
-      background: #0d0d0d;
-      border: 1px solid rgba(220, 38, 38, 0.35);
-      border-radius: var(--radius-lg);
-      padding: 1.75rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1.15rem;
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
-    }
-    .detail-cta-block h3 {
-      font-size: 1.15rem;
-      font-weight: 800;
-      color: #ffffff;
-      margin: 0;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .whatsapp-btn-group {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-    .btn-whatsapp-main {
-      background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
-      color: #ffffff;
-      padding: 1rem 1.5rem;
-      font-weight: 800;
-      font-size: 1.05rem;
-      border-radius: var(--radius-md);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.65rem;
-      text-decoration: none;
-      box-shadow: 0 4px 16px var(--primary-red-glow);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .btn-whatsapp-main:hover {
-      background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 22px var(--primary-red-glow);
-      color: #ffffff;
-    }
-
-    .detail-call-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.75rem;
-      margin-top: 0.25rem;
-    }
-
-    .detail-notice-box {
-      background: #fffbeb;
-      border: 1px solid #fde68a;
-      border-radius: var(--radius-md);
-      padding: 0.85rem 1rem;
-      color: #92400e;
-      font-size: 0.85rem;
-      font-weight: 600;
-      line-height: 1.5;
-    }
-
-    /* Related Chairs */
-    .related-section {
-      margin-top: 4.5rem;
-    }
-    .related-title {
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: var(--primary);
-      margin-bottom: 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .related-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.5rem;
-    }
-
-    @media (max-width: 1024px) {
-      .product-detail-layout {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
-        padding: 1.75rem;
-      }
-      .detail-gallery {
-        position: static;
-      }
-      .related-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-    @media (max-width: 640px) {
-      .detail-specs-grid, .detail-call-row {
-        grid-template-columns: 1fr;
-      }
-      .related-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
 </head>
 <body>
 
-  <!-- Top Announcement Bar (Strictly No Email) -->
+  <!-- Top Announcement Bar (With Verified Email, WhatsApp, and Phone Numbers) -->
   <aside class="top-bar" aria-label="Quick Contact Bar">
     <div class="container top-bar-content">
       <div class="top-bar-location">
-        📍 173, First Floor, KK Lane Street, Avinashi Road, Coimbatore, Tamil Nadu – 641018
+        <span>📍 173, First Floor, KK Lane Street, Avinashi Road, Coimbatore – 641018</span>
       </div>
       <div class="top-bar-phones">
-        <a href="https://wa.me/918695706013" target="_blank" rel="noopener" class="top-bar-whatsapp">💬 WhatsApp: 8695706013</a>
+        <a href="mailto:srihanumsastha@gmail.com" class="top-bar-email" title="Email Sri Hanum Sastha Enterprises">
+          ✉️ srihanumsastha@gmail.com
+        </a>
+        <a href="https://wa.me/918695706013" target="_blank" rel="noopener" class="top-bar-whatsapp">
+          💬 WhatsApp: 8695706013
+        </a>
         <a href="tel:+919688727284">📞 9688727284</a>
         <a href="tel:+918695706013">📞 8695706013</a>
       </div>
     </div>
   </aside>
 
-  <!-- Sticky Main Header -->
+  <!-- Sticky Luxury Main Header -->
   <header class="site-header">
     <div class="container nav-container">
       <a href="index.html" class="brand-logo" aria-label="Sri Hanum Sastha Enterprises Home">
-        <img src="assets/logo.svg" alt="Sri Hanum Sastha Enterprises Logo">
+        <img src="assets/logo-white.svg" alt="Sri Hanum Sastha Enterprises Logo">
       </a>
 
       <nav class="desktop-nav" aria-label="Main Navigation">
         <ul class="nav-menu">
           <li><a href="index.html" class="nav-link">Home</a></li>
-          <li><a href="category.html?cat=office" class="nav-link">Office Chairs</a></li>
-          <li><a href="category.html?cat=visitor" class="nav-link">Visitor Chairs</a></li>
-          <li><a href="category.html?cat=lounge" class="nav-link">Lounge & Soft Seating</a></li>
-          <li><a href="category.html?cat=dining" class="nav-link">Dining Chairs</a></li>
-          <li><a href="category.html?cat=stools" class="nav-link">Stools & Seating</a></li>
+          <li><a href="category.html?cat=office" class="nav-link" id="navOffice">Office Chairs</a></li>
+          <li><a href="category.html?cat=visitor" class="nav-link" id="navVisitor">Visitor Chairs</a></li>
+          <li><a href="category.html?cat=lounge" class="nav-link" id="navLounge">Lounge & Soft Seating</a></li>
+          <li><a href="category.html?cat=dining" class="nav-link" id="navDining">Dining Chairs</a></li>
+          <li><a href="category.html?cat=stools" class="nav-link" id="navStools">Stools & Seating</a></li>
           <li><a href="contact.html" class="nav-link">Contact</a></li>
         </ul>
       </nav>
 
       <div class="header-actions">
-        <a href="https://wa.me/918695706013" target="_blank" rel="noopener" class="btn btn-whatsapp-header">
+        <a href="https://wa.me/918695706013" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
           💬 WhatsApp
         </a>
-        <a href="tel:+919688727284" class="btn btn-primary btn-sm">
+        <a href="tel:+919688727284" class="btn btn-outline-white btn-sm">
           📞 Call 9688727284
         </a>
         <button class="mobile-toggle" id="mobileToggle" aria-label="Open Mobile Menu">
@@ -407,11 +68,11 @@
     </div>
   </header>
 
-  <!-- Mobile Drawer -->
+  <!-- Mobile Off-Canvas Drawer -->
   <div class="drawer-backdrop" id="drawerBackdrop"></div>
   <aside class="mobile-drawer" id="mobileDrawer" aria-label="Mobile Navigation">
     <div class="mobile-drawer-header">
-      <img src="assets/logo.svg" alt="Sri Hanum Sastha Enterprises Logo" style="height: 38px;">
+      <img src="assets/logo-white.svg" alt="Sri Hanum Sastha Enterprises Logo" style="height: 38px;">
       <button class="mobile-drawer-close" id="drawerCloseBtn" aria-label="Close Mobile Menu">&times;</button>
     </div>
     <ul class="mobile-nav-links">
@@ -425,13 +86,23 @@
     </ul>
 
     <div style="margin-top: auto; padding-top: 2rem; display: flex; flex-direction: column; gap: 0.75rem;">
-      <a href="https://wa.me/918695706013" target="_blank" rel="noopener" class="btn btn-whatsapp-main" style="padding: 0.75rem;">
+      <div style="font-size: 0.8125rem; font-weight: 700; color: #94a3b8; text-transform: uppercase;">
+        Showroom & Contact:
+      </div>
+      <div style="font-size: 0.8125rem; color: #cbd5e1; line-height: 1.4;">
+        173, First Floor, KK Lane Street,<br>
+        Avinashi Road, Coimbatore – 641018<br>
+        <a href="mailto:srihanumsastha@gmail.com" style="color: var(--crimson-red); text-decoration: underline;">
+          srihanumsastha@gmail.com
+        </a>
+      </div>
+      <a href="https://wa.me/918695706013" target="_blank" rel="noopener" class="btn btn-primary btn-block">
         💬 Enquire on WhatsApp
       </a>
-      <a href="tel:+919688727284" class="btn btn-call-gold btn-call-primary">
+      <a href="tel:+919688727284" class="btn btn-secondary btn-block">
         📞 Call Now: 9688727284
       </a>
-      <a href="tel:+918695706013" class="btn btn-call-gold btn-call-secondary">
+      <a href="tel:+918695706013" class="btn btn-secondary btn-block">
         📞 Call Now: 8695706013
       </a>
     </div>
@@ -445,7 +116,7 @@
       <nav class="breadcrumbs" aria-label="Breadcrumb">
         <a href="index.html">Home</a>
         <span class="sep">/</span>
-        <a href="index.html#catalogue" id="crumbCatLink">Catalogue</a>
+        <a href="category.html?cat=office" id="crumbCatLink">Office Chairs</a>
         <span class="sep">/</span>
         <span class="current" id="crumbCurrent">Loading Product...</span>
       </nav>
@@ -456,7 +127,7 @@
         <!-- Left: Image Stage & Gallery -->
         <div class="detail-gallery">
           <div class="detail-image-stage">
-            <span class="detail-badge-tag" id="badgeTag">Genuine PDF Model</span>
+            <span class="detail-badge-tag" id="badgeTag">SHSE(2)</span>
             <img src="assets/placeholder.svg" alt="Chair photograph" id="mainImage">
           </div>
           <div class="detail-thumbs-strip" id="thumbsStrip"></div>
@@ -465,23 +136,25 @@
         <!-- Right: Specifications & Direct Actions -->
         <div class="detail-info">
           <div>
-            <div class="detail-category-label" id="productCategory">Category</div>
-            <h1 class="detail-title" id="productTitle">SHSE Code</h1>
+            <div class="detail-category-label" id="productCategory">Office Chairs</div>
+            <h1 class="detail-title" id="productTitle">SHSE(2) — 4G Task Chair</h1>
             <div class="detail-model-subtitle">
-              <span>Original Model:</span>
-              <span class="detail-model-pill" id="productModelName">—</span>
+              <span>Model Reference:</span>
+              <span class="detail-model-pill" id="productModelName">4G</span>
+              <span style="color: var(--neutral-300);">•</span>
+              <span id="productCodePill" style="font-weight: 700; color: var(--crimson-red);">Code: SHSE(2)</span>
             </div>
           </div>
 
           <!-- Price Box -->
           <div class="detail-price-box">
-            <div class="detail-price-val" id="productPrice">₹0</div>
-            <div class="detail-price-sub" id="productPriceSub">Official catalogue listed price</div>
+            <div class="detail-price-val" id="productPrice">₹5,000</div>
+            <div class="detail-price-sub" id="productPriceSub">Official catalogue listed rate</div>
           </div>
 
           <!-- Pricing Notice -->
           <div class="detail-notice-box">
-            ⚠️ <strong>Price & Stock Note:</strong> Prices may change. Please contact us to confirm current prices and availability.
+            📢 <strong>Price & Stock Note:</strong> Prices may change based on base/handle options and volume. Please contact us to confirm current showroom rates and availability.
           </div>
 
           <!-- Options & Variants Table (if available) -->
@@ -507,35 +180,35 @@
           <!-- Key Features -->
           <div id="featuresContainer">
             <h3 class="detail-section-title">Key Highlights</h3>
-            <ul id="featuresList" style="padding-left: 1.25rem; color: var(--text-muted); line-height: 1.7; font-size: 0.925rem;"></ul>
+            <ul id="featuresList" style="padding-left: 1.25rem; color: var(--neutral-500); line-height: 1.7; font-size: 0.925rem;"></ul>
           </div>
 
-          <!-- Direct Enquiries Action Block (Featherlite Inspired) -->
+          <!-- Direct Enquiries Action Block (Featherlite Luxury Inspiration) -->
           <div class="detail-cta-block">
             <h3>💬 Direct Showroom Enquiry</h3>
-            <p style="margin: 0; color: #a3a3a3; font-size: 0.9rem;">
-              Click below to send an instant enquiry with this chair’s code and model details prefilled:
+            <p class="detail-cta-desc">
+              Contact us directly via WhatsApp or direct phone call. Product code and model details will be automatically prefilled:
             </p>
-            <div class="whatsapp-btn-group">
-              <a href="#" id="waPrimaryBtn" target="_blank" rel="noopener" class="btn-whatsapp-main">
+            <div>
+              <a href="#" id="waPrimaryBtn" target="_blank" rel="noopener" class="btn btn-primary btn-lg btn-block">
                 💬 Enquire on WhatsApp (8695706013)
               </a>
             </div>
 
             <div class="detail-call-row">
-              <a href="tel:+919688727284" class="btn btn-call-gold btn-call-primary" style="font-size: 0.875rem;">
+              <a href="tel:+919688727284" class="btn btn-secondary btn-lg">
                 📞 Call 9688727284
               </a>
-              <a href="tel:+918695706013" class="btn btn-call-gold btn-call-secondary" style="font-size: 0.875rem;">
+              <a href="tel:+918695706013" class="btn btn-secondary btn-lg">
                 📞 Call 8695706013
               </a>
             </div>
           </div>
 
           <!-- Back Navigation -->
-          <div style="padding-top: 1rem;">
-            <a href="index.html#catalogue" id="backToCatBtn" class="btn btn-outline" style="width: 100%; justify-content: center;">
-              ← Back to Full Catalogue
+          <div style="padding-top: 0.5rem;">
+            <a href="category.html?cat=office" id="backToCatBtn" class="btn btn-outline btn-block">
+              ← Back to Collection
             </a>
           </div>
 
@@ -545,9 +218,9 @@
       <!-- Related Chairs Section -->
       <section class="related-section" id="relatedSection">
         <div class="related-title">
-          <span>More in this Category</span>
-          <a href="index.html#catalogue" id="viewAllCatLink" style="font-size: 0.9rem; color: var(--accent); font-weight: 700; text-decoration: none;">
-            View All Collection →
+          <span>More in this Collection</span>
+          <a href="index.html#catalogue" id="viewAllCatLink" style="font-size: 0.9rem; color: var(--crimson-red); font-weight: 700; text-decoration: none;">
+            View Full Catalogue →
           </a>
         </div>
         <div class="related-grid" id="relatedGrid"></div>
@@ -556,7 +229,7 @@
     </div>
   </main>
 
-  <!-- Business Footer (Strictly Relative's Contact Details, NO Email Display) -->
+  <!-- Business Footer (With Verified Email, WhatsApp, and Calling Lines) -->
   <footer class="site-footer" id="contact">
     <div class="container">
       <div class="footer-main-grid">
@@ -567,10 +240,10 @@
             <img src="assets/logo-white.svg" alt="Sri Hanum Sastha Enterprises">
           </div>
           <p class="footer-desc">
-            Sri Hanum Sastha Enterprises provides comprehensive commercial, executive, visitor, and dining seating solutions engineered for ergonomic posture support, commercial longevity, and modern interiors.
+            Sri Hanum Sastha Enterprises provides comprehensive commercial, executive, visitor, and dining seating solutions engineered for ergonomic posture support, commercial longevity, and modern interiors in Coimbatore.
           </p>
           <div class="footer-disclaimer-note">
-            ⚠️ <strong>Price & Stock Note:</strong> Prices may change. Please contact us to confirm current prices and availability.
+            📢 <strong>Price & Stock Note:</strong> Prices may change. Please contact us to confirm current prices and availability.
           </div>
         </div>
 
@@ -587,7 +260,7 @@
           </ul>
         </div>
 
-        <!-- Column 3: Contact Us Section (No email displayed) -->
+        <!-- Column 3: Contact Us Section -->
         <div class="footer-contact-box" id="footer-contact">
           <h3 class="footer-title">Contact Us</h3>
           
@@ -595,7 +268,7 @@
             <span class="contact-icon" aria-hidden="true">🏢</span>
             <div class="contact-info-text">
               <strong>Company Name</strong>
-              <p class="company-name-val">Sri Hanum Sastha Enterprises</p>
+              <p>Sri Hanum Sastha Enterprises</p>
             </div>
           </div>
 
@@ -603,7 +276,7 @@
             <span class="contact-icon" aria-hidden="true">📍</span>
             <div class="contact-info-text">
               <strong>Showroom & Office Address</strong>
-              <p class="contact-address-val">
+              <p>
                 173, First Floor, KK Lane Street,<br>
                 Avinashi Road, Coimbatore,<br>
                 Tamil Nadu – 641018
@@ -612,9 +285,19 @@
           </div>
 
           <div class="contact-detail-row">
+            <span class="contact-icon" aria-hidden="true">✉️</span>
+            <div class="contact-info-text">
+              <strong>Email Address</strong>
+              <p>
+                <a href="mailto:srihanumsastha@gmail.com" class="footer-email-link">srihanumsastha@gmail.com</a>
+              </p>
+            </div>
+          </div>
+
+          <div class="contact-detail-row">
             <span class="contact-icon" aria-hidden="true">💬</span>
             <div class="contact-info-text">
-              <strong>WhatsApp Enquiries</strong>
+              <strong>WhatsApp Enquiries (Exclusive Line)</strong>
               <p>
                 <a href="https://wa.me/918695706013" target="_blank" rel="noopener" class="phone-link">8695706013</a>
               </p>
@@ -625,20 +308,20 @@
             <span class="contact-icon" aria-hidden="true">📞</span>
             <div class="contact-info-text">
               <strong>Direct Phone Lines</strong>
-              <p class="contact-phone-lines">
-                <span class="phone-item">Phone: <a href="tel:+919688727284" class="phone-link">9688727284</a></span><br>
-                <span class="phone-item">Alternate Phone: <a href="tel:+918695706013" class="phone-link">8695706013</a></span>
+              <p>
+                <span>Phone: <a href="tel:+919688727284" class="phone-link">9688727284</a></span><br>
+                <span>Alternate Phone: <a href="tel:+918695706013" class="phone-link">8695706013</a></span>
               </p>
             </div>
           </div>
 
-          <!-- Separate Dedicated Call Buttons -->
+          <!-- Matched Dedicated Call Buttons -->
           <div class="footer-call-buttons">
-            <a href="tel:+919688727284" class="btn btn-call-gold btn-call-primary" aria-label="Call Now 9688727284">
-              📞 Call Now: 9688727284
+            <a href="tel:+919688727284" class="btn btn-secondary">
+              📞 Call: 9688727284
             </a>
-            <a href="tel:+918695706013" class="btn btn-call-gold btn-call-secondary" aria-label="Call Now 8695706013">
-              📞 Call Now: 8695706013
+            <a href="tel:+918695706013" class="btn btn-secondary">
+              📞 Call: 8695706013
             </a>
           </div>
         </div>
@@ -680,7 +363,7 @@
     // Product Loading Logic
     async function loadProduct() {
       const params = new URLSearchParams(window.location.search);
-      const productId = params.get('id') || params.get('code') || 'office_1_1';
+      const productId = params.get('id') || params.get('code') || 'office_1_2';
 
       try {
         const res = await fetch('assets/catalog.json');
@@ -695,21 +378,23 @@
           return;
         }
 
-        const modelName = prod._internal_model || 'Standard Edition';
+        const modelName = prod._internal_model || '';
         const displayCode = prod.code || `SHSE(${prod.code_number || 1})`;
         const catName = prod.category || 'Office Chairs';
 
         // Page title & Breadcrumbs
-        document.title = `${displayCode} • ${modelName} | Sri Hanum Sastha Enterprises`;
-        document.getElementById('crumbCurrent').textContent = `${displayCode} — ${modelName}`;
+        document.title = `${displayCode} ${modelName ? '• ' + modelName : ''} | Sri Hanum Sastha Enterprises`;
+        document.getElementById('crumbCurrent').textContent = `${displayCode} ${modelName ? '— ' + modelName : ''}`;
         document.getElementById('crumbCatLink').textContent = catName;
-        document.getElementById('crumbCatLink').href = `category.html?cat=${encodeURIComponent(catName.toLowerCase().split(' ')[0])}`;
+        const catSlug = catName.toLowerCase().split(' ')[0];
+        document.getElementById('crumbCatLink').href = `category.html?cat=${catSlug}`;
 
         // Header Info
         document.getElementById('productCategory').textContent = catName;
-        document.getElementById('productTitle').textContent = `${catName} — ${displayCode}`;
-        document.getElementById('productModelName').textContent = modelName;
-        document.getElementById('badgeTag').textContent = `${catName} • ${displayCode}`;
+        document.getElementById('productTitle').textContent = `${displayCode} ${modelName ? '— ' + modelName : ''}`;
+        document.getElementById('productModelName').textContent = modelName || 'Standard';
+        document.getElementById('productCodePill').textContent = `Code: ${displayCode}`;
+        document.getElementById('badgeTag').textContent = `${displayCode}`;
 
         // Image & Gallery
         const mainImg = document.getElementById('mainImage');
@@ -723,25 +408,30 @@
           galleryImages.push({ label: 'Schematic Dimensions', src: prod.diagram });
         }
 
-        galleryImages.forEach((item, idx) => {
-          const btn = document.createElement('button');
-          btn.className = `detail-thumb-btn ${idx === 0 ? 'active' : ''}`;
-          btn.title = item.label;
-          btn.innerHTML = `<img src="${item.src}" alt="${item.label}">`;
-          btn.addEventListener('click', () => {
-            thumbsStrip.querySelectorAll('.detail-thumb-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            mainImg.src = item.src;
+        if (galleryImages.length > 1) {
+          thumbsStrip.style.display = 'flex';
+          galleryImages.forEach((item, idx) => {
+            const btn = document.createElement('button');
+            btn.className = `detail-thumb-btn ${idx === 0 ? 'active' : ''}`;
+            btn.title = item.label;
+            btn.innerHTML = `<img src="${item.src}" alt="${item.label}">`;
+            btn.addEventListener('click', () => {
+              thumbsStrip.querySelectorAll('.detail-thumb-btn').forEach(b => b.classList.remove('active'));
+              btn.classList.add('active');
+              mainImg.src = item.src;
+            });
+            thumbsStrip.appendChild(btn);
           });
-          thumbsStrip.appendChild(btn);
-        });
+        } else {
+          thumbsStrip.style.display = 'none';
+        }
 
         // Price
         document.getElementById('productPrice').textContent = prod.price_display || `₹${(prod.base_price || 0).toLocaleString('en-IN')}`;
-        if (prod.options && prod.options.length > 0) {
-          document.getElementById('productPriceSub').textContent = `Starting listed rate across ${prod.options.length} verified configurations`;
+        if (prod.options && prod.options.length > 1) {
+          document.getElementById('productPriceSub').textContent = `Starting catalogue listed rate across ${prod.options.length} verified configurations`;
         } else {
-          document.getElementById('productPriceSub').textContent = 'Official listed catalogue rate';
+          document.getElementById('productPriceSub').textContent = 'Official catalogue listed rate';
         }
 
         // Options Table
@@ -782,13 +472,13 @@
         }
 
         // Dynamic WhatsApp Prefilled Message (exclusively 8695706013)
-        // Message format: Hello Sri Hanum Sastha Enterprises, I am interested in chair SHSE(12) (Model: ATLAS/3G) from the Office Chairs category. Please share more details.
+        // Message format: Hello Sri Hanum Sastha Enterprises, I am interested in chair SHSE(2) (Model: 4G) from the Office Chairs category. Please share more details.
         const waText = encodeURIComponent(`Hello Sri Hanum Sastha Enterprises, I am interested in chair ${displayCode} (Model: ${modelName}) from the ${catName} category. Please share more details.`);
         document.getElementById('waPrimaryBtn').href = `https://wa.me/918695706013?text=${waText}`;
 
         // Back button link
-        const catSlug = catName.toLowerCase().split(' ')[0];
         document.getElementById('backToCatBtn').href = `category.html?cat=${catSlug}`;
+        document.getElementById('backToCatBtn').textContent = `← Back to ${catName} Collection`;
         document.getElementById('viewAllCatLink').href = `category.html?cat=${catSlug}`;
 
         // Related Chairs (4 from same category)
@@ -800,19 +490,21 @@
             const relCode = rel.code || `SHSE(${rel.code_number || 1})`;
             return `
               <div class="product-card" onclick="window.location.href='product.html?id=${rel.id}'" style="cursor: pointer;">
-                <div class="product-badge">${relCode}</div>
                 <div class="product-image-canvas">
+                  <span class="product-category-badge">${rel.category}</span>
                   <img src="${rel.image}" alt="${relCode}" loading="lazy" onerror="this.src='assets/placeholder.svg'">
                 </div>
-                <div class="product-info">
-                  <div class="product-category">${rel.category}</div>
-                  <h3 class="product-title">${relCode}</h3>
-                  <div style="font-size: 0.8125rem; color: var(--text-muted); font-weight: 600; margin-bottom: 0.5rem;">
-                    Model: ${relModel}
+                <div class="product-content">
+                  <div class="product-code-row">
+                    <span class="product-code-badge">${relCode}</span>
                   </div>
-                  <div class="product-price">${rel.price_display || '₹' + rel.base_price}</div>
-                  <div style="margin-top: 0.75rem;">
-                    <a href="product.html?id=${rel.id}" class="btn btn-outline btn-sm" style="width: 100%; justify-content: center;">
+                  <h3 class="product-name">${relModel ? relModel : relCode}</h3>
+                  <div class="product-price-row">
+                    <span class="product-price-label">Catalogue Rate</span>
+                    <span class="product-price-val">${rel.price_display || '₹' + rel.base_price}</span>
+                  </div>
+                  <div class="product-actions">
+                    <a href="product.html?id=${rel.id}" class="btn btn-outline btn-sm btn-block">
                       View Details →
                     </a>
                   </div>

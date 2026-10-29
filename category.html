@@ -12,27 +12,32 @@
 </head>
 <body>
 
-  <!-- Top Announcement Bar (Strictly No Email) -->
+  <!-- Top Announcement Bar (With Verified Email, WhatsApp, and Phone Numbers) -->
   <aside class="top-bar" aria-label="Quick Contact Bar">
     <div class="container top-bar-content">
       <div class="top-bar-location">
-        📍 173, First Floor, KK Lane Street, Avinashi Road, Coimbatore, Tamil Nadu – 641018
+        <span>📍 173, First Floor, KK Lane Street, Avinashi Road, Coimbatore – 641018</span>
       </div>
       <div class="top-bar-phones">
-        <a href="https://wa.me/918695706013" target="_blank" rel="noopener" class="top-bar-whatsapp">💬 WhatsApp: 8695706013</a>
+        <a href="mailto:srihanumsastha@gmail.com" class="top-bar-email" title="Email Sri Hanum Sastha Enterprises">
+          ✉️ srihanumsastha@gmail.com
+        </a>
+        <a href="https://wa.me/918695706013" target="_blank" rel="noopener" class="top-bar-whatsapp">
+          💬 WhatsApp: 8695706013
+        </a>
         <a href="tel:+919688727284">📞 9688727284</a>
         <a href="tel:+918695706013">📞 8695706013</a>
       </div>
     </div>
   </aside>
 
-  <!-- Sticky Header -->
+  <!-- Sticky Luxury Header (Onyx Black) -->
   <header class="site-header">
     <div class="container nav-container">
-      <a href="index.html" class="brand-logo">
-        <img src="assets/logo.svg" alt="Sri Hanum Sastha Enterprises">
+      <a href="index.html" class="brand-logo" aria-label="Sri Hanum Sastha Enterprises Home">
+        <img src="assets/logo-white.svg" alt="Sri Hanum Sastha Enterprises Logo">
       </a>
-      <nav class="desktop-nav">
+      <nav class="desktop-nav" aria-label="Main Navigation">
         <ul class="nav-menu">
           <li><a href="index.html" class="nav-link">Home</a></li>
           <li><a href="category.html?cat=office" class="nav-link" id="navOffice">Office Chairs</a></li>
@@ -44,8 +49,12 @@
         </ul>
       </nav>
       <div class="header-actions">
-        <a href="https://wa.me/918695706013" target="_blank" rel="noopener" class="btn btn-whatsapp-header">💬 WhatsApp</a>
-        <a href="tel:+919688727284" class="btn btn-primary btn-sm">📞 Call 9688727284</a>
+        <a href="https://wa.me/918695706013" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
+          💬 WhatsApp
+        </a>
+        <a href="tel:+919688727284" class="btn btn-outline-white btn-sm">
+          📞 Call 9688727284
+        </a>
         <button class="mobile-toggle" id="mobileToggle" aria-label="Open Mobile Menu">
           <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <line x1="3" y1="12" x2="21" y2="12"></line>
@@ -57,12 +66,12 @@
     </div>
   </header>
 
-  <!-- Mobile Drawer -->
+  <!-- Mobile Off-Canvas Drawer -->
   <div class="drawer-backdrop" id="drawerBackdrop"></div>
-  <aside class="mobile-drawer" id="mobileDrawer">
+  <aside class="mobile-drawer" id="mobileDrawer" aria-label="Mobile Navigation">
     <div class="mobile-drawer-header">
-      <img src="assets/logo.svg" alt="Sri Hanum Sastha Enterprises" style="height: 38px;">
-      <button class="mobile-drawer-close" id="drawerCloseBtn">&times;</button>
+      <img src="assets/logo-white.svg" alt="Sri Hanum Sastha Enterprises Logo" style="height: 38px;">
+      <button class="mobile-drawer-close" id="drawerCloseBtn" aria-label="Close Mobile Menu">&times;</button>
     </div>
     <ul class="mobile-nav-links">
       <li><a href="index.html" class="mobile-nav-link">Home</a></li>
@@ -74,39 +83,44 @@
       <li><a href="contact.html" class="mobile-nav-link">Contact Details</a></li>
     </ul>
     <div style="margin-top: auto; padding-top: 2rem; display: flex; flex-direction: column; gap: 0.75rem;">
-      <div style="font-size: 0.8125rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">
+      <div style="font-size: 0.8125rem; font-weight: 700; color: #94a3b8; text-transform: uppercase;">
         Contact Us Directly:
       </div>
-      <div style="font-size: 0.8125rem; color: #64748b; line-height: 1.4;">
+      <div style="font-size: 0.8125rem; color: #cbd5e1; line-height: 1.4;">
         173, First Floor, KK Lane Street,<br>
-        Avinashi Road, Coimbatore,<br>
-        Tamil Nadu – 641018
+        Avinashi Road, Coimbatore – 641018<br>
+        <a href="mailto:srihanumsastha@gmail.com" style="color: var(--crimson-red); text-decoration: underline;">
+          srihanumsastha@gmail.com
+        </a>
       </div>
-      <a href="https://wa.me/918695706013" target="_blank" rel="noopener" class="btn btn-whatsapp-main" style="padding: 0.75rem;">
+      <a href="https://wa.me/918695706013" target="_blank" rel="noopener" class="btn btn-primary btn-block">
         💬 Enquire on WhatsApp
       </a>
-      <a href="tel:+919688727284" class="btn btn-call-gold btn-call-primary">
+      <a href="tel:+919688727284" class="btn btn-secondary btn-block">
         📞 Call Now: 9688727284
       </a>
-      <a href="tel:+918695706013" class="btn btn-call-gold btn-call-secondary">
+      <a href="tel:+918695706013" class="btn btn-secondary btn-block">
         📞 Call Now: 8695706013
       </a>
     </div>
   </aside>
 
-  <!-- Category Page Hero -->
-  <section class="hero" style="padding: 3.5rem 0 4rem;">
+  <!-- Category Page Hero (Luxury Black Palette) -->
+  <section class="hero" style="padding: 4rem 0 4.5rem;">
     <div class="container" style="text-align: center;">
-      <div class="hero-badge" id="categoryBadge">Catalogue Category</div>
-      <h1 class="hero-title" id="categoryTitle">Seating Category</h1>
-      <p class="hero-subtitle" id="categorySubtitle" style="margin: 0 auto 1.5rem;">
-        Explore genuine catalogue chair models with official listed rates and technical options.
+      <div class="hero-badge" id="categoryBadge">Seating Collection</div>
+      <h1 class="hero-title" id="categoryTitle" style="margin-bottom: 1rem;">Commercial Seating</h1>
+      <p class="hero-subtitle" id="categorySubtitle" style="margin: 0 auto 2rem; max-width: 650px;">
+        Explore authentic catalogue models engineered for comfort, structural durability, and modern spaces.
       </p>
       <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-        <a href="index.html#catalogue" class="btn btn-outline" style="color: #ffffff; border-color: rgba(255,255,255,0.4);">
-          ← View All Categories
+        <a href="index.html#catalogue" class="btn btn-outline-white btn-lg">
+          ← View All 228 Models
         </a>
-        <a href="tel:9688727284" class="btn btn-primary">
+        <a href="https://wa.me/918695706013?text=Hello%20Sri%20Hanum%20Sastha%20Enterprises%2C%20I%20am%20interested%20in%20browsing%20your%20chair%20catalogue." target="_blank" rel="noopener" class="btn btn-primary btn-lg">
+          💬 Enquire on WhatsApp
+        </a>
+        <a href="tel:+919688727284" class="btn btn-secondary btn-lg">
           📞 Call 9688727284
         </a>
       </div>
@@ -114,7 +128,7 @@
   </section>
 
   <!-- Price Disclaimer Banner -->
-  <div class="notice-banner">
+  <div class="notice-banner" role="status">
     <div class="container notice-content">
       <span class="notice-icon">📢</span>
       <span>Prices may change. Please contact us to confirm current prices and availability.</span>
@@ -128,10 +142,10 @@
         <div class="search-sort-row">
           <div class="search-box">
             <span class="search-icon">🔍</span>
-            <input type="text" id="searchBar" placeholder="Search by product code (e.g. SHSE(1))..." aria-label="Search models">
+            <input type="text" id="searchBar" placeholder="Search by model name or code (e.g. SHSE(1))..." aria-label="Search models">
           </div>
           <div class="sort-box">
-            <select id="sortSelect">
+            <select id="sortSelect" aria-label="Sort products">
               <option value="default">Sort: Catalogue Order</option>
               <option value="code-asc">Code: Sequential Order</option>
               <option value="price-low">Price: Low to High</option>
@@ -146,7 +160,7 @@
 
         <div class="filter-status-row">
           <div>
-            Category: <strong id="activeFilterName">Selected Category</strong> (<span id="filterCount">0 chairs found</span>)
+            Category: <strong id="activeFilterName">Selected Collection</strong> (<span id="filterCount">0 chairs found</span>)
           </div>
           <button class="btn-reset-filter" id="btnResetFilter" style="display: none;">
             ✕ Reset Filters
@@ -165,24 +179,24 @@
         </button>
       </div>
 
-      <div class="pagination-container" id="loadMoreContainer" style="display: none;">
+      <div class="load-more-container" id="loadMoreContainer" style="display: none;">
         <span class="pagination-info" id="paginationInfo"></span>
-        <button class="btn btn-dark btn-lg" id="btnLoadMore">
+        <button class="btn btn-secondary btn-lg" id="btnLoadMore">
           Load More Chairs ↓
         </button>
       </div>
     </div>
   </section>
 
-  <!-- Product Details Modal -->
-  <div class="modal-overlay" id="productModal" role="dialog" aria-modal="true">
-    <div class="modal-card" id="modalCard">
-      <button class="modal-close-btn" id="modalCloseBtn">&times;</button>
+  <!-- Product Details Modal (Quick View) -->
+  <div class="drawer-backdrop" id="productModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" style="display: none; align-items: center; justify-content: center; padding: 1.5rem;">
+    <div style="background: #ffffff; border-radius: var(--radius-xl); max-width: 840px; width: 100%; max-height: 90vh; overflow-y: auto; padding: 2.5rem; position: relative; box-shadow: var(--shadow-xl);">
+      <button id="modalCloseBtn" style="position: absolute; top: 1.25rem; right: 1.25rem; background: none; border: none; font-size: 1.75rem; cursor: pointer; color: var(--neutral-400);">&times;</button>
       <div class="modal-body"></div>
     </div>
   </div>
 
-  <!-- Footer -->
+  <!-- Business Footer -->
   <footer class="site-footer" id="contact">
     <div class="container">
       <div class="footer-main-grid">
@@ -194,7 +208,7 @@
             Sri Hanum Sastha Enterprises provides comprehensive commercial, executive, visitor, and dining seating solutions engineered for ergonomic posture support, commercial longevity, and modern interiors.
           </p>
           <div class="footer-disclaimer-note">
-            ⚠️ <strong>Price & Stock Note:</strong> Prices may change. Please contact us to confirm current prices and availability.
+            📢 <strong>Price & Stock Note:</strong> Prices may change. Please contact us to confirm current prices and availability.
           </div>
         </div>
 
@@ -211,14 +225,14 @@
         </div>
 
         <!-- Column 3: Contact Us Section -->
-        <div class="footer-contact-box" id="contact">
+        <div class="footer-contact-box" id="footer-contact">
           <h3 class="footer-title">Contact Us</h3>
           
           <div class="contact-detail-row">
             <span class="contact-icon" aria-hidden="true">🏢</span>
             <div class="contact-info-text">
               <strong>Company Name</strong>
-              <p class="company-name-val">Sri Hanum Sastha Enterprises</p>
+              <p>Sri Hanum Sastha Enterprises</p>
             </div>
           </div>
 
@@ -226,7 +240,7 @@
             <span class="contact-icon" aria-hidden="true">📍</span>
             <div class="contact-info-text">
               <strong>Showroom & Office Address</strong>
-              <p class="contact-address-val">
+              <p>
                 173, First Floor, KK Lane Street,<br>
                 Avinashi Road, Coimbatore,<br>
                 Tamil Nadu – 641018
@@ -235,9 +249,19 @@
           </div>
 
           <div class="contact-detail-row">
+            <span class="contact-icon" aria-hidden="true">✉️</span>
+            <div class="contact-info-text">
+              <strong>Email Address</strong>
+              <p>
+                <a href="mailto:srihanumsastha@gmail.com" class="footer-email-link">srihanumsastha@gmail.com</a>
+              </p>
+            </div>
+          </div>
+
+          <div class="contact-detail-row">
             <span class="contact-icon" aria-hidden="true">💬</span>
             <div class="contact-info-text">
-              <strong>WhatsApp Enquiries</strong>
+              <strong>WhatsApp Enquiries (Exclusive Line)</strong>
               <p>
                 <a href="https://wa.me/918695706013" target="_blank" rel="noopener" class="phone-link">8695706013</a>
               </p>
@@ -248,20 +272,20 @@
             <span class="contact-icon" aria-hidden="true">📞</span>
             <div class="contact-info-text">
               <strong>Direct Phone Lines</strong>
-              <p class="contact-phone-lines">
-                <span class="phone-item">Phone: <a href="tel:9688727284" class="phone-link">9688727284</a></span><br>
-                <span class="phone-item">Alternate Phone: <a href="tel:8695706013" class="phone-link">8695706013</a></span>
+              <p>
+                <span>Phone: <a href="tel:+919688727284" class="phone-link">9688727284</a></span><br>
+                <span>Alternate Phone: <a href="tel:+918695706013" class="phone-link">8695706013</a></span>
               </p>
             </div>
           </div>
 
-          <!-- Separate Dedicated Call Now Buttons -->
+          <!-- Matched Dedicated Call Buttons -->
           <div class="footer-call-buttons">
-            <a href="tel:9688727284" class="btn btn-call-gold btn-call-primary" aria-label="Call Now 9688727284">
-              📞 Call Now: 9688727284
+            <a href="tel:+919688727284" class="btn btn-secondary" aria-label="Call Now 9688727284">
+              📞 Call: 9688727284
             </a>
-            <a href="tel:8695706013" class="btn btn-call-gold btn-call-secondary" aria-label="Call Now 8695706013">
-              📞 Call Now: 8695706013
+            <a href="tel:+918695706013" class="btn btn-secondary" aria-label="Call Now 8695706013">
+              📞 Call: 8695706013
             </a>
           </div>
         </div>
@@ -302,7 +326,7 @@
     if (targetCategory !== 'all') {
       document.title = `${targetCategory} | Sri Hanum Sastha Enterprises`;
       document.getElementById('categoryTitle').textContent = targetCategory;
-      document.getElementById('categoryBadge').textContent = `Category Collection`;
+      document.getElementById('categoryBadge').textContent = `${targetCategory} Collection`;
     }
   </script>
   <script src="app.js"></script>
