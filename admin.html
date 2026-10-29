@@ -16,13 +16,13 @@
       flex-direction: column;
     }
     .admin-navbar {
-      background: #0a0a0a;
+      background: #111111;
       color: #ffffff;
       padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 2px solid var(--primary-red);
+      border-bottom: 2px solid var(--forest-green);
     }
     .admin-nav-brand {
       display: flex;
@@ -33,7 +33,7 @@
       letter-spacing: 0.02em;
     }
     .admin-badge {
-      background: var(--primary-red);
+      background: var(--forest-green);
       color: #ffffff;
       font-size: 0.7rem;
       padding: 0.2rem 0.5rem;
@@ -88,8 +88,8 @@
     }
     .form-input:focus {
       outline: none;
-      border-color: var(--primary-red);
-      box-shadow: 0 0 0 3px var(--primary-red-glow);
+      border-color: var(--forest-green);
+      box-shadow: 0 0 0 3px var(--forest-green-glow);
     }
 
     /* Dashboard Layout */
@@ -572,7 +572,7 @@
 
         const statusEl = document.getElementById('uploadStatusText');
         statusEl.textContent = 'Uploading chair photograph...';
-        statusEl.style.color = 'var(--primary-red)';
+        statusEl.style.color = '#dc2626';
 
         const formData = new FormData();
         formData.append('file', file);

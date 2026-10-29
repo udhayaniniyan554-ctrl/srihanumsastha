@@ -1,7 +1,7 @@
 /**
- * Sri Hanum Sastha Enterprises - Catalogue Application Engine
- * Fast, Reactive, Robust Vanilla JS
- * Strictly displays only SHSE codes (e.g. Office Chairs — SHSE(1))
+ * Sri Hanum Sastha Enterprises — Commercial Seating Showroom
+ * Fast, Robust Vanilla JavaScript Application Engine
+ * Automatic Hero Chair Carousel (2s) & Moving Product Preview (2s)
  */
 
 (function () {
@@ -41,13 +41,20 @@
     paginationInfo: document.getElementById('paginationInfo'),
     emptyState: document.getElementById('emptyState'),
     productModal: document.getElementById('productModal'),
-    modalCard: document.getElementById('modalCard'),
     modalCloseBtn: document.getElementById('modalCloseBtn'),
     mobileToggle: document.getElementById('mobileToggle'),
     mobileDrawer: document.getElementById('mobileDrawer'),
     drawerBackdrop: document.getElementById('drawerBackdrop'),
-    drawerCloseBtn: document.getElementById('drawerCloseBtn')
+    drawerCloseBtn: document.getElementById('drawerCloseBtn'),
+    heroCarousel: document.getElementById('heroCarousel'),
+    previewTrack: document.getElementById('previewTrack'),
+    previewBtnPrev: document.getElementById('previewBtnPrev'),
+    previewBtnNext: document.getElementById('previewBtnNext')
   };
+
+  // Timers
+  let heroTimer = null;
+  let previewTimer = null;
 
   // 1. Initialize Application
   async function init() {
@@ -55,10 +62,13 @@
       const response = await fetch('assets/catalog.json');
       if (!response.ok) throw new Error('Failed to load catalogue dataset');
       state.allProducts = await response.json();
-      
+
+      initHeroCarousel();
+      initProductPreviewTrack();
       renderCategoryCards();
       renderFilterPills();
       setupEventListeners();
+      setupMobileDrawer();
       handleInitialHash();
       applyFiltersAndSort();
     } catch (err) {
@@ -76,11 +86,237 @@
     }
   }
 
-  // 2. Render Category Cards in Hero/Showcase
+  // ---------------- 2. HERO AUTOMATIC CHAIR CAROUSEL (2s) ----------------
+  function initHeroCarousel() {
+    const container = el.heroCarousel;
+    if (!container) return;
+
+    const slides = container.querySelectorAll('.hero-slide');
+    const dotsContainer = container.querySelector('.hero-carousel-indicators');
+    const btnPrev = container.querySelector('.hero-carousel-prev');
+    const btnNext = container.querySelector('.hero-carousel-next');
+
+    if (!slides.length) return;
+
+    let currentIndex = 0;
+    const totalSlides = slides.length;
+    const HERO_INTERVAL = 2000; // Exact 2-second automatic advance
+
+    // Build indicator dots dynamically
+    if (dotsContainer) {
+      dotsContainer.innerHTML = '';
+      for (let i = 0; i < totalSlides; i++) {
+        const dot = document.createElement('button');
+        dot.className = `hero-dot ${i === 0 ? 'active' : ''}`;
+        dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+        dot.addEventListener('click', () => {
+          stopHeroTimer();
+          goToSlide(i);
+          startHeroTimer();
+        });
+        dotsContainer.appendChild(dot);
+      }
+    }
+
+    // Preload all slide images into memory
+    slides.forEach(slide => {
+      const img = slide.querySelector('img');
+      if (img && img.src) {
+        const pre = new Image();
+        pre.src = img.src;
+      }
+    });
+
+    function goToSlide(index) {
+      slides[currentIndex].classList.remove('active');
+      const dots = dotsContainer ? dotsContainer.querySelectorAll('.hero-dot') : [];
+      if (dots[currentIndex]) dots[currentIndex].classList.remove('active');
+
+      currentIndex = (index + totalSlides) % totalSlides;
+
+      slides[currentIndex].classList.add('active');
+      if (dots[currentIndex]) dots[currentIndex].classList.add('active');
+    }
+
+    function nextSlide() {
+      goToSlide(currentIndex + 1);
+    }
+
+    function prevSlide() {
+      goToSlide(currentIndex - 1);
+    }
+
+    function startHeroTimer() {
+      if (heroTimer) clearInterval(heroTimer);
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      heroTimer = setInterval(nextSlide, HERO_INTERVAL);
+    }
+
+    function stopHeroTimer() {
+      if (heroTimer) {
+        clearInterval(heroTimer);
+        heroTimer = null;
+      }
+    }
+
+    // Button actions
+    if (btnNext) {
+      btnNext.addEventListener('click', () => {
+        stopHeroTimer();
+        nextSlide();
+        startHeroTimer();
+      });
+    }
+
+    if (btnPrev) {
+      btnPrev.addEventListener('click', () => {
+        stopHeroTimer();
+        prevSlide();
+        startHeroTimer();
+      });
+    }
+
+    // Pause on hover & focus
+    container.addEventListener('mouseenter', stopHeroTimer);
+    container.addEventListener('mouseleave', startHeroTimer);
+    container.addEventListener('focusin', stopHeroTimer);
+    container.addEventListener('focusout', startHeroTimer);
+
+    // Touch gesture swipe support
+    let touchStartX = 0;
+    container.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    container.addEventListener('touchend', (e) => {
+      const diff = e.changedTouches[0].screenX - touchStartX;
+      if (diff < -40) {
+        stopHeroTimer();
+        nextSlide();
+        startHeroTimer();
+      } else if (diff > 40) {
+        stopHeroTimer();
+        prevSlide();
+        startHeroTimer();
+      }
+    }, { passive: true });
+
+    // Start 2-second timer
+    startHeroTimer();
+  }
+
+  // ---------------- 3. MOVING PRODUCT PREVIEW TRACK (2s) ----------------
+  function initProductPreviewTrack() {
+    const track = el.previewTrack;
+    if (!track) return;
+
+    // Curated authentic products across categories
+    const previewIds = [
+      'office_1_1', 'office_1_2', 'visitor_1_1_1', 'soft_p7_1',
+      'soft_p1_1', 'office_6_2', 'office_2_1', 'visitor_1_1_2',
+      'visitor_6_1_1', 'soft_p3_1'
+    ];
+
+    const previewItems = previewIds
+      .map(id => state.allProducts.find(p => p.id === id))
+      .filter(Boolean);
+
+    if (previewItems.length === 0 && state.allProducts.length > 0) {
+      previewItems.push(...state.allProducts.slice(0, 10));
+    }
+
+    // Render cards into track
+    track.innerHTML = previewItems.map(p => {
+      const model = p._internal_model || '';
+      const code = p.code || `SHSE(${p.code_number || 1})`;
+      const price = p.price_display || `₹${(p.base_price || 0).toLocaleString('en-IN')}`;
+
+      return `
+        <div class="preview-card" onclick="window.location.href='product.html?id=${p.id}'" role="button" tabindex="0" aria-label="View ${code} ${model}">
+          <div class="preview-card-canvas">
+            <span class="preview-card-cat-badge">${p.category}</span>
+            <img src="${p.image}" alt="${code} - ${model}" loading="lazy" onerror="this.src='assets/placeholder.svg'">
+          </div>
+          <div class="preview-card-body">
+            <span class="preview-card-code">${code}</span>
+            <h4 class="preview-card-name">${model ? model : code}</h4>
+            <div class="preview-card-price-row">
+              <span class="preview-card-price">${price}</span>
+              <span class="preview-card-action">View Details →</span>
+            </div>
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    // Preload preview images
+    previewItems.forEach(p => {
+      const img = new Image();
+      img.src = p.image;
+    });
+
+    const PREVIEW_INTERVAL = 2000; // Exact 2-second automatic step
+
+    function advanceTrack() {
+      if (!track) return;
+      const firstCard = track.querySelector('.preview-card');
+      if (!firstCard) return;
+      const step = firstCard.offsetWidth + 20; // Card width + gap
+      const maxScroll = track.scrollWidth - track.clientWidth;
+
+      if (track.scrollLeft >= maxScroll - 15) {
+        track.scrollTo({ left: 0, behavior: 'smooth' });
+      } else {
+        track.scrollBy({ left: step, behavior: 'smooth' });
+      }
+    }
+
+    function startPreviewTimer() {
+      if (previewTimer) clearInterval(previewTimer);
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      previewTimer = setInterval(advanceTrack, PREVIEW_INTERVAL);
+    }
+
+    function stopPreviewTimer() {
+      if (previewTimer) {
+        clearInterval(previewTimer);
+        previewTimer = null;
+      }
+    }
+
+    // Manual navigation buttons
+    if (el.previewBtnNext) {
+      el.previewBtnNext.addEventListener('click', () => {
+        stopPreviewTimer();
+        advanceTrack();
+        startPreviewTimer();
+      });
+    }
+
+    if (el.previewBtnPrev) {
+      el.previewBtnPrev.addEventListener('click', () => {
+        stopPreviewTimer();
+        const firstCard = track.querySelector('.preview-card');
+        const step = firstCard ? (firstCard.offsetWidth + 20) : 280;
+        track.scrollBy({ left: -step, behavior: 'smooth' });
+        startPreviewTimer();
+      });
+    }
+
+    // Pause on hover & focus
+    track.addEventListener('mouseenter', stopPreviewTimer);
+    track.addEventListener('mouseleave', startPreviewTimer);
+    track.addEventListener('focusin', stopPreviewTimer);
+    track.addEventListener('focusout', startPreviewTimer);
+
+    // Start 2-second timer
+    startPreviewTimer();
+  }
+
+  // ---------------- 4. CATEGORY CARDS SHOWCASE ----------------
   function renderCategoryCards() {
     if (!el.categoryCardsContainer) return;
-    
-    // Representative category preview images
+
     const catImages = {
       'Office Chairs': 'assets/products/office_1_1.png',
       'Visitor Chairs': 'assets/products/visitor_1_1_1.png',
@@ -93,7 +329,7 @@
       const count = state.allProducts.filter(p => p.category === cat.id).length;
       const imgSrc = catImages[cat.id] || 'assets/placeholder.svg';
       const isActive = state.selectedCategory === cat.id;
-      
+
       return `
         <div class="category-card ${isActive ? 'active' : ''}" data-category="${cat.id}">
           <div class="category-icon-box">
@@ -116,13 +352,13 @@
     });
   }
 
-  // 3. Render Filter Pills in Toolbar
+  // ---------------- 5. FILTER PILLS IN TOOLBAR ----------------
   function renderFilterPills() {
     if (!el.filterPillsContainer) return;
 
     const pillsHtml = state.categories.map(cat => {
-      const count = cat.id === 'all' 
-        ? state.allProducts.length 
+      const count = cat.id === 'all'
+        ? state.allProducts.length
         : state.allProducts.filter(p => p.category === cat.id).length;
       const isActive = state.selectedCategory === cat.id;
 
@@ -143,145 +379,133 @@
     });
   }
 
-  // 4. Set Active Category & Update URL Hash
-  function setCategory(catId) {
-    state.selectedCategory = catId;
-    state.currentPage = 1;
-
-    const catObj = state.categories.find(c => c.id === catId);
-    if (catObj && catObj.hash) {
-      history.replaceState(null, '', `#${catObj.hash}`);
-    } else {
-      history.replaceState(null, '', window.location.pathname);
-    }
-
-    updateActiveFilterUI();
-    applyFiltersAndSort();
-  }
-
-  function updateActiveFilterUI() {
-    if (el.filterPillsContainer) {
-      el.filterPillsContainer.querySelectorAll('.filter-pill').forEach(pill => {
-        const c = pill.getAttribute('data-category');
-        pill.classList.toggle('active', c === state.selectedCategory);
-      });
-    }
-
-    if (el.categoryCardsContainer) {
-      el.categoryCardsContainer.querySelectorAll('.category-card').forEach(card => {
-        const c = card.getAttribute('data-category');
-        card.classList.toggle('active', c === state.selectedCategory);
-      });
-    }
-  }
-
-  // 5. Apply Filtering, Searching & Sorting
+  // ---------------- 6. FILTERING & SORTING ENGINE ----------------
   function applyFiltersAndSort() {
     let result = [...state.allProducts];
 
-    // Filter by Category
+    // Category Filter
     if (state.selectedCategory !== 'all') {
       result = result.filter(p => p.category === state.selectedCategory);
     }
 
-    // Filter by Search Query (Searches Codes, Model Names, Categories, Features)
+    // Search Query Filter
     if (state.searchQuery.trim()) {
-      const q = state.searchQuery.toLowerCase().trim();
+      const query = state.searchQuery.toLowerCase().trim();
       result = result.filter(p => {
-        const codeMatch = p.code.toLowerCase().includes(q) || String(p.code_number) === q;
-        const displayNameMatch = p.display_name.toLowerCase().includes(q);
-        const modelMatch = p._internal_model && p._internal_model.toLowerCase().includes(q);
-        const catMatch = p.category.toLowerCase().includes(q);
-        const optMatch = p.options && p.options.some(o => o.variant.toLowerCase().includes(q));
-        const featMatch = p.features && p.features.some(f => f.toLowerCase().includes(q));
-        return codeMatch || displayNameMatch || modelMatch || catMatch || optMatch || featMatch;
+        const code = (p.code || '').toLowerCase();
+        const model = (p._internal_model || '').toLowerCase();
+        const cat = (p.category || '').toLowerCase();
+        const num = String(p.code_number || '');
+        const keywords = (p.search_keywords || '').toLowerCase();
+
+        return code.includes(query) ||
+               model.includes(query) ||
+               cat.includes(query) ||
+               num.includes(query) ||
+               keywords.includes(query);
       });
     }
 
-    // Sort Results
+    // Sorting
     if (state.sortBy === 'price-low') {
-      result.sort((a, b) => (a.base_price || 999999) - (b.base_price || 999999));
+      result.sort((a, b) => (a.base_price || 0) - (b.base_price || 0));
     } else if (state.sortBy === 'price-high') {
       result.sort((a, b) => (b.base_price || 0) - (a.base_price || 0));
     } else if (state.sortBy === 'code-asc') {
-      result.sort((a, b) => a.code_number - b.code_number);
-    } else if (state.sortBy === 'name-asc') {
-      result.sort((a, b) => (a._internal_model || a.display_name).localeCompare(b._internal_model || b.display_name));
+      result.sort((a, b) => (a.code_number || 0) - (b.code_number || 0));
     }
 
     state.filteredProducts = result;
+    state.currentPage = 1;
+
+    updateFilterUI();
     renderProducts();
-    updateToolbarStatus();
   }
 
-  // 6. Render Product Cards Grid (Displaying SHSE Codes & Confirmed Model Names)
+  // ---------------- 7. UPDATE FILTER UI ----------------
+  function updateFilterUI() {
+    if (el.filterCount) {
+      el.filterCount.textContent = `${state.filteredProducts.length} chairs found`;
+    }
+
+    if (el.activeFilterName) {
+      const activeCat = state.categories.find(c => c.id === state.selectedCategory);
+      el.activeFilterName.textContent = activeCat ? activeCat.name : 'All Chairs';
+    }
+
+    if (el.btnResetFilter) {
+      const isFiltered = state.selectedCategory !== 'all' || state.searchQuery.trim() !== '';
+      el.btnResetFilter.style.display = isFiltered ? 'inline-block' : 'none';
+    }
+
+    // Update Category Cards active state
+    if (el.categoryCardsContainer) {
+      el.categoryCardsContainer.querySelectorAll('.category-card').forEach(card => {
+        const catId = card.getAttribute('data-category');
+        card.classList.toggle('active', catId === state.selectedCategory);
+      });
+    }
+
+    // Update Filter Pills active state
+    if (el.filterPillsContainer) {
+      el.filterPillsContainer.querySelectorAll('.filter-pill').forEach(pill => {
+        const catId = pill.getAttribute('data-category');
+        pill.classList.toggle('active', catId === state.selectedCategory);
+      });
+    }
+  }
+
+  // ---------------- 8. RENDER PRODUCTS GRID ----------------
   function renderProducts() {
     if (!el.productsGrid) return;
 
     if (state.filteredProducts.length === 0) {
-      el.productsGrid.style.display = 'none';
+      el.productsGrid.innerHTML = '';
       if (el.emptyState) el.emptyState.style.display = 'block';
       if (el.loadMoreContainer) el.loadMoreContainer.style.display = 'none';
       return;
     }
 
-    el.productsGrid.style.display = 'grid';
     if (el.emptyState) el.emptyState.style.display = 'none';
 
-    // Pagination slice
-    const totalToShow = state.currentPage * state.pageSize;
-    const paginatedItems = state.filteredProducts.slice(0, totalToShow);
+    const visibleCount = state.currentPage * state.pageSize;
+    const pagedItems = state.filteredProducts.slice(0, visibleCount);
 
-    const cardsHtml = paginatedItems.map(p => {
-      let variantsHtml = '';
-      if (p.options && p.options.length > 1) {
-        variantsHtml = p.options.slice(0, 3).map(o => `
-          <span class="variant-tag">${escapeHtml(o.variant)}</span>
-        `).join('');
-        if (p.options.length > 3) {
-          variantsHtml += `<span class="variant-tag">+${p.options.length - 3} more</span>`;
-        }
-      } else if (p.features && p.features.length) {
-        variantsHtml = p.features.slice(0, 2).map(f => `
-          <span class="variant-tag">${escapeHtml(f)}</span>
-        `).join('');
-      }
+    const cardsHtml = pagedItems.map(p => {
+      const confirmedModel = p._internal_model || '';
+      const displayCode = p.code || `SHSE(${p.code_number || 1})`;
+      const priceDisplay = p.price_display || `₹${(p.base_price || 0).toLocaleString('en-IN')}`;
 
-      const hasDiagram = !!p.diagram;
-      const modelName = p._internal_model || '';
-      const displayCode = p.code || `SHSE(${p.code_number})`;
-      const waMsg = encodeURIComponent(`Hello Sri Hanum Sastha Enterprises, I am interested in chair ${displayCode} (Model: ${modelName}) from the ${p.category} category. Please share more details.`);
+      // WhatsApp URL: strictly 8695706013 with prefilled message
+      const waMessage = encodeURIComponent(
+        `Hello Sri Hanum Sastha Enterprises, I am interested in chair ${displayCode} (Model: ${confirmedModel}) from the ${p.category} category. Please share more details.`
+      );
+      const waUrl = `https://wa.me/918695706013?text=${waMessage}`;
 
       return `
         <article class="product-card" data-id="${p.id}">
-          <div class="product-image-canvas" onclick="window.location.href='product.html?id=${p.id}'" style="cursor: pointer;" title="View Details for ${escapeHtml(displayCode)}">
-            <span class="product-category-badge">${escapeHtml(p.category)}</span>
-            ${hasDiagram ? `<span class="diagram-indicator" title="Technical schematic available">📐 Specs</span>` : ''}
-            <img src="${p.image}" alt="${escapeHtml(displayCode)} - ${escapeHtml(modelName)}" onerror="this.src='assets/placeholder.svg'" loading="lazy">
+          <div class="product-image-canvas" onclick="window.location.href='product.html?id=${p.id}'" role="button" tabindex="0" aria-label="View details for ${displayCode}">
+            <span class="product-category-badge">${p.category}</span>
+            <img src="${p.image}" alt="${displayCode} - ${confirmedModel}" loading="lazy" onerror="this.src='assets/placeholder.svg'">
           </div>
           
           <div class="product-content">
             <div class="product-code-row">
-              <span class="product-code-badge">${escapeHtml(displayCode)}</span>
+              <span class="product-code-badge">${displayCode}</span>
             </div>
-            <h3 class="product-name" title="${escapeHtml(p.display_name)}">
-              ${escapeHtml(modelName ? modelName : displayCode)}
-            </h3>
+            
+            <h3 class="product-name">${confirmedModel ? confirmedModel : displayCode}</h3>
             
             <div class="product-price-row">
               <span class="product-price-label">Catalogue Rate</span>
-              <span class="product-price-val">${p.price_display}</span>
-            </div>
-
-            <div class="product-variants-tags">
-              ${variantsHtml}
+              <span class="product-price-val">${priceDisplay}</span>
             </div>
 
             <div class="product-actions">
               <a href="product.html?id=${p.id}" class="btn btn-outline btn-sm">
-                View Details
+                View Details →
               </a>
-              <a href="https://wa.me/918695706013?text=${waMsg}" target="_blank" rel="noopener" class="btn btn-primary btn-sm" title="Enquire on WhatsApp">
+              <a href="${waUrl}" target="_blank" rel="noopener" class="btn btn-primary btn-sm" aria-label="Enquire about ${displayCode} on WhatsApp">
                 💬 WhatsApp
               </a>
             </div>
@@ -292,159 +516,34 @@
 
     el.productsGrid.innerHTML = cardsHtml;
 
+    // Load More Pagination
     if (el.loadMoreContainer) {
-      if (totalToShow < state.filteredProducts.length) {
+      if (visibleCount < state.filteredProducts.length) {
         el.loadMoreContainer.style.display = 'flex';
-        el.paginationInfo.textContent = `Showing ${paginatedItems.length} of ${state.filteredProducts.length} models`;
+        if (el.paginationInfo) {
+          el.paginationInfo.textContent = `Showing ${pagedItems.length} of ${state.filteredProducts.length} models`;
+        }
       } else {
         el.loadMoreContainer.style.display = 'none';
       }
     }
   }
 
-  // 7. Update Filter Status Bar
-  function updateToolbarStatus() {
-    if (el.filterCount) {
-      el.filterCount.textContent = `${state.filteredProducts.length} chairs found`;
-    }
-    if (el.activeFilterName) {
-      const activeObj = state.categories.find(c => c.id === state.selectedCategory);
-      el.activeFilterName.textContent = activeObj ? activeObj.name : 'Catalogue';
-    }
-    if (el.btnResetFilter) {
-      const isFiltered = state.selectedCategory !== 'all' || state.searchQuery.trim() !== '';
-      el.btnResetFilter.style.display = isFiltered ? 'inline-flex' : 'none';
-    }
-  }
-
-  // 8. Open Product Modal (ONLY Displays SHSE Code & Specifications)
-  function openModal(productId) {
-    const prod = state.allProducts.find(p => p.id === productId);
-    if (!prod || !el.productModal) return;
-
-    let optionsRows = '';
-    if (prod.options && prod.options.length) {
-      optionsRows = prod.options.map(o => `
-        <tr>
-          <td><strong>${escapeHtml(o.variant)}</strong></td>
-          <td style="text-align: right; font-weight: 700; color: var(--primary);">₹${o.price.toLocaleString('en-IN')}</td>
-        </tr>
-      `).join('');
-    }
-
-    let specsRows = '';
-    if (prod.specs && Object.keys(prod.specs).length) {
-      specsRows = Object.entries(prod.specs).map(([key, val]) => `
-        <div class="spec-item">
-          <strong>${escapeHtml(key)}:</strong> <span>${escapeHtml(val)}</span>
-        </div>
-      `).join('');
-    }
-
-    let diagramHtml = '';
-    if (prod.diagram) {
-      diagramHtml = `
-        <div class="modal-diagram-box">
-          <h4>Technical Schematic & Dimensions</h4>
-          <img src="${prod.diagram}" alt="${escapeHtml(prod.display_name)} Dimensions" onerror="this.style.display='none'">
-        </div>
-      `;
-    }
-
-    const modalBodyHtml = `
-      <div class="modal-gallery">
-        <div class="modal-main-img">
-          <img src="${prod.image}" alt="${escapeHtml(prod.display_name)}" onerror="this.src='assets/placeholder.svg'">
-        </div>
-        ${diagramHtml}
-      </div>
-
-      <div class="modal-details">
-        <span class="modal-category">${escapeHtml(prod.category)}</span>
-        <h2 class="modal-title">${escapeHtml(prod.display_name)}</h2>
-
-        <div class="modal-price-box">
-          <div>
-            <span style="font-size: 0.8rem; text-transform: uppercase; color: var(--accent-text); font-weight: 700;">Starting Listed Price</span>
-            <div class="price-num">${prod.price_display}</div>
-          </div>
-          <span style="font-size: 0.8rem; color: var(--accent-text); text-align: right; max-width: 150px; line-height: 1.3;">Confirm current rate via direct call</span>
-        </div>
-
-        ${optionsRows ? `
-          <h4 style="font-size: 0.875rem; text-transform: uppercase; color: var(--primary); margin-bottom: 0.5rem; letter-spacing: 0.5px;">Configurations & Variants</h4>
-          <table class="modal-options-table">
-            <thead>
-              <tr>
-                <th>Configuration / Specification</th>
-                <th style="text-align: right;">Listed Price</th>
-              </tr>
-            </thead>
-            <tbody>
-              ${optionsRows}
-            </tbody>
-          </table>
-        ` : ''}
-
-        ${specsRows ? `
-          <h4 style="font-size: 0.875rem; text-transform: uppercase; color: var(--primary); margin-bottom: 0.5rem; letter-spacing: 0.5px;">Technical Specifications</h4>
-          <div class="modal-specs-list">
-            <div class="spec-item">
-              <strong>Product Code:</strong> <span>${escapeHtml(prod.code)}</span>
-            </div>
-            ${specsRows}
-          </div>
-        ` : ''}
-
-        <div class="modal-cta-box">
-          <div style="margin-bottom: 0.85rem;">
-            <a href="product.html?id=${prod.id}" class="btn btn-outline btn-block" style="font-weight: 700;">
-              View Full Product Page & Specifications →
-            </a>
-          </div>
-          <div style="margin-bottom: 0.75rem;">
-            <a href="https://wa.me/918695706013?text=${encodeURIComponent(`Hello Sri Hanum Sastha Enterprises, I am interested in chair ${prod.code || prod.display_name} (Model: ${prod._internal_model || ''}) from the ${prod.category} category. Please share more details.`)}" target="_blank" rel="noopener" class="btn btn-primary btn-block">
-              💬 Enquire on WhatsApp (8695706013)
-            </a>
-          </div>
-          <div class="modal-phone-btns">
-            <a href="tel:+919688727284" class="btn btn-secondary" style="flex: 1;">
-              📞 Call: 9688727284
-            </a>
-            <a href="tel:+918695706013" class="btn btn-secondary" style="flex: 1;">
-              📞 Call: 8695706013
-            </a>
-          </div>
-          <p class="modal-cta-note" style="margin-top: 0.75rem;">
-            Mention code <strong>"${escapeHtml(prod.code || prod.display_name)}"</strong> when contacting our Coimbatore showroom.
-          </p>
-        </div>
-      </div>
-    `;
-
-    const bodyContainer = el.productModal.querySelector('.modal-body');
-    if (bodyContainer) bodyContainer.innerHTML = modalBodyHtml;
-
-    el.productModal.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeModal() {
-    if (!el.productModal) return;
-    el.productModal.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  // 9. Setup Event Listeners
+  // ---------------- 9. EVENT LISTENERS ----------------
   function setupEventListeners() {
+    // Search input with debounce
+    let debounceTimer;
     if (el.searchBar) {
       el.searchBar.addEventListener('input', (e) => {
-        state.searchQuery = e.target.value;
-        state.currentPage = 1;
-        applyFiltersAndSort();
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(() => {
+          state.searchQuery = e.target.value;
+          applyFiltersAndSort();
+        }, 200);
       });
     }
 
+    // Sort select
     if (el.sortSelect) {
       el.sortSelect.addEventListener('change', (e) => {
         state.sortBy = e.target.value;
@@ -452,18 +551,20 @@
       });
     }
 
+    // Reset filter button
     if (el.btnResetFilter) {
       el.btnResetFilter.addEventListener('click', () => {
         state.selectedCategory = 'all';
         state.searchQuery = '';
         if (el.searchBar) el.searchBar.value = '';
-        state.currentPage = 1;
-        history.replaceState(null, '', window.location.pathname);
-        updateActiveFilterUI();
+        if (el.sortSelect) el.sortSelect.value = 'default';
+        state.sortBy = 'default';
+        history.replaceState(null, null, ' ');
         applyFiltersAndSort();
       });
     }
 
+    // Load more button
     if (el.btnLoadMore) {
       el.btnLoadMore.addEventListener('click', () => {
         state.currentPage++;
@@ -471,105 +572,99 @@
       });
     }
 
-    if (el.modalCloseBtn) {
-      el.modalCloseBtn.addEventListener('click', closeModal);
-    }
-    if (el.productModal) {
-      el.productModal.addEventListener('click', (e) => {
-        if (e.target === el.productModal) closeModal();
-      });
-    }
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeModal();
-    });
-
-    if (el.mobileToggle && el.mobileDrawer) {
-      el.mobileToggle.addEventListener('click', () => {
-        el.mobileDrawer.classList.add('open');
-        if (el.drawerBackdrop) el.drawerBackdrop.classList.add('open');
-      });
-    }
-    if (el.drawerCloseBtn) {
-      el.drawerCloseBtn.addEventListener('click', closeDrawer);
-    }
-    if (el.drawerBackdrop) {
-      el.drawerBackdrop.addEventListener('click', closeDrawer);
-    }
-
-    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+    // Category navigation links
+    document.querySelectorAll('[data-category]').forEach(link => {
       link.addEventListener('click', (e) => {
         const cat = link.getAttribute('data-category');
         if (cat) {
           e.preventDefault();
           setCategory(cat);
-          closeDrawer();
           scrollToCatalogue();
         }
       });
     });
 
-    document.querySelectorAll('.nav-link[data-category]').forEach(link => {
-      link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const cat = link.getAttribute('data-category');
-        setCategory(cat);
-        scrollToCatalogue();
-      });
-    });
-
+    // Hash change event
     window.addEventListener('hashchange', handleInitialHash);
   }
 
-  function closeDrawer() {
-    if (el.mobileDrawer) el.mobileDrawer.classList.remove('open');
-    if (el.drawerBackdrop) el.drawerBackdrop.classList.remove('open');
-  }
+  // ---------------- 10. MOBILE OFF-CANVAS DRAWER ----------------
+  function setupMobileDrawer() {
+    if (!el.mobileToggle || !el.mobileDrawer) return;
 
-  function scrollToCatalogue() {
-    const sec = document.getElementById('catalogue');
-    if (sec) {
-      const topOffset = sec.getBoundingClientRect().top + window.pageYOffset - 90;
-      window.scrollTo({ top: topOffset, behavior: 'smooth' });
+    function openDrawer() {
+      el.mobileDrawer.classList.add('open');
+      if (el.drawerBackdrop) el.drawerBackdrop.classList.add('open');
+      el.mobileToggle.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
     }
+
+    function closeDrawer() {
+      el.mobileDrawer.classList.remove('open');
+      if (el.drawerBackdrop) el.drawerBackdrop.classList.remove('open');
+      el.mobileToggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    el.mobileToggle.addEventListener('click', openDrawer);
+    if (el.drawerCloseBtn) el.drawerCloseBtn.addEventListener('click', closeDrawer);
+    if (el.drawerBackdrop) el.drawerBackdrop.addEventListener('click', closeDrawer);
+
+    // Close on escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && el.mobileDrawer.classList.contains('open')) {
+        closeDrawer();
+      }
+    });
+
+    // Close on mobile link clicks
+    el.mobileDrawer.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', closeDrawer);
+    });
   }
 
+  // ---------------- 11. HASH ROUTING ----------------
   function handleInitialHash() {
     const hash = window.location.hash.replace('#', '');
     if (!hash) return;
 
-    if (hash.startsWith('product-')) {
-      const prodId = hash.replace('product-', '');
-      setTimeout(() => openModal(prodId), 150);
-      return;
-    }
-
     const matchedCat = state.categories.find(c => c.hash === hash);
     if (matchedCat) {
       state.selectedCategory = matchedCat.id;
-      updateActiveFilterUI();
       applyFiltersAndSort();
     }
   }
 
-  function escapeHtml(str) {
-    if (!str) return '';
-    return String(str)
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;');
+  function setCategory(catId) {
+    state.selectedCategory = catId;
+    const catObj = state.categories.find(c => c.id === catId);
+    if (catObj && catObj.hash) {
+      history.replaceState(null, null, `#${catObj.hash}`);
+    } else {
+      history.replaceState(null, null, ' ');
+    }
+    applyFiltersAndSort();
   }
 
+  function scrollToCatalogue() {
+    const target = document.getElementById('catalogue') || el.productsGrid;
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  // Expose API globally
   window.catalogApp = {
-    openModal,
-    closeModal,
-    setCategory
+    setCategory,
+    applyFiltersAndSort,
+    state
   };
 
+  // Launch when DOM is ready
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {
     init();
   }
+
 })();

@@ -31,11 +31,11 @@
     </div>
   </aside>
 
-  <!-- Sticky Luxury Main Header -->
+  <!-- Balanced White Sticky Main Header -->
   <header class="site-header">
     <div class="container nav-container">
       <a href="index.html" class="brand-logo" aria-label="Sri Hanum Sastha Enterprises Home">
-        <img src="assets/logo-white.svg" alt="Sri Hanum Sastha Enterprises Logo">
+        <img src="assets/logo.svg" alt="Sri Hanum Sastha Enterprises Logo">
       </a>
 
       <nav class="desktop-nav" aria-label="Main Navigation">
@@ -51,14 +51,14 @@
       </nav>
 
       <div class="header-actions">
-        <a href="https://wa.me/918695706013" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
+        <a href="https://wa.me/918695706013" target="_blank" rel="noopener" class="btn btn-primary btn-sm" aria-label="Enquire on WhatsApp">
           💬 WhatsApp
         </a>
-        <a href="tel:+919688727284" class="btn btn-outline-white btn-sm">
+        <a href="tel:+919688727284" class="btn btn-outline btn-sm" aria-label="Call 9688727284">
           📞 Call 9688727284
         </a>
-        <button class="mobile-toggle" id="mobileToggle" aria-label="Open Mobile Menu">
-          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Open Mobile Menu" aria-expanded="false" aria-controls="mobileDrawer">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <line x1="3" y1="12" x2="21" y2="12"></line>
             <line x1="3" y1="6" x2="21" y2="6"></line>
             <line x1="3" y1="18" x2="21" y2="18"></line>
@@ -72,7 +72,7 @@
   <div class="drawer-backdrop" id="drawerBackdrop"></div>
   <aside class="mobile-drawer" id="mobileDrawer" aria-label="Mobile Navigation">
     <div class="mobile-drawer-header">
-      <img src="assets/logo-white.svg" alt="Sri Hanum Sastha Enterprises Logo" style="height: 38px;">
+      <img src="assets/logo.svg" alt="Sri Hanum Sastha Enterprises Logo" style="height: 38px;">
       <button class="mobile-drawer-close" id="drawerCloseBtn" aria-label="Close Mobile Menu">&times;</button>
     </div>
     <ul class="mobile-nav-links">
@@ -86,13 +86,13 @@
     </ul>
 
     <div style="margin-top: auto; padding-top: 2rem; display: flex; flex-direction: column; gap: 0.75rem;">
-      <div style="font-size: 0.8125rem; font-weight: 700; color: #94a3b8; text-transform: uppercase;">
+      <div style="font-size: 0.8125rem; font-weight: 700; color: #555555; text-transform: uppercase;">
         Showroom & Contact:
       </div>
-      <div style="font-size: 0.8125rem; color: #cbd5e1; line-height: 1.4;">
+      <div style="font-size: 0.8125rem; color: #333333; line-height: 1.4;">
         173, First Floor, KK Lane Street,<br>
         Avinashi Road, Coimbatore – 641018<br>
-        <a href="mailto:srihanumsastha@gmail.com" style="color: var(--crimson-red); text-decoration: underline;">
+        <a href="mailto:srihanumsastha@gmail.com" style="color: var(--forest-green); text-decoration: underline; font-weight: 600;">
           srihanumsastha@gmail.com
         </a>
       </div>
@@ -118,60 +118,59 @@
         <span class="sep">/</span>
         <a href="category.html?cat=office" id="crumbCatLink">Office Chairs</a>
         <span class="sep">/</span>
-        <span class="current" id="crumbCurrent">Loading Product...</span>
+        <span class="current" id="crumbCurrent">Loading Model...</span>
       </nav>
 
-      <!-- Two-Column Product Detail Layout -->
-      <div class="product-detail-layout" id="productLayout">
+      <!-- Two-Column Editorial Product Layout -->
+      <div class="product-detail-grid">
         
         <!-- Left: Image Stage & Gallery -->
         <div class="detail-gallery">
-          <div class="detail-image-stage">
-            <span class="detail-badge-tag" id="badgeTag">SHSE(2)</span>
-            <img src="assets/placeholder.svg" alt="Chair photograph" id="mainImage">
+          <div class="detail-main-canvas">
+            <span class="detail-badge-tag" id="badgeTag">SHSE Code</span>
+            <img id="mainImage" src="assets/placeholder.svg" alt="Product Photograph" onerror="this.src='assets/placeholder.svg'">
           </div>
-          <div class="detail-thumbs-strip" id="thumbsStrip"></div>
+
+          <!-- Thumbnails Strip (Shows only when schematic diagram or extra view exists) -->
+          <div class="detail-thumbs-strip" id="thumbsStrip" style="display: none;"></div>
         </div>
 
-        <!-- Right: Specifications & Direct Actions -->
-        <div class="detail-info">
-          <div>
-            <div class="detail-category-label" id="productCategory">Office Chairs</div>
-            <h1 class="detail-title" id="productTitle">SHSE(2) — 4G Task Chair</h1>
-            <div class="detail-model-subtitle">
-              <span>Model Reference:</span>
-              <span class="detail-model-pill" id="productModelName">4G</span>
-              <span style="color: var(--neutral-300);">•</span>
-              <span id="productCodePill" style="font-weight: 700; color: var(--crimson-red);">Code: SHSE(2)</span>
+        <!-- Right: Specifications & Action Details -->
+        <div class="detail-info-block">
+          
+          <div class="detail-header-meta">
+            <a href="category.html?cat=office" class="detail-cat-link" id="productCategory">Office Chairs</a>
+            <h1 class="detail-title" id="productTitle">Chair Model</h1>
+            <div class="detail-code-pills">
+              <span class="detail-code-badge" id="productCodePill">Code: SHSE(1)</span>
+              <span class="detail-code-badge">Model: <strong id="productModelName">ATLAS</strong></span>
+              <span class="detail-code-badge" style="color: var(--forest-green); font-weight: 700;">✓ Genuine PDF Photo</span>
             </div>
           </div>
 
-          <!-- Price Box -->
+          <!-- Price Display -->
           <div class="detail-price-box">
-            <div class="detail-price-val" id="productPrice">₹5,000</div>
-            <div class="detail-price-sub" id="productPriceSub">Official catalogue listed rate</div>
+            <div class="detail-price-val" id="productPrice">₹0,000</div>
+            <div class="detail-price-sub" id="productPriceSub">
+              Starting catalogue listed rate across verified configurations
+            </div>
           </div>
 
-          <!-- Pricing Notice -->
-          <div class="detail-notice-box">
-            📢 <strong>Price & Stock Note:</strong> Prices may change based on base/handle options and volume. Please contact us to confirm current showroom rates and availability.
-          </div>
-
-          <!-- Options & Variants Table (if available) -->
+          <!-- Options Table (Configurations & Rates) -->
           <div id="optionsContainer">
-            <h3 class="detail-section-title">Configuration & Base Options</h3>
-            <table class="options-table" id="optionsTable">
+            <h3 class="detail-section-title">Verified Base & Handle Configurations</h3>
+            <table class="detail-options-table" id="optionsTable">
               <thead>
                 <tr>
-                  <th>Variant / Handle Option</th>
-                  <th style="text-align: right;">Listed Price</th>
+                  <th>Configuration Variant</th>
+                  <th style="text-align: right;">Listed Rate</th>
                 </tr>
               </thead>
               <tbody id="optionsTbody"></tbody>
             </table>
           </div>
 
-          <!-- Technical Specifications -->
+          <!-- Technical Specifications Grid -->
           <div id="specsContainer">
             <h3 class="detail-section-title">Technical Specifications</h3>
             <div class="detail-specs-grid" id="specsGrid"></div>
@@ -179,27 +178,34 @@
 
           <!-- Key Features -->
           <div id="featuresContainer">
-            <h3 class="detail-section-title">Key Highlights</h3>
-            <ul id="featuresList" style="padding-left: 1.25rem; color: var(--neutral-500); line-height: 1.7; font-size: 0.925rem;"></ul>
+            <h3 class="detail-section-title">Highlights & Construction</h3>
+            <ul id="featuresList" style="padding-left: 1.25rem; color: var(--text-secondary); line-height: 1.6; font-size: 0.925rem;"></ul>
           </div>
 
-          <!-- Direct Enquiries Action Block (Featherlite Luxury Inspiration) -->
-          <div class="detail-cta-block">
-            <h3>💬 Direct Showroom Enquiry</h3>
-            <p class="detail-cta-desc">
-              Contact us directly via WhatsApp or direct phone call. Product code and model details will be automatically prefilled:
-            </p>
-            <div>
-              <a href="#" id="waPrimaryBtn" target="_blank" rel="noopener" class="btn btn-primary btn-lg btn-block">
-                💬 Enquire on WhatsApp (8695706013)
-              </a>
+          <!-- Price & Availability Notice -->
+          <div class="notice-banner" style="border-radius: var(--radius-sm); text-align: left; padding: 0.85rem 1rem;">
+            <div class="notice-content" style="justify-content: flex-start;">
+              <span class="notice-icon">📢</span>
+              <span><strong>Notice:</strong> Prices may change. Please contact us to confirm current prices and stock availability.</span>
             </div>
+          </div>
+
+          <!-- Action Box: Forest Green WhatsApp & Matched Call Buttons -->
+          <div class="detail-cta-card">
+            <div class="detail-cta-title">Direct Showroom Enquiry</div>
+            <p class="detail-cta-desc">
+              Connect directly with Sri Hanum Sastha Enterprises in Coimbatore for instant pricing confirmation, bulk institutional orders, and showroom availability.
+            </p>
+
+            <a id="waPrimaryBtn" href="https://wa.me/918695706013" target="_blank" rel="noopener" class="btn btn-primary btn-lg btn-block" style="font-size: 1.05rem;">
+              💬 Enquire on WhatsApp (8695706013)
+            </a>
 
             <div class="detail-call-row">
-              <a href="tel:+919688727284" class="btn btn-secondary btn-lg">
+              <a href="tel:+919688727284" class="btn btn-secondary btn-lg" style="justify-content: center;">
                 📞 Call 9688727284
               </a>
-              <a href="tel:+918695706013" class="btn btn-secondary btn-lg">
+              <a href="tel:+918695706013" class="btn btn-secondary btn-lg" style="justify-content: center;">
                 📞 Call 8695706013
               </a>
             </div>
@@ -219,7 +225,7 @@
       <section class="related-section" id="relatedSection">
         <div class="related-title">
           <span>More in this Collection</span>
-          <a href="index.html#catalogue" id="viewAllCatLink" style="font-size: 0.9rem; color: var(--crimson-red); font-weight: 700; text-decoration: none;">
+          <a href="index.html#catalogue" id="viewAllCatLink" style="font-size: 0.9rem; color: var(--forest-green); font-weight: 700; text-decoration: none;">
             View Full Catalogue →
           </a>
         </div>
@@ -351,14 +357,25 @@
     function openDrawer() {
       mobileDrawer.classList.add('open');
       drawerBackdrop.classList.add('open');
+      mobileToggle.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
     }
     function closeDrawer() {
       mobileDrawer.classList.remove('open');
       drawerBackdrop.classList.remove('open');
+      mobileToggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
     }
     if (mobileToggle) mobileToggle.addEventListener('click', openDrawer);
     if (drawerCloseBtn) drawerCloseBtn.addEventListener('click', closeDrawer);
     if (drawerBackdrop) drawerBackdrop.addEventListener('click', closeDrawer);
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileDrawer && mobileDrawer.classList.contains('open')) {
+        closeDrawer();
+      }
+    });
 
     // Product Loading Logic
     async function loadProduct() {
@@ -370,7 +387,7 @@
         if (!res.ok) throw new Error('Failed to load catalogue');
         const catalog = await res.json();
 
-        // Match by id or by code
+        // Match by id, by code, or by code_number
         const prod = catalog.find(p => p.id === productId || p.code === productId || p.code_number == productId) || catalog[0];
 
         if (!prod) {
@@ -472,7 +489,6 @@
         }
 
         // Dynamic WhatsApp Prefilled Message (exclusively 8695706013)
-        // Message format: Hello Sri Hanum Sastha Enterprises, I am interested in chair SHSE(2) (Model: 4G) from the Office Chairs category. Please share more details.
         const waText = encodeURIComponent(`Hello Sri Hanum Sastha Enterprises, I am interested in chair ${displayCode} (Model: ${modelName}) from the ${catName} category. Please share more details.`);
         document.getElementById('waPrimaryBtn').href = `https://wa.me/918695706013?text=${waText}`;
 
@@ -488,11 +504,12 @@
           relatedGrid.innerHTML = related.map(rel => {
             const relModel = rel._internal_model || '';
             const relCode = rel.code || `SHSE(${rel.code_number || 1})`;
+            const relWa = encodeURIComponent(`Hello Sri Hanum Sastha Enterprises, I am interested in chair ${relCode} (Model: ${relModel}) from the ${rel.category} category. Please share more details.`);
             return `
               <div class="product-card" onclick="window.location.href='product.html?id=${rel.id}'" style="cursor: pointer;">
                 <div class="product-image-canvas">
                   <span class="product-category-badge">${rel.category}</span>
-                  <img src="${rel.image}" alt="${relCode}" loading="lazy" onerror="this.src='assets/placeholder.svg'">
+                  <img src="${rel.image}" alt="${relCode} - ${relModel}" loading="lazy" onerror="this.src='assets/placeholder.svg'">
                 </div>
                 <div class="product-content">
                   <div class="product-code-row">
@@ -504,8 +521,11 @@
                     <span class="product-price-val">${rel.price_display || '₹' + rel.base_price}</span>
                   </div>
                   <div class="product-actions">
-                    <a href="product.html?id=${rel.id}" class="btn btn-outline btn-sm btn-block">
-                      View Details →
+                    <a href="product.html?id=${rel.id}" class="btn btn-outline btn-sm">
+                      Details →
+                    </a>
+                    <a href="https://wa.me/918695706013?text=${relWa}" target="_blank" rel="noopener" class="btn btn-primary btn-sm" onclick="event.stopPropagation()">
+                      💬 WhatsApp
                     </a>
                   </div>
                 </div>
