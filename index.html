@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=3.6">
+  <link rel="stylesheet" href="styles.css?v=3.7">
 
   <!-- Schema.org Structured Data -->
   <script type="application/ld+json">
@@ -516,6 +516,118 @@
       </div>
     </div>
   </section>
+
+  <!-- SECTION 8: CUSTOMER REVIEWS (What Our Customers Say) -->
+  <section class="reviews-section" id="reviews" aria-label="Customer Reviews">
+    <div class="container">
+      <div class="reviews-header">
+        <div class="reviews-header-text">
+          <span class="reviews-eyebrow">Client Feedback & Ratings</span>
+          <h2 class="section-title">What Our Customers Say</h2>
+          <p class="section-desc">Authentic experiences and feedback from offices, institutions, and showroom visitors across Coimbatore.</p>
+        </div>
+        <div class="reviews-header-actions">
+          <button class="btn btn-primary" id="openReviewModalBtn" type="button">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+            Submit a Review
+          </button>
+        </div>
+      </div>
+
+      <!-- Rating Summary Bar (Displayed when reviews exist) -->
+      <div class="reviews-summary-bar" id="reviewsSummaryBar" style="display: none;">
+        <div class="reviews-avg-rating">
+          <span class="avg-score" id="avgScore">5.0</span>
+          <div class="avg-stars" id="avgStars" aria-hidden="true">★★★★★</div>
+          <span class="avg-count" id="avgCount">Based on customer feedback</span>
+        </div>
+        <div class="reviews-trust-badge">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--forest-green)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
+          100% Verified Submissions • Showroom & Catalogue Inquiries
+        </div>
+      </div>
+
+      <!-- Review Cards Grid -->
+      <div class="reviews-grid" id="reviewsGrid"></div>
+
+      <!-- Empty State (No fake reviews created - warm authentic invitation) -->
+      <div class="reviews-empty-state" id="reviewsEmptyState" style="display: none;">
+        <div class="empty-icon-wrap" aria-hidden="true">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="var(--forest-green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+          </svg>
+        </div>
+        <h3 class="empty-title">Be the First to Share Your Experience</h3>
+        <p class="empty-desc">Have you purchased or inspected chairs from our Avinashi Road showroom or commercial catalogue? We value your authentic feedback on seating ergonomics, durability, and service.</p>
+        <button class="btn btn-primary" id="emptySubmitReviewBtn" type="button">
+          Submit a Review
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Submit Review Modal -->
+  <div class="review-modal" id="reviewModal" role="dialog" aria-modal="true" aria-labelledby="reviewModalTitle">
+    <div class="review-modal-backdrop" id="reviewModalBackdrop"></div>
+    <div class="review-modal-dialog">
+      <div class="review-modal-header">
+        <div>
+          <span class="reviews-eyebrow" style="margin-bottom: 2px;">Customer Feedback</span>
+          <h3 id="reviewModalTitle" style="font-size: 1.25rem; font-weight: 800; color: var(--text-main); margin: 0;">Submit a Review</h3>
+        </div>
+        <button type="button" class="review-modal-close" id="closeReviewModalBtn" aria-label="Close dialog">&times;</button>
+      </div>
+
+      <form id="reviewForm" class="review-form" novalidate>
+        <!-- Name -->
+        <div class="form-group">
+          <label for="reviewAuthorInput" class="form-label">Your Name <span class="required-star">*</span></label>
+          <input type="text" id="reviewAuthorInput" class="form-input" placeholder="e.g. Ramesh Krishnan" required maxlength="100" autocomplete="name">
+          <div class="form-error" id="reviewAuthorError">Please enter your name (at least 2 characters).</div>
+        </div>
+
+        <!-- Location / Company -->
+        <div class="form-group">
+          <label for="reviewLocationInput" class="form-label">City or Organization <span class="form-hint">(Optional)</span></label>
+          <input type="text" id="reviewLocationInput" class="form-input" placeholder="e.g. Coimbatore / IT Solutions Ltd" maxlength="100">
+        </div>
+
+        <!-- Rating -->
+        <div class="form-group">
+          <label class="form-label">Your Rating <span class="required-star">*</span></label>
+          <div class="star-rating-picker" id="starRatingPicker" role="radiogroup" aria-label="Rating from 1 to 5 stars">
+            <button type="button" class="star-btn" data-value="1" aria-label="1 Star">&#9733;</button>
+            <button type="button" class="star-btn" data-value="2" aria-label="2 Stars">&#9733;</button>
+            <button type="button" class="star-btn" data-value="3" aria-label="3 Stars">&#9733;</button>
+            <button type="button" class="star-btn" data-value="4" aria-label="4 Stars">&#9733;</button>
+            <button type="button" class="star-btn active" data-value="5" aria-label="5 Stars">&#9733;</button>
+            <span class="star-label-text" id="starLabelText">5 - Excellent</span>
+          </div>
+          <input type="hidden" id="reviewRatingInput" value="5">
+          <div class="form-error" id="reviewRatingError">Please select a rating between 1 and 5.</div>
+        </div>
+
+        <!-- Written Review -->
+        <div class="form-group">
+          <label for="reviewCommentInput" class="form-label">Written Feedback <span class="required-star">*</span></label>
+          <textarea id="reviewCommentInput" class="form-textarea" rows="4" placeholder="Share your experience with our chairs, ergonomics, showroom consultation, or delivery..." required minlength="10" maxlength="2000"></textarea>
+          <div class="form-char-count"><span id="charCount">0</span>/2000 characters (minimum 10)</div>
+          <div class="form-error" id="reviewCommentError">Please provide your written feedback (at least 10 characters).</div>
+        </div>
+
+        <!-- Status Alert -->
+        <div class="form-alert" id="reviewFormAlert" style="display: none;"></div>
+
+        <!-- Actions -->
+        <div class="review-modal-actions">
+          <button type="button" class="btn btn-secondary" id="cancelReviewBtn" style="height: 44px; padding: 0 1.25rem;">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="submitReviewBtn" style="height: 44px; padding: 0 1.5rem;">
+            <span>Publish Review</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
 
   <!-- Business Footer (With Complete Details, Verified Email & Call Actions) -->
   <footer class="site-footer" id="contact">

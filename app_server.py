@@ -3,6 +3,7 @@ import json
 import secrets
 import urllib.request
 import urllib.parse
+from datetime import datetime, timezone
 from typing import Optional, List, Dict, Any
 from fastapi import FastAPI, HTTPException, Header, UploadFile, File, Form, Depends
 from fastapi.staticfiles import StaticFiles
@@ -50,6 +51,7 @@ app.add_middleware(
 site_dir = os.path.dirname(os.path.abspath(__file__))
 catalog_file = os.path.join(site_dir, "assets", "catalog.json")
 concepts_file = os.path.join(site_dir, "assets", "concepts.json")
+reviews_file = os.path.join(site_dir, "assets", "reviews.json")
 products_dir = os.path.join(site_dir, "assets", "products")
 active_tokens = set()
 
@@ -70,6 +72,20 @@ def save_local_catalog(data: List[Dict[str, Any]]) -> None:
     with open(catalog_file, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
 
+def load_local_reviews() -> List[Dict[str, Any]]:
+    if os.path.exists(reviews_file):
+        try:
+            with open(reviews_file, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except Exception as e:
+            print(f"[ERROR] Failed to load reviews: {e}")
+            return []
+    return []
+
+def save_local_reviews(data: List[Dict[str, Any]]) -> None:
+    with open(reviews_file, "w", encoding="utf-8") as f:
+        json.dump(data, f, indent=2, ensure_ascii=False)
+
 # Auth dependency
 def verify_admin_token(authorization: Optional[str] = Header(None)):
     if not authorization:
@@ -88,12 +104,73 @@ def health_check():
         "backend": "FastAPI",
         "supabase_connected": supabase_client is not None,
         "catalogue_items": len(load_local_catalog()),
-        "concepts_items": len(load_local_concepts())
+        "concepts_items": len(load_local_concepts()),
+        "reviews_items": len(load_local_reviews())
     }
 
 @app.get("/api/concepts")
 def get_concepts():
     return load_local_concepts()
+
+@app.get("/api/reviews")
+def get_reviews():
+    if supabase_client:
+        try:
+            res = supabase_client.table("customer_reviews").select("*").order("created_at", desc=True).execute()
+            if res.data:
+                return res.data
+        except Exception as e:
+            print(f"[WARN] Supabase reviews fetch failed: {e}. Falling back to local reviews.")
+    reviews = load_local_reviews()
+    return sorted(reviews, key=lambda r: r.get("created_at", ""), reverse=True)
+
+@app.post("/api/reviews")
+def create_review(payload: Dict[str, Any]):
+    name = (payload.get("name") or "").strip()
+    rating_raw = payload.get("rating")
+    comment = (payload.get("comment") or "").strip()
+    location = (payload.get("location") or "").strip()
+
+    if not name or len(name) < 2:
+        raise HTTPException(status_code=400, detail="Please enter your name (minimum 2 characters).")
+    if len(name) > 100:
+        raise HTTPException(status_code=400, detail="Name must be 100 characters or fewer.")
+
+    try:
+        rating = int(rating_raw)
+    except (ValueError, TypeError):
+        raise HTTPException(status_code=400, detail="Rating must be an integer between 1 and 5.")
+
+    if rating < 1 or rating > 5:
+        raise HTTPException(status_code=400, detail="Rating must be between 1 and 5.")
+
+    if not comment or len(comment) < 10:
+        raise HTTPException(status_code=400, detail="Please provide your written feedback (minimum 10 characters).")
+    if len(comment) > 2000:
+        raise HTTPException(status_code=400, detail="Written feedback must be 2000 characters or fewer.")
+
+    now = datetime.now(timezone.utc)
+    review = {
+        "id": f"rev_{int(now.timestamp())}_{secrets.token_hex(4)}",
+        "name": name,
+        "rating": rating,
+        "comment": comment,
+        "location": location if location else "Verified Customer",
+        "date": now.strftime("%d %b %Y"),
+        "created_at": now.isoformat()
+    }
+
+    if supabase_client:
+        try:
+            supabase_client.table("customer_reviews").insert(review).execute()
+        except Exception as e:
+            print(f"[WARN] Supabase review insert failed: {e}")
+
+    reviews = load_local_reviews()
+    reviews.append(review)
+    save_local_reviews(reviews)
+
+    return {"success": True, "review": review}
 
 @app.post("/api/chat")
 def catalogue_chat(payload: Dict[str, Any]):

@@ -119,6 +119,7 @@
       initRecentlyViewedSystem();
       initAIChatbot();
       initConceptsSection();
+      initReviewsSystem();
       handleInitialHash();
       applyFiltersAndSort();
     } catch (err) {
@@ -1000,7 +1001,390 @@
     }
   }
 
-  // ---------------- 13. MOBILE DRAWER & GENERAL LISTENERS ----------------
+  // ---------------- 13. CUSTOMER REVIEWS SYSTEM ----------------
+  function initReviewsSystem() {
+    const reviewsSection = document.getElementById('reviews');
+    if (!reviewsSection) return;
+
+    const openReviewModalBtn = document.getElementById('openReviewModalBtn');
+    const emptySubmitReviewBtn = document.getElementById('emptySubmitReviewBtn');
+    const closeReviewModalBtn = document.getElementById('closeReviewModalBtn');
+    const cancelReviewBtn = document.getElementById('cancelReviewBtn');
+    const reviewModal = document.getElementById('reviewModal');
+    const reviewModalBackdrop = document.getElementById('reviewModalBackdrop');
+    const reviewForm = document.getElementById('reviewForm');
+    const reviewAuthorInput = document.getElementById('reviewAuthorInput');
+    const reviewLocationInput = document.getElementById('reviewLocationInput');
+    const reviewRatingInput = document.getElementById('reviewRatingInput');
+    const reviewCommentInput = document.getElementById('reviewCommentInput');
+    const charCount = document.getElementById('charCount');
+    const reviewAuthorError = document.getElementById('reviewAuthorError');
+    const reviewRatingError = document.getElementById('reviewRatingError');
+    const reviewCommentError = document.getElementById('reviewCommentError');
+    const reviewFormAlert = document.getElementById('reviewFormAlert');
+    const submitReviewBtn = document.getElementById('submitReviewBtn');
+    const starBtns = document.querySelectorAll('#starRatingPicker .star-btn');
+    const starLabelText = document.getElementById('starLabelText');
+    const reviewsGrid = document.getElementById('reviewsGrid');
+    const reviewsEmptyState = document.getElementById('reviewsEmptyState');
+    const reviewsSummaryBar = document.getElementById('reviewsSummaryBar');
+    const avgScore = document.getElementById('avgScore');
+    const avgStars = document.getElementById('avgStars');
+    const avgCount = document.getElementById('avgCount');
+
+    const starRatingLabels = ['', '1 - Poor', '2 - Fair', '3 - Good', '4 - Very Good', '5 - Excellent'];
+    let selectedRating = 5;
+
+    // Helper: update stars visual state
+    function updateStarDisplay(val) {
+      starBtns.forEach(btn => {
+        const btnVal = parseInt(btn.getAttribute('data-value'), 10);
+        if (btnVal <= val) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+      if (starLabelText) {
+        starLabelText.textContent = starRatingLabels[val] || '';
+      }
+    }
+
+    // Star rating picker listeners
+    starBtns.forEach(btn => {
+      btn.addEventListener('mouseenter', () => {
+        const hoverVal = parseInt(btn.getAttribute('data-value'), 10);
+        starBtns.forEach(b => {
+          const bVal = parseInt(b.getAttribute('data-value'), 10);
+          if (bVal <= hoverVal) {
+            b.classList.add('hover');
+          } else {
+            b.classList.remove('hover');
+          }
+        });
+        if (starLabelText) starLabelText.textContent = starRatingLabels[hoverVal] || '';
+      });
+
+      btn.addEventListener('mouseleave', () => {
+        starBtns.forEach(b => b.classList.remove('hover'));
+        updateStarDisplay(selectedRating);
+      });
+
+      btn.addEventListener('click', () => {
+        selectedRating = parseInt(btn.getAttribute('data-value'), 10);
+        if (reviewRatingInput) reviewRatingInput.value = selectedRating;
+        updateStarDisplay(selectedRating);
+        if (reviewRatingError) reviewRatingError.classList.remove('show');
+      });
+    });
+
+    // Character counter
+    if (reviewCommentInput && charCount) {
+      reviewCommentInput.addEventListener('input', () => {
+        const len = reviewCommentInput.value.length;
+        charCount.textContent = len;
+        if (len >= 10 && reviewCommentError) {
+          reviewCommentError.classList.remove('show');
+          reviewCommentInput.classList.remove('invalid');
+        }
+      });
+    }
+
+    if (reviewAuthorInput && reviewAuthorError) {
+      reviewAuthorInput.addEventListener('input', () => {
+        if (reviewAuthorInput.value.trim().length >= 2) {
+          reviewAuthorError.classList.remove('show');
+          reviewAuthorInput.classList.remove('invalid');
+        }
+      });
+    }
+
+    // Modal controls
+    function openModal() {
+      if (!reviewModal) return;
+      reviewModal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      if (reviewFormAlert) reviewFormAlert.style.display = 'none';
+      if (reviewAuthorInput) {
+        setTimeout(() => reviewAuthorInput.focus(), 100);
+      }
+    }
+
+    function closeModal() {
+      if (!reviewModal) return;
+      reviewModal.classList.remove('open');
+      document.body.style.overflow = '';
+      clearErrors();
+    }
+
+    function clearErrors() {
+      if (reviewAuthorError) reviewAuthorError.classList.remove('show');
+      if (reviewRatingError) reviewRatingError.classList.remove('show');
+      if (reviewCommentError) reviewCommentError.classList.remove('show');
+      if (reviewAuthorInput) reviewAuthorInput.classList.remove('invalid');
+      if (reviewCommentInput) reviewCommentInput.classList.remove('invalid');
+      if (reviewFormAlert) reviewFormAlert.style.display = 'none';
+    }
+
+    if (openReviewModalBtn) openReviewModalBtn.addEventListener('click', openModal);
+    if (emptySubmitReviewBtn) emptySubmitReviewBtn.addEventListener('click', openModal);
+    if (closeReviewModalBtn) closeReviewModalBtn.addEventListener('click', closeModal);
+    if (cancelReviewBtn) cancelReviewBtn.addEventListener('click', closeModal);
+    if (reviewModalBackdrop) reviewModalBackdrop.addEventListener('click', closeModal);
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && reviewModal && reviewModal.classList.contains('open')) {
+        closeModal();
+      }
+    });
+
+    // Helper: generate avatar initials
+    function getInitials(name) {
+      if (!name) return 'SH';
+      const parts = name.trim().split(/\s+/);
+      if (parts.length >= 2) {
+        return (parts[0][0] + parts[1][0]).toUpperCase();
+      }
+      return name.slice(0, 2).toUpperCase();
+    }
+
+    // Helper: escape HTML for XSS prevention
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    // Render review card
+    function renderReviewCard(item, isJustAdded = false) {
+      const card = document.createElement('article');
+      card.className = `review-card ${isJustAdded ? 'just-added' : ''}`;
+      
+      const initials = getInitials(item.name);
+      const safeName = escapeHtml(item.name);
+      const safeLocation = escapeHtml(item.location || 'Verified Customer');
+      const safeComment = escapeHtml(item.comment);
+      const safeDate = escapeHtml(item.date || 'Recent');
+      const rating = Math.max(1, Math.min(5, parseInt(item.rating, 10) || 5));
+      const starStr = '★'.repeat(rating) + '☆'.repeat(5 - rating);
+
+      card.innerHTML = `
+        <div class="review-card-top">
+          <div class="review-user-info">
+            <div class="review-avatar" aria-hidden="true">${initials}</div>
+            <div class="review-user-meta">
+              <h4 class="review-author-name">${safeName}</h4>
+              <span class="review-user-sub">${safeLocation}</span>
+            </div>
+          </div>
+          <div class="review-badge-verified" title="Verified Customer Feedback">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Verified
+          </div>
+        </div>
+
+        <div class="review-rating-row" aria-label="${rating} out of 5 stars">
+          <span class="review-stars">${starStr}</span>
+          <span class="review-date">${safeDate}</span>
+        </div>
+
+        <blockquote class="review-text">
+          &ldquo;${safeComment}&rdquo;
+        </blockquote>
+      `;
+      return card;
+    }
+
+    // Fetch and display reviews
+    async function fetchAndRenderReviews() {
+      try {
+        const res = await fetch('/api/reviews');
+        if (!res.ok) throw new Error('Failed to fetch reviews');
+        const reviews = await res.json();
+
+        if (!Array.isArray(reviews) || reviews.length === 0) {
+          if (reviewsEmptyState) reviewsEmptyState.style.display = 'block';
+          if (reviewsSummaryBar) reviewsSummaryBar.style.display = 'none';
+          if (reviewsGrid) reviewsGrid.innerHTML = '';
+          return;
+        }
+
+        // We have reviews
+        if (reviewsEmptyState) reviewsEmptyState.style.display = 'none';
+        if (reviewsSummaryBar) reviewsSummaryBar.style.display = 'flex';
+
+        // Calculate average
+        const totalRating = reviews.reduce((sum, r) => sum + (parseInt(r.rating, 10) || 5), 0);
+        const avg = (totalRating / reviews.length).toFixed(1);
+        const avgInt = Math.round(parseFloat(avg));
+
+        if (avgScore) avgScore.textContent = avg;
+        if (avgStars) avgStars.textContent = '★'.repeat(avgInt) + '☆'.repeat(5 - avgInt);
+        if (avgCount) avgCount.textContent = `Based on ${reviews.length} customer review${reviews.length > 1 ? 's' : ''}`;
+
+        if (reviewsGrid) {
+          reviewsGrid.innerHTML = '';
+          reviews.forEach(r => {
+            reviewsGrid.appendChild(renderReviewCard(r));
+          });
+        }
+      } catch (err) {
+        console.warn('Reviews load fallback:', err);
+        if (reviewsEmptyState) reviewsEmptyState.style.display = 'block';
+      }
+    }
+
+    // Form submission & validation
+    if (reviewForm) {
+      reviewForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        clearErrors();
+
+        const name = (reviewAuthorInput?.value || '').trim();
+        const location = (reviewLocationInput?.value || '').trim();
+        const rating = parseInt(reviewRatingInput?.value || '5', 10);
+        const comment = (reviewCommentInput?.value || '').trim();
+
+        let isValid = true;
+
+        if (name.length < 2) {
+          isValid = false;
+          if (reviewAuthorError) reviewAuthorError.classList.add('show');
+          if (reviewAuthorInput) {
+            reviewAuthorInput.classList.add('invalid');
+            reviewAuthorInput.focus();
+          }
+        }
+
+        if (isNaN(rating) || rating < 1 || rating > 5) {
+          isValid = false;
+          if (reviewRatingError) reviewRatingError.classList.add('show');
+        }
+
+        if (comment.length < 10) {
+          isValid = false;
+          if (reviewCommentError) reviewCommentError.classList.add('show');
+          if (reviewCommentInput) {
+            reviewCommentInput.classList.add('invalid');
+            if (name.length >= 2) reviewCommentInput.focus();
+          }
+        }
+
+        if (!isValid) return;
+
+        // Valid - submit to API
+        try {
+          if (submitReviewBtn) {
+            submitReviewBtn.disabled = true;
+            submitReviewBtn.innerHTML = `
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="animation: spin 1s linear infinite; margin-right: 6px;"><line x1="12" y1="2" x2="12" y2="6"></line><line x1="12" y1="18" x2="12" y2="22"></line><line x1="4.93" y1="4.93" x2="7.76" y2="7.76"></line><line x1="16.24" y1="16.24" x2="19.07" y2="19.07"></line><line x1="2" y1="12" x2="6" y2="12"></line><line x1="18" y1="12" x2="22" y2="12"></line><line x1="4.93" y1="19.07" x2="7.76" y2="16.24"></line><line x1="16.24" y1="7.76" x2="19.07" y2="4.93"></line></svg>
+              Publishing...
+            `;
+          }
+
+          const response = await fetch('/api/reviews', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              name,
+              rating,
+              comment,
+              location
+            })
+          });
+
+          const result = await response.json();
+
+          if (!response.ok || !result.success) {
+            throw new Error(result.detail || 'Failed to submit review');
+          }
+
+          // Reset Form
+          reviewForm.reset();
+          selectedRating = 5;
+          if (reviewRatingInput) reviewRatingInput.value = '5';
+          updateStarDisplay(5);
+          if (charCount) charCount.textContent = '0';
+
+          // Close modal
+          closeModal();
+
+          // Refresh and render reviews
+          await fetchAndRenderReviews();
+
+          // Scroll to review section smoothly
+          reviewsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+          // Show floating confirmation toast
+          showReviewToast('Thank you! Your review has been published successfully.');
+
+        } catch (err) {
+          console.error('Review submit error:', err);
+          if (reviewFormAlert) {
+            reviewFormAlert.className = 'form-alert error';
+            reviewFormAlert.textContent = err.message || 'An error occurred while submitting your review. Please try again.';
+            reviewFormAlert.style.display = 'block';
+          }
+        } finally {
+          if (submitReviewBtn) {
+            submitReviewBtn.disabled = false;
+            submitReviewBtn.innerHTML = '<span>Publish Review</span>';
+          }
+        }
+      });
+    }
+
+    function showReviewToast(msg) {
+      let toast = document.getElementById('reviewToastNotification');
+      if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'reviewToastNotification';
+        toast.style.cssText = `
+          position: fixed;
+          bottom: 2rem;
+          right: 2rem;
+          background: #14532D;
+          color: #ffffff;
+          padding: 1rem 1.5rem;
+          border-radius: 10px;
+          box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+          z-index: 2000;
+          font-weight: 700;
+          font-size: 0.925rem;
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+          transform: translateY(100px);
+          opacity: 0;
+          transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+        `;
+        document.body.appendChild(toast);
+      }
+      toast.innerHTML = `
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+        <span>${escapeHtml(msg)}</span>
+      `;
+      setTimeout(() => {
+        toast.style.transform = 'translateY(0)';
+        toast.style.opacity = '1';
+      }, 50);
+      setTimeout(() => {
+        toast.style.transform = 'translateY(100px)';
+        toast.style.opacity = '0';
+      }, 5000);
+    }
+
+    // Initial fetch
+    fetchAndRenderReviews();
+  }
+
+  // ---------------- 14. MOBILE DRAWER & GENERAL LISTENERS ----------------
   function setupMobileDrawer() {
     if (!el.mobileToggle || !el.mobileDrawer) return;
 
