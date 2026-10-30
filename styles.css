@@ -1657,18 +1657,22 @@ button, input, select, textarea {
   display: inline-flex;
   align-items: center;
   background: #FFFFFF;
-  padding: 6px 14px;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-  margin-bottom: 0.5rem;
+  padding: 10px 18px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+  margin-bottom: 0.75rem;
   width: fit-content;
+  max-width: 100%;
 }
 
-.footer-logo img {
-  height: 56px;
-  width: auto;
-  object-fit: contain;
-  display: block;
+.footer-logo img,
+.about-logo-img {
+  height: 108px !important;
+  max-height: 120px !important;
+  width: auto !important;
+  max-width: 280px !important;
+  object-fit: contain !important;
+  display: block !important;
 }
 
 .footer-desc {
@@ -1863,6 +1867,16 @@ button, input, select, textarea {
   .footer-main-grid {
     grid-template-columns: 1fr;
     gap: 2.5rem;
+  }
+  .footer-logo {
+    padding: 8px 16px;
+  }
+  .footer-logo img,
+  .about-logo-img {
+    height: 90px !important;
+    max-height: 100px !important;
+    max-width: 240px !important;
+    object-fit: contain !important;
   }
   .contact-cards-grid {
     grid-template-columns: 1fr;
