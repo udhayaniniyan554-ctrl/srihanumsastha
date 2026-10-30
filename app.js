@@ -1316,14 +1316,14 @@
           // Close modal
           closeModal();
 
-          // Refresh and render reviews
+          // Refresh and render reviews (only approved reviews appear publicly)
           await fetchAndRenderReviews();
 
           // Scroll to review section smoothly
           reviewsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
-          // Show floating confirmation toast
-          showReviewToast('Thank you! Your review has been published successfully.');
+          // Show floating confirmation toast informing the customer
+          showReviewToast('Thank you! Your review has been submitted and is pending admin approval.');
 
         } catch (err) {
           console.error('Review submit error:', err);
@@ -1335,7 +1335,7 @@
         } finally {
           if (submitReviewBtn) {
             submitReviewBtn.disabled = false;
-            submitReviewBtn.innerHTML = '<span>Publish Review</span>';
+            submitReviewBtn.innerHTML = '<span>Submit Review</span>';
           }
         }
       });
@@ -1776,11 +1776,13 @@
       const countEl = document.getElementById('adminTabCountReviews');
       if (countEl) countEl.textContent = total;
 
-      const approved = adminReviewsData.filter(r => r.status !== 'rejected').length;
+      const pending = adminReviewsData.filter(r => (r.status || 'pending') === 'pending').length;
+      const approved = adminReviewsData.filter(r => r.status === 'approved').length;
       const rejected = adminReviewsData.filter(r => r.status === 'rejected').length;
 
       const setVal = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
       setVal('dashStatReviewsTotal', total);
+      setVal('dashStatReviewsPending', pending);
       setVal('dashStatReviewsApproved', approved);
       setVal('dashStatReviewsRejected', rejected);
 
@@ -1801,7 +1803,7 @@
       const ratingFilter = document.getElementById('dashReviewsRatingFilter')?.value || 'all';
 
       const filtered = adminReviewsData.filter(r => {
-        const rStatus = r.status || 'approved';
+        const rStatus = r.status || 'pending';
         const matchStatus = statusFilter === 'all' || rStatus === statusFilter;
         const matchRating = ratingFilter === 'all' || String(r.rating) === ratingFilter;
         const nameStr = (r.name || '').toLowerCase();
@@ -1820,7 +1822,7 @@
             <td colspan="6" style="text-align: center; padding: 3rem 1.5rem; color: var(--text-muted);">
               <div style="font-size: 2rem; margin-bottom: 0.5rem;">💬</div>
               <strong style="color: var(--text-main); font-size: 1rem;">${adminReviewsData.length === 0 ? 'No customer reviews submitted yet.' : 'No reviews match your filter.'}</strong>
-              <div style="font-size: 0.825rem; margin-top: 0.35rem;">Customer reviews submitted from the public website appear here.</div>
+              <div style="font-size: 0.825rem; margin-top: 0.35rem;">Customer reviews submitted from the public website appear here with Pending status until approved.</div>
             </td>
           </tr>
         `;
@@ -1835,15 +1837,20 @@
         const safeComment = escapeHtml(r.comment);
         const safeDate = escapeHtml(r.date || 'Recent');
         const safeId = escapeHtml(r.id);
-        const isRejected = r.status === 'rejected';
+        const rStatus = r.status || 'pending';
 
-        const statusBadge = isRejected
-          ? `<span class="admin-badge-rejected">✗ Rejected</span>`
-          : `<span class="admin-badge-approved">✓ Approved</span>`;
+        let statusBadge = '';
+        if (rStatus === 'approved') {
+          statusBadge = `<span class="admin-badge-approved">✓ Approved</span>`;
+        } else if (rStatus === 'rejected') {
+          statusBadge = `<span class="admin-badge-rejected">✗ Rejected</span>`;
+        } else {
+          statusBadge = `<span class="admin-badge-pending">⏳ Pending</span>`;
+        }
 
-        const toggleBtn = isRejected
-          ? `<button type="button" onclick="window.dashApproveReview('${safeId}')" class="btn-approve-review" title="Approve and Publish Review">✓ Approve</button>`
-          : `<button type="button" onclick="window.dashRejectReview('${safeId}')" class="btn-reject-review" title="Reject and Hide Review from Public Site">✗ Reject</button>`;
+        const approveBtn = `<button type="button" onclick="window.dashApproveReview('${safeId}')" class="btn-approve-review" ${rStatus === 'approved' ? 'style="opacity: 0.45; cursor: not-allowed;" disabled title="Already Approved &amp; Published"' : 'title="Approve &amp; Publish Review to Website"'}>✓ Approve</button>`;
+        const rejectBtn = `<button type="button" onclick="window.dashRejectReview('${safeId}')" class="btn-reject-review" ${rStatus === 'rejected' ? 'style="opacity: 0.45; cursor: not-allowed;" disabled title="Already Rejected &amp; Hidden"' : 'title="Reject &amp; Hide Review from Website"'}>✗ Reject</button>`;
+        const deleteBtn = `<button type="button" onclick="window.dashDeleteReview('${safeId}')" class="btn-delete-review" title="Permanently Delete Review">🗑 Delete</button>`;
 
         return `
           <tr style="border-bottom: 1px solid var(--border-light);">
@@ -1866,9 +1873,10 @@
               ${statusBadge}
             </td>
             <td style="padding: 0.85rem 1rem; text-align: right;">
-              <div style="display: flex; gap: 0.4rem; justify-content: flex-end;">
-                ${toggleBtn}
-                <button type="button" onclick="window.dashDeleteReview('${safeId}')" class="btn-delete-review" title="Permanently Delete Review">🗑 Delete</button>
+              <div style="display: flex; gap: 0.4rem; justify-content: flex-end; align-items: center;">
+                ${approveBtn}
+                ${rejectBtn}
+                ${deleteBtn}
               </div>
             </td>
           </tr>

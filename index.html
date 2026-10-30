@@ -630,8 +630,11 @@
         <div class="review-modal-actions">
           <button type="button" class="btn btn-secondary" id="cancelReviewBtn" style="height: 44px; padding: 0 1.25rem;">Cancel</button>
           <button type="submit" class="btn btn-primary" id="submitReviewBtn" style="height: 44px; padding: 0 1.5rem;">
-            <span>Publish Review</span>
+            <span>Submit Review</span>
           </button>
+        </div>
+        <div style="font-size: 0.8125rem; color: var(--text-muted); margin-top: 0.75rem; text-align: center;">
+          🔒 Reviews are securely reviewed by our showroom admin before appearing on the website.
         </div>
       </form>
     </div>
@@ -887,13 +890,17 @@
       <!-- PANEL 2: CUSTOMER REVIEWS MODERATION (View, Approve, Reject, Delete) -->
       <div id="adminPanelReviews" style="display: none;">
         <!-- Reviews Stats -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
           <div style="background: #ffffff; padding: 1.25rem; border: 1px solid var(--border-light); border-radius: var(--radius-md);">
-            <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Total Customer Reviews</div>
+            <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Total Reviews</div>
             <div style="font-size: 1.75rem; font-weight: 800; color: var(--text-main); margin-top: 0.25rem;" id="dashStatReviewsTotal">0</div>
           </div>
+          <div style="background: #ffffff; padding: 1.25rem; border: 1px solid #fcd34d; border-radius: var(--radius-md);">
+            <div style="font-size: 0.75rem; font-weight: 700; color: #b45309; text-transform: uppercase;">Pending Approval</div>
+            <div style="font-size: 1.75rem; font-weight: 800; color: #d97706; margin-top: 0.25rem;" id="dashStatReviewsPending">0</div>
+          </div>
           <div style="background: #ffffff; padding: 1.25rem; border: 1px solid var(--border-light); border-radius: var(--radius-md);">
-            <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Approved (Published)</div>
+            <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Approved (Live)</div>
             <div style="font-size: 1.75rem; font-weight: 800; color: #16a34a; margin-top: 0.25rem;" id="dashStatReviewsApproved">0</div>
           </div>
           <div style="background: #ffffff; padding: 1.25rem; border: 1px solid var(--border-light); border-radius: var(--radius-md);">
@@ -908,12 +915,13 @@
 
         <!-- Reviews Toolbar -->
         <div style="background: #ffffff; border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 1rem 1.25rem; margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-          <div style="display: flex; gap: 0.75rem; flex: 1; max-width: 600px; flex-wrap: wrap;">
+          <div style="display: flex; gap: 0.75rem; flex: 1; max-width: 650px; flex-wrap: wrap;">
             <input type="text" id="dashReviewsSearchInput" class="form-input" style="flex: 1; min-width: 200px;" placeholder="Search customer name, location, or feedback...">
-            <select id="dashReviewsStatusFilter" class="form-input" style="width: 150px;">
+            <select id="dashReviewsStatusFilter" class="form-input" style="width: 170px;">
               <option value="all">All Statuses</option>
-              <option value="approved">Approved Only</option>
-              <option value="rejected">Rejected Only</option>
+              <option value="pending">⏳ Pending Only</option>
+              <option value="approved">✓ Approved Only</option>
+              <option value="rejected">✗ Rejected Only</option>
             </select>
             <select id="dashReviewsRatingFilter" class="form-input" style="width: 140px;">
               <option value="all">All Ratings</option>

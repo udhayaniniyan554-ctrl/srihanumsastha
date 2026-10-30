@@ -364,7 +364,7 @@ for test_payload, test_name in validation_tests:
     assert status == 400, f"Expected 400 Bad Request for {test_name}, got {status}"
 print("  [PASS] Form validation strictly verified: empty names, invalid ratings, and short comments rejected with 400.")
 
-# 12e. Test Review Submission, Storage, and Display
+# 12e. Test Review Submission with Pending Status & Public Isolation
 test_sub_payload = {
     "name": "Coimbatore Tech Hub",
     "rating": 5,
@@ -382,16 +382,27 @@ sub_res = json.loads(body)
 assert sub_res["success"] is True
 assert sub_res["review"]["name"] == "Coimbatore Tech Hub"
 assert sub_res["review"]["rating"] == 5
+assert sub_res["review"]["status"] == "pending", f"Expected review status 'pending', got {sub_res['review']['status']}"
+test_rev_id = sub_res["review"]["id"]
 
-# Verify review persists and is returned in GET
+# Verify pending review is NOT returned in public GET /api/reviews
 status, body = request_url(f"{BASE_URL}/api/reviews")
 assert status == 200
 stored_reviews = json.loads(body)
-assert any(r["name"] == "Coimbatore Tech Hub" for r in stored_reviews)
-print("  [PASS] Review submission, persistence in assets/reviews.json, and API delivery verified.")
+assert not any(r["id"] == test_rev_id for r in stored_reviews), "Pending review must NOT appear in public GET /api/reviews!"
+print("  [PASS] Review submission saved with status 'pending' and strictly isolated from public website.")
+
+# Verify pending review IS returned in protected GET /api/admin/reviews
+status, body = request_url(
+    f"{BASE_URL}/api/admin/reviews",
+    headers={"Authorization": f"Bearer {auth_data['token']}"}
+)
+assert status == 200
+admin_all_reviews = json.loads(body)
+assert any(r["id"] == test_rev_id and r["status"] == "pending" for r in admin_all_reviews), "Pending review must appear in Admin Reviews!"
+print("  [PASS] Pending review correctly returned only inside Admin Dashboard -> Customer Reviews.")
 
 # 12f. Test Admin Review Deletion Security & Permanent Removal
-test_rev_id = sub_res["review"]["id"]
 
 # Verify admin.html contains Customer Reviews management
 with open(os.path.join(PROJECT_DIR, "admin.html"), "r", encoding="utf-8") as f:
@@ -485,6 +496,12 @@ status, body = request_url(
 assert status == 200
 mod_review = json.loads(body)["review"]
 mod_rev_id = mod_review["id"]
+assert mod_review["status"] == "pending", f"Expected 'pending' status for newly submitted review, got {mod_review['status']}"
+
+# Verify pending review is NOT in public reviews
+status, body = request_url(f"{BASE_URL}/api/reviews")
+assert not any(r["id"] == mod_rev_id for r in json.loads(body)), "Pending review must NOT appear in public reviews!"
+print("  [PASS] Newly submitted review has status 'pending' and is hidden from public website.")
 
 # 2. Status toggle without token -> 401
 reject_payload = json.dumps({"status": "rejected"}).encode('utf-8')

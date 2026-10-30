@@ -122,7 +122,7 @@ def get_reviews():
         except Exception as e:
             print(f"[WARN] Supabase reviews fetch failed: {e}. Falling back to local reviews.")
     reviews = load_local_reviews()
-    approved = [r for r in reviews if r.get("status", "approved") == "approved"]
+    approved = [r for r in reviews if r.get("status") == "approved"]
     return sorted(approved, key=lambda r: r.get("created_at", ""), reverse=True)
 
 @app.get("/api/admin/reviews", dependencies=[Depends(verify_admin_token)])
@@ -140,8 +140,8 @@ def get_admin_reviews():
 @app.put("/api/admin/reviews/{review_id}/status", dependencies=[Depends(verify_admin_token)])
 def update_review_status(review_id: str, payload: Dict[str, str]):
     new_status = (payload.get("status") or "").strip().lower()
-    if new_status not in ["approved", "rejected"]:
-        raise HTTPException(status_code=400, detail="Status must be 'approved' or 'rejected'")
+    if new_status not in ["approved", "rejected", "pending"]:
+        raise HTTPException(status_code=400, detail="Status must be 'approved', 'rejected', or 'pending'")
 
     local_reviews = load_local_reviews()
     found = False
@@ -197,7 +197,7 @@ def create_review(payload: Dict[str, Any]):
         "rating": rating,
         "comment": comment,
         "location": location if location else "Verified Customer",
-        "status": "approved",
+        "status": "pending",
         "date": now.strftime("%d %b %Y"),
         "created_at": now.isoformat()
     }

@@ -3149,6 +3149,19 @@ button, input, select, textarea {
 }
 
 /* Review Status Badges */
+.admin-badge-pending {
+  background: #fef3c7;
+  color: #92400e;
+  border: 1px solid #fcd34d;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
 .admin-badge-approved {
   background: #dcfce7;
   color: #15803d;
@@ -3184,6 +3197,9 @@ button, input, select, textarea {
   padding: 0.35rem 0.7rem;
   font-size: 0.775rem;
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
   transition: background 0.15s ease;
 }
 
@@ -3192,19 +3208,22 @@ button, input, select, textarea {
 }
 
 .btn-reject-review {
-  background: #eab308;
-  color: #713f12;
+  background: #e11d48;
+  color: #ffffff;
   font-weight: 700;
   border: none;
   border-radius: var(--radius-xs);
   padding: 0.35rem 0.7rem;
   font-size: 0.775rem;
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
   transition: background 0.15s ease;
 }
 
 .btn-reject-review:hover {
-  background: #ca8a04;
+  background: #be123c;
 }
 
 .btn-delete-review {
