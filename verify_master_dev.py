@@ -13,7 +13,13 @@ def request_url(url, data=None, headers=None, timeout=10):
         hdrs.update(headers)
     req = urllib.request.Request(url, data=data, headers=hdrs)
     with urllib.request.urlopen(req, timeout=timeout) as resp:
-        return resp.status, resp.read().decode('utf-8')
+        chunks = []
+        while True:
+            chunk = resp.read(65536)
+            if not chunk:
+                break
+            chunks.append(chunk)
+        return resp.status, b"".join(chunks).decode('utf-8')
 
 print("==================================================================")
 print("  COMPREHENSIVE VERIFICATION SUITE - SRI HANUM SASTHA ENTERPRISES  ")
