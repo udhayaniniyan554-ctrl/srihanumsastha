@@ -59,7 +59,7 @@
   --shadow-card-hover: 0 12px 28px -6px rgba(0, 0, 0, 0.09);
 
   --max-width: 1320px;
-  --header-height: 74px;
+  --header-height: 82px;
 }
 
 /* ---------------- 2. RESET & BASE ELEMENTS ---------------- */
@@ -265,9 +265,9 @@ button, input, select, textarea {
 }
 
 .brand-logo img {
-  height: 54px;
+  height: 64px;
   width: auto;
-  max-width: 220px;
+  max-width: 240px;
   object-fit: contain;
   display: block;
 }
@@ -1662,7 +1662,7 @@ button, input, select, textarea {
 }
 
 .footer-logo img {
-  height: 48px;
+  height: 56px;
   width: auto;
   object-fit: contain;
   display: block;
@@ -1829,13 +1829,13 @@ button, input, select, textarea {
 
 @media (max-width: 640px) {
   .nav-container {
-    min-height: 64px;
+    min-height: 70px;
     gap: 0.75rem;
     padding: 0 1rem;
   }
   .brand-logo img {
-    height: 46px;
-    max-width: 170px;
+    height: 52px;
+    max-width: 190px;
     object-fit: contain;
   }
   .header-actions {
