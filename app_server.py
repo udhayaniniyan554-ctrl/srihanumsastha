@@ -401,6 +401,23 @@ def delete_chair(chair_id: str):
 
     return {"success": True, "deleted_id": chair_id}
 
+@app.delete("/api/admin/reviews/{review_id}", dependencies=[Depends(verify_admin_token)])
+def delete_review(review_id: str):
+    local_reviews = load_local_reviews()
+    new_reviews = [r for r in local_reviews if r.get("id") != review_id]
+    if len(new_reviews) == len(local_reviews):
+        raise HTTPException(status_code=404, detail="Review not found")
+
+    save_local_reviews(new_reviews)
+
+    if supabase_client:
+        try:
+            supabase_client.table("customer_reviews").delete().eq("id", review_id).execute()
+        except Exception as e:
+            print(f"[ERROR] Supabase review delete failed: {e}")
+
+    return {"success": True, "deleted_id": review_id, "message": "Review permanently deleted"}
+
 @app.post("/api/admin/upload", dependencies=[Depends(verify_admin_token)])
 async def upload_image(file: UploadFile = File(...)):
     filename = file.filename

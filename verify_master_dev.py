@@ -8,13 +8,14 @@ import re
 BASE_URL = "http://127.0.0.1:8080"
 PROJECT_DIR = r"C:\Users\user\.gemini\antigravity\scratch\srihanumsastha-catalogue"
 
-def request_url(url, data=None, headers=None, timeout=10):
+def request_url(url, method=None, data=None, headers=None, timeout=10):
     parsed = urllib.parse.urlparse(url)
     conn = http.client.HTTPConnection(parsed.hostname, parsed.port or 80, timeout=timeout)
     hdrs = {}
     if headers:
         hdrs.update(headers)
-    method = "POST" if data is not None else "GET"
+    if method is None:
+        method = "POST" if data is not None else "GET"
     path = parsed.path
     if parsed.query:
         path += "?" + parsed.query
@@ -389,10 +390,53 @@ stored_reviews = json.loads(body)
 assert any(r["name"] == "Coimbatore Tech Hub" for r in stored_reviews)
 print("  [PASS] Review submission, persistence in assets/reviews.json, and API delivery verified.")
 
+# 12f. Test Admin Review Deletion Security & Permanent Removal
+test_rev_id = sub_res["review"]["id"]
+
+# Verify admin.html contains Customer Reviews management
+with open(os.path.join(PROJECT_DIR, "admin.html"), "r", encoding="utf-8") as f:
+    admin_content = f.read()
+    assert "tabBtnReviews" in admin_content, "Reviews tab missing in admin.html"
+    assert "tabPanelReviews" in admin_content, "Reviews panel missing in admin.html"
+    assert "btn-delete-review" in admin_content, "Delete review button missing in admin.html"
+    assert "deleteReview" in admin_content, "deleteReview JS function missing in admin.html"
+    assert "confirm(" in admin_content, "Confirmation prompt missing before review deletion"
+print("  [PASS] admin.html contains Customer Reviews tab, review table, confirmation prompt, and Delete buttons.")
+
+# Unauthenticated delete attempt -> 401
+status, _ = request_url(f"{BASE_URL}/api/admin/reviews/{test_rev_id}", method="DELETE")
+assert status == 401, f"Expected 401 Unauthorized for review delete without token, got {status}"
+
+# Bad token delete attempt -> 403
+status, _ = request_url(
+    f"{BASE_URL}/api/admin/reviews/{test_rev_id}",
+    method="DELETE",
+    headers={"Authorization": "Bearer invalid_token_123"}
+)
+assert status == 403, f"Expected 403 Forbidden for review delete with invalid token, got {status}"
+print("  [PASS] Admin security strictly verified: unauthorized or invalid tokens cannot delete reviews.")
+
+# Authorized admin delete
+status, body = request_url(
+    f"{BASE_URL}/api/admin/reviews/{test_rev_id}",
+    method="DELETE",
+    headers={"Authorization": f"Bearer {auth_data['token']}"}
+)
+assert status == 200, f"Expected 200 OK for authorized admin delete, got {status}"
+del_res = json.loads(body)
+assert del_res["success"] is True
+
+# Verify review is permanently removed from public GET /api/reviews
+status, body = request_url(f"{BASE_URL}/api/reviews")
+assert status == 200
+stored_reviews_after = json.loads(body)
+assert not any(r["id"] == test_rev_id for r in stored_reviews_after), "Deleted review still present in GET /api/reviews!"
+print("  [PASS] Review permanently deleted from database & removed from public website.")
+
 # Reset to strictly comply with "Do not create fake customer reviews or ratings"
 with open(os.path.join(PROJECT_DIR, "assets", "reviews.json"), "w", encoding="utf-8") as f:
     f.write("[]")
-print("  [PASS] Cleaned test submissions. Clean production baseline maintained (0 fake reviews).")
+print("  [PASS] Clean production baseline maintained (0 fake reviews).")
 
 print("\n==================================================================")
 print("  ALL 12 VERIFICATION STAGES PASSED WITH ZERO ERRORS!            ")

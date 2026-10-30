@@ -240,6 +240,61 @@
       cursor: pointer;
       color: var(--text-muted);
     }
+
+    /* Admin Tabs */
+    .admin-tab-nav {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1.75rem;
+      border-bottom: 2px solid var(--border-light);
+      padding-bottom: 0.25rem;
+    }
+    .admin-tab-btn {
+      background: none;
+      border: none;
+      padding: 0.75rem 1.35rem;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      cursor: pointer;
+      border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+      border-bottom: 3px solid transparent;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .admin-tab-btn:hover {
+      color: var(--text-main);
+      background: rgba(0, 0, 0, 0.03);
+    }
+    .admin-tab-btn.active {
+      color: var(--forest-green);
+      border-bottom-color: var(--forest-green);
+      background: #ffffff;
+      box-shadow: 0 -2px 6px rgba(0,0,0,0.02);
+    }
+    .review-stars-gold {
+      color: #f59e0b;
+      font-size: 1rem;
+      letter-spacing: 1px;
+    }
+    .btn-delete-review {
+      background: #dc2626;
+      color: #ffffff;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: background 0.2s ease, transform 0.1s ease;
+    }
+    .btn-delete-review:hover {
+      background: #b91c1c;
+      transform: translateY(-1px);
+    }
   </style>
 </head>
 <body class="admin-body">
@@ -289,74 +344,150 @@
   <!-- Dashboard Section -->
   <div class="dashboard-container" id="dashContainer">
     
-    <!-- Stats Row -->
-    <div class="admin-stats-grid">
-      <div class="stat-card">
-        <div class="stat-card-title">Total Chairs</div>
-        <div class="stat-card-val" id="statTotal">0</div>
+    <!-- Admin Navigation Tabs -->
+    <div class="admin-tab-nav">
+      <button type="button" id="tabBtnChairs" class="admin-tab-btn active" onclick="switchAdminTab('chairs')">
+        🪑 Chair Inventory (<span id="tabCountChairs">228</span>)
+      </button>
+      <button type="button" id="tabBtnReviews" class="admin-tab-btn" onclick="switchAdminTab('reviews')">
+        ⭐ Customer Reviews (<span id="tabCountReviews">0</span>)
+      </button>
+    </div>
+
+    <!-- TAB 1: Chair Inventory -->
+    <div id="tabPanelChairs">
+      <!-- Stats Row -->
+      <div class="admin-stats-grid">
+        <div class="stat-card">
+          <div class="stat-card-title">Total Chairs</div>
+          <div class="stat-card-val" id="statTotal">0</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-title">Office Chairs</div>
+          <div class="stat-card-val" id="statOffice">0</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-title">Visitor Chairs</div>
+          <div class="stat-card-val" id="statVisitor">0</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-title">Lounge Seating</div>
+          <div class="stat-card-val" id="statLounge">0</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-title">Dining Chairs</div>
+          <div class="stat-card-val" id="statDining">0</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-title">Stools</div>
+          <div class="stat-card-val" id="statStools">0</div>
+        </div>
       </div>
-      <div class="stat-card">
-        <div class="stat-card-title">Office Chairs</div>
-        <div class="stat-card-val" id="statOffice">0</div>
+
+      <!-- Toolbar -->
+      <div class="admin-toolbar">
+        <div class="admin-search-box">
+          <input type="text" id="adminSearchInput" class="form-input" placeholder="Search by SHSE code, model name, category...">
+          <select id="adminCatFilter" class="form-input" style="width: 200px;">
+            <option value="all">All Categories</option>
+            <option value="Office Chairs">Office Chairs</option>
+            <option value="Visitor Chairs">Visitor Chairs</option>
+            <option value="Lounge & Soft Seating">Lounge & Soft Seating</option>
+            <option value="Dining Chairs">Dining Chairs</option>
+            <option value="Stools & Additional Seating">Stools & Additional Seating</option>
+          </select>
+        </div>
+
+        <div style="display: flex; gap: 0.75rem;">
+          <button id="btnAddNew" class="btn btn-primary btn-sm">
+            + Add New Chair
+          </button>
+          <button id="btnExportJson" class="btn btn-outline btn-sm">
+            ⬇ Export catalog.json
+          </button>
+        </div>
       </div>
-      <div class="stat-card">
-        <div class="stat-card-title">Visitor Chairs</div>
-        <div class="stat-card-val" id="statVisitor">0</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-card-title">Lounge Seating</div>
-        <div class="stat-card-val" id="statLounge">0</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-card-title">Dining Chairs</div>
-        <div class="stat-card-val" id="statDining">0</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-card-title">Stools</div>
-        <div class="stat-card-val" id="statStools">0</div>
+
+      <!-- Inventory Table -->
+      <div class="admin-table-wrapper">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Photo</th>
+              <th>Product Code</th>
+              <th>Model Name</th>
+              <th>Category</th>
+              <th>Listed Price</th>
+              <th>Options</th>
+              <th style="text-align: right;">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="inventoryTbody"></tbody>
+        </table>
       </div>
     </div>
 
-    <!-- Toolbar -->
-    <div class="admin-toolbar">
-      <div class="admin-search-box">
-        <input type="text" id="adminSearchInput" class="form-input" placeholder="Search by SHSE code, model name, category...">
-        <select id="adminCatFilter" class="form-input" style="width: 200px;">
-          <option value="all">All Categories</option>
-          <option value="Office Chairs">Office Chairs</option>
-          <option value="Visitor Chairs">Visitor Chairs</option>
-          <option value="Lounge & Soft Seating">Lounge & Soft Seating</option>
-          <option value="Dining Chairs">Dining Chairs</option>
-          <option value="Stools & Additional Seating">Stools & Additional Seating</option>
-        </select>
+    <!-- TAB 2: Customer Reviews Moderation -->
+    <div id="tabPanelReviews" style="display: none;">
+      <!-- Reviews Stats Row -->
+      <div class="admin-stats-grid" style="grid-template-columns: repeat(4, 1fr);">
+        <div class="stat-card">
+          <div class="stat-card-title">Total Reviews</div>
+          <div class="stat-card-val" id="statReviewsTotal">0</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-title">Average Rating</div>
+          <div class="stat-card-val" id="statReviewsAvg">0.0</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-title">5-Star Feedback</div>
+          <div class="stat-card-val" id="statReviews5">0</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-title">1–4 Star Feedback</div>
+          <div class="stat-card-val" id="statReviewsOther">0</div>
+        </div>
       </div>
 
-      <div style="display: flex; gap: 0.75rem;">
-        <button id="btnAddNew" class="btn btn-primary btn-sm">
-          + Add New Chair
-        </button>
-        <button id="btnExportJson" class="btn btn-outline btn-sm">
-          ⬇ Export catalog.json
-        </button>
-      </div>
-    </div>
+      <!-- Reviews Toolbar -->
+      <div class="admin-toolbar">
+        <div class="admin-search-box">
+          <input type="text" id="adminReviewsSearchInput" class="form-input" placeholder="Search by customer name, location, or feedback...">
+          <select id="adminReviewsRatingFilter" class="form-input" style="width: 170px;">
+            <option value="all">All Ratings</option>
+            <option value="5">5 Stars (★★★★★)</option>
+            <option value="4">4 Stars (★★★★)</option>
+            <option value="3">3 Stars (★★★)</option>
+            <option value="2">2 Stars (★★)</option>
+            <option value="1">1 Star (★)</option>
+          </select>
+        </div>
 
-    <!-- Inventory Table -->
-    <div class="admin-table-wrapper">
-      <table class="admin-table">
-        <thead>
-          <tr>
-            <th>Photo</th>
-            <th>Product Code</th>
-            <th>Model Name</th>
-            <th>Category</th>
-            <th>Listed Price</th>
-            <th>Options</th>
-            <th style="text-align: right;">Actions</th>
-          </tr>
-        </thead>
-        <tbody id="inventoryTbody"></tbody>
-      </table>
+        <div style="display: flex; gap: 0.75rem;">
+          <button id="btnRefreshReviews" class="btn btn-outline btn-sm" onclick="loadReviews()">
+            🔄 Refresh Reviews
+          </button>
+          <a href="index.html#reviews" target="_blank" class="btn btn-outline btn-sm" style="color: var(--forest-green); border-color: var(--forest-green);">
+            ↗ View Public Reviews
+          </a>
+        </div>
+      </div>
+
+      <!-- Customer Reviews Table -->
+      <div class="admin-table-wrapper">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th style="width: 140px;">Date &amp; ID</th>
+              <th style="width: 220px;">Customer Details</th>
+              <th style="width: 130px;">Rating</th>
+              <th>Written Feedback</th>
+              <th style="text-align: right; width: 140px;">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="reviewsTbody"></tbody>
+        </table>
+      </div>
     </div>
 
   </div>
@@ -426,6 +557,7 @@
 
   <script>
     let catalogData = [];
+    let reviewsData = [];
     let authenticated = false;
     let adminToken = sessionStorage.getItem('admin_token') || '';
 
@@ -435,6 +567,7 @@
       document.getElementById('dashContainer').style.display = 'block';
       document.getElementById('logoutBtn').style.display = 'inline-flex';
       loadInventory();
+      loadReviews();
     }
 
     if (adminToken) {
@@ -510,6 +643,8 @@
     // Stats
     function updateStats() {
       document.getElementById('statTotal').textContent = catalogData.length;
+      const countEl = document.getElementById('tabCountChairs');
+      if (countEl) countEl.textContent = catalogData.length;
       document.getElementById('statOffice').textContent = catalogData.filter(p => p.category === 'Office Chairs').length;
       document.getElementById('statVisitor').textContent = catalogData.filter(p => p.category === 'Visitor Chairs').length;
       document.getElementById('statLounge').textContent = catalogData.filter(p => p.category === 'Lounge & Soft Seating').length;
@@ -772,6 +907,195 @@
       downloadAnchor.click();
       downloadAnchor.remove();
     });
+
+    // ---------------- CUSTOMER REVIEWS MANAGEMENT ----------------
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    window.switchAdminTab = function(tabName) {
+      const panelChairs = document.getElementById('tabPanelChairs');
+      const panelReviews = document.getElementById('tabPanelReviews');
+      const btnChairs = document.getElementById('tabBtnChairs');
+      const btnReviews = document.getElementById('tabBtnReviews');
+
+      if (tabName === 'reviews') {
+        panelChairs.style.display = 'none';
+        panelReviews.style.display = 'block';
+        btnChairs.classList.remove('active');
+        btnReviews.classList.add('active');
+        renderReviewsTable();
+      } else {
+        panelReviews.style.display = 'none';
+        panelChairs.style.display = 'block';
+        btnReviews.classList.remove('active');
+        btnChairs.classList.add('active');
+        renderTable();
+      }
+    };
+
+    async function loadReviews() {
+      try {
+        const res = await fetch('/api/reviews');
+        if (res.ok) {
+          reviewsData = await res.json();
+        } else {
+          reviewsData = [];
+        }
+      } catch (err) {
+        console.warn('Failed loading reviews:', err);
+        reviewsData = [];
+      }
+      updateReviewsStats();
+      renderReviewsTable();
+    }
+
+    function updateReviewsStats() {
+      const total = reviewsData.length;
+      const countEl = document.getElementById('tabCountReviews');
+      if (countEl) countEl.textContent = total;
+
+      const statTotal = document.getElementById('statReviewsTotal');
+      if (statTotal) statTotal.textContent = total;
+
+      const r5 = reviewsData.filter(r => parseInt(r.rating, 10) === 5).length;
+      const rOther = reviewsData.filter(r => parseInt(r.rating, 10) < 5).length;
+
+      const stat5 = document.getElementById('statReviews5');
+      if (stat5) stat5.textContent = r5;
+
+      const statOther = document.getElementById('statReviewsOther');
+      if (statOther) statOther.textContent = rOther;
+
+      const statAvg = document.getElementById('statReviewsAvg');
+      if (statAvg) {
+        if (total === 0) {
+          statAvg.textContent = '0.0';
+        } else {
+          const sum = reviewsData.reduce((acc, r) => acc + (parseInt(r.rating, 10) || 5), 0);
+          statAvg.textContent = (sum / total).toFixed(1);
+        }
+      }
+    }
+
+    function renderReviewsTable() {
+      const q = (document.getElementById('adminReviewsSearchInput')?.value || '').toLowerCase().trim();
+      const ratingFilter = document.getElementById('adminReviewsRatingFilter')?.value || 'all';
+
+      const filtered = reviewsData.filter(r => {
+        const matchRating = ratingFilter === 'all' || String(r.rating) === ratingFilter;
+        const nameStr = (r.name || '').toLowerCase();
+        const locStr = (r.location || '').toLowerCase();
+        const commentStr = (r.comment || '').toLowerCase();
+        const matchQ = !q || nameStr.includes(q) || locStr.includes(q) || commentStr.includes(q);
+        return matchRating && matchQ;
+      });
+
+      const tbody = document.getElementById('reviewsTbody');
+      if (!tbody) return;
+
+      if (filtered.length === 0) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="5" style="text-align: center; padding: 3rem 1.5rem; color: var(--text-muted);">
+              <div style="font-size: 2rem; margin-bottom: 0.5rem;">💬</div>
+              <strong style="color: var(--text-main); font-size: 1rem;">${reviewsData.length === 0 ? 'No customer reviews submitted yet.' : 'No reviews match your search filter.'}</strong>
+              <div style="font-size: 0.825rem; margin-top: 0.35rem;">Customer reviews submitted through the public website will appear here for review and management.</div>
+            </td>
+          </tr>
+        `;
+        return;
+      }
+
+      tbody.innerHTML = filtered.map(r => {
+        const rating = Math.max(1, Math.min(5, parseInt(r.rating, 10) || 5));
+        const stars = '★'.repeat(rating) + '☆'.repeat(5 - rating);
+        const safeName = escapeHtml(r.name);
+        const safeLoc = escapeHtml(r.location || 'Verified Customer');
+        const safeComment = escapeHtml(r.comment);
+        const safeDate = escapeHtml(r.date || 'Recent');
+        const safeId = escapeHtml(r.id);
+
+        return `
+          <tr>
+            <td>
+              <strong style="color: var(--text-main);">${safeDate}</strong>
+              <div style="font-size: 0.725rem; color: var(--text-muted); font-family: monospace;">${safeId}</div>
+            </td>
+            <td>
+              <strong style="color: var(--text-main); font-size: 0.95rem;">${safeName}</strong>
+              <div style="font-size: 0.775rem; color: var(--text-muted);">${safeLoc}</div>
+            </td>
+            <td>
+              <div class="review-stars-gold">${stars}</div>
+              <span style="font-size: 0.75rem; font-weight: 700; color: var(--forest-green);">${rating} / 5 Stars</span>
+            </td>
+            <td style="max-width: 480px; line-height: 1.5; font-size: 0.875rem; color: #374151;">
+              &ldquo;${safeComment}&rdquo;
+            </td>
+            <td style="text-align: right;">
+              <button onclick="deleteReview('${safeId}')" class="btn btn-sm btn-delete-review" title="Permanently Delete Review">
+                🗑 Delete
+              </button>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    // Delete Review Handler with Confirmation & Immediate Update
+    window.deleteReview = async function(id) {
+      const rev = reviewsData.find(x => x.id === id);
+      if (!rev) {
+        alert('Review not found.');
+        return;
+      }
+
+      const confirmMsg = `Are you sure you want to permanently delete the review from:\n\n` +
+        `Customer: ${rev.name}\n` +
+        `Rating: ${rev.rating} Stars\n` +
+        `Feedback: "${rev.comment.substring(0, 60)}..."\n\n` +
+        `This will permanently remove the review from the database and public website.`;
+
+      if (!confirm(confirmMsg)) return;
+
+      try {
+        const res = await fetch(`/api/admin/reviews/${id}`, {
+          method: 'DELETE',
+          headers: {
+            'Authorization': `Bearer ${adminToken}`
+          }
+        });
+
+        if (res.ok) {
+          reviewsData = reviewsData.filter(x => x.id !== id);
+          renderReviewsTable();
+          updateReviewsStats();
+          alert(`✓ Review from "${rev.name}" has been permanently deleted.`);
+          return;
+        } else {
+          const errData = await res.json().catch(() => ({}));
+          alert(`Error deleting review: ${errData.detail || 'Authorization failed or review not found.'}`);
+        }
+      } catch (err) {
+        console.error('Delete review error:', err);
+        alert('Failed to connect to backend service to delete review.');
+      }
+    };
+
+    // Filter & Search Listeners
+    const revSearch = document.getElementById('adminReviewsSearchInput');
+    if (revSearch) revSearch.addEventListener('input', renderReviewsTable);
+
+    const revRatingFilter = document.getElementById('adminReviewsRatingFilter');
+    if (revRatingFilter) revRatingFilter.addEventListener('change', renderReviewsTable);
   </script>
 </body>
 </html>
