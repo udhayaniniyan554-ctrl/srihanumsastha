@@ -125,8 +125,8 @@ for path, name in pages:
 
     # Verify email display in contact section & footer area
     if "admin" not in path:
-        assert "srihanumsatha@gmail.com" in body, f"Email address missing on {name}!"
-        assert "mailto:srihanumsatha@gmail.com" in body, f"mailto link missing on {name}!"
+        assert "srihanumsastha@gmail.com" in body, f"Email address missing on {name}!"
+        assert "mailto:srihanumsastha@gmail.com" in body, f"mailto link missing on {name}!"
 
         # Verify zero PROMAX branding or publication years in public pages
         assert "promax" not in body.lower(), f"PROMAX branding found on {name}!"
@@ -161,7 +161,7 @@ for path, name in pages:
 print("  [PASS] Clean PROMAX-style header verified: Zero phone, email, address, or WhatsApp in header.")
 print("  [PASS] Top bar completely removed across all public pages.")
 print("  [PASS] Official SHSE Logo verified in header.")
-print("  [PASS] Contact details verified: Company, Address, WhatsApp 8695706013, Phone 9688727284, Email srihanumsatha@gmail.com.")
+print("  [PASS] Contact details verified: Company, Address, WhatsApp 8695706013, Phone 9688727284, Email srihanumsastha@gmail.com.")
 print("  [PASS] Zero PROMAX branding or catalogue publication years verified.")
 
 # ---------------- STEP 5: HERO CAROUSEL & PRODUCT PREVIEW (2s Timing) ----------------
