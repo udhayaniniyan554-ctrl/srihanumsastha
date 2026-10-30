@@ -438,6 +438,118 @@ with open(os.path.join(PROJECT_DIR, "assets", "reviews.json"), "w", encoding="ut
     f.write("[]")
 print("  [PASS] Clean production baseline maintained (0 fake reviews).")
 
+# ---------------- STEP 13: MERGED IN-PAGE ADMIN DASHBOARD & REVIEW MODERATION ----------------
+print("\n[STEP 13] Verifying Merged Admin Dashboard on index.html & Review Moderation Flow...")
+
+with open(os.path.join(PROJECT_DIR, "index.html"), "r", encoding="utf-8") as f:
+    idx_content = f.read()
+    # Check Admin Dashboard button in header
+    assert 'id="openAdminNavBtn"' in idx_content, "openAdminNavBtn button missing in index.html"
+    assert 'btn-header-admin' in idx_content, "btn-header-admin CSS class missing in index.html"
+    # Check Admin button is to the left of the Saved button
+    admin_btn_pos = idx_content.find('id="openAdminNavBtn"')
+    saved_btn_pos = idx_content.find('btn-header-saved')
+    assert admin_btn_pos != -1 and saved_btn_pos != -1, "Both admin and saved buttons must exist in index.html"
+    assert admin_btn_pos < saved_btn_pos, "Admin Dashboard button must be to the left of the Saved button!"
+
+    # Check mobile drawer button
+    assert 'id="mobileOpenAdminBtn"' in idx_content, "mobileOpenAdminBtn missing in index.html"
+
+    # Check Admin Login Modal
+    assert 'id="adminLoginModal"' in idx_content, "adminLoginModal missing in index.html"
+    assert 'id="adminLoginForm"' in idx_content, "adminLoginForm missing in index.html"
+    assert 'id="adminModalUser"' in idx_content, "adminModalUser missing in index.html"
+    assert 'id="adminModalPass"' in idx_content, "adminModalPass missing in index.html"
+
+    # Check Admin Dashboard Overlay
+    assert 'id="adminDashboardOverlay"' in idx_content, "adminDashboardOverlay missing in index.html"
+    assert 'id="adminTabBtnChairs"' in idx_content, "Chairs tab missing in merged dashboard"
+    assert 'id="adminTabBtnReviews"' in idx_content, "Reviews tab missing in merged dashboard"
+    assert 'id="dashChairModal"' in idx_content, "dashChairModal missing in merged dashboard"
+print("  [PASS] index.html contains Admin Dashboard button (left of Saved), Login Modal, and Full Admin Overlay.")
+
+# Test Review Moderation API (Approve / Reject / Delete)
+# 1. Create a review
+test_mod_payload = {
+    "name": "Arun Kumar Moderation Test",
+    "rating": 5,
+    "comment": "Testing the approve, reject and delete moderation functionality in merged dashboard.",
+    "location": "RS Puram, Coimbatore"
+}
+req_sub = json.dumps(test_mod_payload).encode('utf-8')
+status, body = request_url(
+    f"{BASE_URL}/api/reviews",
+    data=req_sub,
+    headers={"Content-Type": "application/json"}
+)
+assert status == 200
+mod_review = json.loads(body)["review"]
+mod_rev_id = mod_review["id"]
+
+# 2. Status toggle without token -> 401
+reject_payload = json.dumps({"status": "rejected"}).encode('utf-8')
+status, _ = request_url(
+    f"{BASE_URL}/api/admin/reviews/{mod_rev_id}/status",
+    method="PUT",
+    data=reject_payload,
+    headers={"Content-Type": "application/json"}
+)
+assert status == 401, f"Expected 401 Unauthorized for status update without token, got {status}"
+
+# 3. Status toggle with valid admin token -> reject
+status, body = request_url(
+    f"{BASE_URL}/api/admin/reviews/{mod_rev_id}/status",
+    method="PUT",
+    data=reject_payload,
+    headers={
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer {auth_data['token']}"
+    }
+)
+assert status == 200, f"Expected 200 OK for status reject, got {status}"
+res_status = json.loads(body)
+assert res_status["status"] == "rejected"
+
+# 4. Verify rejected review is hidden from public GET /api/reviews
+status, body = request_url(f"{BASE_URL}/api/reviews")
+assert status == 200
+pub_reviews = json.loads(body)
+assert not any(r["id"] == mod_rev_id for r in pub_reviews), "Rejected review must NOT appear in public GET /api/reviews"
+print("  [PASS] Rejected review is successfully hidden from public customer reviews.")
+
+# 5. Status toggle with valid admin token -> approve
+approve_payload = json.dumps({"status": "approved"}).encode('utf-8')
+status, body = request_url(
+    f"{BASE_URL}/api/admin/reviews/{mod_rev_id}/status",
+    method="PUT",
+    data=approve_payload,
+    headers={
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer {auth_data['token']}"
+    }
+)
+assert status == 200, f"Expected 200 OK for status approve, got {status}"
+
+# 6. Verify approved review is now visible in public GET /api/reviews
+status, body = request_url(f"{BASE_URL}/api/reviews")
+assert status == 200
+pub_reviews_app = json.loads(body)
+assert any(r["id"] == mod_rev_id for r in pub_reviews_app), "Approved review must appear in public GET /api/reviews"
+print("  [PASS] Approved review is successfully displayed in public customer reviews.")
+
+# 7. Clean up by deleting the review via admin API
+status, body = request_url(
+    f"{BASE_URL}/api/admin/reviews/{mod_rev_id}",
+    method="DELETE",
+    headers={"Authorization": f"Bearer {auth_data['token']}"}
+)
+assert status == 200
+
+# Final check: database is clean
+with open(os.path.join(PROJECT_DIR, "assets", "reviews.json"), "w", encoding="utf-8") as f:
+    f.write("[]")
+print("  [PASS] Clean production baseline restored.")
+
 print("\n==================================================================")
-print("  ALL 12 VERIFICATION STAGES PASSED WITH ZERO ERRORS!            ")
+print("  ALL 13 VERIFICATION STAGES PASSED WITH ZERO ERRORS!            ")
 print("==================================================================")

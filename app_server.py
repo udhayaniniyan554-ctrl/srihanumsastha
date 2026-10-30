@@ -116,13 +116,54 @@ def get_concepts():
 def get_reviews():
     if supabase_client:
         try:
-            res = supabase_client.table("customer_reviews").select("*").order("created_at", desc=True).execute()
+            res = supabase_client.table("customer_reviews").select("*").eq("status", "approved").order("created_at", desc=True).execute()
             if res.data:
                 return res.data
         except Exception as e:
             print(f"[WARN] Supabase reviews fetch failed: {e}. Falling back to local reviews.")
     reviews = load_local_reviews()
+    approved = [r for r in reviews if r.get("status", "approved") == "approved"]
+    return sorted(approved, key=lambda r: r.get("created_at", ""), reverse=True)
+
+@app.get("/api/admin/reviews", dependencies=[Depends(verify_admin_token)])
+def get_admin_reviews():
+    if supabase_client:
+        try:
+            res = supabase_client.table("customer_reviews").select("*").order("created_at", desc=True).execute()
+            if res.data:
+                return res.data
+        except Exception as e:
+            print(f"[WARN] Supabase admin reviews fetch failed: {e}. Falling back to local reviews.")
+    reviews = load_local_reviews()
     return sorted(reviews, key=lambda r: r.get("created_at", ""), reverse=True)
+
+@app.put("/api/admin/reviews/{review_id}/status", dependencies=[Depends(verify_admin_token)])
+def update_review_status(review_id: str, payload: Dict[str, str]):
+    new_status = (payload.get("status") or "").strip().lower()
+    if new_status not in ["approved", "rejected"]:
+        raise HTTPException(status_code=400, detail="Status must be 'approved' or 'rejected'")
+
+    local_reviews = load_local_reviews()
+    found = False
+    for r in local_reviews:
+        if r.get("id") == review_id:
+            r["status"] = new_status
+            r["updated_at"] = datetime.now(timezone.utc).isoformat()
+            found = True
+            break
+
+    if not found:
+        raise HTTPException(status_code=404, detail="Review not found")
+
+    save_local_reviews(local_reviews)
+
+    if supabase_client:
+        try:
+            supabase_client.table("customer_reviews").update({"status": new_status}).eq("id", review_id).execute()
+        except Exception as e:
+            print(f"[ERROR] Supabase review status update failed: {e}")
+
+    return {"success": True, "review_id": review_id, "status": new_status}
 
 @app.post("/api/reviews")
 def create_review(payload: Dict[str, Any]):
@@ -156,6 +197,7 @@ def create_review(payload: Dict[str, Any]):
         "rating": rating,
         "comment": comment,
         "location": location if location else "Verified Customer",
+        "status": "approved",
         "date": now.strftime("%d %b %Y"),
         "created_at": now.isoformat()
     }

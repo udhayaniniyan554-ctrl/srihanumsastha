@@ -64,6 +64,11 @@
       </nav>
 
       <div class="header-actions">
+        <!-- Admin Dashboard Access -->
+        <button class="btn btn-outline btn-sm btn-header-admin" id="openAdminNavBtn" type="button" title="Open Admin Management" aria-label="Admin Dashboard">
+          🔐 Admin Dashboard
+        </button>
+
         <!-- Saved Chairs Shortcut -->
         <button class="btn btn-outline btn-sm btn-header-saved" data-open-saved title="View saved favorite chairs" aria-label="Saved Chairs">
           ❤️ Saved <span class="saved-count-badge" style="display:none; background: #DC2626; color: #fff; padding: 0.1rem 0.4rem; border-radius: 9999px; font-size: 0.7rem; margin-left: 0.25rem;">0</span>
@@ -99,6 +104,9 @@
     </ul>
 
     <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.6rem;">
+      <button class="btn btn-outline btn-block" id="mobileOpenAdminBtn" type="button">
+        🔐 Admin Dashboard
+      </button>
       <button class="btn btn-outline btn-block" data-open-saved>
         ❤️ Saved Chairs (<span class="saved-count-badge">0</span>)
       </button>
@@ -736,6 +744,268 @@
       </div>
     </div>
   </footer>
+
+  <!-- ======================================================== -->
+  <!-- INTEGRATED ADMIN LOGIN MODAL -->
+  <!-- ======================================================== -->
+  <div class="admin-auth-modal" id="adminLoginModal" role="dialog" aria-modal="true" aria-labelledby="adminLoginTitle">
+    <div class="admin-auth-backdrop" id="adminLoginBackdrop"></div>
+    <div class="admin-auth-dialog">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.25rem;">
+        <div>
+          <span style="font-size: 0.75rem; font-weight: 800; color: var(--forest-green); text-transform: uppercase; letter-spacing: 0.08em; display: block; margin-bottom: 0.25rem;">Management Portal</span>
+          <h3 id="adminLoginTitle" style="font-size: 1.25rem; font-weight: 800; color: var(--text-main); margin: 0;">Admin Sign In</h3>
+        </div>
+        <button type="button" class="review-modal-close" id="closeAdminLoginBtn" aria-label="Close dialog">&times;</button>
+      </div>
+
+      <div id="adminLoginAlert" style="display: none; padding: 0.75rem; background: #fee2e2; border: 1px solid #fca5a5; color: #991b1b; border-radius: var(--radius-sm); font-size: 0.875rem; margin-bottom: 1rem;"></div>
+
+      <form id="adminLoginForm">
+        <div class="form-group" style="margin-bottom: 1rem;">
+          <label for="adminModalUser" class="form-label">Username</label>
+          <input type="text" id="adminModalUser" class="form-input" placeholder="admin" required value="admin" autocomplete="username">
+        </div>
+        <div class="form-group" style="margin-bottom: 1.25rem;">
+          <label for="adminModalPass" class="form-label">Password</label>
+          <input type="password" id="adminModalPass" class="form-input" placeholder="Enter password" required autocomplete="current-password">
+        </div>
+        <button type="submit" class="btn btn-primary btn-block" id="btnAdminSubmitLogin" style="height: 44px; font-weight: 800;">
+          Sign In to Dashboard →
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- INTEGRATED ADMIN DASHBOARD OVERLAY -->
+  <!-- ======================================================== -->
+  <div class="admin-dashboard-overlay" id="adminDashboardOverlay" role="dialog" aria-modal="true" aria-label="Admin Management Dashboard">
+    
+    <!-- Top Navbar -->
+    <div class="admin-overlay-navbar">
+      <div class="admin-overlay-brand">
+        <img src="assets/SHSE Logo.png" alt="SHSE" style="height: 40px; width: auto; object-fit: contain;">
+        <span>Sri Hanum Sastha Enterprises</span>
+        <span class="admin-overlay-badge">Admin Manager</span>
+      </div>
+      <div class="admin-overlay-actions">
+        <button type="button" class="btn btn-outline btn-sm" id="adminOverlayLogoutBtn" style="color: #ffffff; border-color: rgba(255,255,255,0.3); background: rgba(220, 38, 38, 0.8);">
+          🚪 Logout
+        </button>
+        <button type="button" class="btn btn-outline btn-sm" id="closeAdminDashboardBtn" style="color: #ffffff; border-color: rgba(255,255,255,0.4);">
+          ✕ Close Dashboard
+        </button>
+      </div>
+    </div>
+
+    <!-- Body Container -->
+    <div class="admin-overlay-body">
+      
+      <!-- Tab Navigation -->
+      <div class="admin-tab-nav">
+        <button type="button" id="adminTabBtnChairs" class="admin-tab-btn active">
+          🪑 Chair Catalogue (<span id="adminTabCountChairs">228</span>)
+        </button>
+        <button type="button" id="adminTabBtnReviews" class="admin-tab-btn">
+          ⭐ Customer Reviews (<span id="adminTabCountReviews">0</span>)
+        </button>
+      </div>
+
+      <!-- PANEL 1: CHAIR CATALOGUE MANAGEMENT -->
+      <div id="adminPanelChairs">
+        <!-- Stats Grid -->
+        <div class="admin-stats-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
+          <div class="stat-card" style="background: #ffffff; padding: 1.25rem; border: 1px solid var(--border-light); border-radius: var(--radius-md);">
+            <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Total Chairs</div>
+            <div style="font-size: 1.75rem; font-weight: 800; color: var(--text-main); margin-top: 0.25rem;" id="dashStatTotal">228</div>
+          </div>
+          <div class="stat-card" style="background: #ffffff; padding: 1.25rem; border: 1px solid var(--border-light); border-radius: var(--radius-md);">
+            <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Office Chairs</div>
+            <div style="font-size: 1.75rem; font-weight: 800; color: var(--text-main); margin-top: 0.25rem;" id="dashStatOffice">128</div>
+          </div>
+          <div class="stat-card" style="background: #ffffff; padding: 1.25rem; border: 1px solid var(--border-light); border-radius: var(--radius-md);">
+            <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Visitor Chairs</div>
+            <div style="font-size: 1.75rem; font-weight: 800; color: var(--text-main); margin-top: 0.25rem;" id="dashStatVisitor">48</div>
+          </div>
+          <div class="stat-card" style="background: #ffffff; padding: 1.25rem; border: 1px solid var(--border-light); border-radius: var(--radius-md);">
+            <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Lounge Seating</div>
+            <div style="font-size: 1.75rem; font-weight: 800; color: var(--text-main); margin-top: 0.25rem;" id="dashStatLounge">24</div>
+          </div>
+          <div class="stat-card" style="background: #ffffff; padding: 1.25rem; border: 1px solid var(--border-light); border-radius: var(--radius-md);">
+            <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Dining Chairs</div>
+            <div style="font-size: 1.75rem; font-weight: 800; color: var(--text-main); margin-top: 0.25rem;" id="dashStatDining">21</div>
+          </div>
+          <div class="stat-card" style="background: #ffffff; padding: 1.25rem; border: 1px solid var(--border-light); border-radius: var(--radius-md);">
+            <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Stools</div>
+            <div style="font-size: 1.75rem; font-weight: 800; color: var(--text-main); margin-top: 0.25rem;" id="dashStatStools">7</div>
+          </div>
+        </div>
+
+        <!-- Toolbar -->
+        <div style="background: #ffffff; border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 1rem 1.25rem; margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+          <div style="display: flex; gap: 0.75rem; flex: 1; max-width: 520px;">
+            <input type="text" id="dashChairSearchInput" class="form-input" placeholder="Search by SHSE code, model name, category...">
+            <select id="dashChairCatFilter" class="form-input" style="width: 180px;">
+              <option value="all">All Categories</option>
+              <option value="Office Chairs">Office Chairs</option>
+              <option value="Visitor Chairs">Visitor Chairs</option>
+              <option value="Lounge & Soft Seating">Lounge & Soft Seating</option>
+              <option value="Dining Chairs">Dining Chairs</option>
+              <option value="Stools & Additional Seating">Stools & Additional Seating</option>
+            </select>
+          </div>
+
+          <div style="display: flex; gap: 0.75rem;">
+            <button type="button" id="dashBtnAddNewChair" class="btn btn-primary btn-sm">
+              + Add New Chair
+            </button>
+            <button type="button" id="dashBtnExportCatalog" class="btn btn-outline btn-sm">
+              ⬇ Export catalog.json
+            </button>
+          </div>
+        </div>
+
+        <!-- Inventory Table -->
+        <div style="background: #ffffff; border: 1px solid var(--border-light); border-radius: var(--radius-md); overflow-x: auto; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+          <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.875rem;">
+            <thead>
+              <tr style="background: var(--bg-neutral); border-bottom: 1px solid var(--border-light);">
+                <th style="padding: 0.85rem 1rem;">Photo</th>
+                <th style="padding: 0.85rem 1rem;">Product Code</th>
+                <th style="padding: 0.85rem 1rem;">Model Name</th>
+                <th style="padding: 0.85rem 1rem;">Category</th>
+                <th style="padding: 0.85rem 1rem;">Listed Rate</th>
+                <th style="padding: 0.85rem 1rem; text-align: right;">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="dashInventoryTbody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- PANEL 2: CUSTOMER REVIEWS MODERATION (View, Approve, Reject, Delete) -->
+      <div id="adminPanelReviews" style="display: none;">
+        <!-- Reviews Stats -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
+          <div style="background: #ffffff; padding: 1.25rem; border: 1px solid var(--border-light); border-radius: var(--radius-md);">
+            <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Total Customer Reviews</div>
+            <div style="font-size: 1.75rem; font-weight: 800; color: var(--text-main); margin-top: 0.25rem;" id="dashStatReviewsTotal">0</div>
+          </div>
+          <div style="background: #ffffff; padding: 1.25rem; border: 1px solid var(--border-light); border-radius: var(--radius-md);">
+            <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Approved (Published)</div>
+            <div style="font-size: 1.75rem; font-weight: 800; color: #16a34a; margin-top: 0.25rem;" id="dashStatReviewsApproved">0</div>
+          </div>
+          <div style="background: #ffffff; padding: 1.25rem; border: 1px solid var(--border-light); border-radius: var(--radius-md);">
+            <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Rejected (Hidden)</div>
+            <div style="font-size: 1.75rem; font-weight: 800; color: #dc2626; margin-top: 0.25rem;" id="dashStatReviewsRejected">0</div>
+          </div>
+          <div style="background: #ffffff; padding: 1.25rem; border: 1px solid var(--border-light); border-radius: var(--radius-md);">
+            <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Average Rating</div>
+            <div style="font-size: 1.75rem; font-weight: 800; color: #f59e0b; margin-top: 0.25rem;" id="dashStatReviewsAvg">0.0</div>
+          </div>
+        </div>
+
+        <!-- Reviews Toolbar -->
+        <div style="background: #ffffff; border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 1rem 1.25rem; margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+          <div style="display: flex; gap: 0.75rem; flex: 1; max-width: 600px; flex-wrap: wrap;">
+            <input type="text" id="dashReviewsSearchInput" class="form-input" style="flex: 1; min-width: 200px;" placeholder="Search customer name, location, or feedback...">
+            <select id="dashReviewsStatusFilter" class="form-input" style="width: 150px;">
+              <option value="all">All Statuses</option>
+              <option value="approved">Approved Only</option>
+              <option value="rejected">Rejected Only</option>
+            </select>
+            <select id="dashReviewsRatingFilter" class="form-input" style="width: 140px;">
+              <option value="all">All Ratings</option>
+              <option value="5">5 Stars (★★★★★)</option>
+              <option value="4">4 Stars (★★★★)</option>
+              <option value="3">3 Stars (★★★)</option>
+              <option value="2">2 Stars (★★)</option>
+              <option value="1">1 Star (★)</option>
+            </select>
+          </div>
+
+          <div style="display: flex; gap: 0.75rem;">
+            <button type="button" id="dashBtnRefreshReviews" class="btn btn-outline btn-sm">
+              🔄 Refresh Reviews
+            </button>
+          </div>
+        </div>
+
+        <!-- Customer Reviews Moderation Table -->
+        <div style="background: #ffffff; border: 1px solid var(--border-light); border-radius: var(--radius-md); overflow-x: auto; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+          <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.875rem;">
+            <thead>
+              <tr style="background: var(--bg-neutral); border-bottom: 1px solid var(--border-light);">
+                <th style="padding: 0.85rem 1rem; width: 130px;">Date &amp; ID</th>
+                <th style="padding: 0.85rem 1rem; width: 180px;">Customer</th>
+                <th style="padding: 0.85rem 1rem; width: 120px;">Rating</th>
+                <th style="padding: 0.85rem 1rem;">Feedback</th>
+                <th style="padding: 0.85rem 1rem; width: 110px;">Status</th>
+                <th style="padding: 0.85rem 1rem; text-align: right; width: 220px;">Moderation Actions</th>
+              </tr>
+            </thead>
+            <tbody id="dashReviewsTbody"></tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- IN-PAGE ADD/EDIT CHAIR MODAL -->
+  <div class="review-modal" id="dashChairModal" role="dialog" aria-modal="true" aria-labelledby="dashChairModalTitle">
+    <div class="review-modal-backdrop" id="dashChairModalBackdrop"></div>
+    <div class="review-modal-dialog" style="max-width: 600px;">
+      <div class="review-modal-header">
+        <h3 id="dashChairModalTitle" style="font-size: 1.25rem; font-weight: 800; color: var(--text-main); margin: 0;">Add Chair Entry</h3>
+        <button type="button" class="review-modal-close" id="dashChairModalClose">&times;</button>
+      </div>
+
+      <div id="dashChairFormAlert" style="display: none; padding: 0.75rem; border-radius: var(--radius-sm); font-size: 0.875rem; margin-bottom: 1rem;"></div>
+
+      <form id="dashChairForm">
+        <input type="hidden" id="dashEditChairId">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+          <div class="form-group">
+            <label for="dashFormCategory" class="form-label">Category *</label>
+            <select id="dashFormCategory" class="form-input" required>
+              <option value="Office Chairs">Office Chairs</option>
+              <option value="Visitor Chairs">Visitor Chairs</option>
+              <option value="Lounge & Soft Seating">Lounge & Soft Seating</option>
+              <option value="Dining Chairs">Dining Chairs</option>
+              <option value="Stools & Additional Seating">Stools & Additional Seating</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="dashFormCode" class="form-label">Code Number *</label>
+            <input type="number" id="dashFormCode" class="form-input" placeholder="e.g. 129" required min="1">
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 1rem;">
+          <label for="dashFormModelName" class="form-label">Manufacturer Model Name *</label>
+          <input type="text" id="dashFormModelName" class="form-input" placeholder="e.g. ATLAS/3G" required>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+          <div class="form-group">
+            <label for="dashFormPrice" class="form-label">Base Price (₹) *</label>
+            <input type="number" id="dashFormPrice" class="form-input" placeholder="e.g. 4800" required min="0">
+          </div>
+          <div class="form-group">
+            <label for="dashFormImage" class="form-label">Photo Path / URL *</label>
+            <input type="text" id="dashFormImage" class="form-input" placeholder="assets/products/office_1_1.png" required>
+          </div>
+        </div>
+
+        <div class="review-modal-actions">
+          <button type="button" class="btn btn-secondary" id="dashBtnCancelChair" style="height: 44px; padding: 0 1.25rem;">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="dashBtnSaveChair" style="height: 44px; padding: 0 1.5rem;">Save Entry</button>
+        </div>
+      </form>
+    </div>
+  </div>
 
   <!-- FLOATING COMPARISON BAR -->
   <div class="compare-floating-bar" id="compareFloatingBar">
