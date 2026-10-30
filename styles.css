@@ -231,49 +231,9 @@ button, input, select, textarea {
   color: var(--white);
 }
 
-/* ---------------- 4. TOP ANNOUNCEMENT & CONTACT STRIP ---------------- */
+/* ---------------- 4. TOP ANNOUNCEMENT BAR (REMOVED) ---------------- */
 .top-bar {
-  background-color: #111111;
-  color: #E2E8F0;
-  font-size: 0.8125rem;
-  padding: 0.45rem 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.top-bar-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-}
-
-.top-bar-location {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  color: #CBD5E1;
-  font-weight: 500;
-}
-
-.top-bar-contact {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.top-bar-whatsapp {
-  color: #4ADE80;
-  font-weight: 700;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  transition: color 0.15s ease;
-}
-
-.top-bar-whatsapp:hover {
-  color: #FFFFFF;
+  display: none !important;
 }
 
 /* ---------------- 5. BALANCED WHITE HEADER & NAVIGATION ---------------- */
@@ -305,9 +265,9 @@ button, input, select, textarea {
 }
 
 .brand-logo img {
-  height: 44px;
+  height: 54px;
   width: auto;
-  max-width: 250px;
+  max-width: 220px;
   object-fit: contain;
   display: block;
 }
@@ -1690,9 +1650,22 @@ button, input, select, textarea {
   gap: 1.25rem;
 }
 
+.footer-logo {
+  display: inline-flex;
+  align-items: center;
+  background: #FFFFFF;
+  padding: 6px 14px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  margin-bottom: 0.5rem;
+  width: fit-content;
+}
+
 .footer-logo img {
-  height: 42px;
+  height: 48px;
   width: auto;
+  object-fit: contain;
+  display: block;
 }
 
 .footer-desc {
@@ -1855,34 +1828,15 @@ button, input, select, textarea {
 }
 
 @media (max-width: 640px) {
-  .top-bar {
-    padding: 0.35rem 0;
-  }
-  .top-bar-content {
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    gap: 0.25rem;
-  }
-  .top-bar-location {
-    font-size: 0.75rem;
-    justify-content: center;
-    text-align: center;
-  }
-  .top-bar-contact {
-    justify-content: center;
-  }
-  .top-bar-whatsapp {
-    font-size: 0.75rem;
-  }
   .nav-container {
-    min-height: 60px;
+    min-height: 64px;
     gap: 0.75rem;
     padding: 0 1rem;
   }
   .brand-logo img {
-    height: 38px;
-    max-width: 190px;
+    height: 46px;
+    max-width: 170px;
+    object-fit: contain;
   }
   .header-actions {
     gap: 0.5rem;
