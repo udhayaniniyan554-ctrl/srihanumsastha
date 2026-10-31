@@ -3048,6 +3048,46 @@ button, input, select, textarea {
   to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
+/* Status Filter Pills for Reviews Moderation (surya-agencies style) */
+.dash-status-pill {
+  border: none;
+  background: transparent;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-full);
+  font-size: 0.775rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.dash-status-pill:hover {
+  color: var(--text-main);
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.dash-status-pill.active {
+  background: var(--text-main);
+  color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.dash-status-pill[data-status="pending"].active {
+  background: #d97706;
+  color: #ffffff;
+}
+
+.dash-status-pill[data-status="approved"].active {
+  background: #15803d;
+  color: #ffffff;
+}
+
+.dash-status-pill[data-status="rejected"].active {
+  background: #dc2626;
+  color: #ffffff;
+}
+
 /* Integrated Admin Dashboard Overlay (Full-Featured in Same Page) */
 .admin-dashboard-overlay {
   position: fixed;

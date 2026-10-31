@@ -382,16 +382,20 @@
 
       <!-- Reviews Toolbar -->
       <div class="admin-toolbar">
-        <div class="admin-search-box" style="flex-wrap: wrap;">
+        <div class="admin-search-box" style="flex-wrap: wrap; align-items: center; gap: 0.75rem;">
           <input type="text" id="adminReviewsSearchInput" class="form-input" style="flex: 1; min-width: 200px;" placeholder="Search by customer name, location, or feedback...">
-          <select id="adminReviewsStatusFilter" class="form-input" style="width: 170px;">
-            <option value="all">All Statuses</option>
-            <option value="pending">⏳ Pending Only</option>
-            <option value="approved">✓ Approved Only</option>
-            <option value="rejected">✗ Rejected Only</option>
-          </select>
-          <select id="adminReviewsRatingFilter" class="form-input" style="width: 140px;">
-            <option value="all">All Ratings</option>
+          
+          <!-- Status Filter Pills (surya-agencies style) -->
+          <div class="status-filter-pills" style="display: inline-flex; gap: 0.35rem; background: var(--bg-neutral); padding: 0.25rem; border-radius: var(--radius-full); border: 1px solid var(--border-light);">
+            <button type="button" class="dash-status-pill active" data-status="all" id="adminPillAll">All Reviews (<span id="adminPillCountAll">0</span>)</button>
+            <button type="button" class="dash-status-pill" data-status="pending" id="adminPillPending">⏳ Pending (<span id="adminPillCountPending">0</span>)</button>
+            <button type="button" class="dash-status-pill" data-status="approved" id="adminPillApproved">✓ Approved (<span id="adminPillCountApproved">0</span>)</button>
+            <button type="button" class="dash-status-pill" data-status="rejected" id="adminPillRejected">✗ Rejected (<span id="adminPillCountRejected">0</span>)</button>
+          </div>
+          <input type="hidden" id="adminReviewsStatusFilter" value="all">
+
+          <select id="adminReviewsRatingFilter" class="form-input" style="width: 130px;">
+            <option value="all">All Stars</option>
             <option value="5">5 Stars (★★★★★)</option>
             <option value="4">4 Stars (★★★★)</option>
             <option value="3">3 Stars (★★★)</option>
@@ -405,7 +409,7 @@
             🔄 Refresh Reviews
           </button>
           <a href="index.html#reviews" target="_blank" class="btn btn-outline btn-sm" style="color: var(--forest-green); border-color: var(--forest-green);">
-            ↗ View Public Reviews
+            👁️ Customer View
           </a>
         </div>
       </div>
@@ -626,6 +630,19 @@
   </div>
 
   <script>
+    // Central API Base Resolver
+    function getApiBase() {
+      if (window.location.protocol === 'file:' || !window.location.host) {
+        return 'https://srihanumsastha.onrender.com';
+      }
+      const host = window.location.hostname;
+      if (host === 'localhost' || host === '127.0.0.1' || host.includes('onrender.com')) {
+        return '';
+      }
+      return 'https://srihanumsastha.onrender.com';
+    }
+    const API_BASE = getApiBase();
+
     let catalogData = [];
     let reviewsData = [];
     let authenticated = false;
@@ -1229,7 +1246,7 @@
     async function loadReviews() {
       const token = adminToken || sessionStorage.getItem('admin_token') || 'shse2026';
       try {
-        const res = await fetch('/api/admin/reviews', {
+        const res = await fetch(`${API_BASE}/api/admin/reviews`, {
           headers: { 'Authorization': `Bearer ${token}` }
         });
         if (res.ok) {
@@ -1274,6 +1291,13 @@
 
       const statRejected = document.getElementById('statReviewsRejected');
       if (statRejected) statRejected.textContent = rejected;
+
+      // Status Filter Pills counts
+      const setVal = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
+      setVal('adminPillCountAll', total);
+      setVal('adminPillCountPending', pending);
+      setVal('adminPillCountApproved', approved);
+      setVal('adminPillCountRejected', rejected);
 
       const statAvg = document.getElementById('statReviewsAvg');
       if (statAvg) {
@@ -1373,12 +1397,25 @@
       }).join('');
     }
 
+    // Filter pills listeners in admin.html
+    const adminFilterPills = document.querySelectorAll('.status-filter-pills .dash-status-pill');
+    adminFilterPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        adminFilterPills.forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        const st = pill.getAttribute('data-status') || 'all';
+        const filterInput = document.getElementById('adminReviewsStatusFilter');
+        if (filterInput) filterInput.value = st;
+        renderReviewsTable();
+      });
+    });
+
     // Approve Review Handler
     window.approveReview = async function(id) {
       const rev = reviewsData.find(x => x.id === id);
       if (!rev) return;
       try {
-        const res = await fetch(`/api/admin/reviews/${id}/status`, {
+        const res = await fetch(`${API_BASE}/api/admin/reviews/${id}/status`, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
@@ -1402,7 +1439,7 @@
       const rev = reviewsData.find(x => x.id === id);
       if (!rev) return;
       try {
-        const res = await fetch(`/api/admin/reviews/${id}/status`, {
+        const res = await fetch(`${API_BASE}/api/admin/reviews/${id}/status`, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
@@ -1438,7 +1475,7 @@
       if (!confirm(confirmMsg)) return;
 
       try {
-        const res = await fetch(`/api/admin/reviews/${id}`, {
+        const res = await fetch(`${API_BASE}/api/admin/reviews/${id}`, {
           method: 'DELETE',
           headers: {
             'Authorization': `Bearer ${adminToken}`

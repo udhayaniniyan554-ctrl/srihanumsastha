@@ -476,7 +476,12 @@ with open(os.path.join(PROJECT_DIR, "index.html"), "r", encoding="utf-8") as f:
     assert 'id="adminPanelAddChair"' in idx_content, "Add New Chairs panel missing in merged dashboard"
     assert 'id="chairUploadDropzone"' in idx_content, "Chair photo upload dropzone missing in Add New Chairs panel"
     assert 'id="dashAddChairForm"' in idx_content, "Add Chair Form missing in Add New Chairs panel"
-print("  [PASS] Admin Dashboard strictly contains only Customer Reviews and Add New Chairs as its two main options.")
+    assert 'id="pillRevAll"' in idx_content, "All Reviews filter pill missing in index.html"
+    assert 'id="pillRevPending"' in idx_content, "Pending filter pill missing in index.html"
+    assert 'id="pillRevApproved"' in idx_content, "Approved filter pill missing in index.html"
+    assert 'id="pillRevRejected"' in idx_content, "Rejected filter pill missing in index.html"
+    assert 'id="btnAdminCustomerView"' in idx_content, "btnAdminCustomerView missing in index.html"
+print("  [PASS] Admin Dashboard strictly contains only Customer Reviews and Add New Chairs with 4 Status Filter Pills.")
 
 # Test Review Moderation API (Approve / Reject / Delete)
 # 1. Create a review

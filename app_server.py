@@ -1,6 +1,7 @@
 import os
 import json
 import secrets
+import sqlite3
 import urllib.request
 import urllib.parse
 from datetime import datetime, timezone
@@ -52,6 +53,7 @@ site_dir = os.path.dirname(os.path.abspath(__file__))
 catalog_file = os.path.join(site_dir, "assets", "catalog.json")
 concepts_file = os.path.join(site_dir, "assets", "concepts.json")
 reviews_file = os.path.join(site_dir, "assets", "reviews.json")
+db_file = os.path.join(site_dir, "assets", "shse_database.sqlite")
 products_dir = os.path.join(site_dir, "assets", "products")
 active_tokens = set()
 
@@ -83,8 +85,127 @@ def load_local_reviews() -> List[Dict[str, Any]]:
     return []
 
 def save_local_reviews(data: List[Dict[str, Any]]) -> None:
-    with open(reviews_file, "w", encoding="utf-8") as f:
-        json.dump(data, f, indent=2, ensure_ascii=False)
+    try:
+        with open(reviews_file, "w", encoding="utf-8") as f:
+            json.dump(data, f, indent=2, ensure_ascii=False)
+    except Exception as e:
+        print(f"[WARN] Failed to write reviews.json: {e}")
+
+# ---------------- SQLITE DATABASE ENGINE ----------------
+def get_db_connection():
+    conn = sqlite3.connect(db_file)
+    conn.row_factory = sqlite3.Row
+    return conn
+
+def init_db():
+    conn = get_db_connection()
+    c = conn.cursor()
+    c.execute("""
+        CREATE TABLE IF NOT EXISTS customer_reviews (
+            id TEXT PRIMARY KEY,
+            name TEXT NOT NULL,
+            rating INTEGER NOT NULL,
+            comment TEXT NOT NULL,
+            location TEXT,
+            status TEXT NOT NULL DEFAULT 'pending',
+            date TEXT NOT NULL,
+            created_at TEXT NOT NULL,
+            updated_at TEXT
+        )
+    """)
+    conn.commit()
+
+    # Import initial reviews from reviews.json if any are missing in DB
+    if os.path.exists(reviews_file):
+        try:
+            with open(reviews_file, "r", encoding="utf-8") as f:
+                data = json.load(f)
+                for r in data:
+                    c.execute("SELECT id FROM customer_reviews WHERE id = ?", (r["id"],))
+                    if not c.fetchone():
+                        c.execute("""
+                            INSERT INTO customer_reviews 
+                            (id, name, rating, comment, location, status, date, created_at, updated_at)
+                            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+                        """, (
+                            r.get("id"),
+                            r.get("name"),
+                            int(r.get("rating", 5)),
+                            r.get("comment", ""),
+                            r.get("location", "Verified Customer"),
+                            r.get("status", "pending"),
+                            r.get("date", ""),
+                            r.get("created_at", datetime.now(timezone.utc).isoformat()),
+                            r.get("updated_at")
+                        ))
+                conn.commit()
+        except Exception as e:
+            print(f"[WARN] Initial DB migration warning: {e}")
+    conn.close()
+
+init_db()
+
+def db_get_all_reviews() -> List[Dict[str, Any]]:
+    conn = get_db_connection()
+    c = conn.cursor()
+    c.execute("SELECT * FROM customer_reviews ORDER BY created_at DESC")
+    rows = [dict(r) for r in c.fetchall()]
+    conn.close()
+    return rows
+
+def db_get_approved_reviews() -> List[Dict[str, Any]]:
+    conn = get_db_connection()
+    c = conn.cursor()
+    c.execute("SELECT * FROM customer_reviews WHERE status = 'approved' ORDER BY created_at DESC")
+    rows = [dict(r) for r in c.fetchall()]
+    conn.close()
+    return rows
+
+def db_save_review(rev: Dict[str, Any]) -> None:
+    conn = get_db_connection()
+    c = conn.cursor()
+    c.execute("""
+        INSERT OR REPLACE INTO customer_reviews 
+        (id, name, rating, comment, location, status, date, created_at, updated_at)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+    """, (
+        rev.get("id"),
+        rev.get("name"),
+        int(rev.get("rating", 5)),
+        rev.get("comment", ""),
+        rev.get("location", "Verified Customer"),
+        rev.get("status", "pending"),
+        rev.get("date", ""),
+        rev.get("created_at", datetime.now(timezone.utc).isoformat()),
+        rev.get("updated_at")
+    ))
+    conn.commit()
+    conn.close()
+    # Mirror into reviews.json
+    save_local_reviews(db_get_all_reviews())
+
+def db_update_status(review_id: str, new_status: str) -> bool:
+    conn = get_db_connection()
+    c = conn.cursor()
+    now_iso = datetime.now(timezone.utc).isoformat()
+    c.execute("UPDATE customer_reviews SET status = ?, updated_at = ? WHERE id = ?", (new_status, now_iso, review_id))
+    changed = c.rowcount > 0
+    conn.commit()
+    conn.close()
+    if changed:
+        save_local_reviews(db_get_all_reviews())
+    return changed
+
+def db_delete_review(review_id: str) -> bool:
+    conn = get_db_connection()
+    c = conn.cursor()
+    c.execute("DELETE FROM customer_reviews WHERE id = ?", (review_id,))
+    deleted = c.rowcount > 0
+    conn.commit()
+    conn.close()
+    if deleted:
+        save_local_reviews(db_get_all_reviews())
+    return deleted
 
 # Auth dependency
 def verify_admin_token(authorization: Optional[str] = Header(None)):
@@ -102,10 +223,11 @@ def health_check():
     return {
         "status": "healthy",
         "backend": "FastAPI",
+        "database": "sqlite3_active",
         "supabase_connected": supabase_client is not None,
         "catalogue_items": len(load_local_catalog()),
         "concepts_items": len(load_local_concepts()),
-        "reviews_items": len(load_local_reviews())
+        "reviews_items": len(db_get_all_reviews())
     }
 
 @app.get("/api/concepts")
@@ -115,8 +237,8 @@ def get_concepts():
 @app.get("/api/reviews")
 def get_reviews():
     all_reviews = {}
-    for r in load_local_reviews():
-        if r.get("status") == "approved" and r.get("id"):
+    for r in db_get_approved_reviews():
+        if r.get("id"):
             all_reviews[r["id"]] = r
 
     if supabase_client:
@@ -127,7 +249,7 @@ def get_reviews():
                     if r.get("id"):
                         all_reviews[r["id"]] = r
         except Exception as e:
-            print(f"[WARN] Supabase reviews fetch failed: {e}. Using local reviews.")
+            print(f"[WARN] Supabase reviews fetch failed: {e}. Using SQLite reviews.")
 
     sorted_approved = sorted(all_reviews.values(), key=lambda r: r.get("created_at", ""), reverse=True)
     return sorted_approved
@@ -135,7 +257,7 @@ def get_reviews():
 @app.get("/api/admin/reviews", dependencies=[Depends(verify_admin_token)])
 def get_admin_reviews():
     all_reviews = {}
-    for r in load_local_reviews():
+    for r in db_get_all_reviews():
         if r.get("id"):
             all_reviews[r["id"]] = r
 
@@ -147,7 +269,7 @@ def get_admin_reviews():
                     if r.get("id"):
                         all_reviews[r["id"]] = r
         except Exception as e:
-            print(f"[WARN] Supabase admin reviews fetch failed: {e}. Using local reviews.")
+            print(f"[WARN] Supabase admin reviews fetch failed: {e}. Using SQLite reviews.")
 
     sorted_all = sorted(all_reviews.values(), key=lambda r: r.get("created_at", ""), reverse=True)
     return sorted_all
@@ -158,25 +280,17 @@ def update_review_status(review_id: str, payload: Dict[str, str]):
     if new_status not in ["approved", "rejected", "pending"]:
         raise HTTPException(status_code=400, detail="Status must be 'approved', 'rejected', or 'pending'")
 
-    local_reviews = load_local_reviews()
-    found = False
-    for r in local_reviews:
-        if r.get("id") == review_id:
-            r["status"] = new_status
-            r["updated_at"] = datetime.now(timezone.utc).isoformat()
-            found = True
-            break
-
-    if not found and not supabase_client:
-        raise HTTPException(status_code=404, detail="Review not found")
-
-    save_local_reviews(local_reviews)
+    updated = db_update_status(review_id, new_status)
 
     if supabase_client:
         try:
             supabase_client.table("customer_reviews").update({"status": new_status}).eq("id", review_id).execute()
+            updated = True
         except Exception as e:
             print(f"[ERROR] Supabase review status update failed: {e}")
+
+    if not updated:
+        raise HTTPException(status_code=404, detail="Review not found in database")
 
     return {"success": True, "review_id": review_id, "status": new_status}
 
@@ -214,28 +328,21 @@ def create_review(payload: Dict[str, Any]):
         "location": location if location else "Verified Customer",
         "status": "pending",
         "date": now.strftime("%d %b %Y"),
-        "created_at": now.isoformat()
+        "created_at": now.isoformat(),
+        "updated_at": None
     }
 
-    save_success = False
+    try:
+        db_save_review(review)
+    except Exception as e:
+        print(f"[ERROR] SQLite review insert failed: {e}")
+        raise HTTPException(status_code=500, detail="Failed to save review to database.")
 
     if supabase_client:
         try:
             supabase_client.table("customer_reviews").insert(review).execute()
-            save_success = True
         except Exception as e:
             print(f"[WARN] Supabase review insert failed: {e}")
-
-    try:
-        reviews = load_local_reviews()
-        reviews.append(review)
-        save_local_reviews(reviews)
-        save_success = True
-    except Exception as e:
-        print(f"[ERROR] Local reviews save failed: {e}")
-
-    if not save_success:
-        raise HTTPException(status_code=500, detail="Failed to save review to the database. Please try again.")
 
     return {"success": True, "review": review}
 
@@ -546,18 +653,17 @@ def delete_chair(chair_id: str):
 
 @app.delete("/api/admin/reviews/{review_id}", dependencies=[Depends(verify_admin_token)])
 def delete_review(review_id: str):
-    local_reviews = load_local_reviews()
-    new_reviews = [r for r in local_reviews if r.get("id") != review_id]
-    if len(new_reviews) == len(local_reviews):
-        raise HTTPException(status_code=404, detail="Review not found")
-
-    save_local_reviews(new_reviews)
+    deleted = db_delete_review(review_id)
 
     if supabase_client:
         try:
             supabase_client.table("customer_reviews").delete().eq("id", review_id).execute()
+            deleted = True
         except Exception as e:
             print(f"[ERROR] Supabase review delete failed: {e}")
+
+    if not deleted:
+        raise HTTPException(status_code=404, detail="Review not found in database")
 
     return {"success": True, "deleted_id": review_id, "message": "Review permanently deleted"}
 

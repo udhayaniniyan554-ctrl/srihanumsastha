@@ -1,5 +1,27 @@
 [
   {
+    "id": "rev_1793431506_7d43b504",
+    "name": "Priya Shankar",
+    "rating": 5,
+    "comment": "Excellent ergonomic mesh chair, perfect for long working hours in Coimbatore.",
+    "location": "Peelamedu, Coimbatore",
+    "status": "approved",
+    "date": "31 Oct 2026",
+    "created_at": "2026-10-31T07:25:06.490306+00:00",
+    "updated_at": "2026-10-31T07:25:06.591305+00:00"
+  },
+  {
+    "id": "rev_1793431487_6565b298",
+    "name": "Priya Shankar",
+    "rating": 5,
+    "comment": "Excellent ergonomic mesh chair, perfect for long working hours in Coimbatore.",
+    "location": "Peelamedu, Coimbatore",
+    "status": "pending",
+    "date": "31 Oct 2026",
+    "created_at": "2026-10-31T07:24:47.280719+00:00",
+    "updated_at": null
+  },
+  {
     "id": "rev_1793428061_3cc0743a",
     "name": "Udhayan",
     "rating": 5,
@@ -7,6 +29,7 @@
     "location": "Coimbatore",
     "status": "pending",
     "date": "31 Oct 2026",
-    "created_at": "2026-10-31T06:27:41.009559+00:00"
+    "created_at": "2026-10-31T06:27:41.009559+00:00",
+    "updated_at": null
   }
 ]

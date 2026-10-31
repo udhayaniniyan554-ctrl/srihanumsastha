@@ -7,6 +7,18 @@
 (function () {
   'use strict';
 
+  // Central API Base Resolver
+  function getApiBase() {
+    if (window.location.protocol === 'file:' || !window.location.host) {
+      return 'https://srihanumsastha.onrender.com';
+    }
+    const host = window.location.hostname;
+    if (host === 'localhost' || host === '127.0.0.1' || host.includes('onrender.com')) {
+      return '';
+    }
+    return 'https://srihanumsastha.onrender.com';
+  }
+
   // Category prefix mapping for uniform naming
   const CAT_PREFIX = {
     'Office Chairs': 'OFFICE CHAIRS',
@@ -1004,9 +1016,7 @@
 
   // ---------------- 13. CUSTOMER REVIEWS SYSTEM ----------------
   function initReviewsSystem() {
-    const API_BASE = (window.location.protocol === 'file:' || !window.location.host)
-      ? 'https://srihanumsastha.onrender.com'
-      : '';
+    const API_BASE = getApiBase();
 
     const reviewsSection = document.getElementById('reviews');
     if (!reviewsSection) return;
@@ -1407,13 +1417,12 @@
     const adminModalUser = document.getElementById('adminModalUser');
     const adminModalPass = document.getElementById('adminModalPass');
 
-    const API_BASE = (window.location.protocol === 'file:' || !window.location.host)
-      ? 'https://srihanumsastha.onrender.com'
-      : '';
+    const API_BASE = getApiBase();
 
     const adminDashboardOverlay = document.getElementById('adminDashboardOverlay');
     const closeAdminDashboardBtn = document.getElementById('closeAdminDashboardBtn');
     const adminOverlayLogoutBtn = document.getElementById('adminOverlayLogoutBtn');
+    const btnAdminCustomerView = document.getElementById('btnAdminCustomerView');
     const adminTabBtnReviews = document.getElementById('adminTabBtnReviews');
     const adminTabBtnAddChair = document.getElementById('adminTabBtnAddChair');
     const adminPanelReviews = document.getElementById('adminPanelReviews');
@@ -1612,6 +1621,12 @@
       setVal('dashStatReviewsApproved', approved);
       setVal('dashStatReviewsRejected', rejected);
 
+      // Status Filter Pills counts (surya-agencies style)
+      setVal('dashPillCountAll', total);
+      setVal('dashPillCountPending', pending);
+      setVal('dashPillCountApproved', approved);
+      setVal('dashPillCountRejected', rejected);
+
       const statAvg = document.getElementById('dashStatReviewsAvg');
       if (statAvg) {
         if (total === 0) {
@@ -1716,6 +1731,31 @@
     if (revStatusFilter) revStatusFilter.addEventListener('change', renderDashboardReviews);
     const revRatingFilter = document.getElementById('dashReviewsRatingFilter');
     if (revRatingFilter) revRatingFilter.addEventListener('change', renderDashboardReviews);
+
+    // Filter pills listeners (All Reviews, Pending, Approved, Rejected)
+    const filterPills = document.querySelectorAll('.dash-status-pill');
+    filterPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        filterPills.forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        const st = pill.getAttribute('data-status') || 'all';
+        if (revStatusFilter) revStatusFilter.value = st;
+        renderDashboardReviews();
+      });
+    });
+
+    // Customer View Button (surya-agencies style portal switcher)
+    if (btnAdminCustomerView) {
+      btnAdminCustomerView.addEventListener('click', () => {
+        closeDashboardOverlay();
+        window.location.hash = '#reviews';
+        const sec = document.getElementById('reviews');
+        if (sec) {
+          setTimeout(() => sec.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
+        }
+      });
+    }
+    window.closeAdminDashboard = closeDashboardOverlay;
 
     // Approve Review -> Live on public website
     window.dashApproveReview = async function(id) {
@@ -2321,15 +2361,26 @@
   }
 
   function handleInitialHash() {
-    const hash = window.location.hash.replace('#', '');
-    if (!hash) return;
+    const rawHash = window.location.hash.replace('#', '').toLowerCase();
+    if (!rawHash) return;
 
-    if (hash === 'admin' && typeof window.openAdminPortal === 'function') {
+    if ((rawHash === 'admin' || rawHash === 'shopkeeper') && typeof window.openAdminPortal === 'function') {
       window.openAdminPortal();
       return;
     }
 
-    const matchedCat = state.categories.find(c => c.hash === hash);
+    if (rawHash === 'customer' || rawHash === 'reviews') {
+      if (typeof window.closeAdminDashboard === 'function') {
+        window.closeAdminDashboard();
+      }
+      if (rawHash === 'reviews') {
+        const sec = document.getElementById('reviews');
+        if (sec) setTimeout(() => sec.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
+      }
+      return;
+    }
+
+    const matchedCat = state.categories.find(c => c.hash === rawHash);
     if (matchedCat) {
       state.selectedCategory = matchedCat.id;
       applyFiltersAndSort();
