@@ -67,18 +67,29 @@ CREATE TABLE IF NOT EXISTS public.customer_reviews (
     rating INTEGER NOT NULL CHECK (rating >= 1 AND rating <= 5),
     comment TEXT NOT NULL,
     location TEXT DEFAULT 'Verified Customer',
+    status TEXT NOT NULL DEFAULT 'pending',
     date TEXT NOT NULL,
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL
 );
 
 ALTER TABLE public.customer_reviews ENABLE ROW LEVEL SECURITY;
 
-CREATE POLICY "Public can view reviews"
+-- Anonymous public visitors can only view approved reviews
+CREATE POLICY "Public can view approved reviews"
     ON public.customer_reviews
     FOR SELECT
-    USING (true);
+    USING (status = 'approved');
 
+-- Anonymous public visitors can submit reviews (saved with status pending)
 CREATE POLICY "Public can submit reviews"
     ON public.customer_reviews
     FOR INSERT
     WITH CHECK (true);
+
+-- Admin and service role can view, approve, reject, and delete all reviews
+CREATE POLICY "Admin can manage reviews"
+    ON public.customer_reviews
+    FOR ALL
+    TO authenticated, service_role
+    USING (true);

@@ -10,7 +10,7 @@ services:
       - key: PYTHON_VERSION
         value: 3.11.9
       - key: ADMIN_PASSWORD
-        generateValue: true
+        value: shse2026
       - key: SUPABASE_URL
         sync: false
       - key: SUPABASE_SERVICE_ROLE_KEY

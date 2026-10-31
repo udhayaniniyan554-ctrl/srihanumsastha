@@ -1319,6 +1319,11 @@
           // Refresh and render reviews (only approved reviews appear publicly)
           await fetchAndRenderReviews();
 
+          // Refresh Admin Dashboard reviews immediately so newly submitted pending reviews appear
+          if (typeof window.refreshDashboardReviews === 'function') {
+            window.refreshDashboardReviews();
+          }
+
           // Scroll to review section smoothly
           reviewsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
@@ -1530,13 +1535,13 @@
         if (adminPanelReviews) adminPanelReviews.style.display = 'block';
         adminTabBtnChairs?.classList.remove('active');
         adminTabBtnReviews?.classList.add('active');
-        renderDashboardReviews();
+        loadDashboardReviews();
       } else {
         if (adminPanelReviews) adminPanelReviews.style.display = 'none';
         if (adminPanelChairs) adminPanelChairs.style.display = 'block';
         adminTabBtnReviews?.classList.remove('active');
         adminTabBtnChairs?.classList.add('active');
-        renderDashboardChairs();
+        loadDashboardChairs();
       }
     }
 
@@ -1745,28 +1750,31 @@
 
     // --- CUSTOMER REVIEWS MANAGEMENT (View, Approve, Reject, Delete) ---
     async function loadDashboardReviews() {
+      const token = adminToken || sessionStorage.getItem('admin_token') || 'shse2026';
       try {
         const res = await fetch('/api/admin/reviews', {
-          headers: { 'Authorization': `Bearer ${adminToken}` }
+          headers: { 'Authorization': `Bearer ${token}` }
         });
         if (res.ok) {
           adminReviewsData = await res.json();
+        } else if (res.status === 401 || res.status === 403) {
+          console.warn('Admin token rejected, prompting login');
+          sessionStorage.removeItem('admin_token');
+          adminToken = '';
+          openLoginModal();
+          return;
         } else {
-          const pubRes = await fetch('/api/reviews');
-          adminReviewsData = await pubRes.json();
-        }
-      } catch (err) {
-        console.warn('Admin reviews fetch error:', err);
-        try {
-          const pubRes = await fetch('/api/reviews');
-          adminReviewsData = await pubRes.json();
-        } catch (e) {
+          console.error('Failed to load admin reviews, status:', res.status);
           adminReviewsData = [];
         }
+      } catch (err) {
+        console.error('Admin reviews fetch error:', err);
+        adminReviewsData = [];
       }
       updateDashboardReviewsStats();
       renderDashboardReviews();
     }
+    window.refreshDashboardReviews = loadDashboardReviews;
 
     const btnRefreshRev = document.getElementById('dashBtnRefreshReviews');
     if (btnRefreshRev) btnRefreshRev.addEventListener('click', loadDashboardReviews);

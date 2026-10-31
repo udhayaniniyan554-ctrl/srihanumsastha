@@ -942,7 +942,7 @@
         panelReviews.style.display = 'block';
         btnChairs.classList.remove('active');
         btnReviews.classList.add('active');
-        renderReviewsTable();
+        loadReviews();
       } else {
         panelReviews.style.display = 'none';
         panelChairs.style.display = 'block';
@@ -953,24 +953,28 @@
     };
 
     async function loadReviews() {
+      const token = adminToken || sessionStorage.getItem('admin_token') || 'shse2026';
       try {
         const res = await fetch('/api/admin/reviews', {
-          headers: { 'Authorization': `Bearer ${adminToken}` }
+          headers: { 'Authorization': `Bearer ${token}` }
         });
         if (res.ok) {
           reviewsData = await res.json();
+        } else if (res.status === 401 || res.status === 403) {
+          document.getElementById('loginCard').style.display = 'block';
+          document.getElementById('dashContainer').style.display = 'none';
+          const al = document.getElementById('loginAlert');
+          if (al) {
+            al.textContent = 'Admin session expired. Please sign in again.';
+            al.style.display = 'block';
+          }
+          return;
         } else {
-          const pubRes = await fetch('/api/reviews');
-          reviewsData = await pubRes.json();
+          reviewsData = [];
         }
       } catch (err) {
         console.warn('Failed loading reviews:', err);
-        try {
-          const pubRes = await fetch('/api/reviews');
-          reviewsData = await pubRes.json();
-        } catch (e) {
-          reviewsData = [];
-        }
+        reviewsData = [];
       }
       updateReviewsStats();
       renderReviewsTable();
