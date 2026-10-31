@@ -444,13 +444,8 @@ stored_reviews_after = json.loads(body)
 assert not any(r["id"] == test_rev_id for r in stored_reviews_after), "Deleted review still present in GET /api/reviews!"
 print("  [PASS] Review permanently deleted from database & removed from public website.")
 
-# Reset to strictly comply with "Do not create fake customer reviews or ratings"
-with open(os.path.join(PROJECT_DIR, "assets", "reviews.json"), "w", encoding="utf-8") as f:
-    f.write("[]")
-print("  [PASS] Clean production baseline maintained (0 fake reviews).")
-
-# ---------------- STEP 13: MERGED IN-PAGE ADMIN DASHBOARD & REVIEW MODERATION ----------------
-print("\n[STEP 13] Verifying Merged Admin Dashboard on index.html & Review Moderation Flow...")
+# ---------------- STEP 13: MERGED IN-PAGE ADMIN DASHBOARD (2 OPTIONS) & REVIEW MODERATION ----------------
+print("\n[STEP 13] Verifying Merged Admin Dashboard on index.html (Customer Reviews & Add New Chairs)...")
 
 with open(os.path.join(PROJECT_DIR, "index.html"), "r", encoding="utf-8") as f:
     idx_content = f.read()
@@ -472,12 +467,16 @@ with open(os.path.join(PROJECT_DIR, "index.html"), "r", encoding="utf-8") as f:
     assert 'id="adminModalUser"' in idx_content, "adminModalUser missing in index.html"
     assert 'id="adminModalPass"' in idx_content, "adminModalPass missing in index.html"
 
-    # Check Admin Dashboard Overlay
+    # Check Admin Dashboard Overlay with ONLY TWO main options
     assert 'id="adminDashboardOverlay"' in idx_content, "adminDashboardOverlay missing in index.html"
-    assert 'id="adminTabBtnChairs"' in idx_content, "Chairs tab missing in merged dashboard"
-    assert 'id="adminTabBtnReviews"' in idx_content, "Reviews tab missing in merged dashboard"
-    assert 'id="dashChairModal"' in idx_content, "dashChairModal missing in merged dashboard"
-print("  [PASS] index.html contains Admin Dashboard button (left of Saved), Login Modal, and Full Admin Overlay.")
+    assert 'id="adminTabBtnReviews"' in idx_content, "Customer Reviews tab missing in merged dashboard"
+    assert 'id="adminTabBtnAddChair"' in idx_content, "Add New Chairs tab missing in merged dashboard"
+    assert 'id="adminTabBtnChairs"' not in idx_content, "Chair Catalogue tab must be removed from Admin Dashboard!"
+    assert 'id="adminPanelReviews"' in idx_content, "Customer Reviews panel missing in merged dashboard"
+    assert 'id="adminPanelAddChair"' in idx_content, "Add New Chairs panel missing in merged dashboard"
+    assert 'id="chairUploadDropzone"' in idx_content, "Chair photo upload dropzone missing in Add New Chairs panel"
+    assert 'id="dashAddChairForm"' in idx_content, "Add Chair Form missing in Add New Chairs panel"
+print("  [PASS] Admin Dashboard strictly contains only Customer Reviews and Add New Chairs as its two main options.")
 
 # Test Review Moderation API (Approve / Reject / Delete)
 # 1. Create a review
@@ -554,19 +553,88 @@ pub_reviews_app = json.loads(body)
 assert any(r["id"] == mod_rev_id for r in pub_reviews_app), "Approved review must appear in public GET /api/reviews"
 print("  [PASS] Approved review is successfully displayed in public customer reviews.")
 
-# 7. Clean up by deleting the review via admin API
+# 7. Clean up by deleting the test review via admin API
 status, body = request_url(
     f"{BASE_URL}/api/admin/reviews/{mod_rev_id}",
     method="DELETE",
     headers={"Authorization": f"Bearer {auth_data['token']}"}
 )
 assert status == 200
+print("  [PASS] Test review cleaned up via DELETE API; real customer reviews preserved.")
 
-# Final check: database is clean
-with open(os.path.join(PROJECT_DIR, "assets", "reviews.json"), "w", encoding="utf-8") as f:
-    f.write("[]")
-print("  [PASS] Clean production baseline restored.")
+# ---------------- STEP 14: ADD NEW CHAIRS ADMIN OPTION & WORKFLOW ----------------
+print("\n[STEP 14] Verifying Add New Chairs Admin Feature & Catalogue Synchronization...")
+
+# 1. Add new chair via POST /api/admin/chairs
+test_chair_payload = {
+    "name": "Ergonomic Pro High-Back Test Chair",
+    "category": "Office Chairs",
+    "base_price": 7500,
+    "description": "Breathable high-density mesh, synchro tilt, nylon base, test entry.",
+    "image": "assets/products/office_1_1.png"
+}
+status, body = request_url(
+    f"{BASE_URL}/api/admin/chairs",
+    data=json.dumps(test_chair_payload).encode('utf-8'),
+    headers={
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer {auth_data['token']}"
+    }
+)
+assert status == 200, f"Expected 200 OK for add chair, got {status}: {body}"
+created_chair = json.loads(body)["chair"]
+test_chair_id = created_chair["id"]
+assert "Office Chairs" in created_chair["category"]
+assert created_chair["base_price"] == 7500
+assert "SHSE" in created_chair["code"]
+print(f"  [PASS] New chair created successfully: {created_chair['code']} ({created_chair['display_name']}).")
+
+# 2. Verify new chair appears in public GET /api/chairs
+status, body = request_url(f"{BASE_URL}/api/chairs")
+assert status == 200
+chairs_list = json.loads(body)
+found_chair = next((c for c in chairs_list if c["id"] == test_chair_id), None)
+assert found_chair is not None, "Newly added chair must appear in public chairs catalogue!"
+print("  [PASS] Newly added chair immediately published and visible in public catalogue.")
+
+# 3. Edit chair via PUT /api/admin/chairs/{id}
+update_chair_payload = {
+    "name": "Ergonomic Pro High-Back Updated",
+    "category": "Office Chairs",
+    "base_price": 8200,
+    "description": "Updated specifications and pricing.",
+    "image": "assets/products/office_1_1.png"
+}
+status, body = request_url(
+    f"{BASE_URL}/api/admin/chairs/{test_chair_id}",
+    method="PUT",
+    data=json.dumps(update_chair_payload).encode('utf-8'),
+    headers={
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer {auth_data['token']}"
+    }
+)
+assert status == 200, f"Expected 200 OK for chair update, got {status}: {body}"
+updated_res = json.loads(body)["chair"]
+assert updated_res["base_price"] == 8200
+print("  [PASS] Chair successfully updated with new pricing and specifications.")
+
+# 4. Delete chair via DELETE /api/admin/chairs/{id}
+status, body = request_url(
+    f"{BASE_URL}/api/admin/chairs/{test_chair_id}",
+    method="DELETE",
+    headers={"Authorization": f"Bearer {auth_data['token']}"}
+)
+assert status == 200, f"Expected 200 OK for chair deletion, got {status}: {body}"
+
+# 5. Verify deleted chair is removed from public catalogue
+status, body = request_url(f"{BASE_URL}/api/chairs")
+assert status == 200
+chairs_after_del = json.loads(body)
+assert not any(c["id"] == test_chair_id for c in chairs_after_del), "Deleted chair must NOT appear in catalogue!"
+assert len(chairs_after_del) == 228, f"Expected 228 original catalogue items, got {len(chairs_after_del)}"
+print("  [PASS] Chair permanently deleted from catalogue; baseline of 228 items perfectly intact.")
 
 print("\n==================================================================")
-print("  ALL 13 VERIFICATION STAGES PASSED WITH ZERO ERRORS!            ")
+print("  ALL 14 VERIFICATION STAGES PASSED WITH ZERO ERRORS!            ")
 print("==================================================================")

@@ -114,28 +114,43 @@ def get_concepts():
 
 @app.get("/api/reviews")
 def get_reviews():
+    all_reviews = {}
+    for r in load_local_reviews():
+        if r.get("status") == "approved" and r.get("id"):
+            all_reviews[r["id"]] = r
+
     if supabase_client:
         try:
             res = supabase_client.table("customer_reviews").select("*").eq("status", "approved").order("created_at", desc=True).execute()
-            if res.data is not None:
-                return res.data
+            if res.data:
+                for r in res.data:
+                    if r.get("id"):
+                        all_reviews[r["id"]] = r
         except Exception as e:
-            print(f"[WARN] Supabase reviews fetch failed: {e}. Falling back to local database.")
-    reviews = load_local_reviews()
-    approved = [r for r in reviews if r.get("status") == "approved"]
-    return sorted(approved, key=lambda r: r.get("created_at", ""), reverse=True)
+            print(f"[WARN] Supabase reviews fetch failed: {e}. Using local reviews.")
+
+    sorted_approved = sorted(all_reviews.values(), key=lambda r: r.get("created_at", ""), reverse=True)
+    return sorted_approved
 
 @app.get("/api/admin/reviews", dependencies=[Depends(verify_admin_token)])
 def get_admin_reviews():
+    all_reviews = {}
+    for r in load_local_reviews():
+        if r.get("id"):
+            all_reviews[r["id"]] = r
+
     if supabase_client:
         try:
             res = supabase_client.table("customer_reviews").select("*").order("created_at", desc=True).execute()
-            if res.data is not None:
-                return res.data
+            if res.data:
+                for r in res.data:
+                    if r.get("id"):
+                        all_reviews[r["id"]] = r
         except Exception as e:
-            print(f"[WARN] Supabase admin reviews fetch failed: {e}. Falling back to local database.")
-    reviews = load_local_reviews()
-    return sorted(reviews, key=lambda r: r.get("created_at", ""), reverse=True)
+            print(f"[WARN] Supabase admin reviews fetch failed: {e}. Using local reviews.")
+
+    sorted_all = sorted(all_reviews.values(), key=lambda r: r.get("created_at", ""), reverse=True)
+    return sorted_all
 
 @app.put("/api/admin/reviews/{review_id}/status", dependencies=[Depends(verify_admin_token)])
 def update_review_status(review_id: str, payload: Dict[str, str]):
@@ -381,35 +396,89 @@ def admin_login(payload: Dict[str, str]):
 
 @app.post("/api/admin/chairs", dependencies=[Depends(verify_admin_token)])
 def add_chair(chair: Dict[str, Any]):
-    category = chair.get("category")
-    code_number = chair.get("code_number")
-    
-    # Duplicate check within same category
-    existing = get_chairs()
-    for ex in existing:
-        if ex.get("category") == category and ex.get("code_number") == code_number:
-            raise HTTPException(status_code=400, detail=f"Duplicate code SHSE {code_number} in {category}")
+    category = chair.get("category") or "Office Chairs"
+    if category not in CAT_PREFIX:
+        category = "Office Chairs"
+    chair["category"] = category
 
-    # Generate id if missing
-    if not chair.get("id"):
-        chair["id"] = f"{category.lower().split(' ')[0]}_{code_number}"
-    
-    prefix = CAT_PREFIX.get(category, category.upper())
+    existing = load_local_catalog()
+    cat_items = [c for c in existing if c.get("category") == category]
+
+    # Calculate code_number if missing or string
+    import re
+    code_raw = chair.get("code_number") or chair.get("code") or ""
+    digits = re.findall(r'\d+', str(code_raw))
+    if digits:
+        code_number = int(digits[-1])
+    else:
+        existing_numbers = [c.get("code_number", 0) for c in cat_items if isinstance(c.get("code_number"), (int, float))]
+        code_number = max(existing_numbers, default=0) + 1
+
+    chair["code_number"] = code_number
     chair["code"] = f"SHSE {code_number}"
-    chair["display_name"] = f"{prefix}  SHSE {code_number}"
-    chair["name"] = chair["display_name"]
-    
+
+    prefix = CAT_PREFIX.get(category, category.upper())
+    custom_name = (chair.get("name") or "").strip()
+    if not custom_name or custom_name.startswith(prefix):
+        chair["display_name"] = f"{prefix}  SHSE {code_number}"
+        chair["name"] = chair["display_name"]
+    else:
+        chair["display_name"] = f"{prefix}  SHSE {code_number} - {custom_name}"
+        chair["name"] = custom_name
+
+    # ID generation
+    cat_slug = category.lower().replace("&", "").replace("  ", " ").strip().split(" ")[0]
+    if not chair.get("id"):
+        chair["id"] = f"{cat_slug}_{code_number}_{secrets.token_hex(2)}"
+
+    # Price handling
+    price_val = chair.get("base_price") or chair.get("price") or 0
+    try:
+        price_val = int(price_val)
+    except (ValueError, TypeError):
+        price_val = 0
+    chair["base_price"] = price_val
+    chair["price_display"] = f"₹{price_val:,}" if price_val > 0 else "Price on Request"
+
+    # Image handling
+    if not chair.get("image"):
+        chair["image"] = "assets/products/placeholder.jpg"
+
+    # Description and features
+    desc = (chair.get("description") or "").strip()
+    chair["description"] = desc
+    if not chair.get("features"):
+        if desc:
+            chair["features"] = [l.strip() for l in desc.split("\n") if l.strip()][:4]
+        else:
+            chair["features"] = [
+                "Ergonomic Lumbar Support",
+                "Commercial Heavy-Duty Base",
+                "Smooth Multi-Surface Swivel"
+            ]
+
+    # Specs
+    if not chair.get("specs"):
+        chair["specs"] = {
+            "Category": category,
+            "Backrest Height": "Ergonomic Task / Executive",
+            "Mechanism": "Tilt / Multi-lock Available",
+            "Armrests": "Configurable (Fixed / Adjustable)"
+        }
+
+    chair["search_keywords"] = f"{chair['display_name']} {chair['code']} {chair['name']} {category} {desc}"
+
+    # Save to local catalog.json (replace if same id or append)
+    existing = [c for c in existing if c.get("id") != chair["id"]]
+    existing.append(chair)
+    save_local_catalog(existing)
+
     # Save to Supabase if available
     if supabase_client:
         try:
-            supabase_client.table("chairs").insert(chair).execute()
+            supabase_client.table("chairs").upsert(chair).execute()
         except Exception as e:
             print(f"[ERROR] Supabase insert failed: {e}")
-
-    # Always persist to local catalog.json
-    local_data = load_local_catalog()
-    local_data.append(chair)
-    save_local_catalog(local_data)
 
     return {"success": True, "chair": chair}
 
@@ -419,7 +488,29 @@ def update_chair(chair_id: str, chair: Dict[str, Any]):
     found = False
     for i, c in enumerate(local_data):
         if c.get("id") == chair_id:
-            local_data[i] = chair
+            updated = {**c, **chair}
+            updated["id"] = chair_id
+            
+            category = updated.get("category", c.get("category", "Office Chairs"))
+            prefix = CAT_PREFIX.get(category, category.upper())
+            code_num = updated.get("code_number", c.get("code_number", 1))
+            updated["code"] = f"SHSE {code_num}"
+            
+            custom_name = (updated.get("name") or "").strip()
+            if not custom_name or custom_name.startswith(prefix):
+                updated["display_name"] = f"{prefix}  SHSE {code_num}"
+            else:
+                updated["display_name"] = f"{prefix}  SHSE {code_num} - {custom_name}"
+            
+            price_val = updated.get("base_price") or updated.get("price") or c.get("base_price", 0)
+            try:
+                price_val = int(price_val)
+            except (ValueError, TypeError):
+                price_val = c.get("base_price", 0)
+            updated["base_price"] = price_val
+            updated["price_display"] = f"₹{price_val:,}" if price_val > 0 else "Price on Request"
+            
+            local_data[i] = updated
             found = True
             break
     
@@ -430,11 +521,11 @@ def update_chair(chair_id: str, chair: Dict[str, Any]):
 
     if supabase_client:
         try:
-            supabase_client.table("chairs").upsert(chair).execute()
+            supabase_client.table("chairs").upsert(local_data[i]).execute()
         except Exception as e:
             print(f"[ERROR] Supabase update failed: {e}")
 
-    return {"success": True, "chair": chair}
+    return {"success": True, "chair": local_data[i]}
 
 @app.delete("/api/admin/chairs/{chair_id}", dependencies=[Depends(verify_admin_token)])
 def delete_chair(chair_id: str):
