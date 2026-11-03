@@ -929,7 +929,7 @@
               <div class="kpi-card kpi-amber">
                 <div class="kpi-label" style="color: #B45309;">
                   <span>Pending Approval</span>
-                  <span>⏳</span>
+                  <svg class="icon icon-clock" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                 </div>
                 <div class="kpi-value" id="dashStatReviewsPending" style="color: #D97706;">0</div>
                 <div style="font-size: 0.72rem; color: #B45309; margin-top: 0.35rem; font-weight: 600;">Awaiting your moderation</div>
@@ -970,10 +970,10 @@
                 
                 <!-- Status Filter Pills -->
                 <div class="status-filter-pills">
-                  <button type="button" class="dash-status-pill active" data-status="all" id="pillRevAll">All Reviews (<span id="dashPillCountAll">0</span>)</button>
-                  <button type="button" class="dash-status-pill" data-status="pending" id="pillRevPending">⏳ Pending (<span id="dashPillCountPending">0</span>)</button>
-                  <button type="button" class="dash-status-pill" data-status="approved" id="pillRevApproved"><svg class="icon icon-check" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Approved (<span id="dashPillCountApproved">0</span>)</button>
-                  <button type="button" class="dash-status-pill" data-status="rejected" id="pillRevRejected"><svg class="icon icon-x" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Rejected (<span id="dashPillCountRejected">0</span>)</button>
+                  <button type="button" class="dash-status-pill active" data-status="all" id="pillRevAll" onclick="window.setDashReviewFilter &amp;&amp; window.setDashReviewFilter('all')">All Reviews (<span id="dashPillCountAll">0</span>)</button>
+                  <button type="button" class="dash-status-pill" data-status="pending" id="pillRevPending" onclick="window.setDashReviewFilter &amp;&amp; window.setDashReviewFilter('pending')"><svg class="icon icon-clock" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Pending (<span id="dashPillCountPending">0</span>)</button>
+                  <button type="button" class="dash-status-pill" data-status="approved" id="pillRevApproved" onclick="window.setDashReviewFilter &amp;&amp; window.setDashReviewFilter('approved')"><svg class="icon icon-check" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Approved (<span id="dashPillCountApproved">0</span>)</button>
+                  <button type="button" class="dash-status-pill" data-status="rejected" id="pillRevRejected" onclick="window.setDashReviewFilter &amp;&amp; window.setDashReviewFilter('rejected')"><svg class="icon icon-x" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Rejected (<span id="dashPillCountRejected">0</span>)</button>
                 </div>
                 <input type="hidden" id="dashReviewsStatusFilter" value="all">
 

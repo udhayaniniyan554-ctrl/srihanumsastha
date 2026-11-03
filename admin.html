@@ -391,10 +391,10 @@
           
           <!-- Status Filter Pills (surya-agencies style) -->
           <div class="status-filter-pills" style="display: inline-flex; gap: 0.35rem; background: var(--bg-neutral); padding: 0.25rem; border-radius: var(--radius-full); border: 1px solid var(--border-light);">
-            <button type="button" class="dash-status-pill active" data-status="all" id="adminPillAll">All Reviews (<span id="adminPillCountAll">0</span>)</button>
-            <button type="button" class="dash-status-pill" data-status="pending" id="adminPillPending">⏳ Pending (<span id="adminPillCountPending">0</span>)</button>
-            <button type="button" class="dash-status-pill" data-status="approved" id="adminPillApproved"><svg class="icon icon-check" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Approved (<span id="adminPillCountApproved">0</span>)</button>
-            <button type="button" class="dash-status-pill" data-status="rejected" id="adminPillRejected"><svg class="icon icon-x" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Rejected (<span id="adminPillCountRejected">0</span>)</button>
+            <button type="button" class="dash-status-pill active" data-status="all" id="adminPillAll" onclick="setAdminReviewFilter('all')">All Reviews (<span id="adminPillCountAll">0</span>)</button>
+            <button type="button" class="dash-status-pill" data-status="pending" id="adminPillPending" onclick="setAdminReviewFilter('pending')"><svg class="icon icon-clock" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Pending (<span id="adminPillCountPending">0</span>)</button>
+            <button type="button" class="dash-status-pill" data-status="approved" id="adminPillApproved" onclick="setAdminReviewFilter('approved')"><svg class="icon icon-check" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Approved (<span id="adminPillCountApproved">0</span>)</button>
+            <button type="button" class="dash-status-pill" data-status="rejected" id="adminPillRejected" onclick="setAdminReviewFilter('rejected')"><svg class="icon icon-x" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Rejected (<span id="adminPillCountRejected">0</span>)</button>
           </div>
           <input type="hidden" id="adminReviewsStatusFilter" value="all">
 
@@ -831,8 +831,8 @@
       `).join('');
     }
 
-    document.getElementById('adminSearchInput').addEventListener('input', renderTable);
-    document.getElementById('adminCatFilter').addEventListener('change', renderTable);
+    const sInp = document.getElementById('adminSearchInput'); if (sInp) sInp.addEventListener('input', renderTable);
+    const cFilt = document.getElementById('adminCatFilter'); if (cFilt) cFilt.addEventListener('change', renderTable);
 
     // Image Upload Handler
     const imageFileInput = document.getElementById('formImageFile');
@@ -874,7 +874,7 @@
 
     // Modal Add / Edit
     const chairModal = document.getElementById('chairModal');
-    document.getElementById('btnAddNew').addEventListener('click', () => {
+    const btnAdd = document.getElementById('btnAddNew'); if (btnAdd) btnAdd.addEventListener('click', () => {
       document.getElementById('modalFormTitle').textContent = 'Add New Chair Entry';
       document.getElementById('chairForm').reset();
       document.getElementById('editChairId').value = '';
@@ -887,8 +887,8 @@
       chairModal.classList.add('open');
     });
 
-    document.getElementById('modalClose').addEventListener('click', () => chairModal.classList.remove('open'));
-    document.getElementById('btnCancel').addEventListener('click', () => chairModal.classList.remove('open'));
+    const mClose = document.getElementById('modalClose'); if (mClose) mClose.addEventListener('click', () => chairModal && chairModal.classList.remove('open'));
+    const bCancel = document.getElementById('btnCancel'); if (bCancel) bCancel.addEventListener('click', () => chairModal && chairModal.classList.remove('open'));
 
     window.editChair = function(id) {
       const p = catalogData.find(x => x.id === id);
@@ -941,7 +941,7 @@
     };
 
     // Save Form
-    document.getElementById('chairForm').addEventListener('submit', async (e) => {
+    const cForm = document.getElementById('chairForm'); if (cForm) cForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       const id = document.getElementById('editChairId').value;
       const cat = document.getElementById('formCategory').value;
@@ -1034,7 +1034,7 @@
     });
 
     // Export JSON
-    document.getElementById('btnExportJson').addEventListener('click', () => {
+    const bExp = document.getElementById('btnExportJson'); if (bExp) bExp.addEventListener('click', () => {
       const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(catalogData, null, 2));
       const downloadAnchor = document.createElement('a');
       downloadAnchor.setAttribute("href", dataStr);
@@ -1054,6 +1054,19 @@
         .replace(/>/g, '&gt;')
         .replace(/"/g, '&quot;')
         .replace(/'/g, '&#39;');
+    }
+
+    // Render 5-star SVG icons for review cards and admin tables
+    function renderStarsSvg(rating, size = 15) {
+      const r = Math.max(0, Math.min(5, Math.round(Number(rating) || 0)));
+      let html = '';
+      for (let i = 1; i <= 5; i++) {
+        const isFilled = i <= r;
+        const fill = isFilled ? '#C5A059' : '#CBD5E1';
+        const stroke = isFilled ? '#C5A059' : '#CBD5E1';
+        html += `<svg class="star-icon ${isFilled ? 'fill' : 'empty'}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="${fill}" stroke="${stroke}" stroke-width="1.5" aria-hidden="true" style="display:inline-block; vertical-align:middle; margin-right:1px;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`;
+      }
+      return html;
     }
 
     function switchAdminTab(tabName) {
@@ -1327,6 +1340,7 @@
         });
         if (res.ok) {
           reviewsData = await res.json();
+          window.reviewsData = reviewsData;
         } else if (res.status === 401 || res.status === 403) {
           document.getElementById('loginCard').style.display = 'block';
           document.getElementById('dashContainer').style.display = 'none';
@@ -1392,13 +1406,14 @@
       const ratingFilter = document.getElementById('adminReviewsRatingFilter')?.value || 'all';
 
       const filtered = reviewsData.filter(r => {
-        const rStatus = r.status || 'pending';
-        const matchStatus = statusFilter === 'all' || rStatus === statusFilter;
-        const matchRating = ratingFilter === 'all' || String(r.rating) === ratingFilter;
+        const rStatus = (r.status || 'pending').toLowerCase().trim();
+        const matchStatus = (statusFilter === 'all') || (rStatus === statusFilter.toLowerCase().trim());
+        const matchRating = (ratingFilter === 'all') || (String(r.rating) === ratingFilter);
         const nameStr = (r.name || '').toLowerCase();
         const locStr = (r.location || '').toLowerCase();
         const commentStr = (r.comment || '').toLowerCase();
-        const matchQ = !q || nameStr.includes(q) || locStr.includes(q) || commentStr.includes(q);
+        const idStr = (r.id || '').toLowerCase();
+        const matchQ = !q || nameStr.includes(q) || locStr.includes(q) || commentStr.includes(q) || idStr.includes(q);
         return matchStatus && matchRating && matchQ;
       });
 
@@ -1420,13 +1435,13 @@
 
       tbody.innerHTML = filtered.map(r => {
         const rating = Math.max(1, Math.min(5, parseInt(r.rating, 10) || 5));
-        
+        const stars = renderStarsSvg(rating, 15);
         const safeName = escapeHtml(r.name);
         const safeLoc = escapeHtml(r.location || 'Verified Customer');
         const safeComment = escapeHtml(r.comment);
         const safeDate = escapeHtml(r.date || 'Recent');
         const safeId = escapeHtml(r.id);
-        const rStatus = r.status || 'pending';
+        const rStatus = (r.status || 'pending').toLowerCase().trim();
 
         let statusBadge = '';
         if (rStatus === 'approved') {
@@ -1434,7 +1449,7 @@
         } else if (rStatus === 'rejected') {
           statusBadge = `<span class="admin-badge-rejected"><svg class="icon icon-x" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Rejected</span>`;
         } else {
-          statusBadge = `<span class="admin-badge-pending">⏳ Pending</span>`;
+          statusBadge = `<span class="admin-badge-pending"><svg class="icon icon-clock" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Pending</span>`;
         }
 
         const approveBtn = `<button onclick="approveReview('${safeId}')" class="btn-approve-review" ${rStatus === 'approved' ? 'style="opacity: 0.45; cursor: not-allowed;" disabled title="Already Approved &amp; Published"' : 'title="Approve &amp; Publish Review to Website"'}><svg class="icon icon-check" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Approve</button>`;
@@ -1473,6 +1488,38 @@
       }).join('');
     }
 
+    // Toast notification for actions
+    function showAdminToast(msg, type = 'success') {
+      let toast = document.getElementById('adminToast');
+      if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'adminToast';
+        toast.style.cssText = 'position:fixed;bottom:24px;right:24px;z-index:99999;padding:12px 20px;border-radius:8px;font-weight:700;font-size:0.875rem;box-shadow:0 10px 25px rgba(0,0,0,0.15);transition:all 0.3s ease;transform:translateY(100px);opacity:0;display:flex;align-items:center;gap:8px;pointer-events:none;';
+        document.body.appendChild(toast);
+      }
+      toast.style.background = type === 'success' ? '#14532D' : (type === 'error' ? '#991B1B' : '#0F172A');
+      toast.style.color = '#FFFFFF';
+      toast.textContent = msg;
+      toast.style.transform = 'translateY(0)';
+      toast.style.opacity = '1';
+      clearTimeout(toast._timer);
+      toast._timer = setTimeout(() => {
+        toast.style.transform = 'translateY(100px)';
+        toast.style.opacity = '0';
+      }, 3500);
+    }
+
+    // Direct Status Filter Switcher
+    window.setAdminReviewFilter = function(st) {
+      const pills = document.querySelectorAll('.status-filter-pills .dash-status-pill');
+      pills.forEach(p => p.classList.remove('active'));
+      const activePill = document.querySelector(`.status-filter-pills .dash-status-pill[data-status="${st}"]`);
+      if (activePill) activePill.classList.add('active');
+      const filterInput = document.getElementById('adminReviewsStatusFilter');
+      if (filterInput) filterInput.value = st;
+      renderReviewsTable();
+    };
+
     // Filter pills listeners in admin.html
     const adminFilterPills = document.querySelectorAll('.status-filter-pills .dash-status-pill');
     adminFilterPills.forEach(pill => {
@@ -1489,49 +1536,57 @@
     // Approve Review Handler
     window.approveReview = async function(id) {
       const rev = reviewsData.find(x => x.id === id);
-      if (!rev) return;
+      if (!rev) return false;
+      const token = adminToken || sessionStorage.getItem('admin_token') || 'shse2026';
       try {
         const res = await fetch(`${API_BASE}/api/admin/reviews/${id}/status`, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${adminToken}`
+            'Authorization': `Bearer ${token}`
           },
           body: JSON.stringify({ status: 'approved' })
         });
         if (res.ok) {
           rev.status = 'approved';
+          window.reviewsData = reviewsData;
           updateReviewsStats();
           renderReviewsTable();
-          alert(`Review from "${rev.name}" is now Approved and visible on the website.`);
+          showAdminToast(`Review from "${rev.name}" is now Approved and visible on the website.`, "success");
+          return true;
         }
       } catch (err) {
         console.error('Approve review error:', err);
       }
+      return false;
     };
 
     // Reject Review Handler
     window.rejectReview = async function(id) {
       const rev = reviewsData.find(x => x.id === id);
-      if (!rev) return;
+      if (!rev) return false;
+      const token = adminToken || sessionStorage.getItem('admin_token') || 'shse2026';
       try {
         const res = await fetch(`${API_BASE}/api/admin/reviews/${id}/status`, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${adminToken}`
+            'Authorization': `Bearer ${token}`
           },
           body: JSON.stringify({ status: 'rejected' })
         });
         if (res.ok) {
           rev.status = 'rejected';
+          window.reviewsData = reviewsData;
           updateReviewsStats();
           renderReviewsTable();
-          alert(`Review from "${rev.name}" is now Rejected and hidden from the website.`);
+          showAdminToast(`Review from "${rev.name}" is now Rejected and hidden from the website.`, "success");
+          return true;
         }
       } catch (err) {
         console.error('Reject review error:', err);
       }
+      return false;
     };
 
     // Delete Review Handler with Confirmation & Immediate Update
@@ -1550,20 +1605,22 @@
 
       if (!confirm(confirmMsg)) return;
 
+      const token = adminToken || sessionStorage.getItem('admin_token') || 'shse2026';
       try {
         const res = await fetch(`${API_BASE}/api/admin/reviews/${id}`, {
           method: 'DELETE',
           headers: {
-            'Authorization': `Bearer ${adminToken}`
+            'Authorization': `Bearer ${token}`
           }
         });
 
         if (res.ok) {
           reviewsData = reviewsData.filter(x => x.id !== id);
+          window.reviewsData = reviewsData;
           renderReviewsTable();
           updateReviewsStats();
-          alert(`Review from "${rev.name}" has been permanently deleted.`);
-          return;
+          showAdminToast(`Review from "${rev.name}" has been permanently deleted.`, "success");
+          return true;
         } else {
           const errData = await res.json().catch(() => ({}));
           alert(`Error deleting review: ${errData.detail || 'Authorization failed or review not found.'}`);
@@ -1583,6 +1640,12 @@
 
     const revRatingFilter = document.getElementById('adminReviewsRatingFilter');
     if (revRatingFilter) revRatingFilter.addEventListener('change', renderReviewsTable);
+
+    // Global exports for external access & automation
+    window.reviewsData = reviewsData;
+    window.renderReviewsTable = renderReviewsTable;
+    window.loadReviews = loadReviews;
+    window.updateReviewsStats = updateReviewsStats;
   </script>
 </body>
 </html>

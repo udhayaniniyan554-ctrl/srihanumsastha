@@ -59,6 +59,20 @@
     return name.slice(0, 2).toUpperCase();
   }
 
+  // Universal 5-star SVG renderer for review cards and admin tables
+  function renderStarsSvg(rating, size = 15) {
+    const r = Math.max(0, Math.min(5, Math.round(Number(rating) || 0)));
+    let html = '';
+    for (let i = 1; i <= 5; i++) {
+      const isFilled = i <= r;
+      const fill = isFilled ? '#C5A059' : '#CBD5E1';
+      const stroke = isFilled ? '#C5A059' : '#CBD5E1';
+      html += `<svg class="star-icon ${isFilled ? 'fill' : 'empty'}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="${fill}" stroke="${stroke}" stroke-width="1.5" aria-hidden="true" style="display:inline-block; vertical-align:middle; margin-right:1px;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`;
+    }
+    return html;
+  }
+  window.renderStarsSvg = renderStarsSvg;
+
   // Global State
   const state = {
     allProducts: [],
@@ -1755,7 +1769,7 @@
           } else if (rStatus === 'rejected') {
             statusBadge = `<span class="admin-badge-rejected" style="background: #fee2e2; color: #b91c1c; border: 1px solid #fca5a5; padding: 0.3rem 0.75rem; border-radius: 9999px; font-weight: 700; font-size: 0.75rem; display: inline-flex; align-items: center; gap: 5px; box-shadow: 0 1px 3px rgba(185,28,28,0.08);"><span style="width: 6px; height: 6px; border-radius: 50%; background: #dc2626;"></span><svg class="icon icon-x" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Rejected (Hidden)</span>`;
           } else {
-            statusBadge = `<span class="admin-badge-pending" style="background: #fef3c7; color: #b45309; border: 1px solid #fcd34d; padding: 0.3rem 0.75rem; border-radius: 9999px; font-weight: 700; font-size: 0.75rem; display: inline-flex; align-items: center; gap: 5px; box-shadow: 0 1px 3px rgba(180,83,9,0.08);"><span style="width: 6px; height: 6px; border-radius: 50%; background: #d97706;"></span>Pending Review</span>`;
+            statusBadge = `<span class="admin-badge-pending" style="background: #fef3c7; color: #b45309; border: 1px solid #fcd34d; padding: 0.3rem 0.75rem; border-radius: 9999px; font-weight: 700; font-size: 0.75rem; display: inline-flex; align-items: center; gap: 5px; box-shadow: 0 1px 3px rgba(180,83,9,0.08);"><span style="width: 6px; height: 6px; border-radius: 50%; background: #d97706;"></span><svg class="icon icon-clock" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Pending Review</span>`;
           }
 
           const approveBtn = `<button type="button" onclick="window.dashApproveReview('${safeId}')" class="btn-approve-review" style="background: #15803d; color: #ffffff; border: none; padding: 0.45rem 0.85rem; border-radius: 7px; font-weight: 700; font-size: 0.8rem; cursor: pointer; transition: all 0.2s; box-shadow: 0 2px 4px rgba(21,128,61,0.2); ${rStatus === 'approved' ? 'opacity: 0.4; cursor: not-allowed;' : ''}" ${rStatus === 'approved' ? 'disabled title="Already Approved &amp; Published"' : 'title="Approve &amp; Publish Review to Website"'}><svg class="icon icon-check" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Approve</button>`;
@@ -1815,6 +1829,17 @@
     const revRatingFilter = document.getElementById('dashReviewsRatingFilter');
     if (revRatingFilter) revRatingFilter.addEventListener('change', renderDashboardReviews);
 
+    // Direct Status Filter Switcher for Overlay
+    window.setDashReviewFilter = function(st) {
+      const pills = document.querySelectorAll('.status-filter-pills .dash-status-pill');
+      pills.forEach(p => p.classList.remove('active'));
+      const activePill = document.querySelector(`.status-filter-pills .dash-status-pill[data-status="${st}"]`);
+      if (activePill) activePill.classList.add('active');
+      const filterInput = document.getElementById('dashReviewsStatusFilter');
+      if (filterInput) filterInput.value = st;
+      renderDashboardReviews();
+    };
+
     // Filter pills listeners (All Reviews, Pending, Approved, Rejected)
     const filterPills = document.querySelectorAll('.dash-status-pill');
     filterPills.forEach(pill => {
@@ -1856,7 +1881,7 @@
           updateDashboardReviewsStats();
           renderDashboardReviews();
           if (window.refreshPublicReviews) window.refreshPublicReviews();
-          alert(`Review from "${rev.name}" is now Approved and visible on the website.`);
+          if (window.showAdminToast) window.showAdminToast(`Review from "${rev.name}" is now Approved and visible on the website.`, "success"); else alert(`Review from "${rev.name}" is now Approved and visible on the website.`);
         }
       } catch (err) {
         console.error('Approve error:', err);
@@ -1879,7 +1904,7 @@
           updateDashboardReviewsStats();
           renderDashboardReviews();
           if (window.refreshPublicReviews) window.refreshPublicReviews();
-          alert(`Review from "${rev.name}" is now Rejected and hidden from the public website.`);
+          if (window.showAdminToast) window.showAdminToast(`Review from "${rev.name}" is now Rejected and hidden from the public website.`, "success"); else alert(`Review from "${rev.name}" is now Rejected and hidden from the public website.`);
         }
       } catch (err) {
         console.error('Reject error:', err);
@@ -1910,7 +1935,7 @@
           updateDashboardReviewsStats();
           renderDashboardReviews();
           if (window.refreshPublicReviews) window.refreshPublicReviews();
-          alert(`Review from "${rev.name}" has been permanently deleted.`);
+          if (window.showAdminToast) window.showAdminToast(`Review from "${rev.name}" has been permanently deleted.`, "success"); else alert(`Review from "${rev.name}" has been permanently deleted.`);
           return;
         } else {
           const errData = await res.json().catch(() => ({}));
@@ -2109,7 +2134,7 @@
       if (previewImg) previewImg.src = objectUrl;
       if (previewFilename) previewFilename.textContent = file.name;
       if (photoStatus) {
-        photoStatus.textContent = '⏳ Uploading photo to server...';
+        photoStatus.textContent = 'Uploading photo to server...';
         photoStatus.style.color = '#d97706';
       }
       if (previewBox) previewBox.style.display = 'block';
