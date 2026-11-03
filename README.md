@@ -76,7 +76,8 @@ This project includes a native Render Blueprint specification ([`render.yaml`](f
    - **Build Command**: `pip install -r requirements.txt`
    - **Start Command**: `uvicorn app_server:app --host 0.0.0.0 --port $PORT`
 5. Under **Environment Variables**, supply your credentials:
-   - `ADMIN_PASSWORD`: Your chosen admin dashboard password (default: `shse2026`).
+   - `ADMIN_USERNAME`: Your chosen admin dashboard username (default: `Priya`).
+   - `ADMIN_PASSWORD`: Your chosen admin dashboard password (default: `Adhithi@2021`).
    - `SUPABASE_URL`: Your Supabase Project URL (`https://your-ref.supabase.co`).
    - `SUPABASE_SERVICE_ROLE_KEY`: Your Supabase Service Role secret key.
 6. Click **Apply**. Render will build and deploy your web service with a free SSL certificate.
@@ -96,9 +97,9 @@ python app_server.py
 Open your browser at **`http://localhost:8080`**.
 
 ### Admin Dashboard
-Access the admin portal at **`http://localhost:8080/admin.html`**.
-- **Default Username**: `admin`
-- **Default Password**: `shse2026`
+Access the admin portal at **`http://localhost:8080/admin.html`** or via the header **Admin Dashboard** button on `index.html`.
+- **Default Username**: `Priya` (or `admin`)
+- **Default Password**: `Adhithi@2021` (or `shse2026`)
 
 ---
 

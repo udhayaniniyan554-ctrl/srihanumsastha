@@ -326,7 +326,7 @@
     <form id="loginForm">
       <div class="form-group">
         <label for="adminUser">Username</label>
-        <input type="text" id="adminUser" class="form-input" placeholder="admin" required value="admin">
+        <input type="text" id="adminUser" class="form-input" placeholder="Priya" required value="Priya">
       </div>
       <div class="form-group">
         <label for="adminPass">Password</label>
@@ -336,7 +336,7 @@
         Sign In to Manager →
       </button>
       <div style="margin-top: 1rem; font-size: 0.8rem; color: var(--text-muted); text-align: center;">
-        Default Development Credentials: <code>admin</code> / <code>shse2026</code>
+        Admin Credentials: <code>Priya</code> / <code>Adhithi@2021</code>
       </div>
     </form>
   </div>
@@ -733,7 +733,7 @@
       }
 
       // 2. Development fallback credentials
-      if (user === 'admin' && pass === 'shse2026') {
+      if ((user.toLowerCase() === 'priya' || user === 'admin') && (pass === 'Adhithi@2021' || pass === 'shse2026')) {
         adminToken = 'shse2026';
         sessionStorage.setItem('admin_token', adminToken);
         showDashboard();

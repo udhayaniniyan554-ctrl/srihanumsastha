@@ -9,8 +9,10 @@ services:
     envVars:
       - key: PYTHON_VERSION
         value: 3.11.9
+      - key: ADMIN_USERNAME
+        value: Priya
       - key: ADMIN_PASSWORD
-        value: shse2026
+        value: Adhithi@2021
       - key: SUPABASE_URL
         sync: false
       - key: SUPABASE_SERVICE_ROLE_KEY

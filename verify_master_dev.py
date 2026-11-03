@@ -97,8 +97,8 @@ assert c2["display_name"] == "OFFICE CHAIRS  SHSE 2"
 assert c2["_internal_model"] == "4G"
 print(f"  [PASS] /api/chairs/office_1_2 returned 200 OK (Title: {c2['display_name']}, Code: {c2['code']}, Model: {c2['_internal_model']})")
 
-# 3d. Admin Auth
-login_payload = json.dumps({"username": "admin", "password": "shse2026"}).encode('utf-8')
+# 3d. Admin Auth (Testing Priya / Adhithi@2021)
+login_payload = json.dumps({"username": "Priya", "password": "Adhithi@2021"}).encode('utf-8')
 status, body = request_url(
     f"{BASE_URL}/api/admin/login",
     data=login_payload,
@@ -108,7 +108,7 @@ assert status == 200
 auth_data = json.loads(body)
 assert auth_data["success"] is True
 assert "token" in auth_data
-print("  [PASS] /api/admin/login authenticated successfully and returned session token.")
+print("  [PASS] /api/admin/login authenticated successfully with Priya / Adhithi@2021.")
 
 # ---------------- STEP 4: PUBLIC PAGES & STRICT REQUIREMENTS ----------------
 print("\n[STEP 4] Testing Public Pages & Strict Requirements...")

@@ -1539,7 +1539,7 @@
           console.warn('API login error, trying fallback', err);
         }
 
-        if (user === 'admin' && pass === 'shse2026') {
+        if ((user.toLowerCase() === 'priya' || user === 'admin') && (pass === 'Adhithi@2021' || pass === 'shse2026')) {
           adminToken = 'shse2026';
           sessionStorage.setItem('admin_token', adminToken);
           openDashboardOverlay();
