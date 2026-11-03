@@ -1428,8 +1428,6 @@
     const adminPanelReviews = document.getElementById('adminPanelReviews');
     const adminPanelAddChair = document.getElementById('adminPanelAddChair');
 
-    if (!adminDashboardOverlay && !adminLoginModal) return;
-
     let adminToken = sessionStorage.getItem('admin_token') || '';
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get('token') === 'shse2026' || urlParams.get('auth') === '1') {
@@ -1440,6 +1438,10 @@
     let adminReviewsData = [];
 
     function openAdminPortal() {
+      if (!adminDashboardOverlay && !adminLoginModal) {
+        window.location.href = 'index.html#admin';
+        return;
+      }
       adminToken = sessionStorage.getItem('admin_token') || '';
       if (adminToken) {
         openDashboardOverlay();
@@ -1448,6 +1450,19 @@
       }
     }
     window.openAdminPortal = openAdminPortal;
+
+    if (openAdminNavBtn) openAdminNavBtn.addEventListener('click', openAdminPortal);
+    if (mobileOpenAdminBtn) {
+      mobileOpenAdminBtn.addEventListener('click', () => {
+        const drawer = document.getElementById('mobileDrawer');
+        const backdrop = document.getElementById('drawerBackdrop');
+        if (drawer) drawer.classList.remove('open');
+        if (backdrop) backdrop.classList.remove('open');
+        openAdminPortal();
+      });
+    }
+
+    if (!adminDashboardOverlay && !adminLoginModal) return;
 
     function openLoginModal() {
       if (!adminLoginModal) return;

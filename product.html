@@ -32,9 +32,15 @@
         </ul>
       </nav>
 
-      <div class="header-actions">
-        <button class="btn btn-outline btn-sm btn-header-saved" data-open-saved title="View saved favorite chairs">
-          ❤️ Saved <span class="saved-count-badge" style="display:none; background: #DC2626; color: #fff; padding: 0.1rem 0.4rem; border-radius: 9999px; font-size: 0.7rem; margin-left: 0.25rem;">0</span>
+            <div class="header-actions">
+        <!-- Admin Dashboard Access -->
+        <button class="btn btn-outline btn-sm btn-header-admin" id="openAdminNavBtn" type="button" title="Open Admin Management" aria-label="Admin Dashboard">
+          🔐 Admin Dashboard
+        </button>
+
+        <!-- Saved Chairs Shortcut -->
+        <button class="btn btn-outline btn-sm btn-header-saved" data-open-saved title="View saved favorite chairs" aria-label="Saved Chairs">
+          ❤️ Saved Items <span class="saved-count-badge" style="display:none; background: #DC2626; color: #fff; padding: 0.1rem 0.4rem; border-radius: 9999px; font-size: 0.7rem; margin-left: 0.25rem;">0</span>
         </button>
         <button class="mobile-toggle" id="mobileToggle" aria-label="Open Mobile Menu" aria-expanded="false" aria-controls="mobileDrawer">
           <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -65,9 +71,12 @@
       <li><a href="contact.html" class="mobile-nav-link">Contact Details</a></li>
     </ul>
 
-    <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.6rem;">
+        <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.6rem;">
+      <button class="btn btn-outline btn-block" id="mobileOpenAdminBtn" type="button">
+        🔐 Admin Dashboard
+      </button>
       <button class="btn btn-outline btn-block" data-open-saved>
-        ❤️ Saved Chairs (<span class="saved-count-badge">0</span>)
+        ❤️ Saved Items (<span class="saved-count-badge">0</span>)
       </button>
       <button class="btn btn-outline btn-block" onclick="window.catalogApp.openCompareModal()">
         ⚖️ Compare Selected Chairs
