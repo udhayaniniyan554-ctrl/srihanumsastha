@@ -35,12 +35,12 @@
             <div class="header-actions">
         <!-- Admin Dashboard Access -->
         <button class="btn btn-outline btn-sm btn-header-admin" id="openAdminNavBtn" type="button" title="Open Admin Management" aria-label="Admin Dashboard">
-          🔐 Admin Dashboard
+          <svg class="icon icon-lock" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Admin Dashboard
         </button>
 
         <!-- Saved Chairs Shortcut -->
         <button class="btn btn-outline btn-sm btn-header-saved" data-open-saved title="View saved favorite chairs" aria-label="Saved Chairs">
-          ❤️ Saved Items <span class="saved-count-badge" style="display:none; background: #DC2626; color: #fff; padding: 0.1rem 0.4rem; border-radius: 9999px; font-size: 0.7rem; margin-left: 0.25rem;">0</span>
+          <svg class="icon icon-heart" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg> Saved Items <span class="saved-count-badge" style="display:none; background: #DC2626; color: #fff; padding: 0.1rem 0.4rem; border-radius: 9999px; font-size: 0.7rem; margin-left: 0.25rem;">0</span>
         </button>
         <button class="mobile-toggle" id="mobileToggle" aria-label="Open Mobile Menu" aria-expanded="false" aria-controls="mobileDrawer">
           <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -73,13 +73,13 @@
 
         <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.6rem;">
       <button class="btn btn-outline btn-block" id="mobileOpenAdminBtn" type="button">
-        🔐 Admin Dashboard
+        <svg class="icon icon-lock" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Admin Dashboard
       </button>
       <button class="btn btn-outline btn-block" data-open-saved>
-        ❤️ Saved Items (<span class="saved-count-badge">0</span>)
+        <svg class="icon icon-heart" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg> Saved Items (<span class="saved-count-badge">0</span>)
       </button>
       <button class="btn btn-outline btn-block" onclick="window.catalogApp.openCompareModal()">
-        ⚖️ Compare Selected Chairs
+        <svg class="icon icon-compare" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg> Compare Selected Chairs
       </button>
     </div>
   </aside>
@@ -88,7 +88,7 @@
   <aside class="mobile-drawer" id="savedDrawer" aria-label="Saved Chairs" style="z-index: 1060;">
     <div class="saved-drawer-header">
       <div style="font-weight: 800; font-size: 1.15rem; color: var(--text-main);">
-        ❤️ Saved Chairs (<span class="saved-count-badge">0</span>)
+        <svg class="icon icon-heart" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg> Saved Chairs (<span class="saved-count-badge">0</span>)
       </div>
       <button class="mobile-drawer-close" id="savedDrawerClose" aria-label="Close Saved Drawer">&times;</button>
     </div>
@@ -122,7 +122,7 @@
             <span class="detail-badge-tag" id="badgeTag">SHSE Code</span>
             <img id="mainImage" src="assets/placeholder.svg" alt="Product Photograph" onerror="this.src='assets/placeholder.svg'">
             <div style="position: absolute; bottom: 0.85rem; right: 0.85rem; background: rgba(255,255,255,0.9); border: 1px solid var(--border-light); border-radius: 4px; padding: 0.2rem 0.5rem; font-size: 0.75rem; font-weight: 600; color: var(--text-secondary);">
-              🔍 Click to Zoom
+              <svg class="icon icon-search" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> Click to Zoom
             </div>
           </div>
 
@@ -132,10 +132,10 @@
           <!-- Save & Compare Bar on Product Detail -->
           <div style="display: flex; gap: 0.75rem; margin-top: 1rem;">
             <button class="btn btn-outline btn-sm btn-block" id="btnDetailSave">
-              <span id="detailSaveIcon">🤍</span> Bookmark Chair
+              <span id="detailSaveIcon"><svg class="icon icon-heart" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></span> Bookmark Chair
             </button>
             <button class="btn btn-outline btn-sm btn-block" id="btnDetailCompare">
-              ⚖️ <span id="detailCompareText">Add to Compare</span>
+              <svg class="icon icon-compare" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg> <span id="detailCompareText">Add to Compare</span>
             </button>
           </div>
         </div>
@@ -148,7 +148,7 @@
             <h1 class="detail-title" id="productTitle">Chair Model</h1>
             <div class="detail-code-pills">
               <span class="detail-code-badge" id="productModelPill">Factory Model: <strong id="productModelName">ATLAS</strong></span>
-              <span class="detail-code-badge" style="color: var(--forest-green); font-weight: 700;">✓ Genuine PDF Photo</span>
+              <span class="detail-code-badge" style="color: var(--forest-green); font-weight: 700;">Genuine Verified Model</span>
             </div>
           </div>
 
@@ -189,7 +189,7 @@
           <!-- Price & Availability Notice -->
           <div class="notice-banner" style="border-radius: var(--radius-sm); text-align: left; padding: 0.85rem 1rem;">
             <div class="notice-content" style="justify-content: flex-start;">
-              <span class="notice-icon">📢</span>
+              <span class="notice-icon"><svg class="icon icon-notice" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></span>
               <span><strong>Notice:</strong> Prices may change. Please contact us to confirm current prices and stock availability.</span>
             </div>
           </div>
@@ -202,15 +202,15 @@
             </p>
 
             <a id="waPrimaryBtn" href="https://wa.me/918695706013" target="_blank" rel="noopener" class="btn btn-primary btn-lg btn-block" style="font-size: 1.05rem;">
-              💬 Enquire on WhatsApp (8695706013)
+              <svg class="icon icon-whatsapp" width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.52 3.48A11.93 11.93 0 0 0 12.06 0C5.46 0 .09 5.37.09 11.97c0 2.11.55 4.17 1.6 6L0 24l6.19-1.62a11.94 11.94 0 0 0 5.87 1.51h.01c6.6 0 11.97-5.37 11.97-11.97 0-3.2-.12-6.21-3.52-8.44zm-8.46 18.52c-1.8 0-3.55-.48-5.09-1.39l-.36-.22-3.78.99 1.01-3.68-.24-.38a9.98 9.98 0 0 1-1.53-5.33c0-5.51 4.49-10 10-10 2.67 0 5.18 1.04 7.07 2.93a9.93 9.93 0 0 1 2.93 7.07c0 5.51-4.49 10-10 10zm5.48-7.48c-.3-.15-1.78-.88-2.06-.98-.28-.1-.48-.15-.68.15-.2.3-.78.98-.95 1.18-.18.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.5-.89-.8-1.5-1.78-1.67-2.08-.18-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.38-.02-.53-.08-.15-.68-1.63-.93-2.23-.24-.58-.49-.5-.68-.51h-.58c-.2 0-.52.08-.8.38-.27.3-1.05 1.03-1.05 2.51 0 1.48 1.08 2.91 1.23 3.11.15.2 2.12 3.24 5.14 4.54.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.78-.73 2.03-1.43.25-.7.25-1.3.18-1.43-.08-.12-.27-.2-.57-.35z"/></svg> Enquire on WhatsApp (8695706013)
             </a>
 
             <div class="detail-call-row">
               <a href="tel:+919688727284" class="btn btn-secondary btn-lg" style="justify-content: center;">
-                📞 Call 9688727284
+                <svg class="icon icon-phone" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Call 9688727284
               </a>
               <a href="tel:+918695706013" class="btn btn-secondary btn-lg" style="justify-content: center;">
-                📞 Call 8695706013
+                <svg class="icon icon-phone" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Call 8695706013
               </a>
             </div>
           </div>
@@ -259,7 +259,7 @@
             Sri Hanum Sastha Enterprises provides comprehensive commercial, executive, visitor, and dining seating solutions engineered for ergonomic posture support, commercial longevity, and modern interiors in Coimbatore.
           </p>
           <div class="footer-disclaimer-note">
-            📢 <strong>Price & Stock Note:</strong> Prices may change. Please contact us to confirm current prices and availability.
+            <svg class="icon icon-notice" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg> <strong>Price & Stock Note:</strong> Prices may change. Please contact us to confirm current prices and availability.
           </div>
         </div>
 
@@ -279,7 +279,7 @@
           <h3 class="footer-title">Contact Us</h3>
           
           <div class="contact-detail-row">
-            <span class="contact-icon" aria-hidden="true">🏢</span>
+            <span class="contact-icon" aria-hidden="true"><svg class="icon icon-building" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="16" height="20" x="4" y="2" rx="2" ry="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M8 10h.01"/><path d="M16 10h.01"/><path d="M8 14h.01"/><path d="M16 14h.01"/></svg></span>
             <div class="contact-info-text">
               <strong>Company Name</strong>
               <p>Sri Hanum Sastha Enterprises</p>
@@ -287,7 +287,7 @@
           </div>
 
           <div class="contact-detail-row">
-            <span class="contact-icon" aria-hidden="true">📍</span>
+            <span class="contact-icon" aria-hidden="true"><svg class="icon icon-pin" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
             <div class="contact-info-text">
               <strong>Showroom & Office Address</strong>
               <p>
@@ -299,7 +299,7 @@
           </div>
 
           <div class="contact-detail-row">
-            <span class="contact-icon" aria-hidden="true">💬</span>
+            <span class="contact-icon" aria-hidden="true"><svg class="icon icon-whatsapp" width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.52 3.48A11.93 11.93 0 0 0 12.06 0C5.46 0 .09 5.37.09 11.97c0 2.11.55 4.17 1.6 6L0 24l6.19-1.62a11.94 11.94 0 0 0 5.87 1.51h.01c6.6 0 11.97-5.37 11.97-11.97 0-3.2-.12-6.21-3.52-8.44zm-8.46 18.52c-1.8 0-3.55-.48-5.09-1.39l-.36-.22-3.78.99 1.01-3.68-.24-.38a9.98 9.98 0 0 1-1.53-5.33c0-5.51 4.49-10 10-10 2.67 0 5.18 1.04 7.07 2.93a9.93 9.93 0 0 1 2.93 7.07c0 5.51-4.49 10-10 10zm5.48-7.48c-.3-.15-1.78-.88-2.06-.98-.28-.1-.48-.15-.68.15-.2.3-.78.98-.95 1.18-.18.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.5-.89-.8-1.5-1.78-1.67-2.08-.18-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.38-.02-.53-.08-.15-.68-1.63-.93-2.23-.24-.58-.49-.5-.68-.51h-.58c-.2 0-.52.08-.8.38-.27.3-1.05 1.03-1.05 2.51 0 1.48 1.08 2.91 1.23 3.11.15.2 2.12 3.24 5.14 4.54.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.78-.73 2.03-1.43.25-.7.25-1.3.18-1.43-.08-.12-.27-.2-.57-.35z"/></svg></span>
             <div class="contact-info-text">
               <strong>WhatsApp Enquiries (Exclusive Line)</strong>
               <p>
@@ -309,7 +309,7 @@
           </div>
 
           <div class="contact-detail-row">
-            <span class="contact-icon" aria-hidden="true">📞</span>
+            <span class="contact-icon" aria-hidden="true"><svg class="icon icon-phone" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
             <div class="contact-info-text">
               <strong>Direct Phone Lines</strong>
               <p>
@@ -320,7 +320,7 @@
           </div>
 
           <div class="contact-detail-row">
-            <span class="contact-icon" aria-hidden="true">✉️</span>
+            <span class="contact-icon" aria-hidden="true"><svg class="icon icon-mail" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span>
             <div class="contact-info-text">
               <strong>Official Email</strong>
               <p>
@@ -331,10 +331,10 @@
 
           <div class="footer-call-buttons">
             <a href="tel:+919688727284" class="btn btn-secondary">
-              📞 Call: 9688727284
+              <svg class="icon icon-phone" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Call: 9688727284
             </a>
             <a href="tel:+918695706013" class="btn btn-secondary">
-              📞 Call: 8695706013
+              <svg class="icon icon-phone" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Call: 8695706013
             </a>
           </div>
         </div>
@@ -391,7 +391,7 @@
   <!-- AI CATALOGUE CHATBOT WIDGET -->
   <button class="chat-widget-toggle" id="chatWidgetToggle" aria-label="Open Catalogue Chat Assistant">
     <span class="chat-pulse-dot"></span>
-    <span>💬 Catalogue Assistant</span>
+    <span><svg class="icon icon-chat" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> Catalogue Assistant</span>
   </button>
 
   <div class="chat-window" id="chatWindow" role="dialog" aria-label="Catalogue Chat Assistant">
@@ -404,7 +404,7 @@
     </div>
     <div class="chat-disclaimer-strip">
       <span>Verified 228 Catalogue Data</span>
-      <span style="color: var(--forest-green); font-weight: 700;">● Online</span>
+      <span class="chat-status-dot"></span><span style="color: var(--forest-green); font-weight: 700;">Online</span>
     </div>
     <div class="chat-messages" id="chatMessages">
       <div class="chat-bubble bot">
@@ -412,9 +412,9 @@
       </div>
     </div>
     <div class="chat-chips">
-      <button class="chat-chip" data-query="What configurations are available?">⚙️ Configurations</button>
-      <button class="chat-chip" data-query="Where is your showroom?">📍 Showroom Address</button>
-      <button class="chat-chip" data-query="How do I enquire on WhatsApp?">💬 Enquire on WhatsApp</button>
+      <button class="chat-chip" data-query="What configurations are available?">Configurations</button>
+      <button class="chat-chip" data-query="Where is your showroom?">Showroom Address</button>
+      <button class="chat-chip" data-query="How do I enquire on WhatsApp?">WhatsApp Enquiry</button>
     </div>
     <div class="chat-input-row">
       <input type="text" id="chatInput" placeholder="Ask about this model or specifications..." aria-label="Type your message">
@@ -629,7 +629,7 @@
                       Details →
                     </a>
                     <a href="https://wa.me/918695706013?text=${relWa}" target="_blank" rel="noopener" class="btn btn-primary btn-sm" onclick="event.stopPropagation()">
-                      💬 WhatsApp
+                      <svg class="icon icon-whatsapp" width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.52 3.48A11.93 11.93 0 0 0 12.06 0C5.46 0 .09 5.37.09 11.97c0 2.11.55 4.17 1.6 6L0 24l6.19-1.62a11.94 11.94 0 0 0 5.87 1.51h.01c6.6 0 11.97-5.37 11.97-11.97 0-3.2-.12-6.21-3.52-8.44zm-8.46 18.52c-1.8 0-3.55-.48-5.09-1.39l-.36-.22-3.78.99 1.01-3.68-.24-.38a9.98 9.98 0 0 1-1.53-5.33c0-5.51 4.49-10 10-10 2.67 0 5.18 1.04 7.07 2.93a9.93 9.93 0 0 1 2.93 7.07c0 5.51-4.49 10-10 10zm5.48-7.48c-.3-.15-1.78-.88-2.06-.98-.28-.1-.48-.15-.68.15-.2.3-.78.98-.95 1.18-.18.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.5-.89-.8-1.5-1.78-1.67-2.08-.18-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.38-.02-.53-.08-.15-.68-1.63-.93-2.23-.24-.58-.49-.5-.68-.51h-.58c-.2 0-.52.08-.8.38-.27.3-1.05 1.03-1.05 2.51 0 1.48 1.08 2.91 1.23 3.11.15.2 2.12 3.24 5.14 4.54.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.78-.73 2.03-1.43.25-.7.25-1.3.18-1.43-.08-.12-.27-.2-.57-.35z"/></svg> WhatsApp
                     </a>
                   </div>
                 </div>
@@ -652,7 +652,7 @@
       const saved = JSON.parse(localStorage.getItem('shse_saved_chairs') || '[]');
       const isSaved = saved.includes(id);
       const icon = document.getElementById('detailSaveIcon');
-      if (icon) icon.textContent = isSaved ? '❤️' : '🤍';
+      if (icon) icon.innerHTML = isSaved ? '<svg class="icon icon-heart fill" width="16" height="16" viewBox="0 0 24 24" fill="#DC2626" stroke="#DC2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>' : '<svg class="icon icon-heart" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>';
     }
 
     function updateDetailCompareButton(id) {

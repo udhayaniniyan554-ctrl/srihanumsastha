@@ -351,10 +351,10 @@
     <!-- Admin Navigation Tabs: ONLY 2 MAIN OPTIONS -->
     <div class="admin-tab-nav">
       <button type="button" id="tabBtnReviews" class="admin-tab-btn active" onclick="switchAdminTab('reviews')">
-        ⭐ Customer Reviews (<span id="tabCountReviews">0</span>)
+        <svg class="star-icon fill" width="16" height="16" viewBox="0 0 24 24" fill="#C5A059" stroke="#C5A059" stroke-width="1.5" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> Customer Reviews (<span id="tabCountReviews">0</span>)
       </button>
       <button type="button" id="tabBtnAddChair" class="admin-tab-btn" onclick="switchAdminTab('add-chair')">
-        ➕ Add New Chairs
+        <svg class="icon icon-plus" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Add New Chairs
       </button>
     </div>
 
@@ -393,27 +393,27 @@
           <div class="status-filter-pills" style="display: inline-flex; gap: 0.35rem; background: var(--bg-neutral); padding: 0.25rem; border-radius: var(--radius-full); border: 1px solid var(--border-light);">
             <button type="button" class="dash-status-pill active" data-status="all" id="adminPillAll">All Reviews (<span id="adminPillCountAll">0</span>)</button>
             <button type="button" class="dash-status-pill" data-status="pending" id="adminPillPending">⏳ Pending (<span id="adminPillCountPending">0</span>)</button>
-            <button type="button" class="dash-status-pill" data-status="approved" id="adminPillApproved">✓ Approved (<span id="adminPillCountApproved">0</span>)</button>
-            <button type="button" class="dash-status-pill" data-status="rejected" id="adminPillRejected">✗ Rejected (<span id="adminPillCountRejected">0</span>)</button>
+            <button type="button" class="dash-status-pill" data-status="approved" id="adminPillApproved"><svg class="icon icon-check" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Approved (<span id="adminPillCountApproved">0</span>)</button>
+            <button type="button" class="dash-status-pill" data-status="rejected" id="adminPillRejected"><svg class="icon icon-x" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Rejected (<span id="adminPillCountRejected">0</span>)</button>
           </div>
           <input type="hidden" id="adminReviewsStatusFilter" value="all">
 
           <select id="adminReviewsRatingFilter" class="form-input" style="width: 130px;">
             <option value="all">All Stars</option>
-            <option value="5">5 Stars (★★★★★)</option>
-            <option value="4">4 Stars (★★★★)</option>
-            <option value="3">3 Stars (★★★)</option>
-            <option value="2">2 Stars (★★)</option>
-            <option value="1">1 Star (★)</option>
+            <option value="5">5 Stars</option>
+            <option value="4">4 Stars</option>
+            <option value="3">3 Stars</option>
+            <option value="2">2 Stars</option>
+            <option value="1">1 Star</option>
           </select>
         </div>
 
         <div style="display: flex; gap: 0.75rem;">
           <button id="btnRefreshReviews" class="btn btn-outline btn-sm" onclick="loadReviews()">
-            🔄 Refresh Reviews
+            <svg class="icon icon-refresh" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg> Refresh Reviews
           </button>
           <a href="index.html#reviews" target="_blank" class="btn btn-outline btn-sm" style="color: var(--forest-green); border-color: var(--forest-green);">
-            👁️ Customer View
+            <svg class="icon icon-eye" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg> Customer View
           </a>
         </div>
       </div>
@@ -442,14 +442,14 @@
       <div style="background: linear-gradient(135deg, #064E3B 0%, #047857 100%); color: #ffffff; padding: 1.35rem 1.75rem; border-radius: var(--radius-md); margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; box-shadow: 0 4px 15px rgba(6, 78, 59, 0.15);">
         <div>
           <h2 style="font-size: 1.3rem; font-weight: 800; margin: 0; color: #ffffff; display: flex; align-items: center; gap: 0.5rem;">
-            <span>➕</span> Add New Chairs to Website
+            <svg class="icon icon-plus" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Add New Chairs to Website
           </h2>
           <p style="margin: 0.35rem 0 0; font-size: 0.875rem; opacity: 0.9; color: #d1fae5;">
             Upload chair photos, enter specifications &amp; pricing, and publish directly to the public website.
           </p>
         </div>
         <a href="index.html#catalogue" target="_blank" class="btn btn-sm" style="background: #ffffff; color: #064E3B; font-weight: 700; text-decoration: none;">
-          👁 View Public Catalogue →
+          <svg class="icon icon-eye" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg> View Public Catalogue →
         </a>
       </div>
 
@@ -458,7 +458,7 @@
         <!-- Form -->
         <div style="background: #ffffff; border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; border-bottom: 1px solid var(--border-light); padding-bottom: 0.75rem;">
-            <h3 id="adminFormHeading" style="font-size: 1.1rem; font-weight: 800; color: var(--text-main); margin: 0;">✨ New Chair Entry</h3>
+            <h3 id="adminFormHeading" style="font-size: 1.1rem; font-weight: 800; color: var(--text-main); margin: 0;"><svg class="icon icon-sparkle" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/></svg> New Chair Entry</h3>
             <span id="adminFormModeBadge" style="font-size: 0.75rem; background: #ecfdf5; color: #047857; padding: 0.2rem 0.6rem; border-radius: 999px; font-weight: 700;">Add Mode</span>
           </div>
 
@@ -471,14 +471,14 @@
               <label style="font-weight: 700; display: block; margin-bottom: 0.35rem;">Chair Photograph *</label>
               <div id="adminPhotoDropzone" style="border: 2px dashed #059669; background: #f0fdf4; border-radius: 6px; padding: 1.25rem; text-align: center; cursor: pointer;">
                 <input type="file" id="adminPhotoFile" accept="image/*" style="display: none;">
-                <div style="font-size: 1.75rem; margin-bottom: 0.25rem;">📷</div>
+                <div style="font-size: 1.75rem; margin-bottom: 0.25rem;"><svg class="icon icon-camera" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></div>
                 <div style="font-weight: 700; color: #065f46; font-size: 0.875rem;">Click to Upload Chair Photo</div>
                 <div style="font-size: 0.75rem; color: #6b7280;">PNG, JPG, WEBP</div>
               </div>
               <div id="adminPhotoBox" style="display: none; margin-top: 0.5rem; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 4px; padding: 0.5rem; display: flex; align-items: center; gap: 0.75rem;">
                 <img id="adminPhotoImg" src="" style="width: 60px; height: 60px; object-fit: contain; background: #fff; border-radius: 4px; border: 1px solid #cbd5e1;">
                 <div style="flex: 1; font-size: 0.8rem; font-weight: 700;" id="adminPhotoName">photo.jpg</div>
-                <button type="button" id="btnAdminRemovePhoto" style="background: #fee2e2; border: 1px solid #fecaca; color: #b91c1c; border-radius: 4px; padding: 0.3rem 0.5rem; font-size: 0.75rem; cursor: pointer;">✕</button>
+                <button type="button" id="btnAdminRemovePhoto" style="background: #fee2e2; border: 1px solid #fecaca; color: #b91c1c; border-radius: 4px; padding: 0.3rem 0.5rem; font-size: 0.75rem; cursor: pointer;">&times;</button>
               </div>
               <input type="hidden" id="adminPhotoUrl" value="">
             </div>
@@ -519,7 +519,7 @@
             <div class="form-group" style="margin-bottom: 1.25rem;">
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
                 <label style="font-weight: 700; color: var(--text-main); margin: 0; font-size: 0.85rem; display: flex; align-items: center; gap: 0.35rem;">
-                  <span>👁</span> Public Website Live Card Preview
+                  <svg class="icon icon-eye" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg> Public Website Live Card Preview
                 </label>
                 <span style="font-size: 0.72rem; color: #059669; background: #ecfdf5; padding: 0.15rem 0.5rem; border-radius: 999px; font-weight: 700; border: 1px solid #a7f3d0;">
                   Real-Time Preview
@@ -530,7 +530,7 @@
                 <div class="product-card" style="width: 100%; max-width: 260px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); border-radius: 8px; overflow: hidden; background: #ffffff; border: 1px solid #e2e8f0; pointer-events: none;">
                   <div style="position: relative; height: 170px; background: #f8fafc; display: flex; align-items: center; justify-content: center; padding: 0.75rem;">
                     <span id="adminPrevCardBadge" style="position: absolute; top: 8px; left: 8px; background: #064E3B; color: #ffffff; font-size: 0.65rem; font-weight: 700; padding: 0.2rem 0.5rem; border-radius: 4px;">Office Chairs</span>
-                    <div style="position: absolute; top: 8px; right: 8px; font-size: 0.9rem;">🤍</div>
+                    <div style="position: absolute; top: 8px; right: 8px; font-size: 0.9rem;"><svg class="icon icon-heart" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
                     <img id="adminPrevCardImg" src="assets/placeholder.svg" alt="Preview Chair" style="max-height: 135px; max-width: 100%; object-fit: contain;">
                   </div>
                   <div style="padding: 0.85rem;">
@@ -542,7 +542,7 @@
                     </div>
                     <div style="display: flex; gap: 0.35rem;">
                       <div style="flex: 1; text-align: center; padding: 0.35rem; background: #f1f5f9; color: #334155; border-radius: 4px; font-size: 0.72rem; font-weight: 600;">View Details</div>
-                      <div style="flex: 1; text-align: center; padding: 0.35rem; background: #059669; color: #ffffff; border-radius: 4px; font-size: 0.72rem; font-weight: 700;">💬 WhatsApp</div>
+                      <div style="flex: 1; text-align: center; padding: 0.35rem; background: #059669; color: #ffffff; border-radius: 4px; font-size: 0.72rem; font-weight: 700;"><svg class="icon icon-whatsapp" width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.52 3.48A11.93 11.93 0 0 0 12.06 0C5.46 0 .09 5.37.09 11.97c0 2.11.55 4.17 1.6 6L0 24l6.19-1.62a11.94 11.94 0 0 0 5.87 1.51h.01c6.6 0 11.97-5.37 11.97-11.97 0-3.2-.12-6.21-3.52-8.44zm-8.46 18.52c-1.8 0-3.55-.48-5.09-1.39l-.36-.22-3.78.99 1.01-3.68-.24-.38a9.98 9.98 0 0 1-1.53-5.33c0-5.51 4.49-10 10-10 2.67 0 5.18 1.04 7.07 2.93a9.93 9.93 0 0 1 2.93 7.07c0 5.51-4.49 10-10 10zm5.48-7.48c-.3-.15-1.78-.88-2.06-.98-.28-.1-.48-.15-.68.15-.2.3-.78.98-.95 1.18-.18.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.5-.89-.8-1.5-1.78-1.67-2.08-.18-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.38-.02-.53-.08-.15-.68-1.63-.93-2.23-.24-.58-.49-.5-.68-.51h-.58c-.2 0-.52.08-.8.38-.27.3-1.05 1.03-1.05 2.51 0 1.48 1.08 2.91 1.23 3.11.15.2 2.12 3.24 5.14 4.54.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.78-.73 2.03-1.43.25-.7.25-1.3.18-1.43-.08-.12-.27-.2-.57-.35z"/></svg> WhatsApp</div>
                     </div>
                   </div>
                 </div>
@@ -551,10 +551,10 @@
 
             <div style="display: flex; gap: 0.75rem;">
               <button type="submit" id="btnAdminPublishChair" class="btn btn-primary" style="flex: 1; padding: 0.85rem; font-weight: 700; background: #059669; border-color: #059669;">
-                💾 Save &amp; Publish Chair
+                <svg class="icon icon-save" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg> Save &amp; Publish Chair
               </button>
               <button type="button" id="btnAdminCancelEdit" class="btn btn-outline" style="display: none; padding: 0.85rem 1rem;">
-                ✕ Cancel
+                <svg class="icon icon-x" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Cancel
               </button>
             </div>
           </form>
@@ -564,7 +564,7 @@
         <div style="background: #ffffff; border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
             <div>
-              <h3 style="font-size: 1.1rem; font-weight: 800; color: var(--text-main); margin: 0;">📋 Published Chairs Directory</h3>
+              <h3 style="font-size: 1.1rem; font-weight: 800; color: var(--text-main); margin: 0;"><svg class="icon icon-clipboard" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/></svg> Published Chairs Directory</h3>
               <div style="font-size: 0.8rem; color: #6b7280; margin-top: 0.2rem;">Edit or delete chairs from the website</div>
             </div>
             <span style="background: var(--bg-neutral); padding: 0.3rem 0.75rem; border-radius: 999px; font-size: 0.8rem; font-weight: 700; border: 1px solid var(--border-light);">
@@ -817,13 +817,13 @@
           <td style="text-align: right;">
             <div style="display: flex; gap: 0.5rem; justify-content: flex-end;">
               <a href="product.html?id=${item.id}" target="_blank" class="btn btn-outline btn-sm" title="Preview Public Page">
-                👁 Preview
+                <svg class="icon icon-eye" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg> Preview
               </a>
               <button onclick="editChair('${item.id}')" class="btn btn-sm" style="background: #0284c7; color: #fff;">
-                ✏ Edit
+                <svg class="icon icon-edit" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> Edit
               </button>
               <button onclick="deleteChair('${item.id}')" class="btn btn-sm" style="background: #dc2626; color: #fff;">
-                🗑 Delete
+                <svg class="icon icon-trash" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/></svg> Delete
               </button>
             </div>
           </td>
@@ -859,7 +859,7 @@
           if (res.ok) {
             const data = await res.json();
             document.getElementById('formImage').value = data.url;
-            statusEl.textContent = '✓ Photo uploaded and linked: ' + data.url;
+            statusEl.textContent = 'Photo uploaded and linked: ' + data.url;
             statusEl.style.color = '#16a34a';
           } else {
             statusEl.textContent = 'Upload failed on server. Please use manual path.';
@@ -1117,8 +1117,8 @@
           </td>
           <td style="padding: 0.65rem 0.75rem; text-align: right;">
             <div style="display: flex; gap: 0.35rem; justify-content: flex-end;">
-              <button type="button" onclick="editChairFromDir('${item.id}')" class="btn btn-sm" style="background: #0284c7; color: #fff; padding: 0.25rem 0.5rem; font-size: 0.75rem;">✏ Edit</button>
-              <button type="button" onclick="deleteChairFromDir('${item.id}')" class="btn btn-sm btn-delete-review" style="padding: 0.25rem 0.5rem; font-size: 0.75rem;">🗑 Delete</button>
+              <button type="button" onclick="editChairFromDir('${item.id}')" class="btn btn-sm" style="background: #0284c7; color: #fff; padding: 0.25rem 0.5rem; font-size: 0.75rem;"><svg class="icon icon-edit" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> Edit</button>
+              <button type="button" onclick="deleteChairFromDir('${item.id}')" class="btn btn-sm btn-delete-review" style="padding: 0.25rem 0.5rem; font-size: 0.75rem;"><svg class="icon icon-trash" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/></svg> Delete</button>
             </div>
           </td>
         </tr>
@@ -1258,12 +1258,12 @@
             aNewChairForm.reset();
             document.getElementById('adminEditId').value = '';
             if (aPhotoBox) aPhotoBox.style.display = 'none';
-            document.getElementById('adminFormHeading').textContent = '✨ New Chair Entry';
+            document.getElementById('adminFormHeading').textContent = '<svg class="icon icon-sparkle" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/></svg> New Chair Entry';
             document.getElementById('adminFormModeBadge').textContent = 'Add Mode';
-            document.getElementById('btnAdminPublishChair').textContent = '💾 Save & Publish Chair';
+            document.getElementById('btnAdminPublishChair').textContent = '<svg class="icon icon-save" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg> Save &amp; Publish Chair';
             document.getElementById('btnAdminCancelEdit').style.display = 'none';
             updateAdminChairPreview();
-            alert(`✓ Chair "${saved.code || saved.name}" saved and published successfully!`);
+            alert(`Chair "${saved.code || saved.name}" saved and published successfully!`);
           }
         } catch (err) {
           alert('Error saving chair: ' + err.message);
@@ -1286,9 +1286,9 @@
         aPhotoName.textContent = p.code || 'chair-photo';
         aPhotoBox.style.display = 'flex';
       }
-      document.getElementById('adminFormHeading').textContent = `✏ Edit Chair: ${p.code || p.name}`;
+      document.getElementById('adminFormHeading').textContent = `<svg class="icon icon-edit" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> Edit Chair: ${p.code || p.name}`;
       document.getElementById('adminFormModeBadge').textContent = 'Edit Mode';
-      document.getElementById('btnAdminPublishChair').textContent = '💾 Update Chair';
+      document.getElementById('btnAdminPublishChair').textContent = '<svg class="icon icon-save" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg> Update Chair';
       document.getElementById('btnAdminCancelEdit').style.display = 'inline-flex';
       updateAdminChairPreview();
       aNewChairForm.scrollIntoView({ behavior: 'smooth' });
@@ -1307,7 +1307,7 @@
         if (res.ok) {
           catalogData = catalogData.filter(x => x.id !== id);
           renderAdminDirectory();
-          alert(`✓ Chair "${p.code || p.name}" was deleted.`);
+          alert(`Chair "${p.code || p.name}" was deleted.`);
         }
       } catch (e) {
         alert('Delete failed: ' + e.message);
@@ -1381,7 +1381,7 @@
           statAvg.textContent = '0.0';
         } else {
           const sum = reviewsData.reduce((acc, r) => acc + (parseInt(r.rating, 10) || 5), 0);
-          statAvg.textContent = (sum / total).toFixed(1) + ' ★';
+          statAvg.textContent = (sum / total).toFixed(1) + ' / 5';
         }
       }
     }
@@ -1409,7 +1409,7 @@
         tbody.innerHTML = `
           <tr>
             <td colspan="6" style="text-align: center; padding: 3rem 1.5rem; color: var(--text-muted);">
-              <div style="font-size: 2rem; margin-bottom: 0.5rem;">💬</div>
+              <div style="font-size: 2rem; margin-bottom: 0.5rem;"><svg class="icon icon-chat" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
               <strong style="color: var(--text-main); font-size: 1rem;">${reviewsData.length === 0 ? 'No customer reviews submitted yet.' : 'No reviews match your search filter.'}</strong>
               <div style="font-size: 0.825rem; margin-top: 0.35rem;">Customer reviews submitted through the public website will appear here for moderation.</div>
             </td>
@@ -1420,7 +1420,7 @@
 
       tbody.innerHTML = filtered.map(r => {
         const rating = Math.max(1, Math.min(5, parseInt(r.rating, 10) || 5));
-        const stars = '★'.repeat(rating) + '☆'.repeat(5 - rating);
+        
         const safeName = escapeHtml(r.name);
         const safeLoc = escapeHtml(r.location || 'Verified Customer');
         const safeComment = escapeHtml(r.comment);
@@ -1430,16 +1430,16 @@
 
         let statusBadge = '';
         if (rStatus === 'approved') {
-          statusBadge = `<span class="admin-badge-approved">✓ Approved</span>`;
+          statusBadge = `<span class="admin-badge-approved"><svg class="icon icon-check" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Approved</span>`;
         } else if (rStatus === 'rejected') {
-          statusBadge = `<span class="admin-badge-rejected">✗ Rejected</span>`;
+          statusBadge = `<span class="admin-badge-rejected"><svg class="icon icon-x" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Rejected</span>`;
         } else {
           statusBadge = `<span class="admin-badge-pending">⏳ Pending</span>`;
         }
 
-        const approveBtn = `<button onclick="approveReview('${safeId}')" class="btn-approve-review" ${rStatus === 'approved' ? 'style="opacity: 0.45; cursor: not-allowed;" disabled title="Already Approved &amp; Published"' : 'title="Approve &amp; Publish Review to Website"'}>✓ Approve</button>`;
-        const rejectBtn = `<button onclick="rejectReview('${safeId}')" class="btn-reject-review" ${rStatus === 'rejected' ? 'style="opacity: 0.45; cursor: not-allowed;" disabled title="Already Rejected &amp; Hidden"' : 'title="Reject &amp; Hide Review from Website"'}>✗ Reject</button>`;
-        const deleteBtn = `<button onclick="deleteReview('${safeId}')" class="btn-delete-review" title="Permanently Delete Review">🗑 Delete</button>`;
+        const approveBtn = `<button onclick="approveReview('${safeId}')" class="btn-approve-review" ${rStatus === 'approved' ? 'style="opacity: 0.45; cursor: not-allowed;" disabled title="Already Approved &amp; Published"' : 'title="Approve &amp; Publish Review to Website"'}><svg class="icon icon-check" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Approve</button>`;
+        const rejectBtn = `<button onclick="rejectReview('${safeId}')" class="btn-reject-review" ${rStatus === 'rejected' ? 'style="opacity: 0.45; cursor: not-allowed;" disabled title="Already Rejected &amp; Hidden"' : 'title="Reject &amp; Hide Review from Website"'}><svg class="icon icon-x" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Reject</button>`;
+        const deleteBtn = `<button onclick="deleteReview('${safeId}')" class="btn-delete-review" title="Permanently Delete Review"><svg class="icon icon-trash" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/></svg> Delete</button>`;
 
         return `
           <tr>
@@ -1562,7 +1562,7 @@
           reviewsData = reviewsData.filter(x => x.id !== id);
           renderReviewsTable();
           updateReviewsStats();
-          alert(`✓ Review from "${rev.name}" has been permanently deleted.`);
+          alert(`Review from "${rev.name}" has been permanently deleted.`);
           return;
         } else {
           const errData = await res.json().catch(() => ({}));

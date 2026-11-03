@@ -66,12 +66,12 @@
       <div class="header-actions">
         <!-- Admin Dashboard Access -->
         <button class="btn btn-outline btn-sm btn-header-admin" id="openAdminNavBtn" type="button" title="Open Admin Management" aria-label="Admin Dashboard">
-          🔐 Admin Dashboard
+          <svg class="icon icon-lock" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Admin Dashboard
         </button>
 
         <!-- Saved Chairs Shortcut -->
         <button class="btn btn-outline btn-sm btn-header-saved" data-open-saved title="View saved favorite chairs" aria-label="Saved Chairs">
-          ❤️ Saved Items <span class="saved-count-badge" style="display:none; background: #DC2626; color: #fff; padding: 0.1rem 0.4rem; border-radius: 9999px; font-size: 0.7rem; margin-left: 0.25rem;">0</span>
+          <svg class="icon icon-heart" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg> Saved Items <span class="saved-count-badge" style="display:none; background: #DC2626; color: #fff; padding: 0.1rem 0.4rem; border-radius: 9999px; font-size: 0.7rem; margin-left: 0.25rem;">0</span>
         </button>
 
         <button class="mobile-toggle" id="mobileToggle" aria-label="Open Mobile Menu" aria-expanded="false" aria-controls="mobileDrawer">
@@ -105,13 +105,13 @@
 
     <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.6rem;">
       <button class="btn btn-outline btn-block" id="mobileOpenAdminBtn" type="button">
-        🔐 Admin Dashboard
+        <svg class="icon icon-lock" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Admin Dashboard
       </button>
       <button class="btn btn-outline btn-block" data-open-saved>
-        ❤️ Saved Items (<span class="saved-count-badge">0</span>)
+        <svg class="icon icon-heart" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg> Saved Items (<span class="saved-count-badge">0</span>)
       </button>
       <button class="btn btn-outline btn-block" onclick="window.catalogApp.openCompareModal()">
-        ⚖️ Compare Selected Chairs
+        <svg class="icon icon-compare" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg> Compare Selected Chairs
       </button>
     </div>
   </aside>
@@ -120,7 +120,7 @@
   <aside class="mobile-drawer" id="savedDrawer" aria-label="Saved Chairs" style="z-index: 1060;">
     <div class="saved-drawer-header">
       <div style="font-weight: 800; font-size: 1.15rem; color: var(--text-main);">
-        ❤️ Saved Chairs (<span class="saved-count-badge">0</span>)
+        <svg class="icon icon-heart" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg> Saved Chairs (<span class="saved-count-badge">0</span>)
       </div>
       <button class="mobile-drawer-close" id="savedDrawerClose" aria-label="Close Saved Drawer">&times;</button>
     </div>
@@ -140,7 +140,7 @@
         <!-- Slide 1: OFFICE CHAIRS  SHSE 1 - ATLAS/3G -->
         <div class="hero-slide active" data-index="0">
           <div class="hero-slide-content">
-            <span class="hero-slide-badge">✨ Featured Office Seating</span>
+            <span class="hero-slide-badge"><svg class="icon icon-sparkle" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/></svg> Featured Office Seating</span>
             <span class="hero-slide-cat">Office Chairs • Model ATLAS/3G</span>
             <h1 class="hero-slide-title">
               OFFICE CHAIRS  SHSE 1
@@ -157,10 +157,10 @@
                 View Details →
               </a>
               <a href="https://wa.me/918695706013?text=Hello%20Sri%20Hanum%20Sastha%20Enterprises%2C%20I%20am%20interested%20in%20chair%20OFFICE%20CHAIRS%20%20SHSE%201%20(Model%3A%20ATLAS%2F3G)%20from%20the%20Office%20Chairs%20category.%20Please%20share%20more%20details." target="_blank" rel="noopener" class="btn btn-primary btn-lg">
-                💬 Enquire on WhatsApp
+                <svg class="icon icon-whatsapp" width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.52 3.48A11.93 11.93 0 0 0 12.06 0C5.46 0 .09 5.37.09 11.97c0 2.11.55 4.17 1.6 6L0 24l6.19-1.62a11.94 11.94 0 0 0 5.87 1.51h.01c6.6 0 11.97-5.37 11.97-11.97 0-3.2-.12-6.21-3.52-8.44zm-8.46 18.52c-1.8 0-3.55-.48-5.09-1.39l-.36-.22-3.78.99 1.01-3.68-.24-.38a9.98 9.98 0 0 1-1.53-5.33c0-5.51 4.49-10 10-10 2.67 0 5.18 1.04 7.07 2.93a9.93 9.93 0 0 1 2.93 7.07c0 5.51-4.49 10-10 10zm5.48-7.48c-.3-.15-1.78-.88-2.06-.98-.28-.1-.48-.15-.68.15-.2.3-.78.98-.95 1.18-.18.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.5-.89-.8-1.5-1.78-1.67-2.08-.18-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.38-.02-.53-.08-.15-.68-1.63-.93-2.23-.24-.58-.49-.5-.68-.51h-.58c-.2 0-.52.08-.8.38-.27.3-1.05 1.03-1.05 2.51 0 1.48 1.08 2.91 1.23 3.11.15.2 2.12 3.24 5.14 4.54.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.78-.73 2.03-1.43.25-.7.25-1.3.18-1.43-.08-.12-.27-.2-.57-.35z"/></svg> Enquire on WhatsApp
               </a>
               <button class="btn btn-outline btn-lg" onclick="window.catalogApp.toggleCompare('office_1_1')">
-                ⚖️ Compare
+                <svg class="icon icon-compare" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg> Compare
               </button>
             </div>
           </div>
@@ -175,7 +175,7 @@
         <!-- Slide 2: OFFICE CHAIRS  SHSE 2 - 4G -->
         <div class="hero-slide" data-index="1">
           <div class="hero-slide-content">
-            <span class="hero-slide-badge">✨ Executive Showcase</span>
+            <span class="hero-slide-badge"><svg class="icon icon-sparkle" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/></svg> Executive Showcase</span>
             <span class="hero-slide-cat">Office Chairs • Model 4G</span>
             <h2 class="hero-slide-title">
               OFFICE CHAIRS  SHSE 2
@@ -192,10 +192,10 @@
                 View Details →
               </a>
               <a href="https://wa.me/918695706013?text=Hello%20Sri%20Hanum%20Sastha%20Enterprises%2C%20I%20am%20interested%20in%20chair%20OFFICE%20CHAIRS%20%20SHSE%202%20(Model%3A%204G)%20from%20the%20Office%20Chairs%20category.%20Please%20share%20more%20details." target="_blank" rel="noopener" class="btn btn-primary btn-lg">
-                💬 Enquire on WhatsApp
+                <svg class="icon icon-whatsapp" width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.52 3.48A11.93 11.93 0 0 0 12.06 0C5.46 0 .09 5.37.09 11.97c0 2.11.55 4.17 1.6 6L0 24l6.19-1.62a11.94 11.94 0 0 0 5.87 1.51h.01c6.6 0 11.97-5.37 11.97-11.97 0-3.2-.12-6.21-3.52-8.44zm-8.46 18.52c-1.8 0-3.55-.48-5.09-1.39l-.36-.22-3.78.99 1.01-3.68-.24-.38a9.98 9.98 0 0 1-1.53-5.33c0-5.51 4.49-10 10-10 2.67 0 5.18 1.04 7.07 2.93a9.93 9.93 0 0 1 2.93 7.07c0 5.51-4.49 10-10 10zm5.48-7.48c-.3-.15-1.78-.88-2.06-.98-.28-.1-.48-.15-.68.15-.2.3-.78.98-.95 1.18-.18.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.5-.89-.8-1.5-1.78-1.67-2.08-.18-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.38-.02-.53-.08-.15-.68-1.63-.93-2.23-.24-.58-.49-.5-.68-.51h-.58c-.2 0-.52.08-.8.38-.27.3-1.05 1.03-1.05 2.51 0 1.48 1.08 2.91 1.23 3.11.15.2 2.12 3.24 5.14 4.54.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.78-.73 2.03-1.43.25-.7.25-1.3.18-1.43-.08-.12-.27-.2-.57-.35z"/></svg> Enquire on WhatsApp
               </a>
               <button class="btn btn-outline btn-lg" onclick="window.catalogApp.toggleCompare('office_1_2')">
-                ⚖️ Compare
+                <svg class="icon icon-compare" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg> Compare
               </button>
             </div>
           </div>
@@ -210,7 +210,7 @@
         <!-- Slide 3: OFFICE CHAIRS  SHSE 22 - BUTTERFLY HB -->
         <div class="hero-slide" data-index="2">
           <div class="hero-slide-content">
-            <span class="hero-slide-badge">✨ High-Back Mesh</span>
+            <span class="hero-slide-badge"><svg class="icon icon-sparkle" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/></svg> High-Back Mesh</span>
             <span class="hero-slide-cat">Office Chairs • Model BUTTERFLY HB</span>
             <h2 class="hero-slide-title">
               OFFICE CHAIRS  SHSE 22
@@ -227,10 +227,10 @@
                 View Details →
               </a>
               <a href="https://wa.me/918695706013?text=Hello%20Sri%20Hanum%20Sastha%20Enterprises%2C%20I%20am%20interested%20in%20chair%20OFFICE%20CHAIRS%20%20SHSE%2022%20(Model%3A%20BUTTERFLY%20HB)%20from%20the%20Office%20Chairs%20category.%20Please%20share%20more%20details." target="_blank" rel="noopener" class="btn btn-primary btn-lg">
-                💬 Enquire on WhatsApp
+                <svg class="icon icon-whatsapp" width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.52 3.48A11.93 11.93 0 0 0 12.06 0C5.46 0 .09 5.37.09 11.97c0 2.11.55 4.17 1.6 6L0 24l6.19-1.62a11.94 11.94 0 0 0 5.87 1.51h.01c6.6 0 11.97-5.37 11.97-11.97 0-3.2-.12-6.21-3.52-8.44zm-8.46 18.52c-1.8 0-3.55-.48-5.09-1.39l-.36-.22-3.78.99 1.01-3.68-.24-.38a9.98 9.98 0 0 1-1.53-5.33c0-5.51 4.49-10 10-10 2.67 0 5.18 1.04 7.07 2.93a9.93 9.93 0 0 1 2.93 7.07c0 5.51-4.49 10-10 10zm5.48-7.48c-.3-.15-1.78-.88-2.06-.98-.28-.1-.48-.15-.68.15-.2.3-.78.98-.95 1.18-.18.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.5-.89-.8-1.5-1.78-1.67-2.08-.18-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.38-.02-.53-.08-.15-.68-1.63-.93-2.23-.24-.58-.49-.5-.68-.51h-.58c-.2 0-.52.08-.8.38-.27.3-1.05 1.03-1.05 2.51 0 1.48 1.08 2.91 1.23 3.11.15.2 2.12 3.24 5.14 4.54.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.78-.73 2.03-1.43.25-.7.25-1.3.18-1.43-.08-.12-.27-.2-.57-.35z"/></svg> Enquire on WhatsApp
               </a>
               <button class="btn btn-outline btn-lg" onclick="window.catalogApp.toggleCompare('office_6_2')">
-                ⚖️ Compare
+                <svg class="icon icon-compare" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg> Compare
               </button>
             </div>
           </div>
@@ -245,7 +245,7 @@
         <!-- Slide 4: VISITOR CHAIRS  SHSE 1 - FLOWER NETTED -->
         <div class="hero-slide" data-index="3">
           <div class="hero-slide-content">
-            <span class="hero-slide-badge">✨ Conference & Visitor</span>
+            <span class="hero-slide-badge"><svg class="icon icon-sparkle" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/></svg> Conference & Visitor</span>
             <span class="hero-slide-cat">Visitor Chairs • Model FLOWER NETTED</span>
             <h2 class="hero-slide-title">
               VISITOR CHAIRS  SHSE 1
@@ -262,10 +262,10 @@
                 View Details →
               </a>
               <a href="https://wa.me/918695706013?text=Hello%20Sri%20Hanum%20Sastha%20Enterprises%2C%20I%20am%20interested%20in%20chair%20VISITOR%20CHAIRS%20%20SHSE%201%20(Model%3A%20FLOWER%20NETTED)%20from%20the%20Visitor%20Chairs%20category.%20Please%20share%20more%20details." target="_blank" rel="noopener" class="btn btn-primary btn-lg">
-                💬 Enquire on WhatsApp
+                <svg class="icon icon-whatsapp" width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.52 3.48A11.93 11.93 0 0 0 12.06 0C5.46 0 .09 5.37.09 11.97c0 2.11.55 4.17 1.6 6L0 24l6.19-1.62a11.94 11.94 0 0 0 5.87 1.51h.01c6.6 0 11.97-5.37 11.97-11.97 0-3.2-.12-6.21-3.52-8.44zm-8.46 18.52c-1.8 0-3.55-.48-5.09-1.39l-.36-.22-3.78.99 1.01-3.68-.24-.38a9.98 9.98 0 0 1-1.53-5.33c0-5.51 4.49-10 10-10 2.67 0 5.18 1.04 7.07 2.93a9.93 9.93 0 0 1 2.93 7.07c0 5.51-4.49 10-10 10zm5.48-7.48c-.3-.15-1.78-.88-2.06-.98-.28-.1-.48-.15-.68.15-.2.3-.78.98-.95 1.18-.18.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.5-.89-.8-1.5-1.78-1.67-2.08-.18-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.38-.02-.53-.08-.15-.68-1.63-.93-2.23-.24-.58-.49-.5-.68-.51h-.58c-.2 0-.52.08-.8.38-.27.3-1.05 1.03-1.05 2.51 0 1.48 1.08 2.91 1.23 3.11.15.2 2.12 3.24 5.14 4.54.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.78-.73 2.03-1.43.25-.7.25-1.3.18-1.43-.08-.12-.27-.2-.57-.35z"/></svg> Enquire on WhatsApp
               </a>
               <button class="btn btn-outline btn-lg" onclick="window.catalogApp.toggleCompare('visitor_1_1_1')">
-                ⚖️ Compare
+                <svg class="icon icon-compare" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg> Compare
               </button>
             </div>
           </div>
@@ -280,7 +280,7 @@
         <!-- Slide 5: LOUNGE CHAIRS  SHSE 3 - ALEX MOULD -->
         <div class="hero-slide" data-index="4">
           <div class="hero-slide-content">
-            <span class="hero-slide-badge">✨ Luxury Soft Seating</span>
+            <span class="hero-slide-badge"><svg class="icon icon-sparkle" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/></svg> Luxury Soft Seating</span>
             <span class="hero-slide-cat">Lounge & Soft Seating • Model ALEX MOULD</span>
             <h2 class="hero-slide-title">
               LOUNGE CHAIRS  SHSE 3
@@ -297,10 +297,10 @@
                 View Details →
               </a>
               <a href="https://wa.me/918695706013?text=Hello%20Sri%20Hanum%20Sastha%20Enterprises%2C%20I%20am%20interested%20in%20chair%20LOUNGE%20CHAIRS%20%20SHSE%203%20(Model%3A%20ALEX%20MOULD)%20from%20the%20Lounge%20%26%20Soft%20Seating%20category.%20Please%20share%20more%20details." target="_blank" rel="noopener" class="btn btn-primary btn-lg">
-                💬 Enquire on WhatsApp
+                <svg class="icon icon-whatsapp" width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.52 3.48A11.93 11.93 0 0 0 12.06 0C5.46 0 .09 5.37.09 11.97c0 2.11.55 4.17 1.6 6L0 24l6.19-1.62a11.94 11.94 0 0 0 5.87 1.51h.01c6.6 0 11.97-5.37 11.97-11.97 0-3.2-.12-6.21-3.52-8.44zm-8.46 18.52c-1.8 0-3.55-.48-5.09-1.39l-.36-.22-3.78.99 1.01-3.68-.24-.38a9.98 9.98 0 0 1-1.53-5.33c0-5.51 4.49-10 10-10 2.67 0 5.18 1.04 7.07 2.93a9.93 9.93 0 0 1 2.93 7.07c0 5.51-4.49 10-10 10zm5.48-7.48c-.3-.15-1.78-.88-2.06-.98-.28-.1-.48-.15-.68.15-.2.3-.78.98-.95 1.18-.18.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.5-.89-.8-1.5-1.78-1.67-2.08-.18-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.38-.02-.53-.08-.15-.68-1.63-.93-2.23-.24-.58-.49-.5-.68-.51h-.58c-.2 0-.52.08-.8.38-.27.3-1.05 1.03-1.05 2.51 0 1.48 1.08 2.91 1.23 3.11.15.2 2.12 3.24 5.14 4.54.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.78-.73 2.03-1.43.25-.7.25-1.3.18-1.43-.08-.12-.27-.2-.57-.35z"/></svg> Enquire on WhatsApp
               </a>
               <button class="btn btn-outline btn-lg" onclick="window.catalogApp.toggleCompare('soft_p7_1')">
-                ⚖️ Compare
+                <svg class="icon icon-compare" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg> Compare
               </button>
             </div>
           </div>
@@ -315,7 +315,7 @@
         <!-- Slide 6: DINING CHAIRS  SHSE 1 - LOUNGE DC 404 -->
         <div class="hero-slide" data-index="5">
           <div class="hero-slide-content">
-            <span class="hero-slide-badge">✨ Commercial Dining</span>
+            <span class="hero-slide-badge"><svg class="icon icon-sparkle" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/></svg> Commercial Dining</span>
             <span class="hero-slide-cat">Dining Chairs • Model LOUNGE DC 404</span>
             <h2 class="hero-slide-title">
               DINING CHAIRS  SHSE 1
@@ -332,10 +332,10 @@
                 View Details →
               </a>
               <a href="https://wa.me/918695706013?text=Hello%20Sri%20Hanum%20Sastha%20Enterprises%2C%20I%20am%20interested%20in%20chair%20DINING%20CHAIRS%20%20SHSE%201%20(Model%3A%20LOUNGE%20DC%20404)%20from%20the%20Dining%20Chairs%20category.%20Please%20share%20more%20details." target="_blank" rel="noopener" class="btn btn-primary btn-lg">
-                💬 Enquire on WhatsApp
+                <svg class="icon icon-whatsapp" width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.52 3.48A11.93 11.93 0 0 0 12.06 0C5.46 0 .09 5.37.09 11.97c0 2.11.55 4.17 1.6 6L0 24l6.19-1.62a11.94 11.94 0 0 0 5.87 1.51h.01c6.6 0 11.97-5.37 11.97-11.97 0-3.2-.12-6.21-3.52-8.44zm-8.46 18.52c-1.8 0-3.55-.48-5.09-1.39l-.36-.22-3.78.99 1.01-3.68-.24-.38a9.98 9.98 0 0 1-1.53-5.33c0-5.51 4.49-10 10-10 2.67 0 5.18 1.04 7.07 2.93a9.93 9.93 0 0 1 2.93 7.07c0 5.51-4.49 10-10 10zm5.48-7.48c-.3-.15-1.78-.88-2.06-.98-.28-.1-.48-.15-.68.15-.2.3-.78.98-.95 1.18-.18.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.5-.89-.8-1.5-1.78-1.67-2.08-.18-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.38-.02-.53-.08-.15-.68-1.63-.93-2.23-.24-.58-.49-.5-.68-.51h-.58c-.2 0-.52.08-.8.38-.27.3-1.05 1.03-1.05 2.51 0 1.48 1.08 2.91 1.23 3.11.15.2 2.12 3.24 5.14 4.54.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.78-.73 2.03-1.43.25-.7.25-1.3.18-1.43-.08-.12-.27-.2-.57-.35z"/></svg> Enquire on WhatsApp
               </a>
               <button class="btn btn-outline btn-lg" onclick="window.catalogApp.toggleCompare('soft_p1_1')">
-                ⚖️ Compare
+                <svg class="icon icon-compare" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg> Compare
               </button>
             </div>
           </div>
@@ -354,6 +354,23 @@
         <!-- Discreet Indicators -->
         <div class="hero-carousel-indicators" aria-label="Slide Selection"></div>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: CATEGORY SHOWCASE CARDS -->
+  <section class="categories-section" id="categories">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Browse By Purpose</span>
+        <h2 class="section-title">Explore Seating Collections</h2>
+        <p class="section-desc">
+          Select a category below to instantly view genuine catalogue models, variant options, and listed rates.
+        </p>
+      </div>
+
+      <div class="categories-grid" id="categoryCardsContainer">
+        <!-- Rendered dynamically by app.js with live counts -->
       </div>
     </div>
   </section>
@@ -383,27 +400,10 @@
   <!-- Notice Banner: Prices May Change -->
   <div class="notice-banner" role="status">
     <div class="container notice-content">
-      <span class="notice-icon">📢</span>
+      <span class="notice-icon"><svg class="icon icon-notice" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></span>
       <span>Prices may change. Please contact us to confirm current prices and availability.</span>
     </div>
   </div>
-
-  <!-- SECTION 3: CATEGORY SHOWCASE CARDS -->
-  <section class="categories-section" id="categories">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-label">Browse By Purpose</span>
-        <h2 class="section-title">Explore Seating Collections</h2>
-        <p class="section-desc">
-          Select a category below to instantly view genuine catalogue models, variant options, and listed rates.
-        </p>
-      </div>
-
-      <div class="categories-grid" id="categoryCardsContainer">
-        <!-- Rendered dynamically by app.js with live counts -->
-      </div>
-    </div>
-  </section>
 
   <!-- SECTION 4: MAIN CATALOGUE BROWSER -->
   <section class="catalogue-section" id="catalogue">
@@ -412,7 +412,7 @@
       <div class="catalogue-toolbar">
         <div class="search-sort-row">
           <div class="search-box">
-            <span class="search-icon">🔍</span>
+            <span class="search-icon"><svg class="icon icon-search" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
             <input type="text" id="searchBar" placeholder="Search by model name (e.g. ATLAS, 4G) or code (e.g. OFFICE CHAIRS  SHSE 1)..." aria-label="Search chair models">
           </div>
           <div class="sort-box">
@@ -436,7 +436,7 @@
             Showing: <strong id="activeFilterName">All Chairs</strong> (<span id="filterCount">0 chairs found</span>)
           </div>
           <button class="btn-reset-filter" id="btnResetFilter" style="display: none;">
-            ✕ Reset Filters
+            <svg class="icon icon-x" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Reset Filters
           </button>
         </div>
       </div>
@@ -448,7 +448,7 @@
 
       <!-- Empty State -->
       <div class="empty-state" id="emptyState" style="display: none;">
-        <div class="empty-state-icon">🔍</div>
+        <div class="empty-state-icon"><svg class="icon icon-search" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
         <h3>No matching chairs found</h3>
         <p>Try searching for a product code such as OFFICE CHAIRS  SHSE 1 or resetting the active category filter.</p>
         <button class="btn btn-outline" onclick="document.getElementById('btnResetFilter').click()">
@@ -476,7 +476,7 @@
           Explorations of future ergonomic geometries, sustainable materials, and monocoque mesh tensioning.
         </p>
         <div class="concepts-disclaimer">
-          🔒 <strong>Separation Guarantee:</strong> These conceptual design visuals are kept strictly separate from our 228 verified commercial catalogue models and are not currently manufactured or available for purchase.
+          <svg class="icon icon-lock" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> <strong>Separation Guarantee:</strong> These conceptual design visuals are kept strictly separate from our 228 verified commercial catalogue models and are not currently manufactured or available for purchase.
         </div>
       </div>
 
@@ -502,22 +502,22 @@
     <div class="container">
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem;">
         <div style="background: #ffffff; padding: 2rem 1.5rem; border-radius: var(--radius-md); border: 1px solid var(--border-light);">
-          <div style="font-size: 2.25rem; margin-bottom: 0.75rem;">🪑</div>
+          <div style="font-size: 2.25rem; margin-bottom: 0.75rem;"><svg class="icon icon-chair" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 9V6a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v3"/><path d="M3 11v5a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5a2 2 0 0 0-4 0v2H7v-2a2 2 0 0 0-4 0Z"/><path d="M5 18v3"/><path d="M19 18v3"/></svg></div>
           <h4 style="font-size: 1.15rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.5rem;">Genuine Catalogue Models</h4>
           <p style="color: var(--text-secondary); font-size: 0.925rem; line-height: 1.5;">Every product shown reflects authentic catalogue photographs, precise SHSE identification codes, and official listed rates.</p>
         </div>
         <div style="background: #ffffff; padding: 2rem 1.5rem; border-radius: var(--radius-md); border: 1px solid var(--border-light);">
-          <div style="font-size: 2.25rem; margin-bottom: 0.75rem;">⚙️</div>
+          <div style="font-size: 2.25rem; margin-bottom: 0.75rem;"><svg class="icon icon-settings" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
           <h4 style="font-size: 1.15rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.5rem;">Configurable Bases & Arms</h4>
           <p style="color: var(--text-secondary); font-size: 0.925rem; line-height: 1.5;">Choose between heavy-duty nylon bases, polished chrome finishes, fixed handles, adjustable arms, or multi-lock mechanisms.</p>
         </div>
         <div style="background: #ffffff; padding: 2rem 1.5rem; border-radius: var(--radius-md); border: 1px solid var(--border-light);">
-          <div style="font-size: 2.25rem; margin-bottom: 0.75rem;">🏢</div>
+          <div style="font-size: 2.25rem; margin-bottom: 0.75rem;"><svg class="icon icon-building" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="16" height="20" x="4" y="2" rx="2" ry="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M8 10h.01"/><path d="M16 10h.01"/><path d="M8 14h.01"/><path d="M16 14h.01"/></svg></div>
           <h4 style="font-size: 1.15rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.5rem;">Corporate & Institutional Orders</h4>
           <p style="color: var(--text-secondary); font-size: 0.925rem; line-height: 1.5;">We cater to corporate workspaces, clinics, educational institutions, conference halls, and commercial projects in Coimbatore.</p>
         </div>
         <div style="background: #ffffff; padding: 2rem 1.5rem; border-radius: var(--radius-md); border: 1px solid var(--border-light);">
-          <div style="font-size: 2.25rem; margin-bottom: 0.75rem;">📞</div>
+          <div style="font-size: 2.25rem; margin-bottom: 0.75rem;"><svg class="icon icon-phone" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
           <h4 style="font-size: 1.15rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.5rem;">Direct Personal Assistance</h4>
           <p style="color: var(--text-secondary); font-size: 0.925rem; line-height: 1.5;">Connect directly with our team for prompt stock availability, showroom appointments, and custom configuration queries.</p>
         </div>
@@ -546,7 +546,7 @@
       <div class="reviews-summary-bar" id="reviewsSummaryBar" style="display: none;">
         <div class="reviews-avg-rating">
           <span class="avg-score" id="avgScore">5.0</span>
-          <div class="avg-stars" id="avgStars" aria-hidden="true">★★★★★</div>
+          <div class="avg-stars" id="avgStars" aria-hidden="true"><svg class="star-icon fill" width="18" height="18" viewBox="0 0 24 24" fill="#C5A059" stroke="#C5A059" stroke-width="1.5" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="star-icon fill" width="18" height="18" viewBox="0 0 24 24" fill="#C5A059" stroke="#C5A059" stroke-width="1.5" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="star-icon fill" width="18" height="18" viewBox="0 0 24 24" fill="#C5A059" stroke="#C5A059" stroke-width="1.5" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="star-icon fill" width="18" height="18" viewBox="0 0 24 24" fill="#C5A059" stroke="#C5A059" stroke-width="1.5" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="star-icon fill" width="18" height="18" viewBox="0 0 24 24" fill="#C5A059" stroke="#C5A059" stroke-width="1.5" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
           <span class="avg-count" id="avgCount">Based on customer feedback</span>
         </div>
         <div class="reviews-trust-badge">
@@ -634,7 +634,7 @@
           </button>
         </div>
         <div style="font-size: 0.8125rem; color: var(--text-muted); margin-top: 0.75rem; text-align: center;">
-          🔒 Reviews are securely reviewed by our showroom admin before appearing on the website.
+          <svg class="icon icon-lock" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Reviews are securely reviewed by our showroom admin before appearing on the website.
         </div>
       </form>
     </div>
@@ -654,7 +654,7 @@
             Sri Hanum Sastha Enterprises provides comprehensive commercial, executive, visitor, and dining seating solutions engineered for ergonomic posture support, commercial longevity, and modern interiors in Coimbatore.
           </p>
           <div class="footer-disclaimer-note">
-            📢 <strong>Price & Stock Note:</strong> Prices may change. Please contact us to confirm current prices and availability.
+            <svg class="icon icon-notice" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg> <strong>Price & Stock Note:</strong> Prices may change. Please contact us to confirm current prices and availability.
           </div>
         </div>
 
@@ -676,7 +676,7 @@
           <h3 class="footer-title">Contact Us</h3>
           
           <div class="contact-detail-row">
-            <span class="contact-icon" aria-hidden="true">🏢</span>
+            <span class="contact-icon" aria-hidden="true"><svg class="icon icon-building" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="16" height="20" x="4" y="2" rx="2" ry="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M8 10h.01"/><path d="M16 10h.01"/><path d="M8 14h.01"/><path d="M16 14h.01"/></svg></span>
             <div class="contact-info-text">
               <strong>Company Name</strong>
               <p>Sri Hanum Sastha Enterprises</p>
@@ -684,7 +684,7 @@
           </div>
 
           <div class="contact-detail-row">
-            <span class="contact-icon" aria-hidden="true">📍</span>
+            <span class="contact-icon" aria-hidden="true"><svg class="icon icon-pin" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
             <div class="contact-info-text">
               <strong>Showroom & Office Address</strong>
               <p>
@@ -696,7 +696,7 @@
           </div>
 
           <div class="contact-detail-row">
-            <span class="contact-icon" aria-hidden="true">💬</span>
+            <span class="contact-icon" aria-hidden="true"><svg class="icon icon-whatsapp" width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.52 3.48A11.93 11.93 0 0 0 12.06 0C5.46 0 .09 5.37.09 11.97c0 2.11.55 4.17 1.6 6L0 24l6.19-1.62a11.94 11.94 0 0 0 5.87 1.51h.01c6.6 0 11.97-5.37 11.97-11.97 0-3.2-.12-6.21-3.52-8.44zm-8.46 18.52c-1.8 0-3.55-.48-5.09-1.39l-.36-.22-3.78.99 1.01-3.68-.24-.38a9.98 9.98 0 0 1-1.53-5.33c0-5.51 4.49-10 10-10 2.67 0 5.18 1.04 7.07 2.93a9.93 9.93 0 0 1 2.93 7.07c0 5.51-4.49 10-10 10zm5.48-7.48c-.3-.15-1.78-.88-2.06-.98-.28-.1-.48-.15-.68.15-.2.3-.78.98-.95 1.18-.18.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.5-.89-.8-1.5-1.78-1.67-2.08-.18-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.38-.02-.53-.08-.15-.68-1.63-.93-2.23-.24-.58-.49-.5-.68-.51h-.58c-.2 0-.52.08-.8.38-.27.3-1.05 1.03-1.05 2.51 0 1.48 1.08 2.91 1.23 3.11.15.2 2.12 3.24 5.14 4.54.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.78-.73 2.03-1.43.25-.7.25-1.3.18-1.43-.08-.12-.27-.2-.57-.35z"/></svg></span>
             <div class="contact-info-text">
               <strong>WhatsApp Enquiries (Exclusive Line)</strong>
               <p>
@@ -706,7 +706,7 @@
           </div>
 
           <div class="contact-detail-row">
-            <span class="contact-icon" aria-hidden="true">📞</span>
+            <span class="contact-icon" aria-hidden="true"><svg class="icon icon-phone" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
             <div class="contact-info-text">
               <strong>Direct Phone Lines</strong>
               <p>
@@ -717,7 +717,7 @@
           </div>
 
           <div class="contact-detail-row">
-            <span class="contact-icon" aria-hidden="true">✉️</span>
+            <span class="contact-icon" aria-hidden="true"><svg class="icon icon-mail" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span>
             <div class="contact-info-text">
               <strong>Official Email</strong>
               <p>
@@ -728,10 +728,10 @@
 
           <div class="footer-call-buttons">
             <a href="tel:+919688727284" class="btn btn-secondary" aria-label="Call Now 9688727284">
-              📞 Call: 9688727284
+              <svg class="icon icon-phone" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Call: 9688727284
             </a>
             <a href="tel:+918695706013" class="btn btn-secondary" aria-label="Call Now 8695706013">
-              📞 Call: 8695706013
+              <svg class="icon icon-phone" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Call: 8695706013
             </a>
           </div>
         </div>
@@ -935,7 +935,7 @@
             <div class="luxury-header-hero">
               <div class="hero-title-box">
                 <h2>
-                  <span>⭐</span>
+                  <svg class="star-icon fill" width="16" height="16" viewBox="0 0 24 24" fill="#C5A059" stroke="#C5A059" stroke-width="1.5" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
                   Customer Reviews Moderation
                 </h2>
                 <p>
@@ -944,7 +944,7 @@
               </div>
               <div>
                 <button type="button" id="dashBtnRefreshReviews" class="btn btn-sm" style="background: rgba(197, 160, 89, 0.2); color: #FDF9F0; border: 1px solid rgba(197, 160, 89, 0.4); font-weight: 700; border-radius: var(--adm-radius-sm); padding: 0.5rem 1rem;">
-                  🔄 Refresh Reviews
+                  <svg class="icon icon-refresh" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg> Refresh Reviews
                 </button>
               </div>
             </div>
@@ -954,7 +954,7 @@
               <div class="kpi-card kpi-gold">
                 <div class="kpi-label">
                   <span>Total Reviews</span>
-                  <span style="color: var(--adm-gold-500);">📊</span>
+                  <span style="color: var(--adm-gold-500);"><svg class="icon icon-clipboard" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/></svg></span>
                 </div>
                 <div class="kpi-value" id="dashStatReviewsTotal">0</div>
                 <div style="font-size: 0.72rem; color: #64748B; margin-top: 0.35rem;">All customer submissions</div>
@@ -972,7 +972,7 @@
               <div class="kpi-card kpi-emerald">
                 <div class="kpi-label" style="color: #15803D;">
                   <span>Approved (Live)</span>
-                  <span>✓</span>
+                  <svg class="icon icon-check" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
                 </div>
                 <div class="kpi-value" id="dashStatReviewsApproved" style="color: #16A34A;">0</div>
                 <div style="font-size: 0.72rem; color: #15803D; margin-top: 0.35rem; font-weight: 600;">Published on website</div>
@@ -981,7 +981,7 @@
               <div class="kpi-card kpi-rose">
                 <div class="kpi-label" style="color: #B91C1C;">
                   <span>Rejected (Hidden)</span>
-                  <span>✗</span>
+                  <svg class="icon icon-x" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
                 </div>
                 <div class="kpi-value" id="dashStatReviewsRejected" style="color: #DC2626;">0</div>
                 <div style="font-size: 0.72rem; color: #B91C1C; margin-top: 0.35rem; font-weight: 600;">Hidden from customers</div>
@@ -990,7 +990,7 @@
               <div class="kpi-card kpi-gold">
                 <div class="kpi-label">
                   <span>Average Rating</span>
-                  <span style="color: #F59E0B;">★</span>
+                  <span style="color: #F59E0B;"><svg class="star-icon fill" width="16" height="16" viewBox="0 0 24 24" fill="#C5A059" stroke="#C5A059" stroke-width="1.5" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
                 </div>
                 <div class="kpi-value" id="dashStatReviewsAvg" style="color: #F59E0B;">0.0</div>
                 <div style="font-size: 0.72rem; color: #64748B; margin-top: 0.35rem;">Showroom satisfaction</div>
@@ -1006,18 +1006,18 @@
                 <div class="status-filter-pills">
                   <button type="button" class="dash-status-pill active" data-status="all" id="pillRevAll">All Reviews (<span id="dashPillCountAll">0</span>)</button>
                   <button type="button" class="dash-status-pill" data-status="pending" id="pillRevPending">⏳ Pending (<span id="dashPillCountPending">0</span>)</button>
-                  <button type="button" class="dash-status-pill" data-status="approved" id="pillRevApproved">✓ Approved (<span id="dashPillCountApproved">0</span>)</button>
-                  <button type="button" class="dash-status-pill" data-status="rejected" id="pillRevRejected">✗ Rejected (<span id="dashPillCountRejected">0</span>)</button>
+                  <button type="button" class="dash-status-pill" data-status="approved" id="pillRevApproved"><svg class="icon icon-check" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Approved (<span id="dashPillCountApproved">0</span>)</button>
+                  <button type="button" class="dash-status-pill" data-status="rejected" id="pillRevRejected"><svg class="icon icon-x" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Rejected (<span id="dashPillCountRejected">0</span>)</button>
                 </div>
                 <input type="hidden" id="dashReviewsStatusFilter" value="all">
 
                 <select id="dashReviewsRatingFilter" class="form-input" style="width: 130px; border-radius: var(--adm-radius-sm); border: 1px solid var(--adm-border);">
                   <option value="all">All Stars</option>
-                  <option value="5">5 Stars (★★★★★)</option>
-                  <option value="4">4 Stars (★★★★)</option>
-                  <option value="3">3 Stars (★★★)</option>
-                  <option value="2">2 Stars (★★)</option>
-                  <option value="1">1 Star (★)</option>
+                  <option value="5">5 Stars</option>
+                  <option value="4">4 Stars</option>
+                  <option value="3">3 Stars</option>
+                  <option value="2">2 Stars</option>
+                  <option value="1">1 Star</option>
                 </select>
               </div>
             </div>
@@ -1048,7 +1048,7 @@
             <div class="luxury-header-hero" style="background: linear-gradient(135deg, #0A192F 0%, #102A4C 60%, #163B66 100%);">
               <div class="hero-title-box">
                 <h2>
-                  <span>🪑</span>
+                  <svg class="icon icon-chair" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 9V6a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v3"/><path d="M3 11v5a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5a2 2 0 0 0-4 0v2H7v-2a2 2 0 0 0-4 0Z"/><path d="M5 18v3"/><path d="M19 18v3"/></svg>
                   Chair Product Studio &amp; Publishing
                 </h2>
                 <p>
@@ -1057,7 +1057,7 @@
               </div>
               <div>
                 <button type="button" id="btnScrollToChairList" class="btn btn-sm" style="background: var(--adm-gold-500); color: #070D1E; font-weight: 800; border-radius: var(--adm-radius-sm); border: none; padding: 0.55rem 1.15rem;">
-                  📋 View Published Chairs (<span id="dashTotalChairsBadge">228</span>)
+                  <svg class="icon icon-clipboard" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/></svg> View Published Chairs (<span id="dashTotalChairsBadge">228</span>)
                 </button>
               </div>
             </div>
@@ -1068,7 +1068,7 @@
               <div style="background: var(--adm-surface); border: 1px solid var(--adm-border); border-radius: var(--adm-radius-lg); padding: 1.75rem; box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.04);">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; border-bottom: 1px solid var(--adm-border); padding-bottom: 0.85rem;">
                   <h3 id="dashChairFormHeading" style="font-size: 1.1rem; font-weight: 800; color: var(--adm-text-main); margin: 0; display: flex; align-items: center; gap: 0.5rem;">
-                    <span>✨</span> New Chair Entry
+                    <svg class="icon icon-sparkle" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/></svg> New Chair Entry
                   </h3>
                   <span id="dashChairFormModeBadge" style="font-size: 0.75rem; background: #ECFDF5; color: #047857; padding: 0.25rem 0.65rem; border-radius: 9999px; font-weight: 700; border: 1px solid #A7F3D0;">
                     Add Mode
@@ -1088,7 +1088,7 @@
                     
                     <div id="chairUploadDropzone" style="border: 2px dashed var(--adm-gold-500); background: var(--adm-gold-100); border-radius: var(--adm-radius-md); padding: 1.5rem 1rem; text-align: center; cursor: pointer; transition: all 0.2s ease;">
                       <input type="file" id="chairPhotoFileInput" accept="image/*" style="display: none;">
-                      <div style="font-size: 2.2rem; margin-bottom: 0.35rem;">📷</div>
+                      <div style="font-size: 2.2rem; margin-bottom: 0.35rem;"><svg class="icon icon-camera" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></div>
                       <div style="font-weight: 700; color: #8A6828; font-size: 0.95rem;">
                         Click to Upload Chair Photo
                       </div>
@@ -1102,7 +1102,7 @@
                         <img id="chairPhotoPreviewImg" src="" alt="Chair Preview" style="width: 70px; height: 70px; object-fit: contain; background: #FFFFFF; border-radius: 6px; border: 1px solid #CBD5E1;">
                         <div style="flex: 1; min-width: 0;">
                           <div id="chairPhotoFilename" style="font-size: 0.85rem; font-weight: 700; color: var(--adm-text-main); word-break: break-all;">photo.png</div>
-                          <div id="chairPhotoStatus" style="font-size: 0.75rem; color: #059669; font-weight: 600;">✓ Ready to publish</div>
+                          <div id="chairPhotoStatus" style="font-size: 0.75rem; color: #059669; font-weight: 600;">Ready to publish</div>
                         </div>
                         <button type="button" id="btnRemoveChairPhoto" style="background: #FEE2E2; border: 1px solid #FECACA; color: #B91C1C; border-radius: 6px; padding: 0.35rem 0.65rem; font-size: 0.75rem; cursor: pointer; font-weight: 700;">
                           Remove
@@ -1166,7 +1166,7 @@
                   <div class="form-group" style="margin-bottom: 1.25rem;">
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
                       <label class="form-label" style="font-weight: 700; color: var(--adm-text-main); margin: 0; font-size: 0.85rem; display: flex; align-items: center; gap: 0.35rem;">
-                        <span>👁</span> Public Website Live Card Preview
+                        <svg class="icon icon-eye" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg> Public Website Live Card Preview
                       </label>
                       <span style="font-size: 0.72rem; color: #059669; background: #ECFDF5; padding: 0.15rem 0.55rem; border-radius: 9999px; font-weight: 700; border: 1px solid #A7F3D0;">
                         Real-Time Preview
@@ -1177,7 +1177,7 @@
                       <div class="product-card" style="width: 100%; max-width: 270px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); border-radius: 12px; overflow: hidden; background: #FFFFFF; border: 1px solid #E2E8F0; pointer-events: none;">
                         <div class="product-image-canvas" style="position: relative; height: 175px; background: #F8FAFC; display: flex; align-items: center; justify-content: center; padding: 0.75rem;">
                           <span id="prevCardBadge" class="product-category-badge" style="position: absolute; top: 8px; left: 8px; background: #0A192F; color: #C5A059; font-size: 0.65rem; font-weight: 800; padding: 0.25rem 0.55rem; border-radius: 4px; border: 1px solid rgba(197, 160, 89, 0.4);">Office Chairs</span>
-                          <div style="position: absolute; top: 8px; right: 8px; font-size: 0.9rem;">🤍</div>
+                          <div style="position: absolute; top: 8px; right: 8px; font-size: 0.9rem;"><svg class="icon icon-heart" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
                           <img id="prevCardImg" src="assets/placeholder.svg" alt="Preview Chair" style="max-height: 140px; max-width: 100%; object-fit: contain;">
                         </div>
                         <div class="product-content" style="padding: 1rem;">
@@ -1189,7 +1189,7 @@
                           </div>
                           <div style="display: flex; gap: 0.4rem;">
                             <div style="flex: 1; text-align: center; padding: 0.4rem; background: #F1F5F9; color: #334155; border-radius: 6px; font-size: 0.72rem; font-weight: 600;">View Details</div>
-                            <div style="flex: 1; text-align: center; padding: 0.4rem; background: #059669; color: #FFFFFF; border-radius: 6px; font-size: 0.72rem; font-weight: 700;">💬 WhatsApp</div>
+                            <div style="flex: 1; text-align: center; padding: 0.4rem; background: #059669; color: #FFFFFF; border-radius: 6px; font-size: 0.72rem; font-weight: 700;"><svg class="icon icon-whatsapp" width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.52 3.48A11.93 11.93 0 0 0 12.06 0C5.46 0 .09 5.37.09 11.97c0 2.11.55 4.17 1.6 6L0 24l6.19-1.62a11.94 11.94 0 0 0 5.87 1.51h.01c6.6 0 11.97-5.37 11.97-11.97 0-3.2-.12-6.21-3.52-8.44zm-8.46 18.52c-1.8 0-3.55-.48-5.09-1.39l-.36-.22-3.78.99 1.01-3.68-.24-.38a9.98 9.98 0 0 1-1.53-5.33c0-5.51 4.49-10 10-10 2.67 0 5.18 1.04 7.07 2.93a9.93 9.93 0 0 1 2.93 7.07c0 5.51-4.49 10-10 10zm5.48-7.48c-.3-.15-1.78-.88-2.06-.98-.28-.1-.48-.15-.68.15-.2.3-.78.98-.95 1.18-.18.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.5-.89-.8-1.5-1.78-1.67-2.08-.18-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.38-.02-.53-.08-.15-.68-1.63-.93-2.23-.24-.58-.49-.5-.68-.51h-.58c-.2 0-.52.08-.8.38-.27.3-1.05 1.03-1.05 2.51 0 1.48 1.08 2.91 1.23 3.11.15.2 2.12 3.24 5.14 4.54.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.78-.73 2.03-1.43.25-.7.25-1.3.18-1.43-.08-.12-.27-.2-.57-.35z"/></svg> WhatsApp</div>
                           </div>
                         </div>
                       </div>
@@ -1199,10 +1199,10 @@
                   <!-- Actions -->
                   <div style="display: flex; gap: 0.75rem; align-items: center;">
                     <button type="submit" id="btnPublishChair" class="btn btn-primary" style="flex: 1; padding: 0.85rem; font-weight: 800; font-size: 0.95rem; justify-content: center; background: linear-gradient(135deg, #0A192F 0%, #15244C 100%); color: #C5A059; border: 1px solid #C5A059; border-radius: var(--adm-radius-sm); box-shadow: 0 4px 14px rgba(10, 25, 47, 0.25);">
-                      💾 Save &amp; Publish Chair
+                      <svg class="icon icon-save" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg> Save &amp; Publish Chair
                     </button>
                     <button type="button" id="btnCancelEditChair" class="btn btn-outline" style="display: none; padding: 0.85rem 1rem; border-radius: var(--adm-radius-sm);">
-                      ✕ Cancel
+                      <svg class="icon icon-x" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Cancel
                     </button>
                   </div>
                 </form>
@@ -1213,7 +1213,7 @@
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 0.75rem;">
                   <div>
                     <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--adm-text-main); margin: 0; display: flex; align-items: center; gap: 0.5rem;">
-                      <span>📋</span> Published Chairs Directory
+                      <svg class="icon icon-clipboard" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/></svg> Published Chairs Directory
                     </h3>
                     <div style="font-size: 0.8rem; color: var(--adm-text-muted); margin-top: 0.2rem;">
                       Edit chair details or delete items from the public website
@@ -1348,7 +1348,7 @@
   <!-- AI CATALOGUE CHATBOT WIDGET -->
   <button class="chat-widget-toggle" id="chatWidgetToggle" aria-label="Open Catalogue Chat Assistant">
     <span class="chat-pulse-dot"></span>
-    <span>💬 Catalogue Assistant</span>
+    <span><svg class="icon icon-chat" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> Catalogue Assistant</span>
   </button>
 
   <div class="chat-window" id="chatWindow" role="dialog" aria-label="Catalogue Chat Assistant">
@@ -1361,7 +1361,7 @@
     </div>
     <div class="chat-disclaimer-strip">
       <span>Verified 228 Catalogue Data</span>
-      <span style="color: var(--forest-green); font-weight: 700;">● Online</span>
+      <span class="chat-status-dot"></span><span style="color: var(--forest-green); font-weight: 700;">Online</span>
     </div>
     <div class="chat-messages" id="chatMessages">
       <div class="chat-bubble bot">
@@ -1369,10 +1369,10 @@
       </div>
     </div>
     <div class="chat-chips">
-      <button class="chat-chip" data-query="Recommend office chairs under ₹5,000">🪑 Office chairs under ₹5,000</button>
-      <button class="chat-chip" data-query="Where is your showroom?">📍 Showroom Address</button>
-      <button class="chat-chip" data-query="Show cantilever visitor chairs">🏢 Visitor Chairs</button>
-      <button class="chat-chip" data-query="How do I enquire on WhatsApp?">💬 WhatsApp Enquiry</button>
+      <button class="chat-chip" data-query="Recommend office chairs under ₹5,000">Office chairs under ₹5,000</button>
+      <button class="chat-chip" data-query="Where is your showroom?">Showroom Address</button>
+      <button class="chat-chip" data-query="Show cantilever visitor chairs">Visitor Chairs</button>
+      <button class="chat-chip" data-query="How do I enquire on WhatsApp?">WhatsApp Enquiry</button>
     </div>
     <div class="chat-input-row">
       <input type="text" id="chatInput" placeholder="Ask about models (e.g. ATLAS, 4G, ALEX)..." aria-label="Type your message">

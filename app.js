@@ -161,7 +161,7 @@
       if (el.productsGrid) {
         el.productsGrid.innerHTML = `
           <div class="empty-state">
-            <div class="empty-state-icon">⚠️</div>
+            <div class="empty-state-icon"><svg class="icon icon-search" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
             <h3>Unable to load catalogue</h3>
             <p>Please check your local assets folder or refresh the page.</p>
             <button class="btn btn-primary" onclick="location.reload()">Retry Loading</button>
@@ -415,11 +415,19 @@
 
     el.categoryCardsContainer.innerHTML = cardsHtml;
 
+    const catQueryMap = {
+      'Office Chairs': 'office',
+      'Visitor Chairs': 'visitor',
+      'Lounge & Soft Seating': 'lounge',
+      'Dining Chairs': 'dining',
+      'Stools & Additional Seating': 'stools'
+    };
+
     el.categoryCardsContainer.querySelectorAll('.category-card').forEach(card => {
       card.addEventListener('click', () => {
         const catId = card.getAttribute('data-category');
-        setCategory(catId);
-        scrollToCatalogue();
+        const queryVal = catQueryMap[catId] || 'office';
+        window.location.href = `category.html?cat=${queryVal}`;
       });
     });
   }
@@ -557,7 +565,7 @@
           <div class="product-image-canvas" onclick="window.location.href='product.html?id=${p.id}'" role="button" tabindex="0" aria-label="View details for ${formattedTitle}">
             <span class="product-category-badge">${p.category}</span>
             <button class="btn-save-chair ${isSaved ? 'active' : ''}" onclick="event.stopPropagation(); window.catalogApp.toggleSaveChair('${p.id}')" title="${isSaved ? 'Remove from Saved' : 'Save this chair'}" aria-label="Save ${formattedTitle}">
-              ${isSaved ? '❤️' : '🤍'}
+              ${isSaved ? '<svg class="icon icon-heart fill" width="16" height="16" viewBox="0 0 24 24" fill="#DC2626" stroke="#DC2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>' : '<svg class="icon icon-heart" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>'}
             </button>
             <img src="${p.image}" alt="${formattedTitle}${confirmedModel ? ' - ' + confirmedModel : ''}" loading="lazy" onerror="this.src='assets/placeholder.svg'">
           </div>
@@ -565,7 +573,7 @@
           <div class="product-content">
             <div class="product-card-top-row" style="display: flex; justify-content: flex-end; align-items: center; margin-bottom: 0.35rem;">
               <button class="btn-compare-chair ${isCompared ? 'active' : ''}" onclick="window.catalogApp.toggleCompare('${p.id}')">
-                ${isCompared ? '✓ Comparing' : '+ Compare'}
+                ${isCompared ? '<svg class="icon icon-check" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Comparing' : '+ Compare'}
               </button>
             </div>
             
@@ -582,7 +590,7 @@
                 View Details →
               </a>
               <a href="${waUrl}" target="_blank" rel="noopener" class="btn btn-primary btn-sm" aria-label="Enquire about ${formattedTitle} on WhatsApp">
-                💬 WhatsApp
+                <svg class="icon icon-whatsapp" width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.52 3.48A11.93 11.93 0 0 0 12.06 0C5.46 0 .09 5.37.09 11.97c0 2.11.55 4.17 1.6 6L0 24l6.19-1.62a11.94 11.94 0 0 0 5.87 1.51h.01c6.6 0 11.97-5.37 11.97-11.97 0-3.2-.12-6.21-3.52-8.44zm-8.46 18.52c-1.8 0-3.55-.48-5.09-1.39l-.36-.22-3.78.99 1.01-3.68-.24-.38a9.98 9.98 0 0 1-1.53-5.33c0-5.51 4.49-10 10-10 2.67 0 5.18 1.04 7.07 2.93a9.93 9.93 0 0 1 2.93 7.07c0 5.51-4.49 10-10 10zm5.48-7.48c-.3-.15-1.78-.88-2.06-.98-.28-.1-.48-.15-.68.15-.2.3-.78.98-.95 1.18-.18.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.5-.89-.8-1.5-1.78-1.67-2.08-.18-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.38-.02-.53-.08-.15-.68-1.63-.93-2.23-.24-.58-.49-.5-.68-.51h-.58c-.2 0-.52.08-.8.38-.27.3-1.05 1.03-1.05 2.51 0 1.48 1.08 2.91 1.23 3.11.15.2 2.12 3.24 5.14 4.54.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.78-.73 2.03-1.43.25-.7.25-1.3.18-1.43-.08-.12-.27-.2-.57-.35z"/></svg> WhatsApp
               </a>
             </div>
           </div>
@@ -714,7 +722,7 @@
                 const title = getFormattedTitle(item);
                 return `
                 <th class="compare-col-header" style="min-width: 200px;">
-                  <button class="compare-col-remove" onclick="window.catalogApp.toggleCompare('${item.id}')" title="Remove chair">✕</button>
+                  <button class="compare-col-remove" onclick="window.catalogApp.toggleCompare('${item.id}')" title="Remove chair">&times;</button>
                   <img src="${item.image}" alt="${title}" style="height: 110px; width: auto; margin: 0 auto; object-fit: contain;">
                   <div style="font-size: 0.95rem; font-weight: 800; color: var(--text-main); margin-top: 0.5rem;">${title}</div>
                   ${item._internal_model ? `<div style="font-size: 0.8125rem; color: var(--text-muted);">${item._internal_model}</div>` : ''}
@@ -758,7 +766,7 @@
                       View Details
                     </a>
                     <a href="https://wa.me/918695706013?text=${waText}" target="_blank" rel="noopener" class="btn btn-primary btn-sm btn-block">
-                      💬 WhatsApp
+                      <svg class="icon icon-whatsapp" width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.52 3.48A11.93 11.93 0 0 0 12.06 0C5.46 0 .09 5.37.09 11.97c0 2.11.55 4.17 1.6 6L0 24l6.19-1.62a11.94 11.94 0 0 0 5.87 1.51h.01c6.6 0 11.97-5.37 11.97-11.97 0-3.2-.12-6.21-3.52-8.44zm-8.46 18.52c-1.8 0-3.55-.48-5.09-1.39l-.36-.22-3.78.99 1.01-3.68-.24-.38a9.98 9.98 0 0 1-1.53-5.33c0-5.51 4.49-10 10-10 2.67 0 5.18 1.04 7.07 2.93a9.93 9.93 0 0 1 2.93 7.07c0 5.51-4.49 10-10 10zm5.48-7.48c-.3-.15-1.78-.88-2.06-.98-.28-.1-.48-.15-.68.15-.2.3-.78.98-.95 1.18-.18.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.5-.89-.8-1.5-1.78-1.67-2.08-.18-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.38-.02-.53-.08-.15-.68-1.63-.93-2.23-.24-.58-.49-.5-.68-.51h-.58c-.2 0-.52.08-.8.38-.27.3-1.05 1.03-1.05 2.51 0 1.48 1.08 2.91 1.23 3.11.15.2 2.12 3.24 5.14 4.54.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.78-.73 2.03-1.43.25-.7.25-1.3.18-1.43-.08-.12-.27-.2-.57-.35z"/></svg> WhatsApp
                     </a>
                   </td>
                 `;
@@ -837,7 +845,7 @@
     if (items.length === 0) {
       container.innerHTML = `
         <div style="text-align: center; padding: 3rem 1rem; color: var(--text-secondary);">
-          <div style="font-size: 2rem; margin-bottom: 0.5rem;">🤍</div>
+          <div style="font-size: 2rem; margin-bottom: 0.5rem;"><svg class="icon icon-heart" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
           <p style="font-weight: 700; margin-bottom: 0.25rem;">No saved chairs yet</p>
           <p style="font-size: 0.8125rem;">Click the heart icon on any chair card to bookmark models you want to revisit.</p>
         </div>
@@ -983,7 +991,7 @@
       const loadingEl = document.getElementById(loadingId);
       if (loadingEl) loadingEl.remove();
 
-      appendChatMessage('bot', '⚠️ Catalogue Assistant is currently operating offline. You can reach our showroom directly at [9688727284](tel:+919688727284) or on [WhatsApp: 8695706013](https://wa.me/918695706013).');
+      appendChatMessage('bot', 'Catalogue Assistant is currently operating offline. You can reach our showroom directly at [9688727284](tel:+919688727284) or on [WhatsApp: 8695706013](https://wa.me/918695706013).');
     }
   }
 
@@ -1185,7 +1193,7 @@
       const safeComment = escapeHtml(item.comment);
       const safeDate = escapeHtml(item.date || 'Recent');
       const rating = Math.max(1, Math.min(5, parseInt(item.rating, 10) || 5));
-      const starStr = '★'.repeat(rating) + '☆'.repeat(5 - rating);
+      const starStr = renderStarsSvg(rating, 15);
 
       card.innerHTML = `
         <div class="review-card-top">
@@ -1238,7 +1246,7 @@
         const avgInt = Math.round(parseFloat(avg));
 
         if (avgScore) avgScore.textContent = avg;
-        if (avgStars) avgStars.textContent = '★'.repeat(avgInt) + '☆'.repeat(5 - avgInt);
+        if (avgStars) avgStars.innerHTML = renderStarsSvg(avgInt, 18);
         if (avgCount) avgCount.textContent = `Based on ${reviews.length} customer review${reviews.length > 1 ? 's' : ''}`;
 
         if (reviewsGrid) {
@@ -1685,7 +1693,7 @@
           statAvg.textContent = '0.0';
         } else {
           const sum = adminReviewsData.reduce((acc, r) => acc + (parseInt(r.rating, 10) || 5), 0);
-          statAvg.textContent = (sum / total).toFixed(1) + ' ★';
+          statAvg.textContent = (sum / total).toFixed(1) + ' / 5';
         }
       }
     }
@@ -1718,7 +1726,7 @@
           tbody.innerHTML = `
             <tr>
               <td colspan="6" style="text-align: center; padding: 3rem 1.5rem; color: var(--text-muted);">
-                <div style="font-size: 2rem; margin-bottom: 0.5rem;">💬</div>
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;"><svg class="icon icon-chat" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
                 <strong style="color: var(--text-main); font-size: 1rem;">${adminReviewsData.length === 0 ? 'No customer reviews submitted yet.' : 'No reviews match your filter.'}</strong>
                 <div style="font-size: 0.825rem; margin-top: 0.35rem;">Customer reviews submitted through the website appear here with Pending status until approved.</div>
               </td>
@@ -1729,7 +1737,7 @@
 
         tbody.innerHTML = filtered.map(r => {
           const rating = Math.max(1, Math.min(5, parseInt(r.rating, 10) || 5));
-          const stars = '★'.repeat(rating) + '☆'.repeat(5 - rating);
+          const stars = renderStarsSvg(rating, 14);
           const safeName = escapeHtml(r.name || 'Anonymous Customer');
           const safeLoc = escapeHtml(r.location || 'Verified Customer');
           const safeComment = escapeHtml(r.comment || '');
@@ -1743,16 +1751,16 @@
 
           let statusBadge = '';
           if (rStatus === 'approved') {
-            statusBadge = `<span class="admin-badge-approved" style="background: #dcfce7; color: #15803d; border: 1px solid #86efac; padding: 0.3rem 0.75rem; border-radius: 9999px; font-weight: 700; font-size: 0.75rem; display: inline-flex; align-items: center; gap: 5px; box-shadow: 0 1px 3px rgba(21,128,61,0.08);"><span style="width: 6px; height: 6px; border-radius: 50%; background: #16a34a;"></span>✓ Approved (Live)</span>`;
+            statusBadge = `<span class="admin-badge-approved" style="background: #dcfce7; color: #15803d; border: 1px solid #86efac; padding: 0.3rem 0.75rem; border-radius: 9999px; font-weight: 700; font-size: 0.75rem; display: inline-flex; align-items: center; gap: 5px; box-shadow: 0 1px 3px rgba(21,128,61,0.08);"><span style="width: 6px; height: 6px; border-radius: 50%; background: #16a34a;"></span><svg class="icon icon-check" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Approved (Live)</span>`;
           } else if (rStatus === 'rejected') {
-            statusBadge = `<span class="admin-badge-rejected" style="background: #fee2e2; color: #b91c1c; border: 1px solid #fca5a5; padding: 0.3rem 0.75rem; border-radius: 9999px; font-weight: 700; font-size: 0.75rem; display: inline-flex; align-items: center; gap: 5px; box-shadow: 0 1px 3px rgba(185,28,28,0.08);"><span style="width: 6px; height: 6px; border-radius: 50%; background: #dc2626;"></span>✗ Rejected (Hidden)</span>`;
+            statusBadge = `<span class="admin-badge-rejected" style="background: #fee2e2; color: #b91c1c; border: 1px solid #fca5a5; padding: 0.3rem 0.75rem; border-radius: 9999px; font-weight: 700; font-size: 0.75rem; display: inline-flex; align-items: center; gap: 5px; box-shadow: 0 1px 3px rgba(185,28,28,0.08);"><span style="width: 6px; height: 6px; border-radius: 50%; background: #dc2626;"></span><svg class="icon icon-x" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Rejected (Hidden)</span>`;
           } else {
-            statusBadge = `<span class="admin-badge-pending" style="background: #fef3c7; color: #b45309; border: 1px solid #fcd34d; padding: 0.3rem 0.75rem; border-radius: 9999px; font-weight: 700; font-size: 0.75rem; display: inline-flex; align-items: center; gap: 5px; box-shadow: 0 1px 3px rgba(180,83,9,0.08);"><span style="width: 6px; height: 6px; border-radius: 50%; background: #d97706;"></span>⏳ Pending Review</span>`;
+            statusBadge = `<span class="admin-badge-pending" style="background: #fef3c7; color: #b45309; border: 1px solid #fcd34d; padding: 0.3rem 0.75rem; border-radius: 9999px; font-weight: 700; font-size: 0.75rem; display: inline-flex; align-items: center; gap: 5px; box-shadow: 0 1px 3px rgba(180,83,9,0.08);"><span style="width: 6px; height: 6px; border-radius: 50%; background: #d97706;"></span>Pending Review</span>`;
           }
 
-          const approveBtn = `<button type="button" onclick="window.dashApproveReview('${safeId}')" class="btn-approve-review" style="background: #15803d; color: #ffffff; border: none; padding: 0.45rem 0.85rem; border-radius: 7px; font-weight: 700; font-size: 0.8rem; cursor: pointer; transition: all 0.2s; box-shadow: 0 2px 4px rgba(21,128,61,0.2); ${rStatus === 'approved' ? 'opacity: 0.4; cursor: not-allowed;' : ''}" ${rStatus === 'approved' ? 'disabled title="Already Approved &amp; Published"' : 'title="Approve &amp; Publish Review to Website"'}>✓ Approve</button>`;
-          const rejectBtn = `<button type="button" onclick="window.dashRejectReview('${safeId}')" class="btn-reject-review" style="background: #b91c1c; color: #ffffff; border: none; padding: 0.45rem 0.85rem; border-radius: 7px; font-weight: 700; font-size: 0.8rem; cursor: pointer; transition: all 0.2s; box-shadow: 0 2px 4px rgba(185,28,28,0.2); ${rStatus === 'rejected' ? 'opacity: 0.4; cursor: not-allowed;' : ''}" ${rStatus === 'rejected' ? 'disabled title="Already Rejected &amp; Hidden"' : 'title="Reject &amp; Hide Review from Website"'}>✗ Reject</button>`;
-          const deleteBtn = `<button type="button" onclick="window.dashDeleteReview('${safeId}')" class="btn-delete-review" style="background: #ffffff; color: #dc2626; border: 1.5px solid #fca5a5; padding: 0.45rem 0.85rem; border-radius: 7px; font-weight: 700; font-size: 0.8rem; cursor: pointer; transition: all 0.2s; box-shadow: 0 1px 3px rgba(0,0,0,0.04);" title="Permanently Delete Review">🗑 Delete</button>`;
+          const approveBtn = `<button type="button" onclick="window.dashApproveReview('${safeId}')" class="btn-approve-review" style="background: #15803d; color: #ffffff; border: none; padding: 0.45rem 0.85rem; border-radius: 7px; font-weight: 700; font-size: 0.8rem; cursor: pointer; transition: all 0.2s; box-shadow: 0 2px 4px rgba(21,128,61,0.2); ${rStatus === 'approved' ? 'opacity: 0.4; cursor: not-allowed;' : ''}" ${rStatus === 'approved' ? 'disabled title="Already Approved &amp; Published"' : 'title="Approve &amp; Publish Review to Website"'}><svg class="icon icon-check" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Approve</button>`;
+          const rejectBtn = `<button type="button" onclick="window.dashRejectReview('${safeId}')" class="btn-reject-review" style="background: #b91c1c; color: #ffffff; border: none; padding: 0.45rem 0.85rem; border-radius: 7px; font-weight: 700; font-size: 0.8rem; cursor: pointer; transition: all 0.2s; box-shadow: 0 2px 4px rgba(185,28,28,0.2); ${rStatus === 'rejected' ? 'opacity: 0.4; cursor: not-allowed;' : ''}" ${rStatus === 'rejected' ? 'disabled title="Already Rejected &amp; Hidden"' : 'title="Reject &amp; Hide Review from Website"'}><svg class="icon icon-x" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Reject</button>`;
+          const deleteBtn = `<button type="button" onclick="window.dashDeleteReview('${safeId}')" class="btn-delete-review" style="background: #ffffff; color: #dc2626; border: 1.5px solid #fca5a5; padding: 0.45rem 0.85rem; border-radius: 7px; font-weight: 700; font-size: 0.8rem; cursor: pointer; transition: all 0.2s; box-shadow: 0 1px 3px rgba(0,0,0,0.04);" title="Permanently Delete Review"><svg class="icon icon-trash" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/></svg> Delete</button>`;
 
           return `
             <tr style="border-bottom: 1px solid #E2E8F0; transition: background 0.15s ease;">
@@ -1848,7 +1856,7 @@
           updateDashboardReviewsStats();
           renderDashboardReviews();
           if (window.refreshPublicReviews) window.refreshPublicReviews();
-          alert(`✓ Review from "${rev.name}" is now Approved and visible on the website.`);
+          alert(`Review from "${rev.name}" is now Approved and visible on the website.`);
         }
       } catch (err) {
         console.error('Approve error:', err);
@@ -1871,7 +1879,7 @@
           updateDashboardReviewsStats();
           renderDashboardReviews();
           if (window.refreshPublicReviews) window.refreshPublicReviews();
-          alert(`✗ Review from "${rev.name}" is now Rejected and hidden from the public website.`);
+          alert(`Review from "${rev.name}" is now Rejected and hidden from the public website.`);
         }
       } catch (err) {
         console.error('Reject error:', err);
@@ -1902,7 +1910,7 @@
           updateDashboardReviewsStats();
           renderDashboardReviews();
           if (window.refreshPublicReviews) window.refreshPublicReviews();
-          alert(`✓ Review from "${rev.name}" has been permanently deleted.`);
+          alert(`Review from "${rev.name}" has been permanently deleted.`);
           return;
         } else {
           const errData = await res.json().catch(() => ({}));
@@ -1955,7 +1963,7 @@
         tbody.innerHTML = `
           <tr>
             <td colspan="4" style="text-align: center; padding: 2.5rem 1rem; color: var(--text-muted);">
-              <div style="font-size: 1.5rem; margin-bottom: 0.35rem;">🪑</div>
+              <div style="font-size: 1.5rem; margin-bottom: 0.35rem;"><svg class="icon icon-chair" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 9V6a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v3"/><path d="M3 11v5a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5a2 2 0 0 0-4 0v2H7v-2a2 2 0 0 0-4 0Z"/><path d="M5 18v3"/><path d="M19 18v3"/></svg></div>
               <strong>No chairs match your search filter.</strong>
             </td>
           </tr>
@@ -1985,8 +1993,8 @@
             </td>
             <td style="padding: 0.65rem 0.75rem; text-align: right;">
               <div style="display: flex; gap: 0.35rem; justify-content: flex-end; align-items: center;">
-                <button type="button" onclick="window.dashEditChair('${item.id}')" class="btn btn-sm" style="background: #0284c7; color: #fff; padding: 0.3rem 0.6rem; font-size: 0.75rem; border-radius: 4px; font-weight: 700; border: none; cursor: pointer;">✏ Edit</button>
-                <button type="button" onclick="window.dashDeleteChair('${item.id}')" class="btn btn-sm btn-delete-review" style="padding: 0.3rem 0.6rem; font-size: 0.75rem; border-radius: 4px; font-weight: 700; cursor: pointer;">🗑 Delete</button>
+                <button type="button" onclick="window.dashEditChair('${item.id}')" class="btn btn-sm" style="background: #0284c7; color: #fff; padding: 0.3rem 0.6rem; font-size: 0.75rem; border-radius: 4px; font-weight: 700; border: none; cursor: pointer;"><svg class="icon icon-edit" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> Edit</button>
+                <button type="button" onclick="window.dashDeleteChair('${item.id}')" class="btn btn-sm btn-delete-review" style="padding: 0.3rem 0.6rem; font-size: 0.75rem; border-radius: 4px; font-weight: 700; cursor: pointer;"><svg class="icon icon-trash" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/></svg> Delete</button>
               </div>
             </td>
           </tr>
@@ -2125,7 +2133,7 @@
           const data = await res.json();
           if (photoUrlInput) photoUrlInput.value = data.url;
           if (photoStatus) {
-            photoStatus.textContent = '✓ Photo uploaded and ready to publish';
+            photoStatus.textContent = 'Photo uploaded and ready to publish';
             photoStatus.style.color = '#059669';
           }
           updateChairCardPreview();
@@ -2134,7 +2142,7 @@
           reader.onload = (ev) => {
             if (photoUrlInput) photoUrlInput.value = ev.target.result;
             if (photoStatus) {
-              photoStatus.textContent = '✓ Photo ready';
+              photoStatus.textContent = 'Photo ready';
               photoStatus.style.color = '#059669';
             }
             updateChairCardPreview();
@@ -2147,7 +2155,7 @@
         reader.onload = (ev) => {
           if (photoUrlInput) photoUrlInput.value = ev.target.result;
           if (photoStatus) {
-            photoStatus.textContent = '✓ Photo ready';
+            photoStatus.textContent = 'Photo ready';
             photoStatus.style.color = '#059669';
           }
           updateChairCardPreview();
@@ -2172,14 +2180,14 @@
       if (photoInput) photoInput.value = '';
       if (previewBox) previewBox.style.display = 'none';
       if (btnCancelEdit) btnCancelEdit.style.display = 'none';
-      if (formHeading) formHeading.innerHTML = '<span>✨</span> New Chair Entry';
+      if (formHeading) formHeading.innerHTML = '<svg class="icon icon-sparkle" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/></svg> New Chair Entry';
       if (modeBadge) {
         modeBadge.textContent = 'Add Mode';
         modeBadge.style.background = '#ecfdf5';
         modeBadge.style.color = '#047857';
       }
       if (btnPublish) {
-        btnPublish.innerHTML = '💾 Save &amp; Publish Chair';
+        btnPublish.innerHTML = '<svg class="icon icon-save" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg> Save &amp; Publish Chair';
         btnPublish.disabled = false;
       }
       updateChairCardPreview();
@@ -2271,10 +2279,10 @@
               addChairAlert.style.background = '#dcfce7';
               addChairAlert.style.color = '#15803d';
               addChairAlert.style.border = '1px solid #86efac';
-              addChairAlert.textContent = `✓ Chair "${savedChair.code || savedChair.name}" saved and published successfully to the website!`;
+              addChairAlert.textContent = `Chair "${savedChair.code || savedChair.name}" saved and published successfully to the website!`;
               setTimeout(() => { if (addChairAlert) addChairAlert.style.display = 'none'; }, 5000);
             }
-            alert(`✓ Chair "${savedChair.code || savedChair.name}" has been saved and published to the public website!`);
+            alert(`Chair "${savedChair.code || savedChair.name}" has been saved and published to the public website!`);
           } else {
             const err = await res.json().catch(() => ({}));
             throw new Error(err.detail || 'Failed to save chair to database.');
@@ -2292,7 +2300,7 @@
         } finally {
           if (btnPublish) {
             btnPublish.disabled = false;
-            btnPublish.innerHTML = editId ? '💾 Update Chair' : '💾 Save &amp; Publish Chair';
+            btnPublish.innerHTML = editId ? '<svg class="icon icon-save" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg> Update Chair' : '<svg class="icon icon-save" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg> Save &amp; Publish Chair';
           }
         }
       });
@@ -2321,19 +2329,19 @@
         if (previewImg) previewImg.src = p.image;
         if (previewFilename) previewFilename.textContent = p.code || 'chair-photo';
         if (photoStatus) {
-          photoStatus.textContent = '✓ Existing photo loaded';
+          photoStatus.textContent = 'Existing photo loaded';
           photoStatus.style.color = '#059669';
         }
         if (previewBox) previewBox.style.display = 'block';
       }
 
-      if (formHeading) formHeading.innerHTML = `<span>✏</span> Edit Chair: ${escapeHtml(p.code || p.name)}`;
+      if (formHeading) formHeading.innerHTML = `<svg class="icon icon-edit" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> Edit Chair: ${escapeHtml(p.code || p.name)}`;
       if (modeBadge) {
         modeBadge.textContent = 'Edit Mode';
         modeBadge.style.background = '#eff6ff';
         modeBadge.style.color = '#1d4ed8';
       }
-      if (btnPublish) btnPublish.innerHTML = '💾 Update Chair';
+      if (btnPublish) btnPublish.innerHTML = '<svg class="icon icon-save" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg> Update Chair';
       if (btnCancelEdit) btnCancelEdit.style.display = 'inline-flex';
       updateChairCardPreview();
 
@@ -2370,7 +2378,7 @@
           if (typeof renderFilterPills === 'function') renderFilterPills();
           // Update admin table
           renderDashboardChairs();
-          alert(`✓ Chair "${chairLabel}" was deleted successfully.`);
+          alert(`Chair "${chairLabel}" was deleted successfully.`);
           return;
         } else {
           const err = await res.json().catch(() => ({}));
