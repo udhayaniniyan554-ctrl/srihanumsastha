@@ -1015,6 +1015,40 @@
                 <textarea id="chairDescInput" class="form-input" rows="3" placeholder="Breathable Korean mesh, synchronous multi-lock tilt mechanism, heavy-duty chrome/nylon base, 3-year warranty..." style="width: 100%; resize: vertical;"></textarea>
               </div>
 
+              <!-- Live Interactive Chair Card Preview (Surya-Agencies Premium Showroom Style) -->
+              <div class="form-group" style="margin-bottom: 1.25rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                  <label class="form-label" style="font-weight: 700; color: var(--text-main); margin: 0; font-size: 0.85rem; display: flex; align-items: center; gap: 0.35rem;">
+                    <span>👁</span> Public Website Live Card Preview
+                  </label>
+                  <span style="font-size: 0.72rem; color: #059669; background: #ecfdf5; padding: 0.15rem 0.5rem; border-radius: 999px; font-weight: 700; border: 1px solid #a7f3d0;">
+                    Real-Time Preview
+                  </span>
+                </div>
+                
+                <div id="chairCardLivePreviewBox" style="background: #f8fafc; border: 1.5px dashed #cbd5e1; border-radius: 8px; padding: 1rem; display: flex; justify-content: center; align-items: center;">
+                  <div class="product-card" style="width: 100%; max-width: 260px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); border-radius: 8px; overflow: hidden; background: #ffffff; border: 1px solid #e2e8f0; pointer-events: none;">
+                    <div class="product-image-canvas" style="position: relative; height: 170px; background: #f8fafc; display: flex; align-items: center; justify-content: center; padding: 0.75rem;">
+                      <span id="prevCardBadge" class="product-category-badge" style="position: absolute; top: 8px; left: 8px; background: #064E3B; color: #ffffff; font-size: 0.65rem; font-weight: 700; padding: 0.2rem 0.5rem; border-radius: 4px;">Office Chairs</span>
+                      <div style="position: absolute; top: 8px; right: 8px; font-size: 0.9rem;">🤍</div>
+                      <img id="prevCardImg" src="assets/placeholder.svg" alt="Preview Chair" style="max-height: 135px; max-width: 100%; object-fit: contain;">
+                    </div>
+                    <div class="product-content" style="padding: 0.85rem;">
+                      <div id="prevCardCode" style="font-size: 0.72rem; font-weight: 700; color: #047857; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 0.2rem;">SHSE NEW</div>
+                      <h3 id="prevCardName" class="product-name" style="font-size: 0.9rem; font-weight: 700; color: #111827; margin: 0 0 0.35rem; line-height: 1.3;">Office Chairs  SHSE NEW</h3>
+                      <div class="product-price-row" style="margin-bottom: 0.65rem;">
+                        <span class="product-price-label" style="font-size: 0.7rem; color: #64748b; display: block;">Catalogue Rate</span>
+                        <span id="prevCardPrice" class="product-price-val" style="font-size: 1rem; font-weight: 800; color: #064E3B;">Price on Request</span>
+                      </div>
+                      <div style="display: flex; gap: 0.35rem;">
+                        <div style="flex: 1; text-align: center; padding: 0.35rem; background: #f1f5f9; color: #334155; border-radius: 4px; font-size: 0.72rem; font-weight: 600;">View Details</div>
+                        <div style="flex: 1; text-align: center; padding: 0.35rem; background: #059669; color: #ffffff; border-radius: 4px; font-size: 0.72rem; font-weight: 700;">💬 WhatsApp</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               <!-- Submit Buttons -->
               <div style="display: flex; gap: 0.75rem; align-items: center;">
                 <button type="submit" id="btnPublishChair" class="btn btn-primary" style="flex: 1; padding: 0.85rem; font-weight: 700; font-size: 0.95rem; justify-content: center; background: #059669; border-color: #059669;">

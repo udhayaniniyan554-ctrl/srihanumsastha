@@ -38,6 +38,27 @@
     return `${prefix}  SHSE ${codeNum}`;
   }
 
+  // Universal HTML escape helper for XSS prevention and safe rendering across all closures
+  function escapeHtml(str) {
+    if (str === null || str === undefined) return '';
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+  // Universal avatar initials helper
+  function getInitials(name) {
+    if (!name) return 'SH';
+    const parts = name.trim().split(/\s+/);
+    if (parts.length >= 2) {
+      return (parts[0][0] + parts[1][0]).toUpperCase();
+    }
+    return name.slice(0, 2).toUpperCase();
+  }
+
   // Global State
   const state = {
     allProducts: [],
@@ -1153,27 +1174,6 @@
       }
     });
 
-    // Helper: generate avatar initials
-    function getInitials(name) {
-      if (!name) return 'SH';
-      const parts = name.trim().split(/\s+/);
-      if (parts.length >= 2) {
-        return (parts[0][0] + parts[1][0]).toUpperCase();
-      }
-      return name.slice(0, 2).toUpperCase();
-    }
-
-    // Helper: escape HTML for XSS prevention
-    function escapeHtml(str) {
-      if (!str) return '';
-      return String(str)
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#39;');
-    }
-
     // Render review card
     function renderReviewCard(item, isJustAdded = false) {
       const card = document.createElement('article');
@@ -1639,90 +1639,100 @@
     }
 
     function renderDashboardReviews() {
-      const q = (document.getElementById('dashReviewsSearchInput')?.value || '').toLowerCase().trim();
-      const statusFilter = document.getElementById('dashReviewsStatusFilter')?.value || 'all';
-      const ratingFilter = document.getElementById('dashReviewsRatingFilter')?.value || 'all';
+      try {
+        const q = (document.getElementById('dashReviewsSearchInput')?.value || '').toLowerCase().trim();
+        const statusFilter = (document.getElementById('dashReviewsStatusFilter')?.value || 'all').toLowerCase().trim();
+        const ratingFilter = (document.getElementById('dashReviewsRatingFilter')?.value || 'all').trim();
 
-      const filtered = adminReviewsData.filter(r => {
-        const rStatus = r.status || 'pending';
-        const matchStatus = statusFilter === 'all' || rStatus === statusFilter;
-        const matchRating = ratingFilter === 'all' || String(r.rating) === ratingFilter;
-        const nameStr = (r.name || '').toLowerCase();
-        const locStr = (r.location || '').toLowerCase();
-        const commentStr = (r.comment || '').toLowerCase();
-        const matchQ = !q || nameStr.includes(q) || locStr.includes(q) || commentStr.includes(q);
-        return matchStatus && matchRating && matchQ;
-      });
+        const filtered = adminReviewsData.filter(r => {
+          const rStatus = (r.status || 'pending').toLowerCase().trim();
+          const matchStatus = (statusFilter === 'all') || (rStatus === statusFilter);
+          const matchRating = (ratingFilter === 'all') || (String(r.rating) === ratingFilter);
+          const nameStr = (r.name || '').toLowerCase();
+          const locStr = (r.location || '').toLowerCase();
+          const commentStr = (r.comment || '').toLowerCase();
+          const idStr = (r.id || '').toLowerCase();
+          const matchQ = !q || nameStr.includes(q) || locStr.includes(q) || commentStr.includes(q) || idStr.includes(q);
+          return matchStatus && matchRating && matchQ;
+        });
 
-      const tbody = document.getElementById('dashReviewsTbody');
-      if (!tbody) return;
-
-      if (filtered.length === 0) {
-        tbody.innerHTML = `
-          <tr>
-            <td colspan="6" style="text-align: center; padding: 3rem 1.5rem; color: var(--text-muted);">
-              <div style="font-size: 2rem; margin-bottom: 0.5rem;">💬</div>
-              <strong style="color: var(--text-main); font-size: 1rem;">${adminReviewsData.length === 0 ? 'No customer reviews submitted yet.' : 'No reviews match your filter.'}</strong>
-              <div style="font-size: 0.825rem; margin-top: 0.35rem;">Customer reviews submitted through the website appear here with Pending status until approved.</div>
-            </td>
-          </tr>
-        `;
-        return;
-      }
-
-      tbody.innerHTML = filtered.map(r => {
-        const rating = Math.max(1, Math.min(5, parseInt(r.rating, 10) || 5));
-        const stars = '★'.repeat(rating) + '☆'.repeat(5 - rating);
-        const safeName = escapeHtml(r.name);
-        const safeLoc = escapeHtml(r.location || 'Verified Customer');
-        const safeComment = escapeHtml(r.comment);
-        const safeDate = escapeHtml(r.date || 'Recent');
-        const safeId = escapeHtml(r.id);
-        const rStatus = r.status || 'pending';
-
-        let statusBadge = '';
-        if (rStatus === 'approved') {
-          statusBadge = `<span class="admin-badge-approved">✓ Approved (Live)</span>`;
-        } else if (rStatus === 'rejected') {
-          statusBadge = `<span class="admin-badge-rejected">✗ Rejected (Hidden)</span>`;
-        } else {
-          statusBadge = `<span class="admin-badge-pending">⏳ Pending Review</span>`;
+        const tbody = document.getElementById('dashReviewsTbody');
+        if (!tbody) {
+          console.warn('[ADMIN] dashReviewsTbody not found in DOM');
+          return;
         }
 
-        const approveBtn = `<button type="button" onclick="window.dashApproveReview('${safeId}')" class="btn-approve-review" ${rStatus === 'approved' ? 'style="opacity: 0.45; cursor: not-allowed;" disabled title="Already Approved &amp; Published"' : 'title="Approve &amp; Publish Review to Website"'}>✓ Approve</button>`;
-        const rejectBtn = `<button type="button" onclick="window.dashRejectReview('${safeId}')" class="btn-reject-review" ${rStatus === 'rejected' ? 'style="opacity: 0.45; cursor: not-allowed;" disabled title="Already Rejected &amp; Hidden"' : 'title="Reject &amp; Hide Review from Website"'}>✗ Reject</button>`;
-        const deleteBtn = `<button type="button" onclick="window.dashDeleteReview('${safeId}')" class="btn-delete-review" title="Permanently Delete Review">🗑 Delete</button>`;
+        if (filtered.length === 0) {
+          tbody.innerHTML = `
+            <tr>
+              <td colspan="6" style="text-align: center; padding: 3rem 1.5rem; color: var(--text-muted);">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;">💬</div>
+                <strong style="color: var(--text-main); font-size: 1rem;">${adminReviewsData.length === 0 ? 'No customer reviews submitted yet.' : 'No reviews match your filter.'}</strong>
+                <div style="font-size: 0.825rem; margin-top: 0.35rem;">Customer reviews submitted through the website appear here with Pending status until approved.</div>
+              </td>
+            </tr>
+          `;
+          return;
+        }
 
-        return `
-          <tr style="border-bottom: 1px solid var(--border-light);">
-            <td style="padding: 0.85rem 1rem;">
-              <strong style="color: var(--text-main);">${safeDate}</strong>
-              <div style="font-size: 0.7rem; color: var(--text-muted); font-family: monospace;">${safeId}</div>
-            </td>
-            <td style="padding: 0.85rem 1rem;">
-              <strong style="color: var(--text-main);">${safeName}</strong>
-              <div style="font-size: 0.775rem; color: var(--text-muted);">${safeLoc}</div>
-            </td>
-            <td style="padding: 0.85rem 1rem;">
-              <div style="color: #f59e0b; font-size: 0.95rem; letter-spacing: 1px;">${stars}</div>
-              <span style="font-size: 0.75rem; font-weight: 700; color: var(--forest-green);">${rating}/5</span>
-            </td>
-            <td style="padding: 0.85rem 1rem; max-width: 380px; line-height: 1.5; color: #374151;">
-              &ldquo;${safeComment}&rdquo;
-            </td>
-            <td style="padding: 0.85rem 1rem;">
-              ${statusBadge}
-            </td>
-            <td style="padding: 0.85rem 1rem; text-align: right;">
-              <div style="display: flex; gap: 0.4rem; justify-content: flex-end; align-items: center;">
-                ${approveBtn}
-                ${rejectBtn}
-                ${deleteBtn}
-              </div>
-            </td>
-          </tr>
-        `;
-      }).join('');
+        tbody.innerHTML = filtered.map(r => {
+          const rating = Math.max(1, Math.min(5, parseInt(r.rating, 10) || 5));
+          const stars = '★'.repeat(rating) + '☆'.repeat(5 - rating);
+          const safeName = escapeHtml(r.name || 'Anonymous Customer');
+          const safeLoc = escapeHtml(r.location || 'Verified Customer');
+          const safeComment = escapeHtml(r.comment || '');
+          const safeDate = escapeHtml(r.date || 'Recent');
+          const safeId = escapeHtml(r.id || '');
+          const rStatus = (r.status || 'pending').toLowerCase().trim();
+
+          let statusBadge = '';
+          if (rStatus === 'approved') {
+            statusBadge = `<span class="admin-badge-approved" style="background: #dcfce7; color: #15803d; border: 1px solid #86efac; padding: 0.25rem 0.6rem; border-radius: 9999px; font-weight: 700; font-size: 0.75rem; display: inline-flex; align-items: center; gap: 4px;">✓ Approved (Live)</span>`;
+          } else if (rStatus === 'rejected') {
+            statusBadge = `<span class="admin-badge-rejected" style="background: #fee2e2; color: #b91c1c; border: 1px solid #fca5a5; padding: 0.25rem 0.6rem; border-radius: 9999px; font-weight: 700; font-size: 0.75rem; display: inline-flex; align-items: center; gap: 4px;">✗ Rejected (Hidden)</span>`;
+          } else {
+            statusBadge = `<span class="admin-badge-pending" style="background: #fef3c7; color: #b45309; border: 1px solid #fcd34d; padding: 0.25rem 0.6rem; border-radius: 9999px; font-weight: 700; font-size: 0.75rem; display: inline-flex; align-items: center; gap: 4px;">⏳ Pending Review</span>`;
+          }
+
+          const approveBtn = `<button type="button" onclick="window.dashApproveReview('${safeId}')" class="btn-approve-review" style="background: #15803d; color: #ffffff; border: none; padding: 0.4rem 0.75rem; border-radius: 6px; font-weight: 700; font-size: 0.8rem; cursor: pointer; transition: opacity 0.2s; ${rStatus === 'approved' ? 'opacity: 0.4; cursor: not-allowed;' : ''}" ${rStatus === 'approved' ? 'disabled title="Already Approved &amp; Published"' : 'title="Approve &amp; Publish Review to Website"'}>✓ Approve</button>`;
+          const rejectBtn = `<button type="button" onclick="window.dashRejectReview('${safeId}')" class="btn-reject-review" style="background: #b91c1c; color: #ffffff; border: none; padding: 0.4rem 0.75rem; border-radius: 6px; font-weight: 700; font-size: 0.8rem; cursor: pointer; transition: opacity 0.2s; ${rStatus === 'rejected' ? 'opacity: 0.4; cursor: not-allowed;' : ''}" ${rStatus === 'rejected' ? 'disabled title="Already Rejected &amp; Hidden"' : 'title="Reject &amp; Hide Review from Website"'}>✗ Reject</button>`;
+          const deleteBtn = `<button type="button" onclick="window.dashDeleteReview('${safeId}')" class="btn-delete-review" style="background: #ffffff; color: #dc2626; border: 1px solid #fca5a5; padding: 0.4rem 0.75rem; border-radius: 6px; font-weight: 700; font-size: 0.8rem; cursor: pointer; transition: all 0.2s;" title="Permanently Delete Review">🗑 Delete</button>`;
+
+          return `
+            <tr style="border-bottom: 1px solid var(--border-light); transition: background 0.15s ease;">
+              <td style="padding: 1rem 1rem; vertical-align: top;">
+                <strong style="color: var(--text-main); font-size: 0.875rem;">${safeDate}</strong>
+                <div style="font-size: 0.7rem; color: var(--text-muted); font-family: monospace; margin-top: 0.2rem;">${safeId}</div>
+              </td>
+              <td style="padding: 1rem 1rem; vertical-align: top;">
+                <strong style="color: var(--text-main); font-size: 0.925rem; display: block;">${safeName}</strong>
+                <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.15rem;">${safeLoc}</div>
+              </td>
+              <td style="padding: 1rem 1rem; vertical-align: top; white-space: nowrap;">
+                <div style="color: #f59e0b; font-size: 1rem; letter-spacing: 1.5px; line-height: 1;">${stars}</div>
+                <span style="font-size: 0.775rem; font-weight: 700; color: var(--forest-green); display: block; margin-top: 0.25rem;">${rating} / 5 Stars</span>
+              </td>
+              <td style="padding: 1rem 1rem; max-width: 420px; line-height: 1.55; color: #374151; vertical-align: top; font-size: 0.875rem;">
+                <div style="background: #f9fafb; padding: 0.65rem 0.85rem; border-radius: 6px; border-left: 3px solid var(--forest-green);">
+                  &ldquo;${safeComment}&rdquo;
+                </div>
+              </td>
+              <td style="padding: 1rem 1rem; vertical-align: top; white-space: nowrap;">
+                ${statusBadge}
+              </td>
+              <td style="padding: 1rem 1rem; text-align: right; vertical-align: top;">
+                <div style="display: flex; gap: 0.4rem; justify-content: flex-end; align-items: center; flex-wrap: wrap;">
+                  ${approveBtn}
+                  ${rejectBtn}
+                  ${deleteBtn}
+                </div>
+              </td>
+            </tr>
+          `;
+        }).join('');
+      } catch (err) {
+        console.error('[ADMIN REVIEWS ERROR] renderDashboardReviews failed:', err);
+      }
     }
 
     const revSearch = document.getElementById('dashReviewsSearchInput');
@@ -1980,8 +1990,45 @@
         if (photoUrlInput) photoUrlInput.value = '';
         if (previewImg) previewImg.src = '';
         if (previewBox) previewBox.style.display = 'none';
+        updateChairCardPreview();
       });
     }
+
+    // Live Interactive Chair Card Preview
+    function updateChairCardPreview() {
+      const nameVal = (document.getElementById('chairNameInput')?.value || '').trim();
+      const codeVal = (document.getElementById('chairCodeInput')?.value || '').trim();
+      const catVal = document.getElementById('chairCategorySelect')?.value || 'Office Chairs';
+      const priceRaw = parseInt(document.getElementById('chairPriceInput')?.value || '0', 10) || 0;
+      const photoUrl = (document.getElementById('chairPhotoUrlInput')?.value || '').trim();
+
+      const prevBadge = document.getElementById('prevCardBadge');
+      const prevImg = document.getElementById('prevCardImg');
+      const prevCode = document.getElementById('prevCardCode');
+      const prevName = document.getElementById('prevCardName');
+      const prevPrice = document.getElementById('prevCardPrice');
+
+      if (!prevName) return;
+
+      if (prevBadge) prevBadge.textContent = catVal;
+      if (prevImg) prevImg.src = photoUrl || 'assets/placeholder.svg';
+      const displayCode = codeVal || 'SHSE NEW';
+      if (prevCode) prevCode.textContent = displayCode;
+      if (prevName) {
+        prevName.textContent = nameVal ? (nameVal.toUpperCase().includes('SHSE') ? nameVal : `${catVal}  ${nameVal}`) : `${catVal}  ${displayCode}`;
+      }
+      if (prevPrice) {
+        prevPrice.textContent = priceRaw > 0 ? `₹${priceRaw.toLocaleString('en-IN')}` : 'Price on Request';
+      }
+    }
+
+    // Attach real-time preview listeners
+    ['chairNameInput', 'chairCodeInput', 'chairPriceInput'].forEach(id => {
+      const inp = document.getElementById(id);
+      if (inp) inp.addEventListener('input', updateChairCardPreview);
+    });
+    const chairCatSelect = document.getElementById('chairCategorySelect');
+    if (chairCatSelect) chairCatSelect.addEventListener('change', updateChairCardPreview);
 
     async function handleChairPhotoFile(file) {
       if (!file) return;
@@ -1993,6 +2040,10 @@
         photoStatus.style.color = '#d97706';
       }
       if (previewBox) previewBox.style.display = 'block';
+
+      // Immediate local preview
+      const tempPrevImg = document.getElementById('prevCardImg');
+      if (tempPrevImg) tempPrevImg.src = objectUrl;
 
       // Send to /api/admin/upload
       const token = adminToken || sessionStorage.getItem('admin_token') || 'shse2026';
@@ -2012,6 +2063,7 @@
             photoStatus.textContent = '✓ Photo uploaded and ready to publish';
             photoStatus.style.color = '#059669';
           }
+          updateChairCardPreview();
         } else {
           const reader = new FileReader();
           reader.onload = (ev) => {
@@ -2020,6 +2072,7 @@
               photoStatus.textContent = '✓ Photo ready';
               photoStatus.style.color = '#059669';
             }
+            updateChairCardPreview();
           };
           reader.readAsDataURL(file);
         }
@@ -2032,6 +2085,7 @@
             photoStatus.textContent = '✓ Photo ready';
             photoStatus.style.color = '#059669';
           }
+          updateChairCardPreview();
         };
         reader.readAsDataURL(file);
       }
@@ -2063,6 +2117,7 @@
         btnPublish.innerHTML = '💾 Save &amp; Publish Chair';
         btnPublish.disabled = false;
       }
+      updateChairCardPreview();
     }
 
     if (btnCancelEdit) btnCancelEdit.addEventListener('click', resetChairForm);
@@ -2215,6 +2270,7 @@
       }
       if (btnPublish) btnPublish.innerHTML = '💾 Update Chair';
       if (btnCancelEdit) btnCancelEdit.style.display = 'inline-flex';
+      updateChairCardPreview();
 
       const formCard = document.getElementById('dashAddChairForm');
       if (formCard) formCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
