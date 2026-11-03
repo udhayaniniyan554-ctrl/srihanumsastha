@@ -260,17 +260,17 @@ button, input, select, textarea {
   display: flex;
   align-items: center;
   flex-shrink: 0;
-  padding: 0.5rem 0;
+  padding: 0.35rem 0;
   text-decoration: none;
-  min-height: 100px;
+  min-height: 90px;
 }
 
 .brand-logo img,
 .header-logo-img {
-  height: 96px !important;
+  height: 84px !important;
   width: auto !important;
-  max-width: 320px !important;
-  max-height: 110px !important;
+  max-width: 260px !important;
+  max-height: 95px !important;
   object-fit: contain !important;
   display: block !important;
 }
@@ -1667,10 +1667,10 @@ button, input, select, textarea {
 
 .footer-logo img,
 .about-logo-img {
-  height: 108px !important;
-  max-height: 120px !important;
+  height: 90px !important;
+  max-height: 105px !important;
   width: auto !important;
-  max-width: 280px !important;
+  max-width: 260px !important;
   object-fit: contain !important;
   display: block !important;
 }
@@ -1843,11 +1843,14 @@ button, input, select, textarea {
   .brand-logo {
     min-height: 75px;
   }
+  .brand-logo {
+    min-height: 65px;
+  }
   .brand-logo img,
   .header-logo-img {
-    height: 72px !important;
-    max-width: 220px !important;
-    max-height: 80px !important;
+    height: 58px !important;
+    max-width: 180px !important;
+    max-height: 68px !important;
     object-fit: contain !important;
   }
   .header-actions {
@@ -1873,9 +1876,9 @@ button, input, select, textarea {
   }
   .footer-logo img,
   .about-logo-img {
-    height: 90px !important;
-    max-height: 100px !important;
-    max-width: 240px !important;
+    height: 75px !important;
+    max-height: 85px !important;
+    max-width: 220px !important;
     object-fit: contain !important;
   }
   .contact-cards-grid {

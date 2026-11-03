@@ -157,7 +157,7 @@ for path, name in pages:
             assert "8695706013" not in header_html, f"WhatsApp number found in header of {name}!"
             assert "wa.me" not in header_html, f"WhatsApp link found in header of {name}!"
             assert "KK Lane" not in header_html, f"Address found in header of {name}!"
-            assert "assets/SHSE Logo.png" in header_html, f"SHSE Logo missing from header of {name}!"
+            assert ("assets/Sri Hanum Sastha Enterprises Logo landscape.png" in header_html or "assets/SHSE Logo.png" in header_html), f"SHSE Logo missing from header of {name}!"
         
         # Verify top black information bar is completely removed
         topbar_match = re.search(r'<aside class="top-bar".*?</aside>', body, re.DOTALL)
