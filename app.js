@@ -1554,11 +1554,16 @@
 
     // Tab Switcher - Exactly 2 main options: 1. Customer Reviews, 2. Add New Chairs
     function switchTab(tab) {
+      const crumb = document.getElementById('topNavCrumb');
+      const luxurySidebar = document.getElementById('luxurySidebar');
+      if (luxurySidebar) luxurySidebar.classList.remove('open');
+
       if (tab === 'add-chair' || tab === 'chairs' || tab === 'add') {
         if (adminPanelReviews) adminPanelReviews.style.display = 'none';
         if (adminPanelAddChair) adminPanelAddChair.style.display = 'block';
         adminTabBtnReviews?.classList.remove('active');
         adminTabBtnAddChair?.classList.add('active');
+        if (crumb) crumb.textContent = 'Chair Product Studio & Publishing';
         loadDashboardChairs();
       } else {
         // default: reviews
@@ -1566,12 +1571,44 @@
         if (adminPanelReviews) adminPanelReviews.style.display = 'block';
         adminTabBtnAddChair?.classList.remove('active');
         adminTabBtnReviews?.classList.add('active');
+        if (crumb) crumb.textContent = 'Customer Reviews Moderation';
         loadDashboardReviews();
       }
     }
 
     if (adminTabBtnReviews) adminTabBtnReviews.addEventListener('click', () => switchTab('reviews'));
     if (adminTabBtnAddChair) adminTabBtnAddChair.addEventListener('click', () => switchTab('add-chair'));
+
+    // Mobile Sidebar Drawer Toggle
+    const mobileSidebarToggle = document.getElementById('btnMobileSidebarToggle');
+    const luxurySidebar = document.getElementById('luxurySidebar');
+    if (mobileSidebarToggle && luxurySidebar) {
+      mobileSidebarToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        luxurySidebar.classList.toggle('open');
+      });
+    }
+
+    // Top Bar Quick Search
+    const topQuickSearch = document.getElementById('topBarQuickSearch');
+    if (topQuickSearch) {
+      topQuickSearch.addEventListener('input', (e) => {
+        const val = e.target.value;
+        const revSearch = document.getElementById('dashReviewsSearchInput');
+        const manageSearch = document.getElementById('dashManageSearchInput');
+        if (adminPanelReviews && adminPanelReviews.style.display !== 'none') {
+          if (revSearch) {
+            revSearch.value = val;
+            renderDashboardReviews();
+          }
+        } else {
+          if (manageSearch) {
+            manageSearch.value = val;
+            renderDashboardChairs();
+          }
+        }
+      });
+    }
 
     // ========================================================
     // OPTION 1: CUSTOMER REVIEWS MANAGEMENT (View, Approve, Reject, Delete)
@@ -1685,42 +1722,55 @@
           const safeId = escapeHtml(r.id || '');
           const rStatus = (r.status || 'pending').toLowerCase().trim();
 
+          // Initials for luxury avatar
+          const words = safeName.trim().split(/\s+/);
+          const initials = (words.length > 1 ? (words[0][0] + words[1][0]) : safeName.substring(0, 2)).toUpperCase() || 'CU';
+
           let statusBadge = '';
           if (rStatus === 'approved') {
-            statusBadge = `<span class="admin-badge-approved" style="background: #dcfce7; color: #15803d; border: 1px solid #86efac; padding: 0.25rem 0.6rem; border-radius: 9999px; font-weight: 700; font-size: 0.75rem; display: inline-flex; align-items: center; gap: 4px;">✓ Approved (Live)</span>`;
+            statusBadge = `<span class="admin-badge-approved" style="background: #dcfce7; color: #15803d; border: 1px solid #86efac; padding: 0.3rem 0.75rem; border-radius: 9999px; font-weight: 700; font-size: 0.75rem; display: inline-flex; align-items: center; gap: 5px; box-shadow: 0 1px 3px rgba(21,128,61,0.08);"><span style="width: 6px; height: 6px; border-radius: 50%; background: #16a34a;"></span>✓ Approved (Live)</span>`;
           } else if (rStatus === 'rejected') {
-            statusBadge = `<span class="admin-badge-rejected" style="background: #fee2e2; color: #b91c1c; border: 1px solid #fca5a5; padding: 0.25rem 0.6rem; border-radius: 9999px; font-weight: 700; font-size: 0.75rem; display: inline-flex; align-items: center; gap: 4px;">✗ Rejected (Hidden)</span>`;
+            statusBadge = `<span class="admin-badge-rejected" style="background: #fee2e2; color: #b91c1c; border: 1px solid #fca5a5; padding: 0.3rem 0.75rem; border-radius: 9999px; font-weight: 700; font-size: 0.75rem; display: inline-flex; align-items: center; gap: 5px; box-shadow: 0 1px 3px rgba(185,28,28,0.08);"><span style="width: 6px; height: 6px; border-radius: 50%; background: #dc2626;"></span>✗ Rejected (Hidden)</span>`;
           } else {
-            statusBadge = `<span class="admin-badge-pending" style="background: #fef3c7; color: #b45309; border: 1px solid #fcd34d; padding: 0.25rem 0.6rem; border-radius: 9999px; font-weight: 700; font-size: 0.75rem; display: inline-flex; align-items: center; gap: 4px;">⏳ Pending Review</span>`;
+            statusBadge = `<span class="admin-badge-pending" style="background: #fef3c7; color: #b45309; border: 1px solid #fcd34d; padding: 0.3rem 0.75rem; border-radius: 9999px; font-weight: 700; font-size: 0.75rem; display: inline-flex; align-items: center; gap: 5px; box-shadow: 0 1px 3px rgba(180,83,9,0.08);"><span style="width: 6px; height: 6px; border-radius: 50%; background: #d97706;"></span>⏳ Pending Review</span>`;
           }
 
-          const approveBtn = `<button type="button" onclick="window.dashApproveReview('${safeId}')" class="btn-approve-review" style="background: #15803d; color: #ffffff; border: none; padding: 0.4rem 0.75rem; border-radius: 6px; font-weight: 700; font-size: 0.8rem; cursor: pointer; transition: opacity 0.2s; ${rStatus === 'approved' ? 'opacity: 0.4; cursor: not-allowed;' : ''}" ${rStatus === 'approved' ? 'disabled title="Already Approved &amp; Published"' : 'title="Approve &amp; Publish Review to Website"'}>✓ Approve</button>`;
-          const rejectBtn = `<button type="button" onclick="window.dashRejectReview('${safeId}')" class="btn-reject-review" style="background: #b91c1c; color: #ffffff; border: none; padding: 0.4rem 0.75rem; border-radius: 6px; font-weight: 700; font-size: 0.8rem; cursor: pointer; transition: opacity 0.2s; ${rStatus === 'rejected' ? 'opacity: 0.4; cursor: not-allowed;' : ''}" ${rStatus === 'rejected' ? 'disabled title="Already Rejected &amp; Hidden"' : 'title="Reject &amp; Hide Review from Website"'}>✗ Reject</button>`;
-          const deleteBtn = `<button type="button" onclick="window.dashDeleteReview('${safeId}')" class="btn-delete-review" style="background: #ffffff; color: #dc2626; border: 1px solid #fca5a5; padding: 0.4rem 0.75rem; border-radius: 6px; font-weight: 700; font-size: 0.8rem; cursor: pointer; transition: all 0.2s;" title="Permanently Delete Review">🗑 Delete</button>`;
+          const approveBtn = `<button type="button" onclick="window.dashApproveReview('${safeId}')" class="btn-approve-review" style="background: #15803d; color: #ffffff; border: none; padding: 0.45rem 0.85rem; border-radius: 7px; font-weight: 700; font-size: 0.8rem; cursor: pointer; transition: all 0.2s; box-shadow: 0 2px 4px rgba(21,128,61,0.2); ${rStatus === 'approved' ? 'opacity: 0.4; cursor: not-allowed;' : ''}" ${rStatus === 'approved' ? 'disabled title="Already Approved &amp; Published"' : 'title="Approve &amp; Publish Review to Website"'}>✓ Approve</button>`;
+          const rejectBtn = `<button type="button" onclick="window.dashRejectReview('${safeId}')" class="btn-reject-review" style="background: #b91c1c; color: #ffffff; border: none; padding: 0.45rem 0.85rem; border-radius: 7px; font-weight: 700; font-size: 0.8rem; cursor: pointer; transition: all 0.2s; box-shadow: 0 2px 4px rgba(185,28,28,0.2); ${rStatus === 'rejected' ? 'opacity: 0.4; cursor: not-allowed;' : ''}" ${rStatus === 'rejected' ? 'disabled title="Already Rejected &amp; Hidden"' : 'title="Reject &amp; Hide Review from Website"'}>✗ Reject</button>`;
+          const deleteBtn = `<button type="button" onclick="window.dashDeleteReview('${safeId}')" class="btn-delete-review" style="background: #ffffff; color: #dc2626; border: 1.5px solid #fca5a5; padding: 0.45rem 0.85rem; border-radius: 7px; font-weight: 700; font-size: 0.8rem; cursor: pointer; transition: all 0.2s; box-shadow: 0 1px 3px rgba(0,0,0,0.04);" title="Permanently Delete Review">🗑 Delete</button>`;
 
           return `
-            <tr style="border-bottom: 1px solid var(--border-light); transition: background 0.15s ease;">
-              <td style="padding: 1rem 1rem; vertical-align: top;">
-                <strong style="color: var(--text-main); font-size: 0.875rem;">${safeDate}</strong>
-                <div style="font-size: 0.7rem; color: var(--text-muted); font-family: monospace; margin-top: 0.2rem;">${safeId}</div>
+            <tr style="border-bottom: 1px solid #E2E8F0; transition: background 0.15s ease;">
+              <td style="padding: 1rem 1rem; vertical-align: middle;">
+                <div style="font-weight: 700; color: #0A192F; font-size: 0.875rem;">${safeDate}</div>
+                <div style="display: inline-block; font-size: 0.7rem; color: #64748B; font-family: monospace; background: #F1F5F9; padding: 2px 6px; border-radius: 4px; margin-top: 0.25rem;">#${safeId}</div>
               </td>
-              <td style="padding: 1rem 1rem; vertical-align: top;">
-                <strong style="color: var(--text-main); font-size: 0.925rem; display: block;">${safeName}</strong>
-                <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.15rem;">${safeLoc}</div>
+              <td style="padding: 1rem 1rem; vertical-align: middle;">
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                  <div style="width: 38px; height: 38px; border-radius: 50%; background: linear-gradient(135deg, #0A192F, #1E3A8A); color: #C5A059; font-weight: 800; font-size: 0.825rem; display: flex; align-items: center; justify-content: center; border: 1.5px solid rgba(197, 160, 89, 0.4); flex-shrink: 0; box-shadow: 0 2px 6px rgba(0,0,0,0.08);">
+                    ${initials}
+                  </div>
+                  <div>
+                    <strong style="color: #0A192F; font-size: 0.925rem; display: block; font-weight: 700;">${safeName}</strong>
+                    <div style="font-size: 0.775rem; color: #64748B; margin-top: 0.15rem;">${safeLoc}</div>
+                  </div>
+                </div>
               </td>
-              <td style="padding: 1rem 1rem; vertical-align: top; white-space: nowrap;">
-                <div style="color: #f59e0b; font-size: 1rem; letter-spacing: 1.5px; line-height: 1;">${stars}</div>
-                <span style="font-size: 0.775rem; font-weight: 700; color: var(--forest-green); display: block; margin-top: 0.25rem;">${rating} / 5 Stars</span>
+              <td style="padding: 1rem 1rem; vertical-align: middle; white-space: nowrap;">
+                <div style="display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(245, 158, 11, 0.08); padding: 0.3rem 0.65rem; border-radius: 9999px; border: 1px solid rgba(245, 158, 11, 0.25);">
+                  <span style="color: #D97706; font-size: 0.9rem; letter-spacing: 1px; line-height: 1;">${stars}</span>
+                  <span style="font-size: 0.775rem; font-weight: 800; color: #92400E;">${rating}.0</span>
+                </div>
               </td>
-              <td style="padding: 1rem 1rem; max-width: 420px; line-height: 1.55; color: #374151; vertical-align: top; font-size: 0.875rem;">
-                <div style="background: #f9fafb; padding: 0.65rem 0.85rem; border-radius: 6px; border-left: 3px solid var(--forest-green);">
+              <td style="padding: 1rem 1rem; max-width: 420px; line-height: 1.55; color: #334155; vertical-align: middle; font-size: 0.875rem;">
+                <div style="background: #F8FAFC; padding: 0.75rem 0.95rem; border-radius: 8px; border-left: 3px solid #C5A059; font-style: italic; box-shadow: 0 1px 3px rgba(0,0,0,0.02);">
                   &ldquo;${safeComment}&rdquo;
                 </div>
               </td>
-              <td style="padding: 1rem 1rem; vertical-align: top; white-space: nowrap;">
+              <td style="padding: 1rem 1rem; vertical-align: middle; white-space: nowrap;">
                 ${statusBadge}
               </td>
-              <td style="padding: 1rem 1rem; text-align: right; vertical-align: top;">
+              <td style="padding: 1rem 1rem; text-align: right; vertical-align: middle;">
                 <div style="display: flex; gap: 0.4rem; justify-content: flex-end; align-items: center; flex-wrap: wrap;">
                   ${approveBtn}
                   ${rejectBtn}

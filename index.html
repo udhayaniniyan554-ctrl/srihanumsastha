@@ -781,334 +781,484 @@
   </div>
 
   <!-- ======================================================== -->
-  <!-- INTEGRATED ADMIN DASHBOARD OVERLAY -->
+  <!-- INTEGRATED LUXURY ADMIN DASHBOARD OVERLAY SUITE -->
   <!-- ======================================================== -->
   <div class="admin-dashboard-overlay" id="adminDashboardOverlay" role="dialog" aria-modal="true" aria-label="Admin Management Dashboard">
     
-    <!-- Top Navbar -->
-    <div class="admin-overlay-navbar">
-      <div class="admin-overlay-brand">
-        <img src="assets/Sri Hanum Sastha Enterprises Logo landscape.png" alt="Sri Hanum Sastha Enterprises Logo" style="height: 38px; width: auto; object-fit: contain;">
-        <span>Sri Hanum Sastha Enterprises</span>
-        <span class="admin-overlay-badge">Shopkeeper / Admin Portal</span>
-      </div>
-      <div class="admin-overlay-actions">
-        <button type="button" class="btn btn-outline btn-sm" id="btnAdminCustomerView" style="color: #ffffff; border-color: rgba(255,255,255,0.4); background: rgba(255,255,255,0.1);">
-          👁️ Customer View
-        </button>
-        <button type="button" class="btn btn-outline btn-sm" id="adminOverlayLogoutBtn" style="color: #ffffff; border-color: rgba(255,255,255,0.3); background: rgba(220, 38, 38, 0.8);">
-          🚪 Logout
-        </button>
-        <button type="button" class="btn btn-outline btn-sm" id="closeAdminDashboardBtn" style="color: #ffffff; border-color: rgba(255,255,255,0.4);">
-          ✕ Close
-        </button>
-      </div>
-    </div>
-
-    <!-- Body Container -->
-    <div class="admin-overlay-body">
+    <div class="luxury-admin-app">
       
-      <!-- Tab Navigation: ONLY 2 MAIN OPTIONS -->
-      <div class="admin-tab-nav">
-        <button type="button" id="adminTabBtnReviews" class="admin-tab-btn active">
-          ⭐ Customer Reviews (<span id="adminTabCountReviews">0</span>)
-        </button>
-        <button type="button" id="adminTabBtnAddChair" class="admin-tab-btn">
-          ➕ Add New Chairs
-        </button>
-      </div>
-
-      <!-- PANEL 1: CUSTOMER REVIEWS MODERATION (View, Approve, Reject, Delete) - ACTIVE BY DEFAULT -->
-      <div id="adminPanelReviews" style="display: block;">
-        <!-- Reviews Stats -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
-          <div style="background: #ffffff; padding: 1.25rem; border: 1px solid var(--border-light); border-radius: var(--radius-md);">
-            <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Total Reviews</div>
-            <div style="font-size: 1.75rem; font-weight: 800; color: var(--text-main); margin-top: 0.25rem;" id="dashStatReviewsTotal">0</div>
-          </div>
-          <div style="background: #ffffff; padding: 1.25rem; border: 1px solid #fcd34d; border-radius: var(--radius-md);">
-            <div style="font-size: 0.75rem; font-weight: 700; color: #b45309; text-transform: uppercase;">Pending Approval</div>
-            <div style="font-size: 1.75rem; font-weight: 800; color: #d97706; margin-top: 0.25rem;" id="dashStatReviewsPending">0</div>
-          </div>
-          <div style="background: #ffffff; padding: 1.25rem; border: 1px solid var(--border-light); border-radius: var(--radius-md);">
-            <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Approved (Live)</div>
-            <div style="font-size: 1.75rem; font-weight: 800; color: #16a34a; margin-top: 0.25rem;" id="dashStatReviewsApproved">0</div>
-          </div>
-          <div style="background: #ffffff; padding: 1.25rem; border: 1px solid var(--border-light); border-radius: var(--radius-md);">
-            <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Rejected (Hidden)</div>
-            <div style="font-size: 1.75rem; font-weight: 800; color: #dc2626; margin-top: 0.25rem;" id="dashStatReviewsRejected">0</div>
-          </div>
-          <div style="background: #ffffff; padding: 1.25rem; border: 1px solid var(--border-light); border-radius: var(--radius-md);">
-            <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Average Rating</div>
-            <div style="font-size: 1.75rem; font-weight: 800; color: #f59e0b; margin-top: 0.25rem;" id="dashStatReviewsAvg">0.0</div>
-          </div>
-        </div>
-
-        <!-- Reviews Toolbar (With Status Filter Pills & Search) -->
-        <div style="background: #ffffff; border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 1rem 1.25rem; margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-          <div style="display: flex; gap: 0.75rem; flex: 1; max-width: 820px; flex-wrap: wrap; align-items: center;">
-            <input type="text" id="dashReviewsSearchInput" class="form-input" style="flex: 1; min-width: 200px;" placeholder="Search customer name, location, or feedback...">
-            
-            <!-- Quick Status Filter Pills (surya-agencies style) -->
-            <div class="status-filter-pills" style="display: inline-flex; gap: 0.35rem; background: var(--bg-neutral); padding: 0.25rem; border-radius: var(--radius-full); border: 1px solid var(--border-light);">
-              <button type="button" class="dash-status-pill active" data-status="all" id="pillRevAll">All Reviews (<span id="dashPillCountAll">0</span>)</button>
-              <button type="button" class="dash-status-pill" data-status="pending" id="pillRevPending">⏳ Pending (<span id="dashPillCountPending">0</span>)</button>
-              <button type="button" class="dash-status-pill" data-status="approved" id="pillRevApproved">✓ Approved (<span id="dashPillCountApproved">0</span>)</button>
-              <button type="button" class="dash-status-pill" data-status="rejected" id="pillRevRejected">✗ Rejected (<span id="dashPillCountRejected">0</span>)</button>
-            </div>
-            <input type="hidden" id="dashReviewsStatusFilter" value="all">
-
-            <select id="dashReviewsRatingFilter" class="form-input" style="width: 130px;">
-              <option value="all">All Stars</option>
-              <option value="5">5 Stars (★★★★★)</option>
-              <option value="4">4 Stars (★★★★)</option>
-              <option value="3">3 Stars (★★★)</option>
-              <option value="2">2 Stars (★★)</option>
-              <option value="1">1 Star (★)</option>
-            </select>
-          </div>
-
-          <div style="display: flex; gap: 0.75rem;">
-            <button type="button" id="dashBtnRefreshReviews" class="btn btn-outline btn-sm">
-              🔄 Refresh Reviews
-            </button>
-          </div>
-        </div>
-
-        <!-- Customer Reviews Moderation Table -->
-        <div style="background: #ffffff; border: 1px solid var(--border-light); border-radius: var(--radius-md); overflow-x: auto; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
-          <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.875rem;">
-            <thead>
-              <tr style="background: var(--bg-neutral); border-bottom: 1px solid var(--border-light);">
-                <th style="padding: 0.85rem 1rem; width: 130px;">Date &amp; ID</th>
-                <th style="padding: 0.85rem 1rem; width: 180px;">Customer</th>
-                <th style="padding: 0.85rem 1rem; width: 120px;">Rating</th>
-                <th style="padding: 0.85rem 1rem;">Feedback</th>
-                <th style="padding: 0.85rem 1rem; width: 110px;">Status</th>
-                <th style="padding: 0.85rem 1rem; text-align: right; width: 220px;">Moderation Actions</th>
-              </tr>
-            </thead>
-            <tbody id="dashReviewsTbody"></tbody>
-          </table>
-        </div>
-      </div>
-
-      <!-- PANEL 2: ADD NEW CHAIRS SECTION (Admin Option for Relative) -->
-      <div id="adminPanelAddChair" style="display: none;">
+      <!-- ================= 1. LUXURY SIDEBAR ================= -->
+      <aside class="luxury-sidebar" id="luxurySidebar">
         
-        <!-- Header Banner -->
-        <div style="background: linear-gradient(135deg, #064E3B 0%, #047857 100%); color: #ffffff; padding: 1.35rem 1.75rem; border-radius: var(--radius-md); margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; box-shadow: 0 4px 15px rgba(6, 78, 59, 0.15);">
-          <div>
-            <h2 style="font-size: 1.3rem; font-weight: 800; margin: 0; color: #ffffff; display: flex; align-items: center; gap: 0.5rem;">
-              <span>➕</span> Add New Chairs to Website
-            </h2>
-            <p style="margin: 0.35rem 0 0; font-size: 0.875rem; opacity: 0.9; color: #d1fae5;">
-              Upload chair photos, enter product codes, description &amp; pricing, and publish directly to the public website catalogue.
-            </p>
+        <!-- Brand & Showroom Identity -->
+        <div class="sidebar-brand-box">
+          <div class="sidebar-logo-card">
+            <img src="assets/Sri Hanum Sastha Enterprises Logo landscape.png" alt="Sri Hanum Sastha Enterprises Logo" class="sidebar-logo-img">
           </div>
-          <div>
-            <button type="button" id="btnScrollToChairList" class="btn btn-sm" style="background: #ffffff; color: #064E3B; font-weight: 700; border-radius: var(--radius-xs);">
-              📋 View Existing Chairs (<span id="dashTotalChairsBadge">228</span>)
+          <div class="sidebar-brand-title">Sri Hanum Sastha</div>
+          <div class="sidebar-brand-sub">ENTERPRISES • COIMBATORE</div>
+          <div class="sidebar-status-pill">
+            <span class="status-dot-pulse"></span>
+            <span>Showroom Portal Live</span>
+          </div>
+        </div>
+
+        <!-- Administrator Profile Badge -->
+        <div class="sidebar-admin-card">
+          <div class="admin-avatar-ring">
+            <span>PS</span>
+            <span class="admin-online-badge" title="Active Admin Session"></span>
+          </div>
+          <div class="admin-profile-info">
+            <div class="admin-profile-name">Priya Shankar</div>
+            <div class="admin-profile-role">Executive Administrator</div>
+          </div>
+        </div>
+
+        <!-- Operations Navigation (ONLY 2 MAIN OPTIONS) -->
+        <div class="sidebar-nav-section">
+          <div class="sidebar-section-heading">OPERATIONS &amp; CURATION</div>
+          <nav class="sidebar-nav-list" role="tablist">
+            
+            <!-- OPTION 1: Customer Reviews -->
+            <button type="button" id="adminTabBtnReviews" class="sidebar-nav-item admin-tab-btn active" role="tab" aria-selected="true">
+              <span class="nav-item-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                </svg>
+              </span>
+              <span class="nav-item-label">Customer Reviews</span>
+              <span class="sidebar-count-badge" id="adminTabCountReviews">0</span>
+            </button>
+
+            <!-- OPTION 2: Add New Chairs -->
+            <button type="button" id="adminTabBtnAddChair" class="sidebar-nav-item admin-tab-btn" role="tab" aria-selected="false">
+              <span class="nav-item-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 5v14M5 12h14"></path>
+                </svg>
+              </span>
+              <span class="nav-item-label">Add New Chairs</span>
+              <span class="sidebar-badge-new">Studio</span>
+            </button>
+
+          </nav>
+        </div>
+
+        <!-- Storefront Shortcuts -->
+        <div class="sidebar-nav-section">
+          <div class="sidebar-section-heading">STOREFRONT UTILITIES</div>
+          <div class="sidebar-nav-list">
+            <button type="button" class="sidebar-nav-item" id="btnAdminCustomerView" style="color: #94A3B8;">
+              <span class="nav-item-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+              </span>
+              <span class="nav-item-label">View Customer Site</span>
+              <span style="margin-left: auto; font-size: 0.85rem; color: #CBD5E1;">↗</span>
             </button>
           </div>
         </div>
 
-        <div style="display: grid; grid-template-columns: minmax(320px, 480px) 1fr; gap: 1.5rem; align-items: start;">
+        <!-- Sidebar Footer -->
+        <div class="sidebar-footer">
+          <div class="sidebar-helpline">
+            <div class="helpline-label">Showroom Direct Contact</div>
+            <div class="helpline-nums">9688727284 • 8695706013</div>
+          </div>
+          <button type="button" class="sidebar-logout-btn" id="adminOverlayLogoutBtn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+              <polyline points="16 17 21 12 16 7"></polyline>
+              <line x1="21" y1="12" x2="9" y2="12"></line>
+            </svg>
+            <span>Sign Out</span>
+          </button>
+        </div>
+
+      </aside>
+
+      <!-- ================= 2. MAIN STAGE ================= -->
+      <main class="luxury-main-stage">
+        
+        <!-- Top Navigation Bar -->
+        <header class="luxury-top-nav">
+          <div class="top-nav-left">
+            <button type="button" class="mobile-sidebar-toggle" id="btnMobileSidebarToggle" aria-label="Toggle Sidebar Navigation">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+              </svg>
+            </button>
+            <div class="breadcrumbs-container">
+              <span class="crumb-root">Sri Hanum Sastha</span>
+              <span class="crumb-sep">/</span>
+              <span class="crumb-current" id="topNavCrumb">Customer Reviews Moderation</span>
+            </div>
+          </div>
+
+          <div class="top-nav-center">
+            <div class="top-search-bar">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <input type="text" id="topBarQuickSearch" placeholder="Quick search feedback, chairs, codes...">
+            </div>
+          </div>
+
+          <div class="top-nav-right">
+            <div class="top-live-pill">
+              <span class="status-dot-pulse"></span>
+              <span>FastAPI Connected</span>
+            </div>
+            <button type="button" class="top-close-btn" id="closeAdminDashboardBtn" title="Close Admin Dashboard">
+              <span>Exit Portal</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+        </header>
+
+        <!-- Scrollable Stage Content -->
+        <div class="stage-scroll-container">
           
-          <!-- LEFT: ADD / EDIT CHAIR FORM -->
-          <div style="background: #ffffff; border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; border-bottom: 1px solid var(--border-light); padding-bottom: 0.75rem;">
-              <h3 id="dashChairFormHeading" style="font-size: 1.1rem; font-weight: 800; color: var(--text-main); margin: 0; display: flex; align-items: center; gap: 0.5rem;">
-                <span>✨</span> New Chair Entry
-              </h3>
-              <span id="dashChairFormModeBadge" style="font-size: 0.75rem; background: #ecfdf5; color: #047857; padding: 0.2rem 0.6rem; border-radius: var(--radius-full); font-weight: 700; border: 1px solid #a7f3d0;">
-                Add Mode
-              </span>
+          <!-- ================= PANEL 1: CUSTOMER REVIEWS ================= -->
+          <div id="adminPanelReviews" class="luxury-tab-panel" style="display: block;">
+            
+            <!-- Hero Header -->
+            <div class="luxury-header-hero">
+              <div class="hero-title-box">
+                <h2>
+                  <span>⭐</span>
+                  Customer Reviews Moderation
+                </h2>
+                <p>
+                  Review and moderate authentic feedback submitted by customers. Approved reviews appear immediately on the public website; pending and rejected feedback remain completely hidden.
+                </p>
+              </div>
+              <div>
+                <button type="button" id="dashBtnRefreshReviews" class="btn btn-sm" style="background: rgba(197, 160, 89, 0.2); color: #FDF9F0; border: 1px solid rgba(197, 160, 89, 0.4); font-weight: 700; border-radius: var(--adm-radius-sm); padding: 0.5rem 1rem;">
+                  🔄 Refresh Reviews
+                </button>
+              </div>
             </div>
 
-            <div id="dashAddChairAlert" style="display: none; padding: 0.75rem 1rem; border-radius: var(--radius-sm); font-size: 0.875rem; margin-bottom: 1rem; font-weight: 600;"></div>
-
-            <form id="dashAddChairForm">
-              <input type="hidden" id="dashChairEditId" value="">
-
-              <!-- Upload Chair Photo -->
-              <div class="form-group" style="margin-bottom: 1.25rem;">
-                <label class="form-label" style="font-weight: 700; color: var(--text-main); display: block; margin-bottom: 0.4rem;">
-                  Chair Photograph *
-                </label>
-                
-                <!-- Upload Dropzone / Trigger -->
-                <div id="chairUploadDropzone" style="border: 2px dashed #059669; background: #f0fdf4; border-radius: var(--radius-sm); padding: 1.25rem 1rem; text-align: center; cursor: pointer; transition: all 0.2s ease;">
-                  <input type="file" id="chairPhotoFileInput" accept="image/*" style="display: none;">
-                  <div style="font-size: 2rem; margin-bottom: 0.25rem;">📷</div>
-                  <div style="font-weight: 700; color: #065f46; font-size: 0.9rem;">
-                    Click to Upload Chair Photo
-                  </div>
-                  <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.25rem;">
-                    Upload high-res PNG, JPG or WEBP image
-                  </div>
+            <!-- KPI Cards -->
+            <div class="luxury-kpi-grid">
+              <div class="kpi-card kpi-gold">
+                <div class="kpi-label">
+                  <span>Total Reviews</span>
+                  <span style="color: var(--adm-gold-500);">📊</span>
                 </div>
-
-                <!-- Live Photo Preview -->
-                <div id="chairPhotoPreviewBox" style="display: none; margin-top: 0.75rem; background: #f8fafc; border: 1px solid var(--border-light); border-radius: var(--radius-sm); padding: 0.75rem; position: relative;">
-                  <div style="display: flex; gap: 0.75rem; align-items: center;">
-                    <img id="chairPhotoPreviewImg" src="" alt="Chair Preview" style="width: 70px; height: 70px; object-fit: contain; background: #ffffff; border-radius: 4px; border: 1px solid #e2e8f0;">
-                    <div style="flex: 1; min-width: 0;">
-                      <div id="chairPhotoFilename" style="font-size: 0.85rem; font-weight: 700; color: var(--text-main); word-break: break-all;">photo.png</div>
-                      <div id="chairPhotoStatus" style="font-size: 0.75rem; color: #059669; font-weight: 600;">✓ Ready to publish</div>
-                    </div>
-                    <button type="button" id="btnRemoveChairPhoto" style="background: #fee2e2; border: 1px solid #fecaca; color: #b91c1c; border-radius: 4px; padding: 0.35rem 0.6rem; font-size: 0.75rem; cursor: pointer; font-weight: 700;">
-                      Remove
-                    </button>
-                  </div>
-                </div>
-                <input type="hidden" id="chairPhotoUrlInput" value="">
+                <div class="kpi-value" id="dashStatReviewsTotal">0</div>
+                <div style="font-size: 0.72rem; color: #64748B; margin-top: 0.35rem;">All customer submissions</div>
               </div>
 
-              <!-- Chair Category -->
-              <div class="form-group" style="margin-bottom: 1rem;">
-                <label for="chairCategorySelect" class="form-label" style="font-weight: 700; display: block; margin-bottom: 0.35rem;">
-                  Chair Category *
-                </label>
-                <select id="chairCategorySelect" class="form-input" style="width: 100%;" required>
-                  <option value="Office Chairs" selected>Office Chairs (Task &amp; Executive)</option>
-                  <option value="Visitor Chairs">Visitor Chairs</option>
-                  <option value="Lounge & Soft Seating">Lounge &amp; Soft Seating</option>
-                  <option value="Dining Chairs">Dining Chairs</option>
-                  <option value="Stools & Additional Seating">Stools &amp; Additional Seating</option>
+              <div class="kpi-card kpi-amber">
+                <div class="kpi-label" style="color: #B45309;">
+                  <span>Pending Approval</span>
+                  <span>⏳</span>
+                </div>
+                <div class="kpi-value" id="dashStatReviewsPending" style="color: #D97706;">0</div>
+                <div style="font-size: 0.72rem; color: #B45309; margin-top: 0.35rem; font-weight: 600;">Awaiting your moderation</div>
+              </div>
+
+              <div class="kpi-card kpi-emerald">
+                <div class="kpi-label" style="color: #15803D;">
+                  <span>Approved (Live)</span>
+                  <span>✓</span>
+                </div>
+                <div class="kpi-value" id="dashStatReviewsApproved" style="color: #16A34A;">0</div>
+                <div style="font-size: 0.72rem; color: #15803D; margin-top: 0.35rem; font-weight: 600;">Published on website</div>
+              </div>
+
+              <div class="kpi-card kpi-rose">
+                <div class="kpi-label" style="color: #B91C1C;">
+                  <span>Rejected (Hidden)</span>
+                  <span>✗</span>
+                </div>
+                <div class="kpi-value" id="dashStatReviewsRejected" style="color: #DC2626;">0</div>
+                <div style="font-size: 0.72rem; color: #B91C1C; margin-top: 0.35rem; font-weight: 600;">Hidden from customers</div>
+              </div>
+
+              <div class="kpi-card kpi-gold">
+                <div class="kpi-label">
+                  <span>Average Rating</span>
+                  <span style="color: #F59E0B;">★</span>
+                </div>
+                <div class="kpi-value" id="dashStatReviewsAvg" style="color: #F59E0B;">0.0</div>
+                <div style="font-size: 0.72rem; color: #64748B; margin-top: 0.35rem;">Showroom satisfaction</div>
+              </div>
+            </div>
+
+            <!-- Toolbar & Filter Pills -->
+            <div class="luxury-toolbar">
+              <div style="display: flex; gap: 0.75rem; flex: 1; max-width: 820px; flex-wrap: wrap; align-items: center;">
+                <input type="text" id="dashReviewsSearchInput" class="form-input" style="flex: 1; min-width: 220px; border-radius: var(--adm-radius-sm); border: 1px solid var(--adm-border);" placeholder="Search customer name, location, or feedback...">
+                
+                <!-- Status Filter Pills -->
+                <div class="status-filter-pills">
+                  <button type="button" class="dash-status-pill active" data-status="all" id="pillRevAll">All Reviews (<span id="dashPillCountAll">0</span>)</button>
+                  <button type="button" class="dash-status-pill" data-status="pending" id="pillRevPending">⏳ Pending (<span id="dashPillCountPending">0</span>)</button>
+                  <button type="button" class="dash-status-pill" data-status="approved" id="pillRevApproved">✓ Approved (<span id="dashPillCountApproved">0</span>)</button>
+                  <button type="button" class="dash-status-pill" data-status="rejected" id="pillRevRejected">✗ Rejected (<span id="dashPillCountRejected">0</span>)</button>
+                </div>
+                <input type="hidden" id="dashReviewsStatusFilter" value="all">
+
+                <select id="dashReviewsRatingFilter" class="form-input" style="width: 130px; border-radius: var(--adm-radius-sm); border: 1px solid var(--adm-border);">
+                  <option value="all">All Stars</option>
+                  <option value="5">5 Stars (★★★★★)</option>
+                  <option value="4">4 Stars (★★★★)</option>
+                  <option value="3">3 Stars (★★★)</option>
+                  <option value="2">2 Stars (★★)</option>
+                  <option value="1">1 Star (★)</option>
                 </select>
               </div>
+            </div>
 
-              <!-- Chair Name & Code Row -->
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 1rem;">
-                <div class="form-group">
-                  <label for="chairNameInput" class="form-label" style="font-weight: 700; display: block; margin-bottom: 0.35rem;">
-                    Chair Model / Name *
-                  </label>
-                  <input type="text" id="chairNameInput" class="form-input" placeholder="e.g. Ergonomic High-Back" required style="width: 100%;">
-                </div>
-                <div class="form-group">
-                  <label for="chairCodeInput" class="form-label" style="font-weight: 700; display: block; margin-bottom: 0.35rem;">
-                    Product Code
-                  </label>
-                  <input type="text" id="chairCodeInput" class="form-input" placeholder="Auto (e.g. SHSE 129)" style="width: 100%;">
-                </div>
+            <!-- Reviews Table Card -->
+            <div class="luxury-table-card">
+              <table class="luxury-table">
+                <thead>
+                  <tr>
+                    <th style="width: 140px;">Date &amp; ID</th>
+                    <th style="width: 200px;">Customer</th>
+                    <th style="width: 130px;">Rating</th>
+                    <th>Customer Feedback</th>
+                    <th style="width: 130px;">Status</th>
+                    <th style="text-align: right; width: 240px;">Moderation Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="dashReviewsTbody"></tbody>
+              </table>
+            </div>
+
+          </div>
+
+          <!-- ================= PANEL 2: ADD NEW CHAIRS ================= -->
+          <div id="adminPanelAddChair" class="luxury-tab-panel" style="display: none;">
+            
+            <!-- Hero Header -->
+            <div class="luxury-header-hero" style="background: linear-gradient(135deg, #0A192F 0%, #102A4C 60%, #163B66 100%);">
+              <div class="hero-title-box">
+                <h2>
+                  <span>🪑</span>
+                  Chair Product Studio &amp; Publishing
+                </h2>
+                <p>
+                  Upload chair photographs, configure model specifications, enter commercial catalogue rates, and publish directly to the live Sri Hanum Sastha Enterprises showroom.
+                </p>
               </div>
-
-              <!-- Price (₹) -->
-              <div class="form-group" style="margin-bottom: 1rem;">
-                <label for="chairPriceInput" class="form-label" style="font-weight: 700; display: block; margin-bottom: 0.35rem;">
-                  Catalogue Price (₹)
-                </label>
-                <div style="position: relative;">
-                  <span style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); font-weight: 700; color: var(--text-muted);">₹</span>
-                  <input type="number" id="chairPriceInput" class="form-input" placeholder="e.g. 6800" min="0" step="50" style="width: 100%; padding-left: 28px;">
-                </div>
-                <span style="font-size: 0.7rem; color: var(--text-muted);">Leave empty or 0 for "Price on Request"</span>
+              <div>
+                <button type="button" id="btnScrollToChairList" class="btn btn-sm" style="background: var(--adm-gold-500); color: #070D1E; font-weight: 800; border-radius: var(--adm-radius-sm); border: none; padding: 0.55rem 1.15rem;">
+                  📋 View Published Chairs (<span id="dashTotalChairsBadge">228</span>)
+                </button>
               </div>
+            </div>
 
-              <!-- Description -->
-              <div class="form-group" style="margin-bottom: 1.25rem;">
-                <label for="chairDescInput" class="form-label" style="font-weight: 700; display: block; margin-bottom: 0.35rem;">
-                  Description &amp; Specifications
-                </label>
-                <textarea id="chairDescInput" class="form-input" rows="3" placeholder="Breathable Korean mesh, synchronous multi-lock tilt mechanism, heavy-duty chrome/nylon base, 3-year warranty..." style="width: 100%; resize: vertical;"></textarea>
-              </div>
-
-              <!-- Live Interactive Chair Card Preview (Surya-Agencies Premium Showroom Style) -->
-              <div class="form-group" style="margin-bottom: 1.25rem;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
-                  <label class="form-label" style="font-weight: 700; color: var(--text-main); margin: 0; font-size: 0.85rem; display: flex; align-items: center; gap: 0.35rem;">
-                    <span>👁</span> Public Website Live Card Preview
-                  </label>
-                  <span style="font-size: 0.72rem; color: #059669; background: #ecfdf5; padding: 0.15rem 0.5rem; border-radius: 999px; font-weight: 700; border: 1px solid #a7f3d0;">
-                    Real-Time Preview
+            <div style="display: grid; grid-template-columns: minmax(340px, 500px) 1fr; gap: 1.75rem; align-items: start;">
+              
+              <!-- LEFT: FORM STUDIO -->
+              <div style="background: var(--adm-surface); border: 1px solid var(--adm-border); border-radius: var(--adm-radius-lg); padding: 1.75rem; box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.04);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; border-bottom: 1px solid var(--adm-border); padding-bottom: 0.85rem;">
+                  <h3 id="dashChairFormHeading" style="font-size: 1.1rem; font-weight: 800; color: var(--adm-text-main); margin: 0; display: flex; align-items: center; gap: 0.5rem;">
+                    <span>✨</span> New Chair Entry
+                  </h3>
+                  <span id="dashChairFormModeBadge" style="font-size: 0.75rem; background: #ECFDF5; color: #047857; padding: 0.25rem 0.65rem; border-radius: 9999px; font-weight: 700; border: 1px solid #A7F3D0;">
+                    Add Mode
                   </span>
                 </div>
-                
-                <div id="chairCardLivePreviewBox" style="background: #f8fafc; border: 1.5px dashed #cbd5e1; border-radius: 8px; padding: 1rem; display: flex; justify-content: center; align-items: center;">
-                  <div class="product-card" style="width: 100%; max-width: 260px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); border-radius: 8px; overflow: hidden; background: #ffffff; border: 1px solid #e2e8f0; pointer-events: none;">
-                    <div class="product-image-canvas" style="position: relative; height: 170px; background: #f8fafc; display: flex; align-items: center; justify-content: center; padding: 0.75rem;">
-                      <span id="prevCardBadge" class="product-category-badge" style="position: absolute; top: 8px; left: 8px; background: #064E3B; color: #ffffff; font-size: 0.65rem; font-weight: 700; padding: 0.2rem 0.5rem; border-radius: 4px;">Office Chairs</span>
-                      <div style="position: absolute; top: 8px; right: 8px; font-size: 0.9rem;">🤍</div>
-                      <img id="prevCardImg" src="assets/placeholder.svg" alt="Preview Chair" style="max-height: 135px; max-width: 100%; object-fit: contain;">
-                    </div>
-                    <div class="product-content" style="padding: 0.85rem;">
-                      <div id="prevCardCode" style="font-size: 0.72rem; font-weight: 700; color: #047857; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 0.2rem;">SHSE NEW</div>
-                      <h3 id="prevCardName" class="product-name" style="font-size: 0.9rem; font-weight: 700; color: #111827; margin: 0 0 0.35rem; line-height: 1.3;">Office Chairs  SHSE NEW</h3>
-                      <div class="product-price-row" style="margin-bottom: 0.65rem;">
-                        <span class="product-price-label" style="font-size: 0.7rem; color: #64748b; display: block;">Catalogue Rate</span>
-                        <span id="prevCardPrice" class="product-price-val" style="font-size: 1rem; font-weight: 800; color: #064E3B;">Price on Request</span>
+
+                <div id="dashAddChairAlert" style="display: none; padding: 0.75rem 1rem; border-radius: var(--adm-radius-sm); font-size: 0.875rem; margin-bottom: 1rem; font-weight: 600;"></div>
+
+                <form id="dashAddChairForm">
+                  <input type="hidden" id="dashChairEditId" value="">
+
+                  <!-- Photo Upload Dropzone -->
+                  <div class="form-group" style="margin-bottom: 1.25rem;">
+                    <label class="form-label" style="font-weight: 700; color: var(--adm-text-main); display: block; margin-bottom: 0.4rem; font-size: 0.85rem;">
+                      Chair Photograph *
+                    </label>
+                    
+                    <div id="chairUploadDropzone" style="border: 2px dashed var(--adm-gold-500); background: var(--adm-gold-100); border-radius: var(--adm-radius-md); padding: 1.5rem 1rem; text-align: center; cursor: pointer; transition: all 0.2s ease;">
+                      <input type="file" id="chairPhotoFileInput" accept="image/*" style="display: none;">
+                      <div style="font-size: 2.2rem; margin-bottom: 0.35rem;">📷</div>
+                      <div style="font-weight: 700; color: #8A6828; font-size: 0.95rem;">
+                        Click to Upload Chair Photo
                       </div>
-                      <div style="display: flex; gap: 0.35rem;">
-                        <div style="flex: 1; text-align: center; padding: 0.35rem; background: #f1f5f9; color: #334155; border-radius: 4px; font-size: 0.72rem; font-weight: 600;">View Details</div>
-                        <div style="flex: 1; text-align: center; padding: 0.35rem; background: #059669; color: #ffffff; border-radius: 4px; font-size: 0.72rem; font-weight: 700;">💬 WhatsApp</div>
+                      <div style="font-size: 0.75rem; color: #94A3B8; margin-top: 0.25rem;">
+                        High-resolution PNG, JPG or WEBP image
+                      </div>
+                    </div>
+
+                    <div id="chairPhotoPreviewBox" style="display: none; margin-top: 0.75rem; background: #F8FAFC; border: 1px solid var(--adm-border); border-radius: var(--adm-radius-sm); padding: 0.75rem;">
+                      <div style="display: flex; gap: 0.75rem; align-items: center;">
+                        <img id="chairPhotoPreviewImg" src="" alt="Chair Preview" style="width: 70px; height: 70px; object-fit: contain; background: #FFFFFF; border-radius: 6px; border: 1px solid #CBD5E1;">
+                        <div style="flex: 1; min-width: 0;">
+                          <div id="chairPhotoFilename" style="font-size: 0.85rem; font-weight: 700; color: var(--adm-text-main); word-break: break-all;">photo.png</div>
+                          <div id="chairPhotoStatus" style="font-size: 0.75rem; color: #059669; font-weight: 600;">✓ Ready to publish</div>
+                        </div>
+                        <button type="button" id="btnRemoveChairPhoto" style="background: #FEE2E2; border: 1px solid #FECACA; color: #B91C1C; border-radius: 6px; padding: 0.35rem 0.65rem; font-size: 0.75rem; cursor: pointer; font-weight: 700;">
+                          Remove
+                        </button>
+                      </div>
+                    </div>
+                    <input type="hidden" id="chairPhotoUrlInput" value="">
+                  </div>
+
+                  <!-- Category -->
+                  <div class="form-group" style="margin-bottom: 1rem;">
+                    <label for="chairCategorySelect" class="form-label" style="font-weight: 700; display: block; margin-bottom: 0.35rem; font-size: 0.85rem;">
+                      Chair Category *
+                    </label>
+                    <select id="chairCategorySelect" class="form-input" style="width: 100%; border-radius: var(--adm-radius-sm); border: 1px solid var(--adm-border);" required>
+                      <option value="Office Chairs" selected>Office Chairs (Task &amp; Executive)</option>
+                      <option value="Visitor Chairs">Visitor Chairs</option>
+                      <option value="Lounge & Soft Seating">Lounge &amp; Soft Seating</option>
+                      <option value="Dining Chairs">Dining Chairs</option>
+                      <option value="Stools & Additional Seating">Stools &amp; Additional Seating</option>
+                    </select>
+                  </div>
+
+                  <!-- Model & Code Row -->
+                  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 1rem;">
+                    <div class="form-group">
+                      <label for="chairNameInput" class="form-label" style="font-weight: 700; display: block; margin-bottom: 0.35rem; font-size: 0.85rem;">
+                        Chair Model / Name *
+                      </label>
+                      <input type="text" id="chairNameInput" class="form-input" placeholder="e.g. Ergonomic High-Back" required style="width: 100%; border-radius: var(--adm-radius-sm); border: 1px solid var(--adm-border);">
+                    </div>
+                    <div class="form-group">
+                      <label for="chairCodeInput" class="form-label" style="font-weight: 700; display: block; margin-bottom: 0.35rem; font-size: 0.85rem;">
+                        Product Code
+                      </label>
+                      <input type="text" id="chairCodeInput" class="form-input" placeholder="Auto (e.g. SHSE 129)" style="width: 100%; border-radius: var(--adm-radius-sm); border: 1px solid var(--adm-border);">
+                    </div>
+                  </div>
+
+                  <!-- Catalogue Price -->
+                  <div class="form-group" style="margin-bottom: 1rem;">
+                    <label for="chairPriceInput" class="form-label" style="font-weight: 700; display: block; margin-bottom: 0.35rem; font-size: 0.85rem;">
+                      Catalogue Price (₹)
+                    </label>
+                    <div style="position: relative;">
+                      <span style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); font-weight: 700; color: #94A3B8;">₹</span>
+                      <input type="number" id="chairPriceInput" class="form-input" placeholder="e.g. 6800" min="0" step="50" style="width: 100%; padding-left: 28px; border-radius: var(--adm-radius-sm); border: 1px solid var(--adm-border);">
+                    </div>
+                    <span style="font-size: 0.72rem; color: #94A3B8;">Leave empty or 0 for "Price on Request"</span>
+                  </div>
+
+                  <!-- Description -->
+                  <div class="form-group" style="margin-bottom: 1.25rem;">
+                    <label for="chairDescInput" class="form-label" style="font-weight: 700; display: block; margin-bottom: 0.35rem; font-size: 0.85rem;">
+                      Description &amp; Specifications
+                    </label>
+                    <textarea id="chairDescInput" class="form-input" rows="3" placeholder="Breathable Korean mesh, synchro tilt multi-lock mechanism, heavy-duty nylon star base, 3-year warranty..." style="width: 100%; resize: vertical; border-radius: var(--adm-radius-sm); border: 1px solid var(--adm-border);"></textarea>
+                  </div>
+
+                  <!-- Live Interactive Card Preview -->
+                  <div class="form-group" style="margin-bottom: 1.25rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                      <label class="form-label" style="font-weight: 700; color: var(--adm-text-main); margin: 0; font-size: 0.85rem; display: flex; align-items: center; gap: 0.35rem;">
+                        <span>👁</span> Public Website Live Card Preview
+                      </label>
+                      <span style="font-size: 0.72rem; color: #059669; background: #ECFDF5; padding: 0.15rem 0.55rem; border-radius: 9999px; font-weight: 700; border: 1px solid #A7F3D0;">
+                        Real-Time Preview
+                      </span>
+                    </div>
+                    
+                    <div id="chairCardLivePreviewBox" style="background: #F8FAFC; border: 1.5px dashed #CBD5E1; border-radius: 12px; padding: 1.25rem; display: flex; justify-content: center; align-items: center;">
+                      <div class="product-card" style="width: 100%; max-width: 270px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); border-radius: 12px; overflow: hidden; background: #FFFFFF; border: 1px solid #E2E8F0; pointer-events: none;">
+                        <div class="product-image-canvas" style="position: relative; height: 175px; background: #F8FAFC; display: flex; align-items: center; justify-content: center; padding: 0.75rem;">
+                          <span id="prevCardBadge" class="product-category-badge" style="position: absolute; top: 8px; left: 8px; background: #0A192F; color: #C5A059; font-size: 0.65rem; font-weight: 800; padding: 0.25rem 0.55rem; border-radius: 4px; border: 1px solid rgba(197, 160, 89, 0.4);">Office Chairs</span>
+                          <div style="position: absolute; top: 8px; right: 8px; font-size: 0.9rem;">🤍</div>
+                          <img id="prevCardImg" src="assets/placeholder.svg" alt="Preview Chair" style="max-height: 140px; max-width: 100%; object-fit: contain;">
+                        </div>
+                        <div class="product-content" style="padding: 1rem;">
+                          <div id="prevCardCode" style="font-size: 0.72rem; font-weight: 800; color: #C5A059; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 0.2rem;">SHSE NEW</div>
+                          <h3 id="prevCardName" class="product-name" style="font-size: 0.925rem; font-weight: 700; color: #0F172A; margin: 0 0 0.35rem; line-height: 1.3;">Office Chairs  SHSE NEW</h3>
+                          <div class="product-price-row" style="margin-bottom: 0.75rem;">
+                            <span class="product-price-label" style="font-size: 0.7rem; color: #64748B; display: block;">Catalogue Rate</span>
+                            <span id="prevCardPrice" class="product-price-val" style="font-size: 1.05rem; font-weight: 800; color: #0A192F;">Price on Request</span>
+                          </div>
+                          <div style="display: flex; gap: 0.4rem;">
+                            <div style="flex: 1; text-align: center; padding: 0.4rem; background: #F1F5F9; color: #334155; border-radius: 6px; font-size: 0.72rem; font-weight: 600;">View Details</div>
+                            <div style="flex: 1; text-align: center; padding: 0.4rem; background: #059669; color: #FFFFFF; border-radius: 6px; font-size: 0.72rem; font-weight: 700;">💬 WhatsApp</div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
+
+                  <!-- Actions -->
+                  <div style="display: flex; gap: 0.75rem; align-items: center;">
+                    <button type="submit" id="btnPublishChair" class="btn btn-primary" style="flex: 1; padding: 0.85rem; font-weight: 800; font-size: 0.95rem; justify-content: center; background: linear-gradient(135deg, #0A192F 0%, #15244C 100%); color: #C5A059; border: 1px solid #C5A059; border-radius: var(--adm-radius-sm); box-shadow: 0 4px 14px rgba(10, 25, 47, 0.25);">
+                      💾 Save &amp; Publish Chair
+                    </button>
+                    <button type="button" id="btnCancelEditChair" class="btn btn-outline" style="display: none; padding: 0.85rem 1rem; border-radius: var(--adm-radius-sm);">
+                      ✕ Cancel
+                    </button>
+                  </div>
+                </form>
+              </div>
+
+              <!-- RIGHT: MANAGE EXISTING CHAIRS DIRECTORY -->
+              <div id="adminManageChairsSection" style="background: var(--adm-surface); border: 1px solid var(--adm-border); border-radius: var(--adm-radius-lg); padding: 1.75rem; box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.04);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 0.75rem;">
+                  <div>
+                    <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--adm-text-main); margin: 0; display: flex; align-items: center; gap: 0.5rem;">
+                      <span>📋</span> Published Chairs Directory
+                    </h3>
+                    <div style="font-size: 0.8rem; color: var(--adm-text-muted); margin-top: 0.2rem;">
+                      Edit chair details or delete items from the public website
+                    </div>
+                  </div>
+                  <span style="background: var(--adm-bg); color: var(--adm-navy-900); padding: 0.35rem 0.85rem; border-radius: 9999px; font-size: 0.8rem; font-weight: 800; border: 1px solid var(--adm-border);">
+                    <span id="dashManageChairsCount">228</span> Chairs Total
+                  </span>
+                </div>
+
+                <!-- Manage Toolbar -->
+                <div style="display: flex; gap: 0.75rem; margin-bottom: 1.25rem; flex-wrap: wrap;">
+                  <input type="text" id="dashManageSearchInput" class="form-input" placeholder="Search code, model, category..." style="flex: 1; min-width: 180px; border-radius: var(--adm-radius-sm); border: 1px solid var(--adm-border);">
+                  <select id="dashManageCatFilter" class="form-input" style="width: 170px; border-radius: var(--adm-radius-sm); border: 1px solid var(--adm-border);">
+                    <option value="all">All Categories</option>
+                    <option value="Office Chairs">Office Chairs</option>
+                    <option value="Visitor Chairs">Visitor Chairs</option>
+                    <option value="Lounge & Soft Seating">Lounge &amp; Soft Seating</option>
+                    <option value="Dining Chairs">Dining Chairs</option>
+                    <option value="Stools & Additional Seating">Stools &amp; Additional Seating</option>
+                  </select>
+                </div>
+
+                <!-- Chairs List / Table Container -->
+                <div style="max-height: 560px; overflow-y: auto; border: 1px solid var(--adm-border); border-radius: var(--adm-radius-md);">
+                  <table style="width: 100%; border-collapse: collapse; font-size: 0.85rem; text-align: left;">
+                    <thead style="position: sticky; top: 0; background: #F8FAFC; z-index: 2; border-bottom: 1px solid var(--adm-border);">
+                      <tr>
+                        <th style="padding: 0.85rem; width: 65px;">Photo</th>
+                        <th style="padding: 0.85rem;">Chair Details</th>
+                        <th style="padding: 0.85rem; width: 110px;">Price</th>
+                        <th style="padding: 0.85rem; text-align: right; width: 140px;">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody id="dashManageChairsTbody"></tbody>
+                  </table>
                 </div>
               </div>
 
-              <!-- Submit Buttons -->
-              <div style="display: flex; gap: 0.75rem; align-items: center;">
-                <button type="submit" id="btnPublishChair" class="btn btn-primary" style="flex: 1; padding: 0.85rem; font-weight: 700; font-size: 0.95rem; justify-content: center; background: #059669; border-color: #059669;">
-                  💾 Save &amp; Publish Chair
-                </button>
-                <button type="button" id="btnCancelEditChair" class="btn btn-outline" style="display: none; padding: 0.85rem 1rem;">
-                  ✕ Cancel
-                </button>
-              </div>
-            </form>
-          </div>
-
-          <!-- RIGHT: MANAGE EXISTING CHAIRS DIRECTORY (Edit & Delete) -->
-          <div id="adminManageChairsSection" style="background: #ffffff; border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.75rem;">
-              <div>
-                <h3 style="font-size: 1.1rem; font-weight: 800; color: var(--text-main); margin: 0; display: flex; align-items: center; gap: 0.5rem;">
-                  <span>📋</span> Published Chairs Directory
-                </h3>
-                <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.2rem;">
-                  Edit chair details or delete items from the public website
-                </div>
-              </div>
-              <span style="background: var(--bg-neutral); color: var(--text-main); padding: 0.3rem 0.75rem; border-radius: var(--radius-full); font-size: 0.8rem; font-weight: 700; border: 1px solid var(--border-light);">
-                <span id="dashManageChairsCount">228</span> Chairs Total
-              </span>
             </div>
 
-            <!-- Manage Toolbar -->
-            <div style="display: flex; gap: 0.75rem; margin-bottom: 1rem; flex-wrap: wrap;">
-              <input type="text" id="dashManageSearchInput" class="form-input" placeholder="Search code, model, category..." style="flex: 1; min-width: 180px;">
-              <select id="dashManageCatFilter" class="form-input" style="width: 170px;">
-                <option value="all">All Categories</option>
-                <option value="Office Chairs">Office Chairs</option>
-                <option value="Visitor Chairs">Visitor Chairs</option>
-                <option value="Lounge & Soft Seating">Lounge &amp; Soft Seating</option>
-                <option value="Dining Chairs">Dining Chairs</option>
-                <option value="Stools & Additional Seating">Stools &amp; Additional Seating</option>
-              </select>
-            </div>
-
-            <!-- Chairs List / Table Container -->
-            <div style="max-height: 540px; overflow-y: auto; border: 1px solid var(--border-light); border-radius: var(--radius-sm);">
-              <table style="width: 100%; border-collapse: collapse; font-size: 0.85rem; text-align: left;">
-                <thead style="position: sticky; top: 0; background: var(--bg-neutral); z-index: 2; border-bottom: 1px solid var(--border-light);">
-                  <tr>
-                    <th style="padding: 0.75rem; width: 60px;">Photo</th>
-                    <th style="padding: 0.75rem;">Chair Details</th>
-                    <th style="padding: 0.75rem; width: 100px;">Price</th>
-                    <th style="padding: 0.75rem; text-align: right; width: 140px;">Actions</th>
-                  </tr>
-                </thead>
-                <tbody id="dashManageChairsTbody"></tbody>
-              </table>
-            </div>
           </div>
 
         </div>
-
-      </div>
+      </main>
 
     </div>
   </div>
