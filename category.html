@@ -1,489 +1,988 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Chair Category | Sri Hanum Sastha Enterprises</title>
+
   <meta name="description" content="Browse commercial chair collections by category from Sri Hanum Sastha Enterprises, Coimbatore.">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
+
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=3.7">
+
+  <link rel="stylesheet" href="styles.css?v=3.8">
+
 </head>
+
 <body>
 
+
+
   <!-- Clean Minimalist Sticky Header -->
+
   <header class="site-header">
+
     <div class="container nav-container">
+
       <a href="index.html" class="brand-logo" aria-label="Sri Hanum Sastha Enterprises Home">
+
         <img src="assets/Sri Hanum Sastha Enterprises Logo landscape.png" alt="Sri Hanum Sastha Enterprises Logo" class="header-logo-img" style="height: 84px; width: auto; max-height: 95px; max-width: 260px; object-fit: contain; display: block;">
+
       </a>
+
       <nav class="desktop-nav" aria-label="Main Navigation">
+
         <ul class="nav-menu">
+
           <li><a href="index.html" class="nav-link">Home</a></li>
+
           <li><a href="category.html?cat=office" class="nav-link" id="navOffice">Office Chairs</a></li>
+
           <li><a href="category.html?cat=visitor" class="nav-link" id="navVisitor">Visitor Chairs</a></li>
+
           <li><a href="category.html?cat=lounge" class="nav-link" id="navLounge">Lounge & Soft Seating</a></li>
+
           <li><a href="category.html?cat=dining" class="nav-link" id="navDining">Dining Chairs</a></li>
+
           <li><a href="category.html?cat=stools" class="nav-link" id="navStools">Stools & Seating</a></li>
+
           <li><a href="index.html#conceptsSection" class="nav-link">Design Concepts</a></li>
+
           <li><a href="contact.html" class="nav-link">Contact</a></li>
+
         </ul>
+
       </nav>
+
             <div class="header-actions">
+
         <!-- Admin Dashboard Access -->
+
         <button class="btn btn-outline btn-sm btn-header-admin" id="openAdminNavBtn" type="button" title="Open Admin Management" aria-label="Admin Dashboard">
-          <svg class="icon icon-lock" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Admin Dashboard
+
+          <svg class="icon icon-lock" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+
+          <span class="btn-text-full">Admin Dashboard</span>
+
+          <span class="btn-text-mobile">Admin</span>
+
         </button>
+
+
 
         <!-- Saved Chairs Shortcut -->
+
         <button class="btn btn-outline btn-sm btn-header-saved" data-open-saved title="View saved favorite chairs" aria-label="Saved Chairs">
-          <svg class="icon icon-heart" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg> Saved Items <span class="saved-count-badge" style="display:none; background: #DC2626; color: #fff; padding: 0.1rem 0.4rem; border-radius: 9999px; font-size: 0.7rem; margin-left: 0.25rem;">0</span>
+
+          <svg class="icon icon-heart" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+
+          <span class="btn-text-full">Saved Items</span>
+
+          <span class="btn-text-mobile">Saved</span>
+
+          <span class="saved-count-badge" style="display:none; background: #DC2626; color: #fff; padding: 0.1rem 0.4rem; border-radius: 9999px; font-size: 0.7rem; margin-left: 0.25rem;">0</span>
+
         </button>
+
         <button class="mobile-toggle" id="mobileToggle" aria-label="Open Mobile Menu" aria-expanded="false" aria-controls="mobileDrawer">
+
           <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+
             <line x1="3" y1="12" x2="21" y2="12"></line>
+
             <line x1="3" y1="6" x2="21" y2="6"></line>
+
             <line x1="3" y1="18" x2="21" y2="18"></line>
+
           </svg>
+
         </button>
+
       </div>
+
     </div>
+
   </header>
 
+
+
   <!-- Mobile Off-Canvas Drawer -->
+
   <div class="drawer-backdrop" id="drawerBackdrop"></div>
+
   <aside class="mobile-drawer" id="mobileDrawer" aria-label="Mobile Navigation">
+
     <div class="mobile-drawer-header">
+
       <img src="assets/Sri Hanum Sastha Enterprises Logo landscape.png" alt="Sri Hanum Sastha Enterprises Logo" style="height: 56px; width: auto; max-width: 180px; object-fit: contain; display: block;">
+
       <button class="mobile-drawer-close" id="drawerCloseBtn" aria-label="Close Mobile Menu">&times;</button>
+
     </div>
+
     <ul class="mobile-nav-links">
+
       <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+
       <li><a href="category.html?cat=office" class="mobile-nav-link">Office Chairs</a></li>
+
       <li><a href="category.html?cat=visitor" class="mobile-nav-link">Visitor Chairs</a></li>
+
       <li><a href="category.html?cat=lounge" class="mobile-nav-link">Lounge & Soft Seating</a></li>
+
       <li><a href="category.html?cat=dining" class="mobile-nav-link">Dining Chairs</a></li>
+
       <li><a href="category.html?cat=stools" class="mobile-nav-link">Stools & Additional Seating</a></li>
+
       <li><a href="index.html#conceptsSection" class="mobile-nav-link">Original Design Concepts</a></li>
+
       <li><a href="contact.html" class="mobile-nav-link">Contact Details</a></li>
+
     </ul>
 
+
+
         <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.6rem;">
+
       <button class="btn btn-outline btn-block" id="mobileOpenAdminBtn" type="button">
+
         <svg class="icon icon-lock" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Admin Dashboard
+
       </button>
+
       <button class="btn btn-outline btn-block" data-open-saved>
+
         <svg class="icon icon-heart" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg> Saved Items (<span class="saved-count-badge">0</span>)
+
       </button>
+
       <button class="btn btn-outline btn-block" onclick="window.catalogApp.openCompareModal()">
+
         <svg class="icon icon-compare" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg> Compare Selected Chairs
+
       </button>
+
     </div>
+
   </aside>
+
+
 
   <!-- Saved Chairs Off-Canvas Drawer -->
+
   <aside class="mobile-drawer" id="savedDrawer" aria-label="Saved Chairs" style="z-index: 1060;">
+
     <div class="saved-drawer-header">
+
       <div style="font-weight: 800; font-size: 1.15rem; color: var(--text-main);">
+
         <svg class="icon icon-heart" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg> Saved Chairs (<span class="saved-count-badge">0</span>)
+
       </div>
+
       <button class="mobile-drawer-close" id="savedDrawerClose" aria-label="Close Saved Drawer">&times;</button>
+
     </div>
+
     <div id="savedListContainer" style="flex: 1; overflow-y: auto;"></div>
+
     <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border-light); display: flex; gap: 0.5rem;">
+
       <button class="btn btn-outline btn-sm btn-block" onclick="localStorage.setItem('shse_saved_chairs', '[]'); window.location.reload();">
+
         Clear All
+
       </button>
+
     </div>
+
   </aside>
 
+
+
   <!-- Category Hero Section -->
+
   <section class="contact-hero">
+
     <div class="container">
+
       <div class="breadcrumb-nav" style="margin-bottom: 0.75rem; font-size: 0.85rem; color: var(--text-muted);">
+
         <a href="index.html" style="color: var(--forest-green); font-weight: 600;">Home</a>
+
         <span style="margin: 0 0.5rem;">/</span>
+
         <span id="breadcrumbCatName" style="color: var(--text-main); font-weight: 700; text-transform: uppercase;">Category</span>
+
       </div>
+
       <div style="display: inline-block; font-size: 0.8125rem; font-weight: 700; color: var(--forest-green); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.5rem;" id="catLabel">
+
         Commercial Seating Collection
+
       </div>
+
       <h1 style="font-size: 2.5rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.75rem;" id="catHeading">
+
         Category Collection
+
       </h1>
+
       <p style="font-size: 1.05rem; color: var(--text-secondary); max-width: 640px; margin: 0 auto;" id="catSubtitle">
+
         Explore verified commercial seating models engineered for ergonomic posture and commercial durability.
+
       </p>
+
     </div>
+
   </section>
+
+
 
   <!-- Notice Banner: Prices May Change -->
+
   <div class="notice-banner" role="status">
+
     <div class="container notice-content">
+
       <span class="notice-icon"><svg class="icon icon-notice" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></span>
+
       <span>Prices may change. Please contact us to confirm current prices and availability.</span>
+
     </div>
+
   </div>
+
+
 
   <!-- Category Catalogue Section -->
+
   <section class="catalogue-section">
+
     <div class="container">
+
       
+
       <!-- Toolbar -->
+
       <div class="catalogue-toolbar">
+
         <div class="search-sort-row">
+
           <div class="search-box">
+
             <span class="search-icon"><svg class="icon icon-search" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
+
             <input type="text" id="catSearch" placeholder="Search within this collection by model name or SHSE code...">
+
           </div>
+
           <div class="sort-box">
+
             <select id="catSort">
+
               <option value="default">Sort: Catalogue Order</option>
+
               <option value="code-asc">Code: Sequential Order</option>
+
               <option value="price-low">Price: Low to High</option>
+
               <option value="price-high">Price: High to Low</option>
+
             </select>
+
           </div>
+
         </div>
+
+
 
         <!-- Filter Status Row -->
+
         <div class="filter-status-row">
+
           <div>
+
             Showing: <strong id="catStatusText">All Chairs</strong> (<span id="catCountText">0 chairs</span>)
+
           </div>
+
           <a href="index.html#catalogue" class="btn-reset-filter" style="text-decoration: none;">
+
             ← View All 5 Categories
+
           </a>
+
         </div>
+
       </div>
+
+
 
       <!-- Products Grid -->
+
       <div class="products-grid" id="catProductsGrid"></div>
 
+
+
       <!-- Empty State -->
+
       <div class="empty-state" id="catEmptyState" style="display: none;">
+
         <div class="empty-state-icon"><svg class="icon icon-search" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+
         <h3>No matching chairs found in this collection</h3>
+
         <p>Try clearing your search terms or view our full catalogue index.</p>
+
         <button class="btn btn-outline" onclick="document.getElementById('catSearch').value=''; loadCategory();">
+
           Clear Search
+
         </button>
+
       </div>
 
+
+
     </div>
+
   </section>
 
+
+
   <!-- Business Footer -->
+
   <footer class="site-footer" id="contact">
+
     <div class="container">
+
       <div class="footer-main-grid">
+
         <div class="footer-col-about" id="about">
+
           <div class="footer-logo">
+
             <img src="assets/Sri Hanum Sastha Enterprises Logo landscape.png" alt="Sri Hanum Sastha Enterprises Logo" class="about-logo-img" style="height: 90px; width: auto; max-height: 105px; max-width: 260px; object-fit: contain; display: block;">
+
           </div>
+
           <p class="footer-desc">
+
             Sri Hanum Sastha Enterprises provides comprehensive commercial, executive, visitor, and dining seating solutions engineered for ergonomic posture support, commercial longevity, and modern interiors in Coimbatore.
+
           </p>
+
           <div class="footer-disclaimer-note">
+
             <svg class="icon icon-notice" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg> <strong>Price & Stock Note:</strong> Prices may change. Please contact us to confirm current prices and availability.
+
           </div>
+
         </div>
 
+
+
         <div>
+
           <h3 class="footer-title">Chair Categories</h3>
+
           <ul class="footer-links">
+
             <li><a href="category.html?cat=office">Office Chairs (128)</a></li>
+
             <li><a href="category.html?cat=visitor">Visitor Chairs (48)</a></li>
+
             <li><a href="category.html?cat=lounge">Lounge & Soft Seating (24)</a></li>
+
             <li><a href="category.html?cat=dining">Dining Chairs (21)</a></li>
+
             <li><a href="category.html?cat=stools">Stools & Additional Seating (7)</a></li>
+
             <li><a href="index.html#catalogue">Full Catalogue Index (228)</a></li>
+
           </ul>
+
         </div>
+
+
 
         <div class="footer-contact-box" id="footer-contact">
+
           <h3 class="footer-title">Contact Us</h3>
+
           
+
           <div class="contact-detail-row">
+
             <span class="contact-icon" aria-hidden="true"><svg class="icon icon-building" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="16" height="20" x="4" y="2" rx="2" ry="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M8 10h.01"/><path d="M16 10h.01"/><path d="M8 14h.01"/><path d="M16 14h.01"/></svg></span>
+
             <div class="contact-info-text">
+
               <strong>Company Name</strong>
+
               <p>Sri Hanum Sastha Enterprises</p>
+
             </div>
+
           </div>
 
+
+
           <div class="contact-detail-row">
+
             <span class="contact-icon" aria-hidden="true"><svg class="icon icon-pin" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
+
             <div class="contact-info-text">
+
               <strong>Showroom & Office Address</strong>
+
               <p>
+
                 173, First Floor, KK Lane Street,<br>
+
                 Avinashi Road, Coimbatore,<br>
+
                 Tamil Nadu – 641018
+
               </p>
+
             </div>
+
           </div>
 
+
+
           <div class="contact-detail-row">
+
             <span class="contact-icon" aria-hidden="true"><svg class="icon icon-whatsapp" width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.52 3.48A11.93 11.93 0 0 0 12.06 0C5.46 0 .09 5.37.09 11.97c0 2.11.55 4.17 1.6 6L0 24l6.19-1.62a11.94 11.94 0 0 0 5.87 1.51h.01c6.6 0 11.97-5.37 11.97-11.97 0-3.2-.12-6.21-3.52-8.44zm-8.46 18.52c-1.8 0-3.55-.48-5.09-1.39l-.36-.22-3.78.99 1.01-3.68-.24-.38a9.98 9.98 0 0 1-1.53-5.33c0-5.51 4.49-10 10-10 2.67 0 5.18 1.04 7.07 2.93a9.93 9.93 0 0 1 2.93 7.07c0 5.51-4.49 10-10 10zm5.48-7.48c-.3-.15-1.78-.88-2.06-.98-.28-.1-.48-.15-.68.15-.2.3-.78.98-.95 1.18-.18.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.5-.89-.8-1.5-1.78-1.67-2.08-.18-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.38-.02-.53-.08-.15-.68-1.63-.93-2.23-.24-.58-.49-.5-.68-.51h-.58c-.2 0-.52.08-.8.38-.27.3-1.05 1.03-1.05 2.51 0 1.48 1.08 2.91 1.23 3.11.15.2 2.12 3.24 5.14 4.54.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.78-.73 2.03-1.43.25-.7.25-1.3.18-1.43-.08-.12-.27-.2-.57-.35z"/></svg></span>
+
             <div class="contact-info-text">
+
               <strong>WhatsApp Enquiries (Exclusive Line)</strong>
+
               <p>
+
                 <a href="https://wa.me/918695706013" target="_blank" rel="noopener" class="phone-link">8695706013</a>
+
               </p>
+
             </div>
+
           </div>
 
+
+
           <div class="contact-detail-row">
+
             <span class="contact-icon" aria-hidden="true"><svg class="icon icon-phone" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+
             <div class="contact-info-text">
+
               <strong>Direct Phone Lines</strong>
+
               <p>
+
                 <span>Phone: <a href="tel:+919688727284" class="phone-link">9688727284</a></span><br>
+
                 <span>Alternate Phone: <a href="tel:+918695706013" class="phone-link">8695706013</a></span>
+
               </p>
+
             </div>
+
           </div>
 
+
+
           <div class="contact-detail-row">
+
             <span class="contact-icon" aria-hidden="true"><svg class="icon icon-mail" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span>
+
             <div class="contact-info-text">
+
               <strong>Official Email</strong>
+
               <p>
+
                 <a href="mailto:srihanumsastha@gmail.com" class="phone-link">srihanumsastha@gmail.com</a>
+
               </p>
+
             </div>
+
           </div>
+
+
 
           <div class="footer-call-buttons">
+
             <a href="tel:+919688727284" class="btn btn-secondary">
+
               <svg class="icon icon-phone" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Call: 9688727284
+
             </a>
+
             <a href="tel:+918695706013" class="btn btn-secondary">
+
               <svg class="icon icon-phone" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Call: 8695706013
+
             </a>
+
           </div>
+
         </div>
+
       </div>
+
+
 
       <div class="footer-bottom">
+
         <div>
+
           &copy; <span id="currentYear"></span> Sri Hanum Sastha Enterprises. All Rights Reserved.
+
         </div>
+
         <div>
+
           Commercial Seating Catalogue &bull; Coimbatore, Tamil Nadu
+
         </div>
+
       </div>
+
     </div>
+
   </footer>
 
+
+
   <!-- FLOATING COMPARISON BAR -->
+
   <div class="compare-floating-bar" id="compareFloatingBar">
+
     <div class="compare-bar-thumbs" id="compareBarThumbs"></div>
+
     <div class="compare-bar-info">
+
       <span id="compareCountText">Compare (0/4)</span>
+
     </div>
+
     <button class="btn btn-primary btn-sm" id="btnOpenCompareModal">
+
       View Comparison →
+
     </button>
+
     <button class="btn btn-outline-white btn-sm" id="btnClearCompare">
+
       Clear
+
     </button>
+
   </div>
+
+
 
   <!-- CHAIR COMPARISON MODAL -->
+
   <div class="compare-modal" id="compareModal" role="dialog" aria-modal="true" aria-labelledby="compareModalTitle">
+
     <div class="compare-modal-content">
+
       <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-light); padding-bottom: 1rem;">
+
         <div>
+
           <h2 id="compareModalTitle" style="font-size: 1.35rem; font-weight: 800; color: var(--text-main);">Side-by-Side Model Comparison</h2>
+
           <p style="font-size: 0.8125rem; color: var(--text-secondary); margin-top: 0.25rem;">Compare specifications across selected genuine catalogue chairs</p>
+
         </div>
+
         <button id="compareModalClose" style="background: none; border: none; font-size: 1.75rem; cursor: pointer; color: var(--text-muted);">&times;</button>
+
       </div>
+
       <div id="compareTableContent"></div>
+
     </div>
+
   </div>
+
+
 
   <!-- AI CATALOGUE CHATBOT WIDGET -->
+
   <button class="chat-widget-toggle" id="chatWidgetToggle" aria-label="Open Catalogue Chat Assistant">
+
     <span class="chat-pulse-dot"></span>
+
     <span><svg class="icon icon-chat" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> Catalogue Assistant</span>
+
   </button>
 
+
+
   <div class="chat-window" id="chatWindow" role="dialog" aria-label="Catalogue Chat Assistant">
+
     <div class="chat-header">
+
       <div class="chat-header-title">
+
         <span class="chat-pulse-dot"></span>
+
         <span>Catalogue Assistant</span>
+
       </div>
+
       <button class="chat-header-close" id="chatCloseBtn" aria-label="Close Chat">&times;</button>
+
     </div>
+
     <div class="chat-disclaimer-strip">
+
       <span>Verified 228 Catalogue Data</span>
+
       <span class="chat-status-dot"></span><span style="color: var(--forest-green); font-weight: 700;">Online</span>
+
     </div>
+
     <div class="chat-messages" id="chatMessages">
+
       <div class="chat-bubble bot">
+
         Hello! I am the <strong>Sri Hanum Sastha Catalogue Assistant</strong>. Looking for chairs in this category? Ask me about models, weight capacities, mesh types, or Coimbatore showroom details!
+
       </div>
+
     </div>
+
     <div class="chat-chips">
+
       <button class="chat-chip" data-query="Recommend best chairs in this category">Best models</button>
+
       <button class="chat-chip" data-query="Where is your showroom?">Showroom Address</button>
+
       <button class="chat-chip" data-query="How do I enquire on WhatsApp?">WhatsApp Enquiry</button>
+
     </div>
+
     <div class="chat-input-row">
+
       <input type="text" id="chatInput" placeholder="Ask about models or specifications..." aria-label="Type your message">
+
       <button id="chatSendBtn" aria-label="Send message">Send</button>
+
     </div>
+
   </div>
 
+
+
   <script src="app.js"></script>
+
   <script>
+
     document.getElementById('currentYear').textContent = new Date().getFullYear();
 
+
+
     const categoryMap = {
+
       'office': { name: 'Office Chairs', navId: 'navOffice', desc: '128 ergonomic task chairs, executive high-back seating, and mesh manager models.' },
+
       'visitor': { name: 'Visitor Chairs', navId: 'navVisitor', desc: '48 cantilever, four-leg, and conference visitor chairs for meeting rooms and lobbies.' },
+
       'lounge': { name: 'Lounge & Soft Seating', navId: 'navLounge', desc: '24 luxurious soft seating pieces, reception sofas, and molded breakout armchairs.' },
+
       'dining': { name: 'Dining Chairs', navId: 'navDining', desc: '21 solid wood and metal frame dining chairs for cafeterias and hospitality spaces.' },
+
       'stools': { name: 'Stools & Additional Seating', navId: 'navStools', desc: '7 adjustable gas-lift laboratory stools and commercial utility seating.' }
+
     };
+
+
 
     let allCatProducts = [];
 
+
+
     async function loadCategory() {
+
       const params = new URLSearchParams(window.location.search);
+
       const catParam = (params.get('cat') || 'office').toLowerCase();
+
       const catInfo = categoryMap[catParam] || categoryMap['office'];
 
+
+
       document.title = `${catInfo.name} Collection | Sri Hanum Sastha Enterprises`;
+
       document.getElementById('catHeading').textContent = catInfo.name.toUpperCase();
+
       const bcEl = document.getElementById('breadcrumbCatName'); if (bcEl) bcEl.textContent = catInfo.name.toUpperCase();
+
       document.title = `${catInfo.name.toUpperCase()} Collection | Sri Hanum Sastha Enterprises`;
+
       document.getElementById('catSubtitle').textContent = catInfo.desc;
+
       document.getElementById('catStatusText').textContent = catInfo.name;
 
+
+
       // Active nav link
+
       if (catInfo.navId && document.getElementById(catInfo.navId)) {
+
         document.getElementById(catInfo.navId).classList.add('active');
+
       }
+
+
 
       try {
+
         let res = await fetch('assets/catalog.json');
+
         if (!res.ok) {
+
           res = await fetch('/api/chairs');
+
         }
+
         if (!res.ok) throw new Error('Failed to load catalogue');
+
         const catalog = await res.json();
+
         allCatProducts = catalog.filter(p => p.category === catInfo.name);
 
+
+
         renderCategoryGrid();
+
       } catch (e) {
+
         console.error('Failed to load category:', e);
+
       }
+
     }
+
+
 
     const CAT_PREFIX = {
+
       'Office Chairs': 'OFFICE CHAIRS',
+
       'Visitor Chairs': 'VISITOR CHAIRS',
+
       'Lounge & Soft Seating': 'LOUNGE CHAIRS',
+
       'Dining Chairs': 'DINING CHAIRS',
+
       'Stools & Additional Seating': 'STOOLS'
+
     };
 
+
+
     function getFormattedTitle(p) {
+
       if (!p) return '';
+
       if (p.display_name && p.display_name.includes('SHSE')) {
+
         return p.display_name;
+
       }
+
       const prefix = CAT_PREFIX[p.category] || (p.category ? p.category.toUpperCase() : 'CHAIRS');
+
       const codeNum = p.code_number || (p.code ? p.code.replace(/\D/g, '') : '1');
+
       return `${prefix}  SHSE ${codeNum}`;
+
     }
 
+
+
     function renderCategoryGrid() {
+
       const search = (document.getElementById('catSearch').value || '').toLowerCase().trim();
+
       const sort = document.getElementById('catSort').value;
+
       const savedIds = JSON.parse(localStorage.getItem('shse_saved_chairs') || '[]');
+
       const compareIds = JSON.parse(sessionStorage.getItem('shse_compare_ids') || '[]');
 
+
+
       let list = allCatProducts.filter(p => {
+
         if (!search) return true;
+
         const title = (p.display_name || '').toLowerCase();
+
         const code = (p.code || '').toLowerCase();
+
         const model = (p._internal_model || '').toLowerCase();
+
         const num = String(p.code_number || '');
+
         const keywords = (p.search_keywords || '').toLowerCase();
+
         return title.includes(search) || code.includes(search) || model.includes(search) || num.includes(search) || keywords.includes(search);
+
       });
 
+
+
       if (sort === 'price-low') {
+
         list.sort((a, b) => (a.base_price || 0) - (b.base_price || 0));
+
       } else if (sort === 'price-high') {
+
         list.sort((a, b) => (b.base_price || 0) - (a.base_price || 0));
+
       } else if (sort === 'code-asc') {
+
         list.sort((a, b) => (a.code_number || 0) - (b.code_number || 0));
+
       }
+
+
 
       document.getElementById('catCountText').textContent = `${list.length} chairs`;
 
+
+
       const grid = document.getElementById('catProductsGrid');
+
       const empty = document.getElementById('catEmptyState');
 
+
+
       if (list.length === 0) {
+
         grid.innerHTML = '';
+
         empty.style.display = 'block';
+
         return;
+
       }
 
+
+
       empty.style.display = 'none';
+
       grid.innerHTML = list.map(p => {
+
         const formattedTitle = getFormattedTitle(p);
+
         const model = p._internal_model || '';
+
         const isSaved = savedIds.includes(p.id);
+
         const isCompared = compareIds.includes(p.id);
+
         const waMsg = encodeURIComponent(`Hello Sri Hanum Sastha Enterprises, I am interested in chair ${formattedTitle}${model ? ' (Model: ' + model + ')' : ''} from the ${p.category} category. Please share more details.`);
+
         return `
+
           <article class="product-card" data-id="${p.id}">
+
             <div class="product-image-canvas" onclick="window.location.href='product.html?id=${p.id}'" role="button" tabindex="0" aria-label="View details for ${formattedTitle}">
+
               <span class="product-category-badge">${p.category}</span>
+
               <button class="btn-save-chair ${isSaved ? 'active' : ''}" onclick="event.stopPropagation(); window.catalogApp.toggleSaveChair('${p.id}'); renderCategoryGrid();" title="${isSaved ? 'Remove from Saved' : 'Save this chair'}" aria-label="Save ${formattedTitle}">
+
                 ${isSaved ? '<svg class="icon icon-heart fill" width="16" height="16" viewBox="0 0 24 24" fill="#DC2626" stroke="#DC2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>' : '<svg class="icon icon-heart" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>'}
+
               </button>
+
               <img src="${p.image}" alt="${formattedTitle}${model ? ' - ' + model : ''}" loading="lazy" onerror="this.src='assets/placeholder.svg'">
+
             </div>
+
             <div class="product-content">
+
               <div class="product-card-top-row" style="display: flex; justify-content: flex-end; align-items: center; margin-bottom: 0.35rem;">
+
                 <button class="btn-compare-chair ${isCompared ? 'active' : ''}" onclick="window.catalogApp.toggleCompare('${p.id}'); renderCategoryGrid();">
+
                   ${isCompared ? '<svg class="icon icon-check" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Comparing' : '+ Compare'}
+
                 </button>
+
               </div>
+
               <h3 class="product-name">${formattedTitle}</h3>
+
               ${model ? `<div style="font-size: 0.8125rem; color: var(--text-muted); margin-bottom: 0.5rem;">Model: ${model}</div>` : ''}
+
               <div class="product-price-row">
+
                 <span class="product-price-label">Catalogue Rate</span>
+
                 <span class="product-price-val">${p.price_display || '₹' + p.base_price}</span>
+
               </div>
+
               <div class="product-actions">
+
                 <a href="product.html?id=${p.id}" class="btn btn-outline btn-sm">
+
                   View Details →
+
                 </a>
+
                 <a href="https://wa.me/918695706013?text=${waMsg}" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
+
                   <svg class="icon icon-whatsapp" width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.52 3.48A11.93 11.93 0 0 0 12.06 0C5.46 0 .09 5.37.09 11.97c0 2.11.55 4.17 1.6 6L0 24l6.19-1.62a11.94 11.94 0 0 0 5.87 1.51h.01c6.6 0 11.97-5.37 11.97-11.97 0-3.2-.12-6.21-3.52-8.44zm-8.46 18.52c-1.8 0-3.55-.48-5.09-1.39l-.36-.22-3.78.99 1.01-3.68-.24-.38a9.98 9.98 0 0 1-1.53-5.33c0-5.51 4.49-10 10-10 2.67 0 5.18 1.04 7.07 2.93a9.93 9.93 0 0 1 2.93 7.07c0 5.51-4.49 10-10 10zm5.48-7.48c-.3-.15-1.78-.88-2.06-.98-.28-.1-.48-.15-.68.15-.2.3-.78.98-.95 1.18-.18.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.5-.89-.8-1.5-1.78-1.67-2.08-.18-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.38-.02-.53-.08-.15-.68-1.63-.93-2.23-.24-.58-.49-.5-.68-.51h-.58c-.2 0-.52.08-.8.38-.27.3-1.05 1.03-1.05 2.51 0 1.48 1.08 2.91 1.23 3.11.15.2 2.12 3.24 5.14 4.54.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.78-.73 2.03-1.43.25-.7.25-1.3.18-1.43-.08-.12-.27-.2-.57-.35z"/></svg> WhatsApp
+
                 </a>
+
               </div>
+
             </div>
+
           </article>
+
         `;
+
       }).join('');
+
     }
 
+
+
     document.getElementById('catSearch').addEventListener('input', renderCategoryGrid);
+
     document.getElementById('catSort').addEventListener('change', renderCategoryGrid);
+
     window.addEventListener('DOMContentLoaded', loadCategory);
+
   </script>
+
 </body>
+
 </html>
+

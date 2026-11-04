@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=3.7">
+  <link rel="stylesheet" href="styles.css?v=3.8">
 
   <!-- Schema.org Structured Data -->
   <script type="application/ld+json">
@@ -66,12 +66,17 @@
       <div class="header-actions">
         <!-- Admin Dashboard Access -->
         <button class="btn btn-outline btn-sm btn-header-admin" id="openAdminNavBtn" type="button" title="Open Admin Management" aria-label="Admin Dashboard">
-          <svg class="icon icon-lock" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Admin Dashboard
+          <svg class="icon icon-lock" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <span class="btn-text-full">Admin Dashboard</span>
+          <span class="btn-text-mobile">Admin</span>
         </button>
 
         <!-- Saved Chairs Shortcut -->
         <button class="btn btn-outline btn-sm btn-header-saved" data-open-saved title="View saved favorite chairs" aria-label="Saved Chairs">
-          <svg class="icon icon-heart" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg> Saved Items <span class="saved-count-badge" style="display:none; background: #DC2626; color: #fff; padding: 0.1rem 0.4rem; border-radius: 9999px; font-size: 0.7rem; margin-left: 0.25rem;">0</span>
+          <svg class="icon icon-heart" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span class="btn-text-full">Saved Items</span>
+          <span class="btn-text-mobile">Saved</span>
+          <span class="saved-count-badge" style="display:none; background: #DC2626; color: #fff; padding: 0.1rem 0.4rem; border-radius: 9999px; font-size: 0.7rem; margin-left: 0.25rem;">0</span>
         </button>
 
         <button class="mobile-toggle" id="mobileToggle" aria-label="Open Mobile Menu" aria-expanded="false" aria-controls="mobileDrawer">
@@ -293,8 +298,12 @@
         </div>
 
         <!-- Carousel Navigation Controls -->
-        <button class="hero-carousel-prev" aria-label="Previous Slide">‹</button>
-        <button class="hero-carousel-next" aria-label="Next Slide">›</button>
+        <button class="hero-carousel-prev" type="button" aria-label="Previous Slide" title="Previous Category" onclick="event.stopPropagation()">
+          <svg class="icon icon-chevron-left" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button class="hero-carousel-next" type="button" aria-label="Next Slide" title="Next Category" onclick="event.stopPropagation()">
+          <svg class="icon icon-chevron-right" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
 
         <!-- Discreet Indicators -->
         <div class="hero-carousel-indicators" aria-label="Slide Selection"></div>
