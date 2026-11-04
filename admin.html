@@ -333,6 +333,17 @@
         padding: 0.4rem 0.75rem !important;
         font-size: 0.8rem !important;
       }
+      .admin-exec-badge {
+        display: none !important;
+      }
+      .admin-profile-header-card {
+        padding: 0.85rem !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 0.65rem !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
       .dashboard-container {
         padding: 1rem 0.75rem;
         width: 100%;
@@ -457,6 +468,13 @@
       <span class="admin-nav-phone" style="font-size: 0.75rem; color: #94a3b8; font-weight: 500; margin-left: 0.5rem;">Coimbatore (9688727284 / 8695706013)</span>
     </div>
     <div class="admin-nav-actions" style="display: flex; gap: 0.75rem; align-items: center;">
+      <div class="admin-exec-badge" title="Executive Administrator: Priya Sathiyaraj" style="display: flex; align-items: center; gap: 0.5rem; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(197, 160, 89, 0.45); padding: 0.3rem 0.65rem; border-radius: 6px;">
+        <div style="width: 22px; height: 22px; border-radius: 50%; background: #14532D; color: #FFFFFF; font-weight: 800; font-size: 0.7rem; display: flex; align-items: center; justify-content: center; border: 1px solid #C5A059;">PS</div>
+        <div style="line-height: 1.15; text-align: left;">
+          <div style="font-size: 0.78rem; font-weight: 800; color: #FFFFFF;">Priya Sathiyaraj</div>
+          <div style="font-size: 0.65rem; color: #C5A059; font-weight: 700;">Executive Administrator</div>
+        </div>
+      </div>
       <a href="index.html" class="btn btn-outline btn-sm" style="color: #ffffff; border-color: rgba(255,255,255,0.3);" target="_blank">
         ↗ View Public Site
       </a>
@@ -496,6 +514,32 @@
 
   <!-- Dashboard Section -->
   <div class="dashboard-container" id="dashContainer">
+    
+    <!-- Executive Administrator Profile & Welcome Banner -->
+    <div class="admin-profile-header-card" style="background: linear-gradient(135deg, #0A192F 0%, #102A4C 60%, #163B66 100%); color: #ffffff; padding: 1.25rem 1.5rem; border-radius: var(--radius-md); margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-left: 4px solid #C5A059; box-shadow: 0 4px 15px rgba(10, 25, 47, 0.15);">
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <div style="width: 50px; height: 50px; border-radius: 50%; background: #14532D; color: #ffffff; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.15rem; border: 2px solid #C5A059; flex-shrink: 0; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">
+          PS
+        </div>
+        <div>
+          <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: #C5A059; font-weight: 700;">
+            Executive Administrator Profile
+          </div>
+          <div style="font-size: 1.3rem; font-weight: 800; color: #ffffff; margin-top: 0.15rem;">
+            Priya Sathiyaraj
+          </div>
+          <div style="font-size: 0.825rem; color: #94A3B8; font-weight: 600; margin-top: 0.1rem;">
+            Executive Administrator • Sri Hanum Sastha Enterprises
+          </div>
+        </div>
+      </div>
+      <div style="display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap;">
+        <div style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); padding: 0.4rem 0.85rem; border-radius: var(--radius-sm); font-size: 0.8rem; color: #e2e8f0; display: inline-flex; align-items: center; gap: 6px;">
+          <span style="width: 7px; height: 7px; border-radius: 50%; background: #22c55e;"></span>
+          Session: <strong style="color: #4ade80;">Authenticated Active</strong>
+        </div>
+      </div>
+    </div>
     
     <!-- Admin Navigation Tabs: ONLY 2 MAIN OPTIONS -->
     <div class="admin-tab-nav">

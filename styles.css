@@ -4053,6 +4053,9 @@ button, input, select, textarea {
   .top-nav-right {
     gap: 0.4rem !important;
   }
+  .admin-exec-badge {
+    display: none !important;
+  }
   .top-live-pill {
     display: none !important;
   }

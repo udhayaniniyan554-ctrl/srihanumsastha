@@ -1,38 +1,5 @@
 [
   {
-    "id": "rev_1793773245_f16b58a1",
-    "name": "Arun Kumar Test",
-    "rating": 5,
-    "comment": "Antigravity automation test review - luxury ergonomic mesh chair.",
-    "location": "RS Puram, Coimbatore",
-    "status": "pending",
-    "date": "04 Nov 2026",
-    "created_at": "2026-11-04T06:20:45.000080+00:00",
-    "updated_at": null
-  },
-  {
-    "id": "rev_1793773230_d6b8c8b1",
-    "name": "Arun Kumar Test",
-    "rating": 5,
-    "comment": "Antigravity automation test review - luxury ergonomic mesh chair.",
-    "location": "RS Puram, Coimbatore",
-    "status": "pending",
-    "date": "04 Nov 2026",
-    "created_at": "2026-11-04T06:20:30.240675+00:00",
-    "updated_at": null
-  },
-  {
-    "id": "rev_1793773221_5d8c2af6",
-    "name": "Arun Kumar Test",
-    "rating": 5,
-    "comment": "Antigravity automation test review - luxury ergonomic mesh chair.",
-    "location": "RS Puram, Coimbatore",
-    "status": "pending",
-    "date": "04 Nov 2026",
-    "created_at": "2026-11-04T06:20:21.735528+00:00",
-    "updated_at": null
-  },
-  {
     "id": "rev_1793431506_7d43b504",
     "name": "Priya Shankar",
     "rating": 5,
