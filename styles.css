@@ -3565,6 +3565,8 @@ button, input, select, textarea {
 /* 2. MAIN STAGE */
 .luxury-main-stage {
   flex: 1;
+  min-width: 0;
+  max-width: 100vw;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -3698,8 +3700,12 @@ button, input, select, textarea {
 
 .stage-scroll-container {
   flex: 1;
+  min-width: 0;
+  max-width: 100%;
   overflow-y: auto;
+  overflow-x: hidden;
   padding: 2rem 2.25rem 4rem;
+  box-sizing: border-box;
 }
 
 /* Page Header Hero Card */
@@ -3983,7 +3989,7 @@ button, input, select, textarea {
   background: #FEE2E2;
 }
 
-/* Responsive Rules */
+/* Responsive Rules for Luxury Admin Overlay */
 @media (max-width: 1024px) {
   .luxury-sidebar {
     position: fixed;
@@ -4002,17 +4008,170 @@ button, input, select, textarea {
   .top-search-bar {
     display: none;
   }
+  .luxury-add-chair-layout {
+    grid-template-columns: 1fr !important;
+  }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
+  #adminDashboardOverlay {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+    box-sizing: border-box !important;
+  }
+  .luxury-admin-app {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+    box-sizing: border-box !important;
+  }
+  .luxury-main-stage {
+    width: 100% !important;
+    max-width: 100vw !important;
+    min-width: 0 !important;
+    overflow-x: hidden !important;
+    box-sizing: border-box !important;
+  }
+  .luxury-top-nav {
+    width: 100% !important;
+    max-width: 100vw !important;
+    height: auto !important;
+    min-height: 52px !important;
+    padding: 0.5rem 0.75rem !important;
+    box-sizing: border-box !important;
+    justify-content: space-between !important;
+  }
+  .top-nav-left {
+    min-width: 0 !important;
+    gap: 0.5rem !important;
+  }
+  .top-breadcrumbs,
+  .breadcrumbs-container {
+    display: none !important;
+  }
+  .top-nav-right {
+    gap: 0.4rem !important;
+  }
+  .top-live-pill {
+    display: none !important;
+  }
+  .top-close-btn span {
+    display: none !important;
+  }
+  .top-close-btn {
+    padding: 0.4rem 0.6rem !important;
+    font-size: 0.8rem !important;
+  }
   .stage-scroll-container {
-    padding: 1rem;
+    width: 100% !important;
+    max-width: 100vw !important;
+    padding: 0.85rem 0.65rem 3rem !important;
+    box-sizing: border-box !important;
+    overflow-x: hidden !important;
+  }
+  .luxury-tab-panel {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    min-width: 0 !important;
   }
   .luxury-header-hero {
-    padding: 1.25rem;
+    padding: 0.85rem !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.6rem !important;
+  }
+  .luxury-header-hero h1,
+  .hero-title-box h2 {
+    font-size: 1.15rem !important;
+  }
+  .hero-title-box p {
+    font-size: 0.8rem !important;
+    line-height: 1.4 !important;
   }
   .luxury-kpi-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.5rem !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    margin-bottom: 1rem !important;
+  }
+  .luxury-kpi-card {
+    padding: 0.75rem !important;
+    min-width: 0 !important;
+  }
+  .kpi-title {
+    font-size: 0.68rem !important;
+  }
+  .kpi-num {
+    font-size: 1.35rem !important;
+  }
+  .luxury-toolbar {
+    padding: 0.75rem !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0.6rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    margin-bottom: 1rem !important;
+  }
+  .luxury-toolbar > div:first-child {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0.5rem !important;
+  }
+  #dashReviewsSearchInput {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+  .status-filter-pills {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0.35rem !important;
+    width: 100% !important;
+    border-radius: 12px !important;
+    box-sizing: border-box !important;
+    padding: 0.25rem !important;
+  }
+  .status-filter-pills .dash-status-pill {
+    flex: 1 1 calc(50% - 0.35rem) !important;
+    text-align: center !important;
+    justify-content: center !important;
+    font-size: 0.72rem !important;
+    padding: 0.35rem 0.5rem !important;
+    white-space: nowrap !important;
+  }
+  #dashReviewsRatingFilter {
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .luxury-table-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    border-radius: 10px !important;
+  }
+  .luxury-table {
+    min-width: 620px !important;
+  }
+  .luxury-add-chair-layout {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .luxury-form-grid-2col {
+    grid-template-columns: 1fr !important;
   }
 }
 

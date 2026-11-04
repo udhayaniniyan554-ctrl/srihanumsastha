@@ -6,7 +6,7 @@ import urllib.request
 import urllib.parse
 from datetime import datetime, timezone
 from typing import Optional, List, Dict, Any
-from fastapi import FastAPI, HTTPException, Header, UploadFile, File, Form, Depends
+from fastapi import FastAPI, HTTPException, Header, UploadFile, File, Form, Depends, Response
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
@@ -114,22 +114,35 @@ def init_db():
             updated_at TEXT
         )
     """)
+    c.execute("""
+        CREATE TABLE IF NOT EXISTS deleted_review_tombstones (
+            id TEXT PRIMARY KEY,
+            deleted_at TEXT NOT NULL
+        )
+    """)
     conn.commit()
 
-    # Import initial reviews from reviews.json if any are missing in DB
+    # Import initial reviews from reviews.json if missing in DB and not deleted
     if os.path.exists(reviews_file):
         try:
             with open(reviews_file, "r", encoding="utf-8") as f:
                 data = json.load(f)
                 for r in data:
-                    c.execute("SELECT id FROM customer_reviews WHERE id = ?", (r["id"],))
+                    r_id = r.get("id")
+                    if not r_id:
+                        continue
+                    # Never resurrect reviews that were deleted (tombstoned)
+                    c.execute("SELECT id FROM deleted_review_tombstones WHERE id = ?", (r_id,))
+                    if c.fetchone():
+                        continue
+                    c.execute("SELECT id FROM customer_reviews WHERE id = ?", (r_id,))
                     if not c.fetchone():
                         c.execute("""
                             INSERT INTO customer_reviews 
                             (id, name, rating, comment, location, status, date, created_at, updated_at)
                             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
                         """, (
-                            r.get("id"),
+                            r_id,
                             r.get("name"),
                             int(r.get("rating", 5)),
                             r.get("comment", ""),
@@ -200,6 +213,9 @@ def db_update_status(review_id: str, new_status: str) -> bool:
 def db_delete_review(review_id: str) -> bool:
     conn = get_db_connection()
     c = conn.cursor()
+    now_iso = datetime.now(timezone.utc).isoformat()
+    # Record tombstone so deleted review can NEVER be re-imported
+    c.execute("INSERT OR REPLACE INTO deleted_review_tombstones (id, deleted_at) VALUES (?, ?)", (review_id, now_iso))
     c.execute("DELETE FROM customer_reviews WHERE id = ?", (review_id,))
     deleted = c.rowcount > 0
     conn.commit()
@@ -236,43 +252,74 @@ def get_concepts():
     return load_local_concepts()
 
 @app.get("/api/reviews")
-def get_reviews():
+def get_reviews(response: Response):
+    response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
+    response.headers["Pragma"] = "no-cache"
+    response.headers["Expires"] = "0"
+
     all_reviews = {}
     for r in db_get_approved_reviews():
         if r.get("id"):
             all_reviews[r["id"]] = r
+
+    # Fetch tombstones and local statuses to protect against external resurrection
+    conn = get_db_connection()
+    c = conn.cursor()
+    c.execute("SELECT id FROM deleted_review_tombstones")
+    tombstones = {row["id"] for row in c.fetchall()}
+    c.execute("SELECT id, status FROM customer_reviews")
+    local_statuses = {row["id"]: row["status"] for row in c.fetchall()}
+    conn.close()
 
     if supabase_client:
         try:
             res = supabase_client.table("customer_reviews").select("*").eq("status", "approved").order("created_at", desc=True).execute()
             if res.data:
                 for r in res.data:
-                    if r.get("id"):
-                        all_reviews[r["id"]] = r
+                    rid = r.get("id")
+                    if rid and rid not in tombstones:
+                        # Only accept if not rejected or pending in local DB
+                        if local_statuses.get(rid, "approved") == "approved":
+                            all_reviews[rid] = r
         except Exception as e:
             print(f"[WARN] Supabase reviews fetch failed: {e}. Using SQLite reviews.")
 
-    sorted_approved = sorted(all_reviews.values(), key=lambda r: r.get("created_at", ""), reverse=True)
+    # Strictly guarantee only status == 'approved' and not tombstoned
+    approved_list = [r for r in all_reviews.values() if r.get("status") == "approved" and r.get("id") not in tombstones]
+    sorted_approved = sorted(approved_list, key=lambda r: r.get("created_at", ""), reverse=True)
     return sorted_approved
 
 @app.get("/api/admin/reviews", dependencies=[Depends(verify_admin_token)])
-def get_admin_reviews():
+def get_admin_reviews(response: Response):
+    response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
+    response.headers["Pragma"] = "no-cache"
+    response.headers["Expires"] = "0"
+
     all_reviews = {}
     for r in db_get_all_reviews():
         if r.get("id"):
             all_reviews[r["id"]] = r
+
+    conn = get_db_connection()
+    c = conn.cursor()
+    c.execute("SELECT id FROM deleted_review_tombstones")
+    tombstones = {row["id"] for row in c.fetchall()}
+    conn.close()
 
     if supabase_client:
         try:
             res = supabase_client.table("customer_reviews").select("*").order("created_at", desc=True).execute()
             if res.data:
                 for r in res.data:
-                    if r.get("id"):
-                        all_reviews[r["id"]] = r
+                    rid = r.get("id")
+                    if rid and rid not in tombstones:
+                        if rid not in all_reviews:
+                            all_reviews[rid] = r
         except Exception as e:
             print(f"[WARN] Supabase admin reviews fetch failed: {e}. Using SQLite reviews.")
 
-    sorted_all = sorted(all_reviews.values(), key=lambda r: r.get("created_at", ""), reverse=True)
+    active_list = [r for r in all_reviews.values() if r.get("id") not in tombstones]
+    sorted_all = sorted(active_list, key=lambda r: r.get("created_at", ""), reverse=True)
     return sorted_all
 
 @app.put("/api/admin/reviews/{review_id}/status", dependencies=[Depends(verify_admin_token)])
